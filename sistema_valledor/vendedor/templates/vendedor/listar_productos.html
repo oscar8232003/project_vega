@@ -1,0 +1,166 @@
+{%extends 'core/base.html'%}
+{%block title%}Listado de productos{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-0">
+            <img src="/media/vendedor/productos.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container container-whithe shadow">
+    <div class="row pb-4">
+        <!--TITULO-->
+        <div class="col-12 text-center pt-5 pb-4">
+            <h2>Seccion de Productos</h2>
+            <p><em>Aqui podras ver tus productos, actualizarlos, eliminarlos, desactivarlos, etc.</em></p>
+            <hr>
+        </div>
+        <!--SECCION DE ALERTAS-->
+        <div class="col-12 text-center">
+           {%if request.GET.msg%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span>
+                  {%if request.GET.msg == 'form_ok'%}
+                  El producto se ingreso con exito!
+                  {%elif request.GET.msg == 'act_ok'%}
+                  El producto se actualizo con exito!
+                  {%elif request.GET.msg == 'elim_ok'%}
+                  El producto se elimino con exito!
+                  {%endif%}
+              </strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+        </div>
+        <!--FIN SECCION DE ALERTAS-->
+        <!--FIN TITULO-->
+        <div class="col-12 mb-3">
+            <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver al Panel</a>
+        </div>
+        <!--BARRA IZQUIERA-->
+        <div class="col-12 col-lg-3 pb-3 pr-0">
+            <!--BARRA IZQUIERA XL-->
+            <div class="col-12 list-group d-none d-lg-block">
+                <a href="{%url 'vendedor:agregar_productos' request.user.id%}" class="list-group-item active bg-verde bc-verde"><strong><span class="icon-plus-square"> Agregar Producto</span></strong></a>
+                <li class="list-group-item active bg-base bc-base">
+                    <span class="icon-hand-o-right"> <strong>Filtros para productos</strong></span>
+                </li>
+                <li class="list-group-item p-0">
+                    <ul class="list-group list-group-flush">
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?filtro=sin_stock" class="list-group-item color-rojo"><strong>Prod. sin stock</strong></a>
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?filtro=desactivados" class="list-group-item color-gris"><strong>Prod. desactivados</strong></a>
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?filtro=oferta" class="list-group-item color-verde"><strong>Prod. en oferta</strong></a>
+                    </ul>
+                </li>
+                <li class="list-group-item active text-center btn bg-base bc-base"  data-toggle="collapse" href="#categorias_lg" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <strong>Categorias <span class="icon-angle-double-down"></span></strong>
+                </li>
+                <div class="list-group-item collapse pr-0 pl-0" id="categorias_lg">
+                  <ul class="list-group list-group-flush">
+                      {%if Categorias%}
+                      {%for cat in Categorias%}
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?categoria={{cat.id}}" class="list-group-item Categorias">{{cat.categoria}}</a>
+                      {%endfor%}
+                      {%else%}
+                      <p class="list-group-item">No hay categorias actualmente</p>
+                      {%endif%}
+                  </ul>
+                </div>
+            </div>
+            <!--FIN BARRA IZQUIERA XL-->
+
+            <!--BARRA IZQUIERA COLLAPSADA-->
+            <a class="btn btn-primary d-block d-lg-none" data-toggle="collapse" href="#collapsemenu" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <strong>Filtros para productos  <span class="icon-angle-double-down"></span></strong>
+            </a>
+            <div class="collapse list-group" id="collapsemenu">
+                <li class="list-group-item">
+                    <ul class="list-group list-group-flush">
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?filtro=sin_stock" class="list-group-item color-rojo"><strong>Prod. sin stock</strong></a>
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?filtro=desactivados" class="list-group-item color-gris"><strong>Prod. desactivados</strong></a>
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?filtro=oferta" class="list-group-item color-verde"><strong>Prod. en oferta</strong></a>
+                    </ul>
+                </li>
+                <li class="list-group-item active text-center btn" data-toggle="collapse" href="#categorias_xs" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <strong>Categorias <span class="icon-angle-double-down"></span></strong>
+                </li>
+                <div class="list-group-item collapse pr-0 pl-0" id="categorias_xs">
+                  <ul class="list-group list-group-flush">
+                      {%if Categorias%}
+                      {%for cat in Categorias%}
+                      <a href="{%url 'vendedor:listar_productos' request.user.id%}?categoria={{cat.id}}" class="list-group-item Categorias">{{cat.categoria}}</a>
+                      {%endfor%}
+                      {%else%}
+                      <p class="list-group-item">No hay categorias actualmente</p>
+                      {%endif%}
+                  </ul>
+                </div>
+            </div>
+            <!--FIN BARRA IZQUIERA COLLAPSADA-->
+        </div>
+        <!--FIN BARRA IZQUIERDA-->
+        <!--MENU-->
+        <div CLASS="col-12 col-lg-9 pb-3 p-0">
+            <form action="" method="POST" class="col-md-7 col-12 form-inline text-center" onsubmit="return validar_buscar();">
+                {%csrf_token%}
+                <input type="text" name="buscar" class="form-control" placeholder="ejem. arroz aruba" id="buscar_producto">
+                <button type="submit" class="btn btn-secondary ml-2 d-none d-sm-block">Buscar producto</button>
+                <div class="invalid-feedback">
+                    <p id="buscar_producto-invalid" class="m-0"></p>
+                </div>
+                <button type="submit" class="btn btn-secondary mt-3 d-block d-sm-none">Buscar producto</button>
+
+            </form>
+
+            <div class="col-12 mt-3 p-0 shadow-sm text-center" style="border-radius:10px;">
+                {%if productos|length != 0%}
+                <table class="table table-hover table-responsive">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Acciones</th>
+                      <th scope="col">IMG.</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Stock</th>
+                      <th scope="col">Oferta</th>
+                      <th scope="col">Cat.</th>
+                      <th scope="col">Cambios</th>
+                      <th scope="col">Act.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  {%for producto in productos%}
+                    <tr>
+                      <th scope="row">
+                          <a href="{%url 'vendedor:actualizar_productos' producto.id%}" class="mr-1" ><span class="icon-pencil color-base" style="font-size:20px;"></span></a>
+                          <a href="{%url 'vendedor:eliminar_productos' producto.id%}" ><span class="icon-trash-b color-rojo" style="font-size:20px;"></span></a>
+                      </th>
+                      <td class="pt-1 pl-0 pr-0 pb-1"><img src="/media/{{producto.imagen}}" width="80px"></td>
+                      <td>{{producto.nombre}}</td>
+                      <td>{{producto.precio}} x {{producto.unidad_medida.medida_unidad}}</td>
+                      <td>{{producto.stock}} {{producto.unidad_medida.medida_plural}}</td>
+                      <td>{%if producto.oferta%}<span class="badge badge-success">Si</span>{%else%}<p class="badge badge-danger">No</p>{%endif%}{%if producto.oferta%} <p>{{producto.precio_oferta}} x {{producto.unidad_medida.medida_unidad}}</p> {%endif%}</td>
+                      <td>{{producto.categoria}}</td>
+                      <td>{{producto.cambios_restantes}}</td>
+                      <td>{%if producto.activado%}<span class="badge badge-success">Si</span>{%else%}<span class="badge badge-danger">No</span>{%endif%}</td>
+                    </tr>
+                  {%endfor%}
+                  </tbody>
+                </table>
+             {%else%}
+                <h2>No hay productos para mostrar actualmente</h2>
+                <img src="/media/core/triste.jpg" width="200px" class="img-fluid">
+                <div class="col-12 mt-4">
+                    <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+                </div>
+             {%endif%}
+            </div>
+        </div>
+        <!--MENU-->
+    </div>
+</div>
+{%endblock%}

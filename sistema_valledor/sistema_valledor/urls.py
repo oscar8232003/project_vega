@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core.urls import core_patterns
+from registration.urls import registration_urlpatterns
+from vendedor.urls import vendedor_urlpatterns
+from cliente.urls import cliente_urlpatterns
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include(registration_urlpatterns)),
+    path('cliente/', include(cliente_urlpatterns)),
+    path('vendedor/', include(vendedor_urlpatterns)),
     path('',include(core_patterns)),
 ]
 

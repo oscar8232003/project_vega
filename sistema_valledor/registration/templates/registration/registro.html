@@ -1,10 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends 'core/base.html'%}
+{%block title%}Registro{%endblock%}
+{%block content%}
+<div class="container shadow container-whithe pt-2 pb-2">
+    {%if not request.user.is_authenticated %}
+    <form action="" method="post" class="row justify-content-center pt-5 pb-5" onsubmit="return validar_registro();">
+        <div class="col-12 text-center pt-5">
+             <h3 class="m-4"><strong>Registro</strong></h3>
+        </div>
+        <!--ALERTS-->
+        {%if request.GET.msg == 'error_user'%}
+        <div class="col-12 text-center col-sm-6">
+             <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <h6><strong><span class="icon-exclamation-triangle"></span> El rut ya esta registrado</strong></h6>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+         </div>
+         <div class="w-100"></div>
+        {%elif request.GET.msg == 'error_form'%}
+        <div class="col-12 text-center col-sm-6">
+             <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <h6><strong><span class="icon-exclamation-triangle"></span> Verifique que la contraseña sea correcta</strong></h6>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+         </div>
+         <div class="w-100"></div>
+        {%endif%}
+        <!--FIN ALERTS-->
 
-</body>
-</html>
+        {% csrf_token %}
+
+        <div class="col-12 col-sm-5 form-group pb-2">
+            <label for="id_first_name">Nombre</label>
+            <input type="text" name="first_name" autofocus maxlength="254" id="id_first_name" class="form-control" placeholder="Ingrese su nombre a mostrar"/>
+            <div class="invalid-feedback">
+                <p id="id_first_name-invalid" class="m-0"></p>
+            </div>
+            <div class="valid-feedback">
+                <p id="id_first_name-valid" class="m-0">Correcto</p>
+            </div>
+        </div>
+         <div class="w-100"></div>
+
+        <div class="col-12 col-sm-5 form-group pb-2">
+            <label for="id_username">Rut</label>
+            <input type="text" name="username" autofocus maxlength="150" id="id_username" class="form-control" placeholder="Ingrese su rut, ejem 12.345.678-9"/>
+            <div class="invalid-feedback">
+                <p id="id_username-invalid" class="m-0"></p>
+            </div>
+            <div class="valid-feedback">
+                <p id="id_username-valid" class="m-0">Correcto</p>
+            </div>
+        </div>
+        <div class="w-100"></div>
+
+        <div class="col-12 col-sm-5 form-group pb-2">
+            <label for="id_password1">Contraseña</label>
+            <input type="password" name="password1" autofocus id="id_password1" class="form-control" placeholder="Ingrese su contraseña"/>
+            <div class="invalid-feedback">
+                <p id="id_password1-invalid" class="m-0"></p>
+            </div>
+            <div class="valid-feedback">
+                <p id="id_password1-valid" class="m-0">Correcto</p>
+            </div>
+            <ul class="pt-3 pl-0">
+                <li style="list-style:none"><strong>Recuerde</strong></li>
+                <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede asemejarse tanto a su otra información personal.</small></li>
+                <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña debe contener al menos 8 caracteres.</small></li>
+                <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser una clave utilizada comunmente.</small></li>
+                <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser completamente numérica.</small></li>
+            </ul>
+
+        </div>
+        <div class="w-100"></div>
+
+        <div class="col-12 col-sm-5 form-group pb-2">
+            <label for="id_password2">Contraseña(confirmación)</label>
+            <input type="password" name="password2" autofocus id="id_password2" class="form-control" placeholder="Vuelva a ingresar la contraseña"/>
+            <small>Para verificar, introduzca la misma contraseña anterior</small>
+            <div class="invalid-feedback">
+                <p id="id_password2-invalid" class="m-0"></p>
+            </div>
+            <div class="valid-feedback">
+                <p id="id_password2-valid" class="m-0">Correcto</p>
+            </div>
+        </div>
+        <div class="w-100"></div>
+
+        <div class="col-12 col-sm-5 form-group m-4 pb-2">
+            <input type="submit" class="btn btn-primary btn-block" value="Registrarse">
+        </div>
+         <div class="w-100"></div>
+         <div class="col-12 col-sm-5 form-group m-4 pb-5 text-center">
+             <p>Si ya estas registrado, pincha <a href="{%url 'login'%}">aqui</a></p>
+         </div>
+    </form>
+
+    {%else%}
+    <div class="row">
+        <div class="col-12 text-center p-5">
+            <h3>Ya estas logeado, <a href="{%url 'core:index'%}">Haz click aqui para ir al index</a></h3>
+        </div>
+    </div>
+    {%endif%}
+</div>
+
+{%endblock%}

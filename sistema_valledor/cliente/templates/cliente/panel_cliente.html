@@ -1,0 +1,60 @@
+{%extends 'core/base.html'%}
+{%block title%}Panel de Clientes{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-0">
+            <img src="/media/cliente/panel_clientes.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container container-whithe shadow">
+    <div class="row pb-4">
+        <!--TITULO-->
+        <div class="col-12 text-center pt-5 pb-4">
+            <h2>Bienvenido al Panel de Clientes de TuVegaApp</h2>
+            <p><em>Aqui podras encontrar todo lo necesario para facilitarte tu compra</em></p>
+            <hr>
+        </div>
+        <!--FIN TITULO-->
+
+        <!--BARRA IZQUIERA-->
+        <div class="col-12 col-lg-3 pb-5">
+            <!--BARRA IZQUIERA XL-->
+            <h3 class="text-center pb-3 d-none d-lg-block">Menu</h3>
+            <h3 class="text-center pb-3 d-lg-none">Hola {{cliente.first_name}}, que tal?</h3>
+            <div class="list-group d-none d-lg-block">
+              <a href="{%url 'cliente:panel_cliente' request.user.id %}" class="list-group-item list-group-item-action active">Panel del Cliente</a>
+              <a href="{%url 'cliente:listar_productos'%}" class="list-group-item list-group-item-action">Productos</a>
+              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action">Mis Listas</a>
+            </div>
+            <!--FIN BARRA IZQUIERA XL-->
+
+            <!--BARRA IZQUIERA COLLAPSADA-->
+            <a class="btn btn-primary d-block d-lg-none" data-toggle="collapse" href="#collapsemenu" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Panel del Cliente  <span class="icon-angle-double-down"></span>
+            </a>
+            <div class="collapse list-group" id="collapsemenu">
+              <a href="{%url 'cliente:listar_productos'%}" class="list-group-item list-group-item-action d-block d-lg-none">Productos</a>
+              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Listas</a>
+            </div>
+            <!--FIN BARRA IZQUIERA COLLAPSADA-->
+        </div>
+        <!--FIN BARRA IZQUIERDA-->
+        <!--MENU-->
+        <div CLASS="col-12 col-md-9 pb-3">
+            <h3 class="text-center pb-3 d-none d-lg-block">Hola {{cliente.first_name}}, que tal?</h3>
+            <h5 class="pb-3"><strong>Tus puntos en diferentes tiendas</strong></h5>
+            <p>Tienda kampito tienes <strong class="badge badge-info">20 puntos</strong>, tienes descuento de <span class="">cliente frecuente</span></p>
+            <hr>
+            <h5 class="pb-3"><strong>Tiendas con ofertas generales</strong></h5>
+            <p class="m-0"> <span class="icon-android-star"> </span> Tienda kampito <span class="badge badge-success">Premium</span></p>
+            <p><strong>Un 50% de descuento en productos en compras superiores a 20000 solo valido para marzo.</strong></p>
+            <p class="m-0">Tienda kampito</p>
+            <p>un 50% de descuento en productos en compras superiores a 20000 solo valido para marzo.</p>
+        </div>
+        <!--MENU-->
+    </div>
+</div>
+
+{%endblock%}

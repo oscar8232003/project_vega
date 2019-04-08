@@ -1,0 +1,109 @@
+{%extends 'core/base.html'%}
+{%block title%}Mis listas{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-0">
+            <img src="/media/vendedor/Mis_ofertas.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container container-whithe shadow">
+    <div class="row pb-4 justify-content-center">
+        <!--TITULO-->
+        <div class="col-12 text-center pt-4 pb-4">
+            <h2>Bienvenido a tu seccion de Listas de compras!</h2>
+            <p class="text-muted"><em>Aqui podras ver tus listas, actualizarlas y borrarlas.</em></p>
+            <hr>
+        </div>
+        <div class="col-12 pb-3">
+            <a href="{%url 'cliente:agregar_lista'%}" class="btn btn-success">Agregar una lista</a>
+        </div>
+        <div class="col-12 col-md-6 p-3" data-aos="zoom-in-right">
+            <div class="media shadow rounded productos_listar">
+                <!--Contenedor de la imagen-->
+                <div class="col-4 col-sm-3 p-2">
+                    <a href="{%url 'cliente:detalle_listas' request.user.id%}"><img class="img-fluid rounded" src="/media/core/sin_imagen.jpg"></a>
+                </div>
+                <!--Contenedor del parrafo-->
+                <div class="col-7 col-sm-9 p-2">
+                  <div class="media-body">
+                      <!--Titulo para Mobile-->
+                    <p class="d-sm-none"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h6"><strong>Lista x</strong></a></p>
+                      <!--Titulo para PC-->
+                    <p class="d-none d-sm-block"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h4"><strong>Lista x</strong></a></p>
+                      <!--Fecha creacion-->
+                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Creacion: <strong>07/04/2019</strong></p>
+                      <!--Local-->
+                    <p class="small text-muted d-none d-sm-block">Local: <strong>Kampito</strong></p>
+                      <!--Total-->
+                    <p class="mb-1">Total: <strong>$ 40000</strong></p>
+                      <!--Estado-->
+                    <p class="">Estado: <strong>Sin enviar</strong></p>
+
+
+                    <!--Botones-->
+                      <!--Botones PC-->
+                     <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
+                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a></p>
+                      <!--Botones Mobile-->
+                     <p class="d-sm-none mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
+                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span></a></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 p-3" data-aos="zoom-in-right">
+            <div class="media shadow rounded productos_listar">
+                <!--Contenedor de la imagen-->
+                <div class="col-4 col-sm-3 p-2">
+                    <a href="{%url 'cliente:detalle_listas' request.user.id%}"><img class="img-fluid rounded" src="/media/core/sin_imagen.jpg"></a>
+                </div>
+                <!--Contenedor del parrafo-->
+                <div class="col-7 col-sm-9 p-2">
+                  <div class="media-body">
+                      <!--Titulo para Mobile-->
+                    <p class="d-sm-none"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h6"><strong>Lista x</strong></a></p>
+                      <!--Titulo para PC-->
+                    <p class="d-none d-sm-block"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h4"><strong>Lista x</strong></a></p>
+                      <!--Fecha creacion-->
+                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Creacion: <strong>07/04/2019</strong></p>
+                      <!--Local-->
+                    <p class="small text-muted d-none d-sm-block">Local: <strong>RanchoLindo</strong></p>
+                      <!--Total-->
+                    <p class="mb-1">Total: <strong>$ 50000</strong></p>
+                      <!--Estado-->
+                    <p class="">Estado: <strong><span class="badge badge-pill badge-success">Lista para retirar!</span></strong></p>
+
+
+                    <!--Botones-->
+                      <!--Botones PC-->
+                     <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
+                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a></p>
+                      <!--Botones Mobile-->
+                     <p class="d-sm-none mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
+                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span></a></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <!--FIN TITULO-->
+
+        <!--CONTENIDO-->
+        <div class="col-12 text-center pb-3">
+            <h2>Sitio en desarrollo.</h2>
+        </div>
+        <div class="col-md-4 col-12">
+            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-12 m-4">
+            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+        <!--FIN CONTENIDO-->
+    </div>
+</div>
+{%endblock%}
+

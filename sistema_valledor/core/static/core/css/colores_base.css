@@ -1,0 +1,43 @@
+/*BACKGROUND COLOR*/
+.bg-base{
+background-color:#2196f3!important;
+}
+
+.bg-verde{
+background-color:#5FBB97!important;
+}
+
+.bg-rojo{
+background-color:#EF233C!important;
+}
+/*END BACKGROUND COLOR*/
+
+
+/*BORDER COLOR*/
+.bc-base{
+border-color:#2196f3!important;
+}
+
+.bc-verde{
+border-color:#5FBB97!important;
+}
+/*END BORDER COLOR*/
+
+
+/*COLOR*/
+.color-base{
+color:#2196f3!important;
+}
+
+.color-verde{
+color:#5FBB97!important;
+}
+
+.color-rojo{
+color:#EF233C!important;
+}
+
+.color-gris{
+color:#8D99AE!important;
+}
+/*END COLOR*/

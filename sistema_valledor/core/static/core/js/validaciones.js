@@ -57,34 +57,58 @@ function validar_unidad_medida(){
 	}
 }
 
-function validar_precio_compra(){
-	var precio_compra = document.getElementById("id_precio_compra");
-	var span_precio_compra = document.getElementById("id_precio_compra-invalid");
-	precio_compra.classList.remove("is-valid");
-	precio_compra.classList.remove("is-invalid");
-	    if (precio_compra.value.trim().length != 0 && precio_compra.value >= 0){
-            precio_compra.classList.add("is-valid");
+function validar_precio_venta(){
+	var precio_venta = document.getElementById("id_precio");
+	var span_precio_venta = document.getElementById("id_precio-invalid");
+	precio_venta.classList.remove("is-valid");
+	precio_venta.classList.remove("is-invalid");
+	    if (precio_venta.value.trim().length != 0 && precio_venta.value >=0){
+            precio_venta.classList.add("is-valid");
             return true;
         }else{
-            span_precio_compra.innerHTML="Rellene el campo correctamente";
-            precio_compra.classList.add("is-invalid");
-            precio_compra.focus();
+            span_precio_venta.innerHTML="Rellene el campo correctamente, el precio no puede ser 0";
+            precio_venta.classList.add("is-invalid");
+            precio_venta.focus();
             return false;
         }
 }
 
-function validar_precio_venta(){
-	var precio_venta = document.getElementById("id_precio_venta");
-	var span_precio_venta = document.getElementById("id_precio_venta-invalid");
-	precio_venta.classList.remove("is-valid");
-	precio_venta.classList.remove("is-invalid");
-	    if (precio_venta.value.trim().length != 0 && precio_venta.value >= 0){
-            precio_venta.classList.add("is-valid");
-            return true;
+function validar_stock(){
+    var stock = document.getElementById("id_stock");
+    var span_stock = document.getElementById("id_stock-invalid");
+    stock.classList.remove("is-valid");
+	stock.classList.remove("is-invalid");
+	if(stock.value.trim().length != 0 && stock.value >=0){
+	    stock.classList.add("is-valid");
+	    return true;
+	}else{
+	    span_stock.innerHTML="Por favor ingrese un stock valido"
+	    stock.classList.add("is-invalid");
+	    stock.focus()
+	    return false;
+	}
+}
+
+function validar_precio_oferta(){
+	var precio_oferta = document.getElementById("id_precio_oferta");
+	var precio_venta = document.getElementById("id_precio");
+	var span_precio_oferta = document.getElementById("id_precio_oferta-invalid");
+	precio_oferta.classList.remove("is-valid");
+	precio_oferta.classList.remove("is-invalid");
+	    if (precio_oferta.value.trim().length != 0 && precio_oferta.value >= 0){
+            if(precio_venta.value.trim() >= precio_oferta.value.trim()){
+                precio_oferta.classList.add("is-valid");
+                return true;
+            }else{
+            span_precio_oferta.innerHTML="El precio de oferta no puede ser mayor al precio normal";
+            precio_oferta.classList.add("is-invalid");
+            precio_oferta.focus();
+            return false;
+            }
         }else{
-            span_precio_venta.innerHTML="Rellene el campo correctamente";
-            precio_venta.classList.add("is-invalid");
-            precio_venta.focus();
+            span_precio_oferta.innerHTML="Rellene el campo correctamente";
+            precio_oferta.classList.add("is-invalid");
+            precio_oferta.focus();
             return false;
         }
 }
@@ -125,9 +149,53 @@ function validar_condiciones(){
 	}
 }
 
+function validar_stock_activado_y_precio(){
+    var stock_validacion = document.getElementById('id_stock');
+    var activado = document.getElementById('id_activado');
+    var precio_venta = document.getElementById("id_precio");
+    var alerta_activado = document.getElementById('alert_activado');
+    var div_activado = document.getElementById('div_activado');
+    div_activado.hidden = true;
+    alerta_activado.innerHTML="";
+        if(stock_validacion.value == 0 && activado.checked){
+            alerta_activado.innerHTML="El producto no puede estar activado si el stock es 0, desactive el producto.";
+            div_activado.hidden = false;
+            return false;
+        }else if(precio_venta.value == 0 && activado.checked){
+            alerta_activado.innerHTML="El producto no puede estar activado si el precio es 0, desactive el producto.";
+            div_activado.hidden = false;
+            return false;
+        }else{
+            div_activado.hidden = true;
+            alerta_activado.innerHTML="";
+            return true;
+        }
+}
+
+function validar_oferta_activado(){
+    var oferta = document.getElementById('id_oferta');
+    var activado = document.getElementById('id_activado');
+    var precio_oferta = document.getElementById("id_precio_oferta");
+    var alert_oferta = document.getElementById('alert_oferta');
+    var div_oferta = document.getElementById('div_oferta');
+    div_oferta.hidden = true;
+    alert_oferta.innerHTML="";
+        if(precio_oferta.value == 0 && activado.checked && oferta.checked){
+            div_oferta.hidden=false;
+            alert_oferta.innerHTML="El producto no puede estar activado si el precio de oferta es 0, desactive la oferta o cambie el precio oferta.";
+            return false;
+        }else{
+            div_oferta.hidden=true;
+            alert_oferta.innerHTML="";
+            return true;
+        }
+}
+
+
 function validar(){
 
-	if(validar_nombre() && validar_categoria() && validar_precio_compra() && validar_precio_venta() && validar_unidad_medida()){
+	if(validar_nombre() && validar_precio_venta() && validar_categoria() && validar_unidad_medida() &&
+	validar_stock() && validar_precio_oferta() && validar_oferta_activado() && validar_stock_activado_y_precio()){
 		return true ;
 	}else{
 		return false;
@@ -219,6 +287,160 @@ function validar_cantidad(){
 function validar_productos_comprar(){
 
 	if(validar_producto() && validar_cantidad()){
+		return true;
+	}else{
+		return false;
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////LOGIN///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function validar_usuario(){
+	var usuario = document.getElementById("id_username");
+	var regex_usuario = /^(\d{1,3}(?:\.\d{3}){2}-[\dkK])$/;
+	var span_usuario = document.getElementById("id_username-invalid");
+	usuario.classList.remove("is-valid");
+	usuario.classList.remove("is-invalid");
+	    if (usuario.value.trim().length != 0){
+            if(usuario.value.match(regex_usuario)){
+                usuario.classList.add("is-valid");
+                return true;
+            }else{
+                span_usuario.innerHTML="Ingrese un rut valido";
+                usuario.classList.add("is-invalid");
+                usuario.focus();
+                return false;
+            }
+        }else{
+            span_usuario.innerHTML="Rellene el campo vacio";
+            usuario.classList.add("is-invalid");
+            usuario.focus();
+            return false;
+        }
+}
+
+function validar_password(){
+	var password = document.getElementById("id_password");
+	var span_password = document.getElementById("id_password-invalid");
+	password.classList.remove("is-valid");
+	password.classList.remove("is-invalid");
+	    if (password.value.trim().length != 0){
+            password.classList.add("is-valid");
+            return true;
+        }else{
+            span_password.innerHTML="Rellene el campo vacio";
+            password.classList.add("is-invalid");
+            password.focus();
+            return false;
+        }
+}
+
+function validar_login(){
+
+	if(validar_usuario() && validar_password()){
+		return true;
+	}else{
+		return false;
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////Registro///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function validar_nombre_registro(){
+	var nombre_registro = document.getElementById("id_first_name");
+    var regex_nombre = /^[a-zzñáéíóúA-ZÁÉÍÓÚ]{1,20}(\s[a-zzñáéíóúA-ZÁÉÍÓÚ]{1,20})*$/;
+	var span_nombre_registro = document.getElementById("id_first_name-invalid");
+	nombre_registro.classList.remove("is-valid");
+	nombre_registro.classList.remove("is-invalid");
+	if(nombre_registro.value.trim().length != 0){
+		if(nombre_registro.value.match(regex_nombre)){
+			nombre_registro.classList.add("is-valid");
+			return true;
+		}else{
+			span_nombre_registro.innerHTML="Ingrese un nombre valido, sin espacios al principio/final";
+			nombre_registro.classList.add("is-invalid");
+			nombre_registro.focus();
+			return false;
+		}
+	}else{
+		span_nombre_registro.innerHTML="Por favor rellene el campo vacio";
+		nombre_registro.classList.add("is-invalid");
+		nombre_registro.focus();
+		return false;
+	}
+}
+
+function validar_password_registro(){
+	var password_registro = document.getElementById("id_password1");
+	var span_password_registro = document.getElementById("id_password1-invalid");
+	password_registro.classList.remove("is-valid");
+	password_registro.classList.remove("is-invalid");
+	validador = 0;
+	/*
+	var lista_error = document.getElementById("id_password1-invalid");
+
+        if(lista_error.childElementCount > 0){
+            var e =lista_error.childElementCount;
+            for(var i = 0; i<e;i++){
+                lista_error.removeChild(lista_error.children[i]);
+            }
+        }
+        //Errores
+	    if(password_registro.value.trim().length == 0){
+	    validador=validador+1;
+        var error1=document.createElement("li");
+        error1.innerHTML="Rellene los campos vacios";
+        lista_error.appendChild(error1);
+	    }
+	 */
+
+	    if (password_registro.value.trim().length != 0){
+	        if(password_registro.value.trim().length >=8){
+	            if(password_registro.value.trim() >=0 || password_registro.value.trim() <=0 ){
+                    span_password_registro.innerHTML="Su contraseña no puede ser completamente numerica";
+                    password_registro.classList.add("is-invalid");
+                    password_registro.focus();
+                    return false;
+                }else{
+                    password_registro.classList.add("is-valid");
+                    return true;
+                }
+	        }else{
+	            span_password_registro.innerHTML="Su contraseña debe tener al menos 8 caracteres";
+                password_registro.classList.add("is-invalid");
+                password_registro.focus();
+                return false;
+	        }
+        }else{
+            span_password_registro.innerHTML="No puede dejar este campo en blanco";
+            password_registro.classList.add("is-invalid");
+            password_registro.focus();
+            return false;
+        }
+}
+
+function validar_password2_registro(){
+	var password2_registro = document.getElementById("id_password2");
+	var password_registro = document.getElementById("id_password1");
+	var span_password2_registro = document.getElementById("id_password2-invalid");
+	password2_registro.classList.remove("is-valid");
+	password2_registro.classList.remove("is-invalid");
+
+	    if (password_registro.value.trim() == password2_registro.value.trim()){
+            password2_registro.classList.add("is-valid");
+            return true;
+        }else{
+            span_password2_registro.innerHTML="Las contraseñas no coinciden, reviselas por favor";
+            password2_registro.classList.add("is-invalid");
+            password2_registro.focus();
+            return false;
+        }
+}
+
+
+function validar_registro(){
+
+	if(validar_nombre_registro()&& validar_usuario() && validar_password_registro() && validar_password2_registro()){
 		return true;
 	}else{
 		return false;

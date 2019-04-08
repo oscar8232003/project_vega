@@ -1,0 +1,53 @@
+{%extends 'core/base.html'%}
+{%block title%}Detalle {{object.nombre}}{%endblock%}
+{%block content%}
+<div class="container shadow container-whithe">
+    <div class="row pt-3 pb-5 p-md-5">
+
+        <div class="col-md-4 col-12 text-center">
+            <img src="{{object.imagen.url}}" class="img-fluid img-thumbnail">
+        </div>
+
+        <div class="col-md-8 col-12 pt-md-0 pt-4">
+            <h3 class="pb-3"><strong>{{object.nombre}}</strong></h3>
+
+            <h5><strong>Tienda</strong></h5>
+            <p><span class="icon-android-star"></span> {{local.nombre_local}} <a href="#" class="badge badge-info">Visitar tienda!</a></p>
+
+            {%if object.oferta is False%}
+            <p class="mb-0"><strong>Precio</strong></p>
+            <p>${{object.precio}} x {{object.unidad_medida}}</p>
+            {%else%}
+            <p class="mb-0"><strong class="color-rojo">Precio Oferta!</strong></p>
+            <p class="color-rojo">${{object.precio_oferta}} x {{object.unidad_medida}}</p>
+            {%endif%}
+
+            {%if object.oferta%}
+            <p class="mb-0 text-muted"><strong>Precio normal</strong></p>
+            <p><strike>${{object.precio}}</strike></p>
+            {%endif%}
+
+            <p class="mb-0"><strong>Stock</strong></p>
+            <p>{{object.stock}} {{object.unidad_medida.medida_plural}}</p>
+
+            <p class="mb-0"><strong>Categoria</strong></p>
+            <p><em>{{object.categoria}}</em></p>
+
+            <p class="mb-0"><strong>Unidad de Medida</strong></p>
+            <p>{{object.unidad_medida}}</p>
+
+            <p class="mb-0"><strong>Comentario</strong></p>
+            {%if object.Comentario%}
+            <p>{{object.Comentario}}</p>
+            {%else%}
+            <p>No se cuenta con descripcion el producto</p>
+            {%endif%}
+
+        </div>
+
+        <div class="col-12 pt-4">
+            <a href="{%url 'cliente:listar_productos'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+</div>
+{%endblock%}

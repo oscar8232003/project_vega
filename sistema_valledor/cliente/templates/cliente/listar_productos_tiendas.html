@@ -1,0 +1,65 @@
+{%extends 'core/base.html'%}
+{%block title%}Lista de Productos por Local{%endblock%}
+{%block content%}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 p-0">
+            <img src="/media/cliente/Productos.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container container-whithe shadow">
+    <div class="row pb-4">
+        <!--TITULO-->
+        <div class="col-12 text-center pt-5 pb-4">
+            <h2>Productos de la Tienda x</h2>
+            <p><em>Aqui encontraras todo tipo de productos</em></p>
+            <hr>
+        </div>
+        <!--FIN TITULO-->
+    </div>
+
+    <div class="row pb-5 justify-content-center">
+        <!--SECCION DE BUSCADORES-->
+        <form action="" method="POST" class="col-6 col-md-4" onsubmit="return validar_buscar();">
+            {%csrf_token%}
+            <label for="buscar_producto">Buscador</label>
+            <input type="text" name="buscar" class="form-control" placeholder="ejem. arroz aruba" id="buscar_producto">
+             <div class="invalid-feedback">
+                <p id="buscar_producto-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Buscar producto" class="btn btn-secondary mt-2">
+        </form>
+
+        <form action="" method="post" class="col-6 col-md-4" onsubmit="return validar_categoria();">
+            {%csrf_token%}
+            <label for="id_categoria">Categorias</label>
+            {{form_categoria.categoria}}
+            <div class="invalid-feedback">
+                <p id="id_categoria-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Filtrar por cat." class="btn btn-info mt-2">
+        </form>
+
+        <div class="col-12 col-md-4 mt-4 mt-md-4 text-center">
+            <a href="" class="btn btn-success mr-2"><span class="icon-child"></span> Ofertas</a>
+            <a href="" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
+        </div>
+        <!--FIN SECCION DE BUSCADORES-->
+    </div>
+
+     <div class="row justify-content-center">
+         <div class="col-12 text-center pb-3">
+            <h2>Sitio en desarrollo.</h2>
+        </div>
+        <div class="col-md-4 col-12">
+            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-12 m-4">
+            <a href="{%url 'core:index'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+     </div>
+</div>
+{%endblock%}
+

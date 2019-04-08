@@ -8,31 +8,23 @@
         z-index: 9999;
         background: url('../../../media/core/loading.gif') 50% 50% no-repeat rgb(249,249,249);
         opacity: 1;
-        background-color:#191f26;
+        background-color:#00a3fe;
         }
         /*------------------------------FIN FONDO GIF DE CARGA------------------------------*/
 
 
 		/*------------------------------Fuente------------------------------*/
-		@font-face {
-        font-family: "William";
-        src: url(/static/core/fonts/Willian.ttf) format("truetype");
-        }
 
         @font-face {
-        font-family: "Caviardreams";
-        src: url(/static/core/fonts/Caviardreams.ttf) format("truetype");
+        font-family: "Monserrat";
+        src: url(/static/core/fonts/Monserrat.ttf) format("truetype");
         }
 
-        @font-face {
-        font-family: "Carnevale";
-        src: url(/static/core/fonts/Carnevale.ttf) format("truetype");
-        }
 		/*------------------------------Fuente------------------------------*/
 
 
 		body{
-		font-family: "Caviardreams";
+		font-family: "Monserrat";
 		background-color: rgb(233, 236, 239);
 		}
 
@@ -51,8 +43,7 @@
 		}
 
 		h1{
-		font-family: "Carnevale";
-		font-size: 3.5rem;
+		font-size: 3rem;
 		}
 
 		/*------------------------------Fondos detail_ldc------------------------------*/

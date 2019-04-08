@@ -1,0 +1,97 @@
+{%extends 'core/base.html'%}
+{%block title%}Actualizar perfil{%endblock%}
+{%block content%}
+    <form class="container shadow container-whithe" action="" method="POST">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center pt-5 pb-5">
+                <h2>Actualizar Perfil</h2>
+            </div>
+
+            <!--ALERTS-->
+            {%if request.GET.msg == 'error_form'%}
+            <div class="col-12 text-center col-sm-6">
+                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <h6><strong><span class="icon-exclamation-triangle"></span> Verifique que la contraseña sea correcta</strong></h6>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+             </div>
+             <div class="w-100"></div>
+            {%endif%}
+            <!--FIN ALERTS-->
+            {%csrf_token%}
+            {{form.username}}
+            <div class="col-12 col-sm-5 form-group pb-2">
+                <label for="id_first_name">Nombre</label>
+                    {{form.first_name}}
+                <div class="invalid-feedback">
+                    <p id="id_first_name-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_first_name-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+
+            <div class="col-12 col-sm-5 form-group pb-2">
+                <label for="id_last_name">Apellido</label>
+                    {{form.last_name}}
+                <div class="invalid-feedback">
+                    <p id="id_last_name-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_last_name-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+
+            <div class="col-12 col-sm-5 form-group pb-2">
+                <label for="id_email_name">Email</label>
+                    {{form.email}}
+                <div class="invalid-feedback">
+                    <p id="id_email-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_email-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+
+            <div class="col-12 col-sm-5 form-group pb-2">
+                <label for="id_password1">Contraseña</label>
+                <input type="password" name="password1" autofocus id="id_password1" class="form-control" placeholder="Ingrese su contraseña"/>
+                <div class="invalid-feedback">
+                    <p id="id_password1-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_password1-valid" class="m-0">Correcto</p>
+                </div>
+                <ul class="pt-3 pl-0">
+                    <li style="list-style:none"><strong>Recuerde</strong></li>
+                    <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede asemejarse tanto a su otra información personal.</small></li>
+                    <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña debe contener al menos 8 caracteres.</small></li>
+                    <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser una clave utilizada comunmente.</small></li>
+                    <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser completamente numérica.</small></li>
+                </ul>
+            </div>
+            <div class="w-100"></div>
+
+            <div class="col-12 col-sm-5 form-group pb-2">
+                <label for="id_password2">Contraseña(confirmación)</label>
+                <input type="password" name="password2" autofocus id="id_password2" class="form-control" placeholder="Vuelva a ingresar la contraseña"/>
+                <small>Para verificar, introduzca la misma contraseña anterior</small>
+                <div class="invalid-feedback">
+                    <p id="id_password2-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_password2-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-12 col-sm-5 form-group m-4 pb-3">
+                <input type="submit" class="btn btn-primary btn-block" value="Actualizar datos">
+            </div>
+        </div>
+    </form>
+{%endblock%}

@@ -1,0 +1,110 @@
+{%extends 'core/base.html'%}
+{%block title%}Listado de productos{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-0">
+            <img src="/media/cliente/Productos.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container container-whithe shadow">
+    <div class="row pb-4">
+        <!--TITULO-->
+        <div class="col-12 text-center pt-5 pb-4">
+            <h2>Seccion de Productos</h2>
+            <p><em>Aqui encontraras todo tipo de productos</em></p>
+            <hr>
+        </div>
+        <!--FIN TITULO-->
+    </div>
+
+    <div class="row pb-5 justify-content-center">
+        <!--SECCION DE BUSCADORES-->
+        <form action="" method="POST" class="col-6 col-md-4" onsubmit="return validar_buscar();">
+            {%csrf_token%}
+            <label for="buscar_producto">Buscador</label>
+            <input type="text" name="buscar" class="form-control" placeholder="ejem. arroz aruba" id="buscar_producto">
+             <div class="invalid-feedback">
+                <p id="buscar_producto-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Buscar producto" class="btn btn-secondary mt-2">
+        </form>
+
+        <form action="" method="post" class="col-6 col-md-4" onsubmit="return validar_categoria();">
+            {%csrf_token%}
+            <label for="id_categoria">Categorias</label>
+            {{form_categoria.categoria}}
+            <div class="invalid-feedback">
+                <p id="id_categoria-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Filtrar por cat." class="btn btn-info mt-2">
+        </form>
+
+        <div class="col-12 col-md-4 mt-4 mt-md-4 text-center">
+            <a href="{%url 'cliente:listar_productos'%}?filtro=ofertas" class="btn btn-success mr-2"><span class="icon-child"></span> Ofertas</a>
+            <a href="{%url 'cliente:listar_productos'%}" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
+        </div>
+        <!--FIN SECCION DE BUSCADORES-->
+    </div>
+
+    {%if productos%}
+    <!--PRODUCTOS-->
+    <div class="row pt-5 pb-5 grid-padre" data-masonry='{"itemSelector": ".grid-hijo"}'>
+        <!--PRODUCTO NORMAL-->
+        {%for producto in productos%}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 grid-hijo">
+            <div class="card">
+                {%if producto.oferta%}
+                <!--CARD HEADER-->
+                    <div class="card-header p-2 bg-rojo">
+                        <p class="m-0"><strong style="color:#fff;"><span class="icon-tag-2"></span> Oferta!</strong></p>
+                    </div>
+                <!--FIN HEADER-->
+                {%endif%}
+                <a href="{%url 'cliente:detalle_productos' producto.id%}"><img class="card-img-top img-fluid" src="/media/{{producto.imagen}}" width="200px;">
+                </a>
+                <!--CAR BODY-->
+                  <div class="card-body text-center p-1">
+                    {%for local in locales%}
+                      {%if local.user == producto.user%}
+                        <p class="text-muted m-0 font-cuerpo">{{local.nombre_local}}</p>
+                      {%endif%}
+                    {%endfor%}
+                    <P class="card-title m-1 font-titulo"><strong>{{producto.nombre}}</strong></P>
+                    {%if producto.oferta%}<p class="m-0 font-cuerpo color-rojo">Precio Oferta!
+                    {%else%}<p class="m-0 font-cuerpo">Precio por {{producto.unidad_medida}}{%endif%}</p>
+                    {%if producto.oferta%}<p class="card-text m-0 font-precio color-rojo"><strong>$ {{producto.precio_oferta}}
+                    {%else%}<p class="card-text m-0 font-precio"><strong>$ {{producto.precio}}{%endif%}</strong></p>
+                    {%if producto.oferta%}<p class="m-0 font-cuerpo">antes ${{producto.precio}}</p>{%endif%}
+                    <p class="text-muted m-0 font-cuerpo">stock {{producto.stock}} {{producto.unidad_medida.medida_plural}}</p>
+                  </div>
+                 <!--FIN BODY-->
+              <!--FOOTER-->
+                  <div class="card-footer">
+                    <div class="text-center">
+                        <a href="{%url 'cliente:detalle_productos' producto.id%}"><button class="btn btn-info btn-sm"><span class="icon-hand-o-right"></span> Ver mas</button></a>
+                    </div>
+                  </div>
+              <!--FIN FOOTER-->
+            </div>
+            <!--FIN CARD-->
+        </div>
+        <!--FIN PRODUCTO-->
+        {%endfor%}
+    </div>
+    {%else%}
+    <div class="row justify-content-center">
+        <!--MENSAJE SI NO HAY PRODUCTOS-->
+        <div class="col-12 pt-5 text-center">
+            <h3>No se encuentran productos disponibles para el filtro que utilizo.</h3>
+        </div>
+        <div class="col-6 col-md-2 pb-5">
+            <img src="/media/core/triste.jpg" alt="Triste2 por no encontrar productos" class="img-fluid">
+        </div>
+        <!--MENSAJE SI NO HAY PRODUCTOS-->
+    </div>
+    {%endif%}
+    <!--FIN PRODUCTOS-->
+</div>
+{%endblock%}

@@ -1,0 +1,18 @@
+{%extends 'core/base.html'%}
+{%block title%}Sin Permiso{%endblock%}
+{%block content%}
+<div class="container shadow container-whithe pt-2 pb-2">
+    <div class="row justify-content-center">
+        <div class="col-12 pt-5 pb-5">
+            <h2>Lo siento, no tienes permiso para acceder a la seccion que deseabas.</h2>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <img src="/media/core/triste.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="col-12 pt-4 pb-4">
+            <a href="{%url 'core:index'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver al inicio</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

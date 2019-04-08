@@ -1,0 +1,43 @@
+{%extends 'core/base.html'%}
+{%block title%}Eliminar Oferta{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-0">
+            <img src="/media/vendedor/Mis_ofertas.png" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container container-whithe shadow-sm">
+    <div class="row pt-3 pb-5">
+        <div class="col-12 pt-5 pb-5 text-center">
+            <h2>¿Estas seguro de querer eliminar ?</h2>
+            <p><em>Recuerda que al eliminar una oferta, no se podra recuperar</em></p>
+            <hr>
+
+            {%if request.GET.msg == 'elim_error'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> No se pudo eliminar el producto, intentelo otra vez.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+
+        </div>
+
+        <div class="col-12 text-center pb-5">
+            <form method="POST">
+                {%csrf_token%}
+                <button type="submit" class="btn btn-danger"><span class="icon-trash-b"> Si, lo quiero borrar de todos modos</span></button>
+            </form>
+        </div>
+
+        <div class="col-12 m-4">
+            <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+
+</div>
+{%endblock%}
+

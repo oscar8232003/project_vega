@@ -1,0 +1,128 @@
+{%extends 'core/base.html'%}
+{%block title%}Agregar productos{%endblock%}
+{%block content%}
+<div class="container container-whithe shadow-sm">
+    <div class="row">
+        <div class="col-12 pt-5 pb-3 text-center">
+            <h2>Seccion de agregado de productos</h2>
+            <p><em>Si te falto algo, no te preocupes, mas adelante lo podras editar a tu gusto</em></p>
+            <hr>
+        </div>
+        <!--ALERTS-->
+        <div class="col-12 text-center">
+            {%if request.GET.msg == 'form_no_valid'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> No se pudo crear el producto, intentelo otra vez.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+        </div>
+        <!--FIN ALERTS-->
+    </div>
+
+        <form action="" class="row" method="POST" onsubmit="return validar();" enctype="multipart/form-data">
+            {%csrf_token%}
+            <input type="hidden" name="user" id="id_user" value="{{request.user.id}}">
+            <div class="col-12 col-sm-4 form-group">
+                {{form.nombre.label}}
+                {{form.nombre}}
+                <div class="invalid-feedback">
+                    <p id="id_nombre-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_nombre-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4 form-group">
+                {{form.precio.label}}
+                {{form.precio}}
+                <div class="invalid-feedback">
+                    <p id="id_precio-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_precio-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4 form-group">
+                 {{form.categoria.label}}
+                 {{form.categoria}}
+                 <div class="invalid-feedback">
+                    <p id="id_categoria-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_categoria-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 form-group">
+                {{form.unidad_medida.label}}
+                {{form.unidad_medida}}
+                <div class="invalid-feedback">
+                    <p id="id_unidad_medida-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_unidad_medida-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 form-group">
+                {{form.stock.label}}
+                {{form.stock}}
+                <div class="invalid-feedback">
+                    <p id="id_stock-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_stock-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 form-group">
+                {{form.oferta.label}}
+                {{form.oferta}}
+                <div class="color-rojo alert alert-danger" hidden role="alert" id="div_oferta">
+                    <strong id="alert_oferta"></strong>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 form-group">
+                {{form.precio_oferta.label}}
+                {{form.precio_oferta}}
+                <div class="invalid-feedback">
+                    <p id="id_precio_oferta-invalid" class="m-0"></p>
+                </div>
+                <div class="valid-feedback">
+                    <p id="id_precio_oferta-valid" class="m-0">Correcto</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 form-group">
+                {{form.activado.label}}
+                {{form.activado}}
+                <div class="color-rojo alert alert-danger" hidden role="alert" id="div_activado">
+                    <strong id="alert_activado"></strong>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 form-group">
+                {{form.comentario.label}}
+                {{form.comentario}}
+            </div>
+            <div class="w-100"></div>
+            <div class="col-12 col-sm-4 form-group">
+                {{form.imagen.label}}
+                {{form.imagen}}
+            </div>
+
+            <div class="col-12 form-group text-center mt-3">
+                <button type="submit" class="btn btn-success"><span data-icon="v"></span> Agregar</button>
+            </div>
+        </form>
+    <div class="row justify-content-center">
+        <div class="col-12 m-4">
+            <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

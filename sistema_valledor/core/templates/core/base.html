@@ -9,19 +9,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!--Cambiar el color a la barra superior-->
-	<meta name="theme-color" content="#222">
+	<meta name="theme-color" content="#2196f3">
 
     <!--ICONO-->
-	<!--<link rel="shortcut icon" href="/media/core/ico.ico" />-->
+	<link rel="shortcut icon" href="/media/core/icono.ico" />
 
     <!--BOOTSTRAP 4-->
 	<link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+
+	<!--MIS COLORES BASE-->
+	<link rel="stylesheet" href="{% static 'core/css/colores_base.css' %}">
 
 	<!--MIS ESTILOS BASE-->
 	<link rel="stylesheet" href="{% static 'core/css/estilos_base.css' %}">
 
 	<!--ICONOS-->
-	<link rel="stylesheet" href="{%static 'core/css/iconos.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/iconos.css'%}">
 
 	<!--LIGHTBOX-->
 	<link rel="stylesheet" href="{% static 'core/css/lightbox.css' %}">
@@ -60,7 +63,7 @@
 	-->
 </head>
 <body>
-    <!--<div class="loader"></div>-->
+    <div class="loader"></div>
     <div class="container-fluid p-0">
 
         <!--HEADER-->
@@ -94,6 +97,11 @@
 
 	<!--INICIALIZACION DE COMPONENTES DE JS-->
 	<script src="{% static 'core/js/componentes.js' %}"></script>
+
+	<!--MASONRY PARA GRID COMO PINTEREST, PARA AGREGARLO, LINK EL SCRIPT, UBICAR CONTENEDOR PADRE E HIJO Y PONERLE AL PADRE CLASE GRID-PADRE Y AL HIJO
+	GRID-HIJO Y AL PADRE AGREGARLE EL ATTR data-masonry='{"itemSelector": ".grid-hijo"}' Y LISTO
+	-->
+	<script src="{% static 'core/js/masonry.js' %}"></script>
 
 	<!--VALIDACIONES-->
 	<script src="{% static 'core/js/validaciones.js' %}"></script>

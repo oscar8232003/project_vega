@@ -1,13 +1,9 @@
 		/*------------------------------Fuente------------------------------*/
 		@font-face {
-        font-family: "William";
-        src: url(/static/core/fonts/Willian.ttf) format("truetype");
+        font-family: "Welbut";
+        src: url(/static/core/fonts/Welbut.ttf) format("truetype");
         }
 
-        @font-face {
-        font-family: "Caviardreams";
-        src: url(/static/core/fonts/Caviardreams.ttf) format("truetype");
-        }
 		/*------------------------------Fuente------------------------------*/
 
 
@@ -15,7 +11,7 @@
 
 		
 		.BACKGROUND-TOP{
-			background-color: #000000;
+			background-color: #222;
 		}
 		
 		.top-a{
@@ -23,7 +19,7 @@
 		}
 
 		.top-a:hover{
-			color:#cafdca;
+			color:#5A90BC;
 		}
 
 		/*------------------------------END TOP------------------------------*/
@@ -31,17 +27,17 @@
 
 		/*------------------------------NAVBAR------------------------------*/
 		.TITULO{
-		font-family: "William";
-		font-size:2.5rem;
+		font-family: "Welbut";
+		font-size:2rem;
 		}
 
 		.barra_navbar{
-			background-color:#222;
+			background-color:#2196f3;
 		}
 
 		.LOGIN{
 			color: #fff;
-			transition: all 1s;
+			transition: all 0.5s;
 		}
 
 		.LOGUEADO{
@@ -49,9 +45,9 @@
 		}
 		
 		.LOGIN:hover{
-			transform: scale(1.05);
 			text-decoration: none;
-			color: #fff;
+			color: #3E3E3E;
+
 		}
 		
 		.span-navbar{
@@ -98,6 +94,42 @@
 		color: #fff;
 		}
 
+        .face{
+        transition:all 0.5s;
+        }
+        .face:hover{
+        color:#3b5998;
+        }
+
+        .instagram{
+        transition:all 0.5s;
+        }
+        .instagram:hover{
+        color:#ff0084;
+        }
+
+        .twitter{
+        transition:all 0.5s;
+        }
+        .twitter:hover{
+        color:#55acee;
+        }
+
+        .twitch{
+        transition:all 0.5s;
+        }
+        .twitch:hover{
+        color:#410093;
+        }
+
+        .youtube{
+        transition:all 0.5s;
+        }
+        .youtube:hover{
+        color:#bb0000;
+        }
+
+
 		/*------------------------------ END FOOTER------------------------------*/
 
 
@@ -114,31 +146,42 @@
 
 
 
-		/*------------------------------ CUADROS INDEX------------------------------*/
+		/*------------------------------Login------------------------------*/
 
-        .cuadros{
-        border-radius: 100%;
-        transition: all 0.3s;
+        .div-radius{
+        border-radius:20px;
+        }
+		/*------------------------------ END Login------------------------------*/
+
+		/*------------------------------ PRODUCTOS------------------------------*/
+
+		.font-cuerpo{
+		font-size:12px;
+		}
+
+		.font-titulo{
+		font-size:14px;
+		}
+
+		.font-precio{
+		font-size:19px;
+		}
+
+        .card{
+        transition:0.5s all;
         }
 
-        .cuadros:hover{
-        transform: rotate(20deg);
+        .card:hover{
+        transform:scale(1.03);
         }
 
-        .bc-verde{
-        background-color: #78FFD6;
+        .Categorias{
+        transition:0.5s all;
         }
 
-        .bc-celeste{
-        background-color: #0AD3FF;
+        .Categorias:hover{
+        transform:scale(1.05);
+        box-shadow: -1px 7px 12px -5px #2196f3;
+        font-weight:bold;
         }
-
-        .bc-amarillo{
-        background-color: #F9DC5C;
-        }
-
-        .icono{
-        font-size:40px;
-
-        }
-		/*------------------------------ END CUADROS------------------------------*/
+		/*------------------------------ END PRODUCTOS------------------------------*/
