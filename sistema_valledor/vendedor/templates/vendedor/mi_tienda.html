@@ -1,13 +1,6 @@
 {%extends 'core/base.html'%}
 {%block title%}Mi Tienda{%endblock%}
 {%block content%}
-<div class="container">
-    <div class="row">
-        <div class="col-12 p-0">
-            <img src="/media/vendedor/Mi_Tienda.png" class="img-fluid">
-        </div>
-    </div>
-</div>
 <div class="container container-whithe shadow">
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
@@ -17,17 +10,55 @@
             <hr>
         </div>
         <!--FIN TITULO-->
-        <!--BOTONERA-->
+        <!--ALERTS-->
+        <div class="col-12 text-center">
+            {%if request.GET.msg == 'act_ok'%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span> Tienda actualizada correctamente.</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+        </div>
+        <!--FIN ALERTS-->
+        <!--BOTON-->
         <div class="col-12 pb-3">
             <a href="{%url 'vendedor:actualizar_mi_tienda' request.user.id%}" class="btn-info btn">Actualizar mi tienda!</a>
+            {%if local.activado%}
+            <a href="{%url 'cliente:detalle_locales' request.user.id%}" class="btn btn-primary">Mi tienda</a>
+            {%endif%}
         </div>
-        <!--FIN BOTONERA-->
+        <!--FIN BOTON-->
+
         <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
+        <div class="col-12 pb-4">
+            <p class="h4">Imagen de banner</p>
+            <img src="/media/{{local.imagen_banner}}" alt="" class="img-fluid">
         </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando.gif" alt="" class="img-fluid">
+
+        <div class="col-12 pb-4">
+            <p class="h4">Imagen de muestra</p>
+            <img src="/media/{{local.imagen_muestra}}" alt="" width="200px">
+        </div>
+
+        <div class="col-12 pb-4">
+            <p class="h4">Nombre del local</p>
+            <p class="h5">{{local.nombre_local}}</p>
+        </div>
+
+        <div class="col-12 pb-4">
+            <p class="h4">Ubicacion del local</p>
+            <p class="h5">{{local.ubicacion_local}}</p>
+        </div>
+
+        <div class="col-12 pb-4">
+            <p class="h5">El local esta activo actualmente?</p>
+            {%if local.activado%}
+            <p class="h5">Si</p>
+            {%else%}
+            <p class="h5">No</p>
+            {%endif%}
         </div>
 
         <div class="col-12 m-4">

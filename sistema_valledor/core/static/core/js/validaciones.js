@@ -60,13 +60,24 @@ function validar_unidad_medida(){
 function validar_precio_venta(){
 	var precio_venta = document.getElementById("id_precio");
 	var span_precio_venta = document.getElementById("id_precio-invalid");
+	var revisar_precio = false;
 	precio_venta.classList.remove("is-valid");
 	precio_venta.classList.remove("is-invalid");
-	    if (precio_venta.value.trim().length != 0 && precio_venta.value >=0){
-            precio_venta.classList.add("is-valid");
-            return true;
+	    if (precio_venta.value.trim().length != 0){
+            if(precio_venta.value.trim()%10 == 0){
+               revisar_precio = true;
+            }
+            if(revisar_precio){
+                precio_venta.classList.add("is-valid");
+                return true;
+            }else{
+                span_precio_venta.innerHTML="Redondee la cifra a base 10";
+                precio_venta.classList.add("is-invalid");
+                precio_venta.focus();
+                return false;
+            }
         }else{
-            span_precio_venta.innerHTML="Rellene el campo correctamente, el precio no puede ser 0";
+            span_precio_venta.innerHTML="Rellene el campo correctamente";
             precio_venta.classList.add("is-invalid");
             precio_venta.focus();
             return false;
@@ -93,60 +104,65 @@ function validar_precio_oferta(){
 	var precio_oferta = document.getElementById("id_precio_oferta");
 	var precio_venta = document.getElementById("id_precio");
 	var span_precio_oferta = document.getElementById("id_precio_oferta-invalid");
+	var revisar = false;
+	var oferta = document.getElementById('id_oferta');
+	var activado = document.getElementById('id_activado');
+
 	precio_oferta.classList.remove("is-valid");
 	precio_oferta.classList.remove("is-invalid");
-	    if (precio_oferta.value.trim().length != 0 && precio_oferta.value >= 0){
-            if(precio_venta.value.trim() >= precio_oferta.value.trim()){
+	    if(oferta.checked && activado.checked){
+            if (precio_oferta.value.trim().length != 0 && precio_oferta.value.trim()>0){
+                    if(precio_oferta.value.trim()%10 == 0){
+                        revisar = true;
+                    }
+                    if(revisar){
+                        if(precio_venta.value.trim()>precio_oferta.value.trim()){
+                            var precio_oferta_descuento = parseInt(precio_venta.value.trim()*0.95);
+                            var precio_oferta_descuento_string = precio_oferta_descuento.toString();
+                            var eleccion = parseInt(precio_oferta_descuento_string[precio_oferta_descuento_string.length-1]);
+                            if(eleccion>=0 && eleccion<=5){
+                                precio_oferta_descuento = precio_oferta_descuento-eleccion;
+                            }else{
+                                precio_oferta_descuento = precio_oferta_descuento+(10-eleccion);
+                            }
+                            if(precio_oferta.value.trim() <= precio_oferta_descuento){
+                                precio_oferta.classList.add("is-valid");
+                                return true;
+                            }else{
+                            span_precio_oferta.innerHTML="La oferta tiene como minimo un 5% de descuento, el precio de oferta como maximo tiene que ser "+precio_oferta_descuento;
+                            precio_oferta.classList.add("is-invalid");
+                            precio_oferta.focus();
+                            return false;
+                            }
+                        }else{
+                            span_precio_oferta.innerHTML="La oferta debe ser menor al precio normal";
+                            precio_oferta.classList.add("is-invalid");
+                            precio_oferta.focus();
+                            return false;
+                        }
+                    }else{
+                    span_precio_oferta.innerHTML="El valor debe ser redondeado";
+                    precio_oferta.classList.add("is-invalid");
+                    precio_oferta.focus();
+                    return false;
+                    }
+            }else{
+                span_precio_oferta.innerHTML="Rellene el campo correctamente, no puede ser 0";
+                precio_oferta.classList.add("is-invalid");
+                precio_oferta.focus();
+                return false;
+            }
+        }else{
+            if (precio_oferta.value.trim().length != 0){
                 precio_oferta.classList.add("is-valid");
                 return true;
             }else{
-            span_precio_oferta.innerHTML="El precio de oferta no puede ser mayor al precio normal";
-            precio_oferta.classList.add("is-invalid");
-            precio_oferta.focus();
-            return false;
+                span_precio_oferta.innerHTML="Rellene el campo correctamente";
+                precio_oferta.classList.add("is-invalid");
+                precio_oferta.focus();
+                return false;
             }
-        }else{
-            span_precio_oferta.innerHTML="Rellene el campo correctamente";
-            precio_oferta.classList.add("is-invalid");
-            precio_oferta.focus();
-            return false;
         }
-}
-
-function validar_email(){
-	var email = document.getElementById("email");
-	var regex_email = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
-	var span_email = document.getElementById("email-invalid");
-	email.classList.remove("is-valid");
-	email.classList.remove("is-invalid");
-	if(!email.value ==""){
-		if(email.value.match(regex_email)){
-			email.classList.add("is-valid");
-			return true;
-		}else{
-			span_email.innerHTML="Por favor ingrese un email valido";
-			email.classList.add("is-invalid");
-			return false;
-		}
-	}else{
-		span_email.innerHTML="Por favor rellene el campo en blanco.";
-		email.classList.add("is-invalid");
-		return false;
-	}
-}
-
-
-function validar_condiciones(){
-	var condiciones = document.getElementById("condiciones");
-	condiciones.classList.remove("is-valid");
-	condiciones.classList.remove("is-invalid");
-	if(condiciones.checked){
-		condiciones.classList.add("is-valid");
-			return true;
-	}else{
-		condiciones.classList.add("is-invalid");
-			return false;
-	}
 }
 
 function validar_stock_activado_y_precio(){
@@ -202,7 +218,50 @@ function validar(){
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////BUSCAR/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////ACTUALIZAR LOCAL/////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function validar_nombre_local(){
+	var nombre_local = document.getElementById("id_nombre_local");
+	var span_nombre_local = document.getElementById("id_nombre_local-invalid");
+	nombre_local.classList.remove("is-valid");
+	nombre_local.classList.remove("is-invalid");
+	if(nombre_local.value.trim().length != 0){
+        nombre_local.classList.add("is-valid");
+        return true;
+	}else{
+		span_buscar.innerHTML="Por favor rellene el campo";
+		span_nombre_local.classList.add("is-invalid");
+		span_nombre_local.focus();
+		return false;
+	}
+}
+
+function validar_ubicacion(){
+	var ubicacion_local = document.getElementById("id_ubicacion_local");
+	var span_ubicacion_local = document.getElementById("id_ubicacion_local-invalid");
+	ubicacion_local.classList.remove("is-valid");
+	ubicacion_local.classList.remove("is-invalid");
+	if(ubicacion_local.value.trim().length != 0){
+        ubicacion_local.classList.add("is-valid");
+        return true;
+	}else{
+		span_ubicacion_local.innerHTML="Por favor rellene el campo";
+		ubicacion_local.classList.add("is-invalid");
+		ubicacion_local.focus();
+		return false;
+	}
+}
+
+
+function validar_actualizacion_local(){
+	if(validar_nombre_local() && validar_ubicacion()){
+		return true ;
+	}else{
+		return false;
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////BARRA BUSCADOR/////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function validar_buscar(){
 	var buscar = document.getElementById("buscar_producto");
@@ -221,78 +280,6 @@ function validar_buscar(){
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////LDC///////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function validar_local(){
-	var local = document.getElementById("id_local");
-	var span_local = document.getElementById("id_local-invalid");
-	local.classList.remove("is-valid");
-	local.classList.remove("is-invalid");
-	if(!local.value ==""){
-			local.classList.add("is-valid");
-			return true;
-	}else{
-		span_local.innerHTML="Seleccione un local";
-		local.classList.add("is-invalid");
-		local.focus();
-		return false;
-	}
-}
-
-
-function validar_ldc(){
-
-	if(validar_nombre() && validar_local()){
-		return true;
-	}else{
-		return false;
-	}
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////PRODUCTOS A COMPRAR///////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function validar_producto(){
-	var producto = document.getElementById("id_cod_productos");
-	var span_producto = document.getElementById("id_cod_productos-invalid");
-	producto.classList.remove("is-valid");
-	producto.classList.remove("is-invalid");
-	if(!producto.value ==""){
-			producto.classList.add("is-valid");
-			return true;
-	}else{
-		span_producto.innerHTML="Seleccione un Producto";
-		producto.classList.add("is-invalid");
-		producto.focus();
-		return false;
-	}
-}
-
-function validar_cantidad(){
-	var cantidad = document.getElementById("id_cantidad");
-	var span_cantidad = document.getElementById("id_cantidad-invalid");
-	cantidad.classList.remove("is-valid");
-	cantidad.classList.remove("is-invalid");
-	    if (cantidad.value.trim().length != 0 && cantidad.value >= 0){
-            cantidad.classList.add("is-valid");
-            return true;
-        }else{
-            span_cantidad.innerHTML="Rellene el campo correctamente";
-            cantidad.classList.add("is-invalid");
-            cantidad.focus();
-            return false;
-        }
-}
-
-function validar_productos_comprar(){
-
-	if(validar_producto() && validar_cantidad()){
-		return true;
-	}else{
-		return false;
-	}
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////LOGIN///////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function validar_usuario(){
@@ -302,7 +289,7 @@ function validar_usuario(){
 	usuario.classList.remove("is-valid");
 	usuario.classList.remove("is-invalid");
 	    if (usuario.value.trim().length != 0){
-            if(usuario.value.match(regex_usuario)){
+            if(usuario.value.match(regex_usuario) || usuario.value == "root"){
                 usuario.classList.add("is-valid");
                 return true;
             }else{
@@ -344,7 +331,7 @@ function validar_login(){
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////Registro///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////REGISTRO///////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function validar_nombre_registro(){
 	var nombre_registro = document.getElementById("id_first_name");
@@ -444,5 +431,160 @@ function validar_registro(){
 		return true;
 	}else{
 		return false;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////AGREGAR OFERTAS///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function validar_oferta_mostrar(){
+	var oferta = document.getElementById("id_oferta");
+	var oferta_span = document.getElementById("id_oferta-invalid");
+	oferta.classList.remove("is-valid");
+	oferta.classList.remove("is-invalid");
+	if(oferta.value.trim().length != 0){
+        oferta.classList.add("is-valid");
+        return true;
+	}else{
+		oferta_span.innerHTML="Por favor rellene el campo";
+		oferta.classList.add("is-invalid");
+		oferta.focus();
+		return false;
+	}
+}
+
+function validar_tipo_oferta(){
+	var tipo_oferta = document.getElementById("id_tipo_oferta");
+	var tipo_oferta_span = document.getElementById("id_tipo_oferta-invalid");
+	tipo_oferta.classList.remove("is-valid");
+	tipo_oferta.classList.remove("is-invalid");
+	if(!tipo_oferta.value ==""){
+			tipo_oferta.classList.add("is-valid");
+			return true;
+	}else{
+		tipo_oferta_span.innerHTML="Seleccione una categoria";
+		tipo_oferta.classList.add("is-invalid");
+		tipo_oferta.focus();
+		return false;
+	}
+}
+
+function validar_agregar_ofertas(){
+	if(validar_oferta_mostrar() && validar_tipo_oferta()){
+		return true;
+	}else{
+		return false;
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////LDC SIN USAR///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function validar_local(){
+	var local = document.getElementById("id_local");
+	var span_local = document.getElementById("id_local-invalid");
+	local.classList.remove("is-valid");
+	local.classList.remove("is-invalid");
+	if(!local.value ==""){
+			local.classList.add("is-valid");
+			return true;
+	}else{
+		span_local.innerHTML="Seleccione un local";
+		local.classList.add("is-invalid");
+		local.focus();
+		return false;
+	}
+}
+
+
+function validar_ldc(){
+
+	if(validar_nombre() && validar_local()){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////PRODUCTOS A COMPRAR SIN USAR///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function validar_producto(){
+	var producto = document.getElementById("id_cod_productos");
+	var span_producto = document.getElementById("id_cod_productos-invalid");
+	producto.classList.remove("is-valid");
+	producto.classList.remove("is-invalid");
+	if(!producto.value ==""){
+			producto.classList.add("is-valid");
+			return true;
+	}else{
+		span_producto.innerHTML="Seleccione un Producto";
+		producto.classList.add("is-invalid");
+		producto.focus();
+		return false;
+	}
+}
+
+function validar_cantidad(){
+	var cantidad = document.getElementById("id_cantidad");
+	var span_cantidad = document.getElementById("id_cantidad-invalid");
+	cantidad.classList.remove("is-valid");
+	cantidad.classList.remove("is-invalid");
+	    if (cantidad.value.trim().length != 0 && cantidad.value >= 0){
+            cantidad.classList.add("is-valid");
+            return true;
+        }else{
+            span_cantidad.innerHTML="Rellene el campo correctamente";
+            cantidad.classList.add("is-invalid");
+            cantidad.focus();
+            return false;
+        }
+}
+
+function validar_productos_comprar(){
+
+	if(validar_producto() && validar_cantidad()){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////validaciones extras/////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function validar_email(){
+	var email = document.getElementById("email");
+	var regex_email = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+	var span_email = document.getElementById("email-invalid");
+	email.classList.remove("is-valid");
+	email.classList.remove("is-invalid");
+	if(!email.value ==""){
+		if(email.value.match(regex_email)){
+			email.classList.add("is-valid");
+			return true;
+		}else{
+			span_email.innerHTML="Por favor ingrese un email valido";
+			email.classList.add("is-invalid");
+			return false;
+		}
+	}else{
+		span_email.innerHTML="Por favor rellene el campo en blanco.";
+		email.classList.add("is-invalid");
+		return false;
+	}
+}
+
+
+function validar_condiciones(){
+	var condiciones = document.getElementById("condiciones");
+	condiciones.classList.remove("is-valid");
+	condiciones.classList.remove("is-invalid");
+	if(condiciones.checked){
+		condiciones.classList.add("is-valid");
+			return true;
+	}else{
+		condiciones.classList.add("is-invalid");
+			return false;
 	}
 }

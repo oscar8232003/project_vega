@@ -1,7 +1,7 @@
 {%extends 'core/base.html'%}
 {%block title%}Lista de Productos por Local{%endblock%}
 {%block content%}
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-12 p-0">
             <img src="/media/cliente/Productos.png" class="img-fluid">
@@ -9,11 +9,17 @@
     </div>
 </div>
 <div class="container container-whithe shadow">
-    <div class="row pb-4">
+    <div class="row">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
-            <h2>Productos de la Tienda x</h2>
-            <p><em>Aqui encontraras todo tipo de productos</em></p>
+        <div class="col-12 text-center pt-3 pb-2">
+            <h2>
+                {%if local.imagen_muestra%}
+                {%if not 'sin_imagen.jpg' in local.imagen_muestra.url%}
+                <img src="{{local.imagen_muestra.url}}" width="75px" class="rounded-circle">
+                {%endif%}
+                {%endif%}
+                 Productos de la tienda {{local.nombre_local}}</h2>
+            <p><em>Aqui encontraras todos los productos pertenecientes a esta tienda.</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
@@ -42,24 +48,101 @@
         </form>
 
         <div class="col-12 col-md-4 mt-4 mt-md-4 text-center">
-            <a href="" class="btn btn-success mr-2"><span class="icon-child"></span> Ofertas</a>
-            <a href="" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
+            <a href="{%url 'cliente:listar_productos_tiendas' local.user.id%}?filtro=ofertas" class="btn btn-success mr-2"><span class="icon-child"></span> Ofertas</a>
+            <a href="{%url 'cliente:listar_productos_tiendas' local.user.id%}" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
         </div>
         <!--FIN SECCION DE BUSCADORES-->
     </div>
 
-     <div class="row justify-content-center">
-         <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
-        </div>
 
-        <div class="col-12 m-4">
-            <a href="{%url 'core:index'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+    {%if productos%}
+    <!--PRODUCTOS-->
+    <div class="row pt-5 pb-5 grid-padre">
+        <!--PRODUCTO NORMAL-->
+        {%for producto in productos%}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 grid-hijo">
+            <div class="card">
+                {%if producto.oferta%}
+                <!--CARD HEADER-->
+                    <div class="card-header p-2 bg-rojo">
+                        <p class="m-0"><strong style="color:#fff;"><span class="icon-tag-2"></span> Oferta!</strong></p>
+                    </div>
+                <!--FIN HEADER-->
+                {%endif%}
+                <a href="{%url 'cliente:detalle_productos' producto.id%}"><img class="card-img-top img-fluid" src="/media/{{producto.imagen}}" width="200px;">
+                </a>
+                <!--CAR BODY-->
+                  <div class="card-body text-center p-1">
+                    <p class="text-muted m-0 font-cuerpo">{{local.nombre_local}}</p>
+                    <P class="card-title m-1 font-titulo"><strong>{{producto.nombre}}</strong></P>
+                    {%if producto.oferta%}<p class="m-0 font-cuerpo color-rojo">Precio Oferta!
+                    {%else%}<p class="m-0 font-cuerpo">Precio por {{producto.unidad_medida}}{%endif%}</p>
+                    {%if producto.oferta%}<p class="card-text m-0 font-precio color-rojo"><strong>$ {{producto.precio_oferta}}
+                    {%else%}<p class="card-text m-0 font-precio"><strong>$ {{producto.precio}}{%endif%}</strong></p>
+                    {%if producto.oferta%}<p class="m-0 font-cuerpo">antes ${{producto.precio}}</p>{%endif%}
+                    <p class="text-muted m-0 font-cuerpo">stock {{producto.stock}} {{producto.unidad_medida.medida_plural}}</p>
+                  </div>
+                 <!--FIN BODY-->
+              <!--FOOTER-->
+                  <div class="card-footer">
+                    <div class="text-center">
+                        <a href="{%url 'cliente:detalle_productos' producto.id%}"><button class="btn btn-info btn-sm"><span class="icon-hand-o-right"></span> Ver mas</button></a>
+                    </div>
+                  </div>
+              <!--FIN FOOTER-->
+            </div>
+            <!--FIN CARD-->
         </div>
-     </div>
+        <!--FIN PRODUCTO-->
+        {%endfor%}
+    </div>
+        <div class="row">
+        <div class="col-12 p-4">
+             <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                  {% if productos.has_previous %}
+                    <li class="page-item ">
+                        {%if '?filtro=ofertas' in request.get_full_path%}
+                        <a class="page-link" href="{{request.path}}?filtro=ofertas&page={{productos.previous_page_number }}">&laquo;</a>
+                        {%else%}
+                        <a class="page-link" href="?page={{ productos.previous_page_number }}">&laquo;</a>
+                        {%endif%}
+                    </li>
+                  {% endif %}
+                  {% for i in productos.paginator.page_range %}
+                    <li class="page-item {% if productos.number == i %}active{% endif %}">
+                        {%if '?filtro=ofertas' in request.get_full_path%}
+                        <a class="page-link" href="{{request.path}}?filtro=ofertas&page={{ i }}">{{ i }}</a>
+                        {%else%}
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        {%endif%}
+                    </li>
+                  {% endfor %}
+                  {% if productos.has_next %}
+                    <li class="page-item ">
+                      {%if '?filtro=ofertas' in request.get_full_path%}
+                      <a class="page-link" href="{{request.path}}?filtro=ofertas&page={{ productos.next_page_number }}">&raquo;</a>
+                      {%else%}
+                      <a class="page-link" href="?page={{ productos.next_page_number }}">&raquo;</a>
+                      {%endif%}
+                    </li>
+                  {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {%else%}
+    <div class="row justify-content-center">
+        <!--MENSAJE SI NO HAY PRODUCTOS-->
+        <div class="col-12 pt-5 text-center">
+            <h3>No se encuentran productos disponibles para el filtro que utilizo.</h3>
+        </div>
+        <div class="col-6 col-md-2 pb-5">
+            <img src="/media/core/triste.jpg" alt="Triste por no encontrar productos" class="img-fluid">
+        </div>
+        <!--MENSAJE SI NO HAY PRODUCTOS-->
+    </div>
+    {%endif%}
+    <!--FIN PRODUCTOS-->
 </div>
 {%endblock%}
-

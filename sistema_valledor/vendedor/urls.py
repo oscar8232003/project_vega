@@ -16,6 +16,6 @@ vendedor_urlpatterns = ([
     path('revisar_mis_pedidos/<int:id>/', Revisar_Listas, name = "revisar_mis_pedidos"),
     path('mis_ofertas/<int:id>/', Mis_Ofertas, name="mis_ofertas"),
     path('agregar_oferta/<int:id>/',Agregar_Ofertas, name = "agregar_oferta"),
-    path('actualizar_oferta/<int:id>/',Actualizar_Ofertas, name = "actualizar_oferta"),
-    path('eliminar_oferta/<int:id>/',Eliminar_Ofertas, name = "eliminar_oferta"),
+    path('actualizar_oferta/<int:id_oferta>/',Actualizar_Ofertas, name = "actualizar_oferta"),
+    path('eliminar_oferta/<int:id_oferta>/',Eliminar_Ofertas, name = "eliminar_oferta"),
 ], 'vendedor')

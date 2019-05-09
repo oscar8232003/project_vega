@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-04-2019 a las 02:23:45
+-- Tiempo de generación: 09-05-2019 a las 06:07:10
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -149,10 +149,12 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$120000$0C8ZHBxllSGb$tjUdwZjGYRgtfdG54LsjO62448oDR1vvM4E2Z0oHAL4=', '2019-04-07 23:24:35.469220', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
-(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-04-08 00:11:45.494827', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
-(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-04-07 18:33:32.740666', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
-(13, 'pbkdf2_sha256$120000$ljKSzUCD3jaj$q+CUtBxOE6xhsid0jVm8bHOVB+HZulb/0NQmAOs7vi0=', '2019-04-08 00:12:31.988729', 0, '19.036.216-7', 'Katherine', '', '', 0, 1, '2019-04-04 01:22:42.392909');
+(1, 'pbkdf2_sha256$120000$0C8ZHBxllSGb$tjUdwZjGYRgtfdG54LsjO62448oDR1vvM4E2Z0oHAL4=', '2019-05-06 01:12:06.543927', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
+(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-05-07 17:38:17.079930', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
+(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-05-06 03:16:41.984578', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
+(13, 'pbkdf2_sha256$120000$ljKSzUCD3jaj$q+CUtBxOE6xhsid0jVm8bHOVB+HZulb/0NQmAOs7vi0=', '2019-05-09 03:52:50.699156', 0, '19.036.216-7', 'Katherine', '', '', 0, 1, '2019-04-04 01:22:42.392909'),
+(14, 'pbkdf2_sha256$120000$kNmI3pFAV6v8$c2TfcY64hgiyC8T7k62PcxtlODYdqZ/ttSiHDIFJK6Y=', '2019-05-01 06:37:25.694182', 0, '19.169.969-7', 'Maria', '', '', 0, 1, '2019-05-01 06:34:12.603680'),
+(15, 'pbkdf2_sha256$120000$adiB9kBXzJ11$BfZIqihCGP4CRf8758Resc/v4p+RZsvAqCf4qcWTVFQ=', '2019-05-05 19:22:18.845965', 0, '11.111.111-1', 'prueba', '', '', 0, 1, '2019-05-04 05:10:35.000000');
 
 --
 -- Disparadores `auth_user`
@@ -290,7 +292,28 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (42, '2019-04-07 22:37:26.594302', '8', 'Litro', 1, '[{\"added\": {}}]', 8, 1),
 (43, '2019-04-07 23:07:33.971676', '8', '19.036.216-7, Katherine, tipo vendedor, premium 0, caduce 2019-04-03', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
 (44, '2019-04-07 23:10:03.675062', '2', 'Rancho', 1, '[{\"added\": {}}]', 12, 1),
-(45, '2019-04-07 23:25:26.458975', '2', 'Rancho', 2, '[]', 12, 1);
+(45, '2019-04-07 23:25:26.458975', '2', 'Rancho', 2, '[]', 12, 1),
+(46, '2019-04-17 18:29:39.625785', '5', '19.169.969-6, Oscar, tipo vendedor, premium 3, caduce 2019-03-27', 2, '[{\"changed\": {\"fields\": [\"tipo_premium\"]}}]', 7, 1),
+(47, '2019-04-18 00:13:04.063672', '2', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"imagen_banner\"]}}]', 12, 1),
+(48, '2019-04-18 00:13:12.785612', '1', 'Kampito', 2, '[{\"changed\": {\"fields\": [\"imagen_banner\"]}}]', 12, 1),
+(49, '2019-04-19 04:57:33.675349', '1', 'Kampito', 2, '[{\"changed\": {\"fields\": [\"user\", \"ubicacion_local\"]}}]', 12, 1),
+(50, '2019-04-26 00:51:51.047719', '2', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(51, '2019-04-26 01:39:15.834629', '2', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(52, '2019-04-27 19:57:35.454357', '1', '10% de descuento en conservas con compras arriba de 20000', 1, '[{\"added\": {}}]', 10, 1),
+(53, '2019-04-30 17:42:42.278823', '2', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(54, '2019-04-30 17:55:46.221529', '2', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(55, '2019-05-01 06:34:51.331344', '9', '19.169.969-7, Maria, tipo vendedor, premium 2, caduce 2019-05-01', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\", \"tipo_premium\"]}}]', 7, 1),
+(56, '2019-05-01 06:35:30.557266', '3', 'MegaMax', 1, '[{\"added\": {}}]', 12, 1),
+(57, '2019-05-01 06:37:06.350120', '3', 'MegaMax', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(58, '2019-05-04 04:57:40.135328', '8', '19.036.216-7, Katherine, tipo cliente, premium 0, caduce 2019-04-03', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(59, '2019-05-04 05:01:39.013142', '8', '19.036.216-7, Katherine, tipo vendedor, premium 0, caduce 2019-04-03', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(60, '2019-05-04 05:10:35.334311', '15', '11.111.111-1', 1, '[{\"added\": {}}]', 4, 1),
+(61, '2019-05-04 05:10:42.214230', '15', '11.111.111-1', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(62, '2019-05-04 05:10:57.147809', '10', '11.111.111-1, prueba, tipo vendedor, premium 0, caduce 2019-05-04', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(63, '2019-05-04 05:11:40.054103', '10', '11.111.111-1, prueba, tipo cliente, premium 0, caduce 2019-05-04', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(64, '2019-05-05 18:51:08.513513', '4', 'Sin definir', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(65, '2019-05-05 19:21:38.050138', '10', '11.111.111-1, prueba, tipo vendedor, premium 0, caduce 2019-05-04', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(66, '2019-05-05 19:21:50.278088', '4', 'Sin definir', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -369,7 +392,11 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (24, 'cliente', '0002_auto_20190401_2329', '2019-04-02 02:30:01.534765'),
 (25, 'vendedor', '0005_auto_20190401_2329', '2019-04-02 02:30:01.613796'),
 (26, 'vendedor', '0006_oferta_activado', '2019-04-05 21:37:25.414693'),
-(27, 'vendedor', '0007_auto_20190407_2004', '2019-04-08 00:04:50.913266');
+(27, 'vendedor', '0007_auto_20190407_2004', '2019-04-08 00:04:50.913266'),
+(28, 'vendedor', '0008_auto_20190419_0053', '2019-04-19 04:54:02.414035'),
+(29, 'vendedor', '0009_local_activado', '2019-04-25 20:32:00.868231'),
+(30, 'vendedor', '0010_auto_20190427_0149', '2019-04-27 05:49:46.867783'),
+(31, 'vendedor', '0011_auto_20190505_2247', '2019-05-06 02:47:32.030947');
 
 -- --------------------------------------------------------
 
@@ -388,8 +415,8 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('9docuovavoa5x920pw6dx3gx82pdanyr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-04-22 00:12:54.152741'),
-('wly0b0tsglzq4oh8t61j6bifmgawmpwd', 'OGI1NTcwOTM0N2ZiYzNjYmZmNWYyNzBkNzg5ZDlhMzU3NjVhMzEyMzp7Il9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-04-15 01:32:22.207073');
+('wly0b0tsglzq4oh8t61j6bifmgawmpwd', 'OGI1NTcwOTM0N2ZiYzNjYmZmNWYyNzBkNzg5ZDlhMzU3NjVhMzEyMzp7Il9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-04-15 01:32:22.207073'),
+('ysuuc7atoqqhq03ynwcn3c42e780v80c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-05-23 04:01:15.362003');
 
 -- --------------------------------------------------------
 
@@ -410,10 +437,52 @@ CREATE TABLE `registration_tipo_usuarios` (
 --
 
 INSERT INTO `registration_tipo_usuarios` (`id`, `tipo_usuario`, `tipo_premium`, `fecha_caducidad`, `user_id_id`) VALUES
-(5, 'vendedor', 0, '2019-03-27', 11),
+(5, 'vendedor', 3, '2019-03-27', 11),
 (6, 'cliente', 0, '2019-03-27', 12),
 (7, 'administrador', 0, NULL, 1),
-(8, 'vendedor', 0, '2019-04-03', 13);
+(8, 'vendedor', 0, '2019-04-03', 13),
+(9, 'vendedor', 2, '2019-05-01', 14),
+(10, 'vendedor', 0, '2019-05-04', 15);
+
+--
+-- Disparadores `registration_tipo_usuarios`
+--
+DELIMITER $$
+CREATE TRIGGER `crear_actualizar_local` AFTER UPDATE ON `registration_tipo_usuarios` FOR EACH ROW BEGIN
+declare verificador int;
+declare tipo_antiguo varchar(20) ;
+declare tipo_nuevo varchar(20);
+set verificador = 0;
+set tipo_antiguo = old.tipo_usuario;
+set tipo_nuevo = new.tipo_usuario;
+select count(*)
+into verificador
+from vendedor_local
+where user_id=new.user_id_id;
+
+if tipo_antiguo != tipo_nuevo then
+    IF tipo_antiguo = 'cliente' and tipo_nuevo = 'vendedor' THEN
+    	if verificador = 0 then
+    		insert into vendedor_local (nombre_local, ubicacion_local, imagen_muestra, imagen_banner, user_id, activado) values ("Sin definir", "Sin definir","core/sin_imagen.jpg", "core/sin_imagen.jpg",new.user_id_id, true);
+    	else
+            update vendedor_local
+            set activado = true
+            where user_id = new.user_id_id;
+        end if;   
+    else
+        update vendedor_local
+        set activado = false
+        where user_id = new.user_id_id;
+
+        update vendedor_productos
+        set activado = false
+        where user_id = new.user_id_id;
+     end if;
+end if;
+
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -452,16 +521,19 @@ CREATE TABLE `vendedor_local` (
   `ubicacion_local` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen_muestra` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen_banner` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
+  `activado` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `vendedor_local`
 --
 
-INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_muestra`, `imagen_banner`, `user_id`) VALUES
-(1, 'Kampito', 'Calle 48, local 56', 'vendedor/img_tiendas/sin_imagen.jpg', 'vendedor/img_tiendas/sin_imagen_kjompAj.jpg', 11),
-(2, 'Rancho', 'Calle 48, local 67', 'core/sin_imagen.jpg', 'core/sin_imagen.jpg', 13);
+INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_muestra`, `imagen_banner`, `user_id`, `activado`) VALUES
+(1, 'Kampito', 'Calle 48, local 56', 'vendedor/img_tiendas/48417047_768112653535527_9149281488766763008_n.png', 'vendedor/img_tiendas/Mi_Tienda_M8pMWTQ.png', 11, 1),
+(2, 'Rancho', 'Calle 48, local 67', 'core/sin_imagen.jpg', 'vendedor/img_tiendas/Mi_Tienda.png', 13, 1),
+(3, 'MegaMax', 'Calle 48, local 69', 'vendedor/img_tiendas/descarga.jpg', 'vendedor/Mi_Tienda.png', 14, 1),
+(4, 'Sin definir', 'Sin definir', 'core/sin_imagen.jpg', 'core/sin_imagen.jpg', 15, 0);
 
 -- --------------------------------------------------------
 
@@ -476,6 +548,18 @@ CREATE TABLE `vendedor_oferta` (
   `local_id` int(11) DEFAULT NULL,
   `activado` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `vendedor_oferta`
+--
+
+INSERT INTO `vendedor_oferta` (`id`, `oferta`, `tipo_oferta`, `local_id`, `activado`) VALUES
+(1, '10% de descuento en conservas con compras arriba de 20000', 'convencional', 1, 1),
+(3, '10% de descuento en productos de limpieza', 'temporada', 1, 1),
+(4, '5% al final de su compra solo por abril', 'general', 1, 1),
+(5, '5% de descuento en especias', 'temporada', 1, 1),
+(6, '3x2 en sopas instantaneas mercadito', 'rango_diamante', 1, 0),
+(7, '10% de descuento en conservas con compras arriba de 20000', 'convencional', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -505,9 +589,8 @@ CREATE TABLE `vendedor_productos` (
 
 INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_oferta`, `stock`, `imagen`, `cambios_restantes`, `activado`, `categoria_id`, `unidad_medida_id`, `user_id`, `comentario`) VALUES
 (1, 'Arroz Tucapel 500gramos', 900, 0, 0, 50, 'vendedor/img_productos/7801420220138.png', 3, 1, 1, 3, 11, ''),
-(3, 'Pan de Molde', 1800, 0, 0, 250, 'core/sin_imagen.jpg', 3, 1, 1, 3, 11, ''),
-(4, 'Pasta frola', 600, 1, 300, 600, 'core/sin_imagen.jpg', 3, 1, 1, 3, 11, ''),
-(6, 'Arroz Marca Chancho', 300, 0, 0, 500, 'core/sin_imagen.jpg', 3, 1, 1, 3, 11, ''),
+(4, 'Pasta frola', 600, 1, 300, 600, 'vendedor/img_productos/pastafrola-membrillo-batata-dulce-de-leche-tartas-dulces-D_NQ_NP__eBn8ND8.jpg', 3, 1, 1, 3, 11, ''),
+(6, 'Arroz Marca Chancho', 300, 0, 0, 500, 'vendedor/img_productos/wmtcl.jpg', 3, 1, 1, 3, 11, ''),
 (13, 'Pansito', 0, 0, 0, 0, 'core/sin_imagen.jpg', 3, 0, 7, 3, 11, ''),
 (14, 'Cloro clorinda litro', 990, 0, 0, 200, 'vendedor/img_productos/clorinda-1-lt.jpg', 3, 1, 1, 3, 11, ''),
 (15, 'Arroz aruba pregraneado 500gr', 540, 0, 0, 100, 'vendedor/img_productos/Arroz_Aruba_Pregraneado_medio_kilo.jpg', 3, 1, 1, 3, 11, ''),
@@ -516,8 +599,15 @@ INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_of
 (18, 'Oregano kilo', 1150, 0, 0, 50, 'vendedor/img_productos/6593e88301bf4c-oregano-x-kilo-481618.jpg', 3, 1, 3, 4, 11, ''),
 (19, 'Cloro litro', 980, 0, 0, 300, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, ''),
 (20, 'Arroz aruba pregraneado 500gr', 550, 0, 0, 100, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, ''),
-(21, 'Pan de molde', 1800, 1, 1750, 200, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, ''),
-(22, 'Aceitunas Jumbo', 2200, 1, 1750, 200, 'core/sin_imagen.jpg', 3, 1, 8, 4, 13, '');
+(21, 'Pan de molde', 1800, 1, 1710, 200, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, ''),
+(22, 'Aceitunas Jumbo', 2200, 1, 1750, 200, 'core/sin_imagen.jpg', 3, 1, 8, 4, 13, ''),
+(23, 'Azucar Iansa de kilo', 900, 0, 0, 300, 'vendedor/img_productos/wmtcl_1.jpg', 3, 1, 1, 3, 11, ''),
+(24, 'Azucar Acuenta', 650, 1, 550, 500, 'vendedor/img_productos/wmtcl_2.jpg', 3, 1, 1, 3, 11, ''),
+(25, 'Azucar Rubia', 1000, 0, 0, 500, 'vendedor/img_productos/wmtcl_3.jpg', 3, 1, 1, 3, 11, ''),
+(26, 'Duraznos en conserva wasil', 950, 0, 0, 100, 'vendedor/img_productos/wmtcl_4.jpg', 3, 1, 8, 3, 13, ''),
+(27, 'Lomito san jose en agua', 1250, 1, 1000, 500, 'vendedor/img_productos/wmtcl_5.jpg', 3, 1, 8, 3, 13, ''),
+(28, 'Palmitos enteros', 1890, 1, 1550, 200, 'vendedor/img_productos/wmtcl_6.jpg', 3, 1, 8, 3, 13, ''),
+(29, 'Jurel san jose', 1250, 0, 0, 300, 'vendedor/img_productos/wmtcl_7.jpg', 3, 1, 8, 3, 13, '');
 
 -- --------------------------------------------------------
 
@@ -727,7 +817,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
@@ -757,7 +847,7 @@ ALTER TABLE `cliente_productos_listas`
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `django_content_type`
@@ -769,13 +859,13 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_tipo_usuarios`
 --
 ALTER TABLE `registration_tipo_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_categoria_productos`
@@ -787,19 +877,19 @@ ALTER TABLE `vendedor_categoria_productos`
 -- AUTO_INCREMENT de la tabla `vendedor_local`
 --
 ALTER TABLE `vendedor_local`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_oferta`
 --
 ALTER TABLE `vendedor_oferta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_productos`
 --
 ALTER TABLE `vendedor_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_puntos`

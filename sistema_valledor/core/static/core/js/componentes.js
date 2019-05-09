@@ -17,4 +17,6 @@
     $(window).on('load', function () {
       $(".loader").fadeOut("slow");});
 
-
+    $('.grid-padre').masonry({
+      itemSelector: '.grid-hijo'
+    });

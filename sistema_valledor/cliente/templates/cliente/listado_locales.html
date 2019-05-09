@@ -17,20 +17,67 @@
             <hr>
         </div>
         <!--FIN TITULO-->
-        <a href="{%url 'cliente:detalle_locales' request.user.id%}" class="btn btn-success">Ver Tienda</a>
-        <a href="{%url 'cliente:listar_productos_tiendas' request.user.id%}" class="btn btn-primary">Listar Productos</a>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
-        </div>
+    </div>
+    <div class="row justify-content-center">
+        <!--OBJETO LISTA-->
+        {%for obj in locales%}
+            {%if obj.nombre_local != 'Sin definir'%}
+            <!--El contenedor de obj-->
+            <div class="col-12 col-sm-10 mb-4 pl-2 pr-2" data-aos="zoom-in-right">
+                <!--clase media-->
+                <div class="media shadow-sm rounded  {%if obj.tipo_premium != 0%}premium{%else%}div-local{%endif%}">
+                    <!--Contenedor de la imagen-->
+                    <div class="col-4 col-sm-3 p-2">
+                        <a href="{%url 'cliente:detalle_locales' obj.user.id%}"><img class="img-fluid rounded" src="/media/{{obj.imagen_muestra}}"></a>
+                    </div>
+                    <!--Contenedor del parrafo-->
+                    <div class="col-8 col-sm-8 p-2">
+                      <div class="media-body">
+                        <!--Titulo para Mobile-->
+                        <p class="d-sm-none"><a href="{%url 'cliente:detalle_locales' obj.user.id%}" class="h6">
+                            <strong>{%if obj.tipo_premium != 0%}<span class="icon-android-star"> </span>{%endif%}{{obj.nombre_local}}</strong>
+                        </a></p>
+
+                          <!--Titulo para Pc-->
+                        <h4 class="d-none d-sm-block pt-3"><a href="{%url 'cliente:detalle_locales' obj.user.id%}">
+                            <strong>{%if obj.tipo_premium != 0%}<span class="icon-android-star"> </span>{%endif%}{{obj.nombre_local}}</strong>
+                        </a></h4>
+                        {%if obj.oferta_general%}
+                        <p class="d-none d-sm-block color-rojo"><strong>Oferta! {{obj.oferta_general}}</strong></p>
+                        {%endif%}
+
+                        <p class="d-none d-sm-block">Ubicacion:  <strong>{{obj.ubicacion_local}}</strong></p>
+
+                        {%if obj.productos != 0 or obj.productos_oferta != 0 %}
+                        <p class="m-0">Contamos con</p>
+                        <p>
+                            {%if obj.productos != 0%}<span class="badge badge-info">{{obj.productos}} Productos</span>{%endif%}
+                            {%if obj.productos_oferta != 0%}<span class="badge badge-danger">{{obj.productos_oferta}} Prod. en oferta!</span>{%endif%}
+                            {%if obj.numero_ofertas != 0%}<span class="badge badge-warning">{{obj.numero_ofertas}} Ofertas en compras!</span>{%endif%}
+                        </p>
+                        {%endif%}
+
+                        <!--Botones-->
+
+                          <!--Botones PC-->
+                         <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:detalle_locales' obj.user.id%}" class="btn btn-primary"><span class="icon-thumbs-up"></span> Tienda</a>
+                            <a href="{%url 'cliente:listar_productos_tiendas' obj.user.id%}" class="btn btn-success"><span class="icon-apple"></span> Productos</a></p>
+
+                          <!--Botones Mobile-->
+                         <p class="d-sm-none mb-1"><a href="{%url 'cliente:detalle_locales' obj.user.id%}" class="btn btn-primary"><span class="small">Tienda</span></a>
+                            <a href="{%url 'cliente:listar_productos_tiendas' obj.user.id%}" class="btn btn-success"><span class="small">Productos</span></a></p>
+
+                      </div>
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+        {%endfor%}
+        <!--FIN OBJETO LISTA-->
 
         <div class="col-12 m-4">
             <a href="{%url 'core:index'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>
-        <!--FIN CONTENIDO-->
     </div>
 </div>
 {%endblock%}

@@ -185,3 +185,21 @@
         font-weight:bold;
         }
 		/*------------------------------ END PRODUCTOS------------------------------*/
+
+		/*------------------------------ LOCALES------------------------------*/
+		.div-local{
+		transition:0.5s all;
+		}
+		.premium{
+		transition:0.5s all;
+		}
+
+		.div-local:hover{
+		transform:scale(1.03);
+		}
+
+		.premium:hover{
+		transform:scale(1.1);
+		}
+
+		/*------------------------------END LOCALES------------------------------*/

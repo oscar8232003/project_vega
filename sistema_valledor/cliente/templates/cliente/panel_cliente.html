@@ -45,13 +45,15 @@
         <div CLASS="col-12 col-md-9 pb-3">
             <h3 class="text-center pb-3 d-none d-lg-block">Hola {{cliente.first_name}}, que tal?</h3>
             <h5 class="pb-3"><strong>Tus puntos en diferentes tiendas</strong></h5>
-            <p>Tienda kampito tienes <strong class="badge badge-info">20 puntos</strong>, tienes descuento de <span class="">cliente frecuente</span></p>
+            <p>*Construccion* Tienda kampito tienes <strong class="badge badge-info">20 puntos</strong>, tienes descuento de <span class="">cliente frecuente</span></p>
             <hr>
             <h5 class="pb-3"><strong>Tiendas con ofertas generales</strong></h5>
-            <p class="m-0"> <span class="icon-android-star"> </span> Tienda kampito <span class="badge badge-success">Premium</span></p>
-            <p><strong>Un 50% de descuento en productos en compras superiores a 20000 solo valido para marzo.</strong></p>
-            <p class="m-0">Tienda kampito</p>
-            <p>un 50% de descuento en productos en compras superiores a 20000 solo valido para marzo.</p>
+            {%for oferta in oferta_general%}
+                <p>
+                    <img src="{{oferta.local.imagen_muestra.url}}" width="50px" height="50px" class="rounded-circle">
+                     {{oferta.local.nombre_local}} <a href="{%url 'cliente:detalle_locales' oferta.local.user.id%}"><span class="badge badge-success">Ir a la tienda</span></a></p>
+                <p><strong><span class="icon-android-star"> </span> {{oferta.oferta}}.</strong></p>
+            {%endfor%}
         </div>
         <!--MENU-->
     </div>

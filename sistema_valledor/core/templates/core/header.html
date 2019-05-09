@@ -83,9 +83,9 @@
 							<!--FIN PARA VENDEDORES-->
 
 							<!--INICIO PARA CLIENTES-->
-							{%if request.user.id is not None and request.session.tipo == 'cliente' or request.session.tipo == 'administrador'%}
+							{%if request.user.id is not None and request.session.tipo == 'cliente'%}
 						    <li class="nav-item">
-						        <a class="nav-link {%if request.path|slice:"9:22" == 'panel_cliente' or request.path|slice:"1:8" == 'cliente'%}active{%endif%}" href="{%url 'cliente:panel_cliente' request.user.id%}">Panel de Clientes<span class="sr-only">(current)</span></a>
+						        <a class="nav-link {%if request.path|slice:"9:22" == 'panel_cliente'%}active{%endif%}" href="{%url 'cliente:panel_cliente' request.user.id%}">Panel de Clientes<span class="sr-only">(current)</span></a>
 						    </li>
 							{%endif%}
 							<!--FIN PARA CLIENTES Y VENDEDORES-->
@@ -93,7 +93,7 @@
 							<!--INICIO PARA ADMINISTRADOR-->
 							{%if request.user.id is not None and request.session.tipo == 'administrador'%}
 						    <li class="nav-item">
-						        <a class="nav-link" href="{url 'admin:index'}">Admin<span class="sr-only">(current)</span></a>
+						        <a class="nav-link" href="{%url 'admin:index'%}">Admin<span class="sr-only">(current)</span></a>
 						    </li>
 							{%endif%}
 							<!--FIN PARA ADMINISTRADOR-->

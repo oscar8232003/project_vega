@@ -12,7 +12,7 @@
             <h3 class="pb-3"><strong>{{object.nombre}}</strong></h3>
 
             <h5><strong>Tienda</strong></h5>
-            <p><span class="icon-android-star"></span> {{local.nombre_local}} <a href="#" class="badge badge-info">Visitar tienda!</a></p>
+            <p>{{local.nombre_local}} <a href="{%url 'cliente:detalle_locales' object.user.id%}" class="badge badge-info">Visitar tienda!</a></p>
 
             {%if object.oferta is False%}
             <p class="mb-0"><strong>Precio</strong></p>

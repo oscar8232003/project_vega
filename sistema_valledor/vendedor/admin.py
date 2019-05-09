@@ -3,19 +3,27 @@ from .models import Local, Categoria_Productos, Unidad_Medida, Productos, Oferta
 # Register your models here.
 
 class Local_admin(admin.ModelAdmin):
-    pass
+    list_display = ('nombre_local', 'user', 'ubicacion_local', 'activado',)
+    search_fields = ('nombre_local',)
+    list_filter = ('user',)
 
 class Categoria_Productos_admin(admin.ModelAdmin):
     pass
 
 class Unidad_Medida_admin(admin.ModelAdmin):
-    pass
+    list_display = ('medida_unidad', 'medida_plural')
+    search_fields = ('medida_unidad',)
+    list_filter = ('medida_unidad', 'medida_plural')
 
 class Productos_admin(admin.ModelAdmin):
-    pass
+    list_display = ('nombre', 'user', 'precio', 'categoria', 'stock', 'unidad_medida', 'activado')
+    search_fields = ('nombre',)
+    list_filter = ('user',)
 
 class Oferta_admin(admin.ModelAdmin):
-    pass
+    list_display = ('oferta', 'tipo_oferta', 'local', 'activado')
+    search_fields = ('user',)
+    list_filter = ('local', 'local__user')
 
 class Puntos_admin(admin.ModelAdmin):
     pass

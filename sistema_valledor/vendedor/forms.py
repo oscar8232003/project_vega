@@ -1,5 +1,5 @@
 from django import forms
-from .models import Productos
+from .models import Productos, Local, Oferta
 
 class Productos_form(forms.ModelForm):
     class Meta:
@@ -43,4 +43,52 @@ class Productos_form(forms.ModelForm):
             'unidad_medida':forms.Select(attrs={'class':'form-control', 'placeholder':'Seleccione la unidad de medida'}),
             'comentario':forms.Textarea(attrs={'class':'form-control', 'placeholder':'Descripcion del producto', 'rows':3}),
             'activado': forms.CheckboxInput(attrs={'style':'width:18px; height:18px'}),
+        }
+
+class Local_form(forms.ModelForm):
+    class Meta:
+        model = Local
+
+        fields = [
+            'user',
+            'nombre_local',
+            'ubicacion_local',
+            'imagen_muestra',
+            'imagen_banner',
+            'activado'
+        ]
+
+        label = {
+            'nombre_local':"Nombre del local",
+            'ubicacion_local':"Ubicacion del local",
+            'imagen_muestra':"Imagen de muestra pequeña",
+            'imagen_banner':"Imagen superior",
+            'activado': "El local estara activo?"
+        }
+
+        widgets = {
+            'user':forms.HiddenInput,
+            'nombre_local':forms.TextInput(attrs = {'class':'form-control', 'placeholder':'Ingrese el nombre '}),
+            'ubicacion_local':forms.TextInput(attrs = {'class':'form-control', 'placeholder':'Ingrese la ubicacion'}),
+            'imagen_muestra':forms.ClearableFileInput,
+            'imagen_banner':forms.ClearableFileInput,
+            'activado': forms.CheckboxInput(attrs={'style': 'width:18px; height:18px'}),
+        }
+
+class Ofertas_form(forms.ModelForm):
+    class Meta:
+        model=Oferta
+
+        fields=[
+            'local',
+            'oferta',
+            'tipo_oferta',
+            'activado',
+        ]
+
+        widgets = {
+            'local':forms.HiddenInput,
+            'oferta':forms.TextInput(attrs={'placeholder':'Ingrese la oferta a mostrar','class':'form-control'}),
+            'tipo_oferta':forms.Select(attrs={'class':'form-control'}),
+            'activado':forms.CheckboxInput(attrs={'style': 'width:18px; height:18px'}),
         }

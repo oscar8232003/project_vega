@@ -11,27 +11,261 @@
 <div class="container container-whithe shadow">
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
+        <div class="col-12 text-center pt-4">
             <h2>Bienvenido a la seccion de tus ofertas</h2>
             <p><em>Aqui podras administrar las ofertas hacia los clientes, entre mas ofertas tengas, mas visible es tu tienda!</em></p>
             <hr>
         </div>
+        <!--ALERTS-->
+        <div class="col-12 text-center">
+            {%if request.GET.msg == 'form_ok'%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span> Oferta agregada exitosamente!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%elif request.GET.msg == 'del_ok'%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span> Oferta eliminada exitosamente!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%elif request.GET.msg == 'act_ok'%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span> Oferta actualizada exitosamente!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%elif request.GET.msg == 'del_error'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> No se pudo eliminar la oferta, intentelo otra vez.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+        </div>
+        <!--FIN ALERTS-->
         <!--FIN TITULO-->
-        <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success">Agregar una oferta</a>
-        <a href="{%url 'vendedor:actualizar_oferta' request.user.id%}" class="btn btn-primary">Actualizar una oferta</a>
-        <a href="{%url 'vendedor:eliminar_oferta' request.user.id%}" class="btn btn-danger">Eliminar una oferta</a>
+
+
         <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
+        <div class="col-12 pb-5">
+            <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success">Agregar una oferta</a>
         </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+        <div class="col-12 col-md-8 pb-3">
+            <h4 class="pb-3">Informacion y Categoria de ofertas</h4>
+            <h5><span class="icon-android-star"></span> Ofertas Generales <span class="badge badge-pill badge-warning">Premium</span></h5>
+            <p><strong>Este tipo de oferta es unico, solamente se puede tener 1 oferta general activada</strong>, esta oferta es la primera
+            la cual se le muestra al cliente, puedes crear las que quieras pero solamente puedes tener 1 activada y es solamente
+                 para usuarios premium, no lo olvides!.</p>
+            <h5><span class="icon-android-star"></span> Ofertas de Temporadas <span class="badge badge-pill badge-warning">Premium</span></h5>
+            <p><strong>Este tipo de oferta es la de temporada</strong>, no se especificara a cual temporada pertenecera para
+            que esta seccion sea mas facil de manejar, usted como vendedor puede crear las ofertas de temporadas que quiera
+            sin limite para su local, este beneficio es solo para clientes premium!.</p>
+            <h5>-Ofertas por rango de cliente</h5>
+            <p><strong>Este tipo de ofertas va dirigido a ofertas por rango de cliente, puedes crear ofertas solamente para cliente
+            que sean de distinto rango, ya sea plata, oro y diamante</strong>, cada rango se representada por la fidelidad a su local, por ende
+            entre mas compre un cliente, mas beneficios le puede dar para incentivarlo a que siga con usted.</p>
+            <h5>-Ofertas convencionales</h5>
+            <p>Este tipo de ofertas, son ofertas comunes y corrientes, se pueden crear ilimitadamente y son propias de todo cliente.</p>
+            <hr>
         </div>
+        {%if tipo.tipo_premium != 0%}
+        <div class="col-12 col-md-8">
+            <hr>
+            <h5><strong>Ofertas Generales</strong></h5>
+            {%if general%}
+                {%for oferta_general in general%}
+                <p class="d-none d-sm-block">
+                    <!--PC-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_general.id%}" class="badge badge-primary">Actualizar</a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_general.id%}" class="badge badge-danger">Eliminar</a>
+                    {%if oferta_general.activado%}
+                    <span class="badge badge-pill badge-success">Activada</span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger">No Activada</span>
+                    {%endif%}
+                     {{oferta_general.oferta}}</p>
+
+                <p class="d-sm-none">
+                    <!--mobile-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_general.id%}" class="badge badge-primary"><span class="icon-pencil"></span></a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_general.id%}" class="badge badge-danger"><span class="icon-trash-b"></span></a>
+                    {%if oferta_general.activado%}
+                    <span class="badge badge-pill badge-success"><span class="icon-android-done"></span></span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger"><span class="icon-times-circle"></span></span>
+                    {%endif%}
+                    {{oferta_general.oferta}}</p>
+                {%endfor%}
+            {%else%}
+            <p>No hay ofertas actualmente para esta seccion</p>
+            {%endif%}
+            <hr>
+        </div>
+        <div class="col-12 col-md-8">
+            <h5><strong>Ofertas de Temporadas</strong></h5>
+            {%if temporada%}
+                {%for oferta_temporada in temporada%}
+                <p class="d-none d-sm-block">
+                    <!--PC-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_temporada.id%}" class="badge badge-primary">Actualizar</a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_temporada.id%}" class="badge badge-danger">Eliminar</a>
+                    {%if oferta_temporada.activado%}
+                    <span class="badge badge-pill badge-success">Activada</span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger">No Activada</span>
+                    {%endif%}
+                     {{oferta_temporada.oferta}}</p>
+
+                <p class="d-sm-none">
+                    <!--mobile-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_temporada.id%}" class="badge badge-primary"><span class="icon-pencil"></span></a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_temporada.id%}" class="badge badge-danger"><span class="icon-trash-b"></span></a>
+                    {%if oferta_temporada.activado%}
+                    <span class="badge badge-pill badge-success"><span class="icon-android-done"></span></span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger"><span class="icon-times-circle"></span></span>
+                    {%endif%}
+                    {{oferta_temporada.oferta}}</p>
+                {%endfor%}
+            {%else%}
+                <p>No hay ofertas actualmente para esta seccion</p>
+            {%endif%}
+            <hr>
+        </div>
+        {%endif%}
+        <div class="col-12 col-md-8">
+            <h5><strong>Ofertas por rango de cliente</strong></h5>
+            <h6><strong>Clientes Diamante</strong></h6>
+            {%if rango_diamante%}
+                {%for oferta_diamante in rango_diamante%}
+                <p class="d-none d-sm-block">
+                    <!--PC-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_diamante.id%}" class="badge badge-primary">Actualizar</a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_diamante.id%}" class="badge badge-danger">Eliminar</a>
+                    {%if oferta_diamante.activado%}
+                    <span class="badge badge-pill badge-success">Activada</span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger">No Activada</span>
+                    {%endif%}
+                     {{oferta_diamante.oferta}}</p>
+
+                <p class="d-sm-none">
+                    <!--mobile-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_diamante.id%}" class="badge badge-primary"><span class="icon-pencil"></span></a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_diamante.id%}" class="badge badge-danger"><span class="icon-trash-b"></span></a>
+                    {%if oferta_diamante.activado%}
+                    <span class="badge badge-pill badge-success"><span class="icon-android-done"></span></span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger"><span class="icon-times-circle"></span></span>
+                    {%endif%}
+                    {{oferta_diamante.oferta}}</p>
+                {%endfor%}
+            {%else%}
+                <p>No hay ofertas actualmente para esta seccion</p>
+            {%endif%}
+
+            <h6><strong>Clientes Oro</strong></h6>
+            {%if rango_oro%}
+                {%for oferta_oro in rango_oro%}
+                <p class="d-none d-sm-block">
+                    <!--PC-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_oro.id%}" class="badge badge-primary">Actualizar</a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_oro.id%}" class="badge badge-danger">Eliminar</a>
+                    {%if oferta_oro.activado%}
+                    <span class="badge badge-pill badge-success">Activada</span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger">No Activada</span>
+                    {%endif%}
+                     {{oferta_oro.oferta}}</p>
+
+                <p class="d-sm-none">
+                    <!--mobile-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_oro.id%}" class="badge badge-primary"><span class="icon-pencil"></span></a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_oro.id%}" class="badge badge-danger"><span class="icon-trash-b"></span></a>
+                    {%if oferta_oro.activado%}
+                    <span class="badge badge-pill badge-success"><span class="icon-android-done"></span></span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger"><span class="icon-times-circle"></span></span>
+                    {%endif%}
+                    {{oferta_oro.oferta}}</p>
+                {%endfor%}
+            {%else%}
+                <p>No hay ofertas actualmente para esta seccion</p>
+            {%endif%}
+
+            <h6><strong>Clientes Plata</strong></h6>
+            {%if rango_plata%}
+                {%for oferta_plata in rango_plata%}
+                <p class="d-none d-sm-block">
+                    <!--PC-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_plata.id%}" class="badge badge-primary">Actualizar</a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_plata.id%}" class="badge badge-danger">Eliminar</a>
+                    {%if oferta_plata.activado%}
+                    <span class="badge badge-pill badge-success">Activada</span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger">No Activada</span>
+                    {%endif%}
+                     {{oferta_plata.oferta}}</p>
+
+                <p class="d-sm-none">
+                    <!--mobile-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_plata.id%}" class="badge badge-primary"><span class="icon-pencil"></span></a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_plata.id%}" class="badge badge-danger"><span class="icon-trash-b"></span></a>
+                    {%if oferta_plata.activado%}
+                    <span class="badge badge-pill badge-success"><span class="icon-android-done"></span></span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger"><span class="icon-times-circle"></span></span>
+                    {%endif%}
+                    {{oferta_plata.oferta}}</p>
+                {%endfor%}
+            {%else%}
+                <p>No hay ofertas actualmente para esta seccion</p>
+            {%endif%}
+            <hr>
+        </div>
+        <div class="col-12 col-md-8">
+            <h5><strong>Ofertas convencionales</strong></h5>
+            {%if convencional%}
+                {%for oferta_convencional in convencional%}
+                 <p class="d-none d-sm-block">
+                    <!--PC-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_convencional.id%}" class="badge badge-primary">Actualizar</a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_convencional.id%}" class="badge badge-danger">Eliminar</a>
+                    {%if oferta_convencional.activado%}
+                    <span class="badge badge-pill badge-success">Activada</span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger">No Activada</span>
+                    {%endif%}
+                     {{oferta_convencional.oferta}}</p>
+
+                <p class="d-sm-none">
+                    <!--mobile-->
+                    <a href="{%url 'vendedor:actualizar_oferta' oferta_convencional.id%}" class="badge badge-primary"><span class="icon-pencil"></span></a>
+                    <a href="{%url 'vendedor:eliminar_oferta' oferta_convencional.id%}" class="badge badge-danger"><span class="icon-trash-b"></span></a>
+                    {%if oferta_convencional.activado%}
+                    <span class="badge badge-pill badge-success"><span class="icon-android-done"></span></span>
+                    {%else%}
+                    <span class="badge badge-pill badge-danger"><span class="icon-times-circle"></span></span>
+                    {%endif%}
+                    {{oferta_convencional.oferta}}</p>
+                {%endfor%}
+            {%else%}
+                <p>No hay ofertas actualmente para esta seccion</p>
+            {%endif%}
+            <hr>
+        </div>
+        <!--FIN CONTENIDO-->
 
         <div class="col-12 m-4">
             <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>
-        <!--FIN CONTENIDO-->
+
     </div>
 </div>
 {%endblock%}
