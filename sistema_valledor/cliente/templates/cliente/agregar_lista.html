@@ -2,23 +2,71 @@
 {%block title%}Crear Lista{%endblock%}
 {%block content%}
 <div class="container shadow container-whithe">
+    <div class="row">
+        <div class="col-12 pt-5 pb-1 text-center">
+            <h2>Seccion de creacion de listas</h2>
+            <p><em>Aqui puedes crear tus listas de compras.</em></p>
+            <hr>
+        </div>
+        <!--ALERTS-->
+        <div class="col-12 text-center">
+            {%if request.GET.msg == 'form_no_valid'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> No se pudo crear la lista, intentelo otra vez.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+        </div>
+    </div>
+    <!--FIN ALERTS-->
+    <form action="" class="row justify-content-center" method="POST" onsubmit="return validar_lista_agregar();" enctype="multipart/form-data">
+        {%csrf_token%}
+        <input type="hidden" name="user" id="id_user" value="{{request.user.id}}">
+        <div class="col-12 col-sm-4 form-group">
+            {{form.nombre.label}}
+            {{form.nombre}}
+            <div class="invalid-feedback">
+                <p id="id_nombre-invalid" class="m-0"></p>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12 col-sm-4 form-group">
+            {{form.local.label}}
+            {%if request.GET.nombre%}
+            <p class="m-0 color-rojo"><strong>Selecciona el local "{{request.GET.nombre}}"</strong></p>
+            {%endif%}
+            <select name="local" class="form-control" id="id_local">
+                <option value="" selected>---------</option>
+            {%for tienda in tiendas%}
+                {%if tienda.nombre_local != 'Sin definir'%}
+                <option value="{{tienda.id}}">{{tienda.nombre_local}}</option>
+                {%endif%}
+            {%endfor%}
+            </select>
+            <div class="invalid-feedback">
+                <p id="id_local-invalid" class="m-0"></p>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12 col-sm-4 form-group">
+             {{form.comentario_cliente.label}}
+             {{form.comentario_cliente}}
+             <div class="invalid-feedback">
+                <p id="id_comentario_cliente-invalid" class="m-0"></p>
+            </div>
+        </div>
+        <div class="w-100"></div>
 
+        <div class="col-12 form-group text-center mt-3">
+            <button type="submit" class="btn btn-success"><span data-icon="v"></span> Agregar</button>
+        </div>
+    </form>
     <div class="row justify-content-center">
-        <div class="col-12 text-center p-5">
-            <h2><strong>Creacion de Listas</strong></h2>
-        </div>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3 pt-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
-        </div>
-
         <div class="col-12 m-4">
-            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+            <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>
-        <!--FIN CONTENIDO-->
     </div>
 </div>
 {%endblock%}

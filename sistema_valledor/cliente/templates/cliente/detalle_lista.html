@@ -1,26 +1,202 @@
 {%extends 'core/base.html'%}
-{%block title%}Descripcion de la lista{%endblock%}
+{%block title%}{{lista.nombre}}{%endblock%}
 {%block content%}
 <div class="container shadow container-whithe">
-
     <div class="row justify-content-center">
-        <div class="col-12 text-center p-5">
-            <h2><strong>Descripcion de la lista</strong></h2>
+        <div class="col-12 text-center pt-4 pb-3">
+            <h2>Lista "{{lista.nombre}}"</h2>
+            <p>Aqui podras administrar tu lista de compra o hacer un pedido.</p>
+            <hr>
+            <!--ALERTS-->
+            {%if request.GET.msg%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+             <strong><span class="icon-angellist"></span>
+                 {%if request.GET.msg == 'act_ok'%}
+                    Comentario modificado exitosamente!
+                 {%elif request.GET.msg == 'act_ok_prod'%}
+                    Producto Modificado exitosamente
+                 {%elif request.GET.msg == 'elim_ok'%}
+                    Producto Eliminado exitosamente!
+                 {%endif%}
+             </strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            {%endif%}
+            {%if request.GET.msg_error%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <strong><span class="icon-exclamation-triangle"></span>
+                 {%if request.GET.msg_error == 'elim_error'%}
+                    No se pudo eliminar el producto, intentelo mas tarde!
+                 {%endif%}
+             </strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            {%endif%}
+
+            {%if mensaje_error%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             {%for x in mensaje_error%}
+                <p><strong><span class="icon-exclamation-triangle"></span>
+                    {{x}}
+                </strong></p>
+             {%endfor%}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            {%endif%}
+
+            {%if mensaje_ok%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+             <strong><span class="icon-angellist"></span>
+                 {{mensaje_ok}}
+             </strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            {%endif%}
+            <!--FIN ALERTS-->
         </div>
-        <a href="{%url 'cliente:actualizar_producto_lista' request.user.id request.user.id%}" class="btn btn-primary">actualizar prod de la lista</a>
-        <a href="{%url 'cliente:eliminar_producto_lista' request.user.id request.user.id%}" class="btn btn-danger">Eliminar prod de la lista</a>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+    </div>
+
+    <div class="row pb-md-5 pb-3">
+        <div class="col-md-3 col-12 pb-md-0 pb-4 text-center">
+            <h5>Estado de la lista</h5>
+            <h4 class="m-3">
+                {%if lista.estado_lista == 'normal'%}
+                <strong><span class="badge badge-pill badge-secondary">Normal</span></strong>
+                {%elif lista.estado_lista == 'enviada'%}
+                <strong><span class="badge badge-pill badge-primary">Enviada</span></strong>
+                {%elif lista.estado_lista == 'cancelada'%}
+                <strong><span class="badge badge-pill badge-danger">Cancelada</span></strong>
+                {%elif lista.estado_lista == 'armando_pedido'%}
+                <strong><span class="badge badge-pill badge-info">Armando el pedido</span></strong>
+                {%elif lista.estado_lista == 'lista_retiro'%}
+                <strong><span class="badge badge-pill badge-success">Lista para retiro</span></strong>
+                {%elif lista.estado_lista == 'completada'%}
+                <strong><span class="badge badge-pill badge-success">Completada</span></strong>
+                {%elif lista.estado_lista == 'no_retirada'%}
+                <strong><span class="badge badge-pill badge-danger">No retirada</span></strong>
+                {%endif%}
+            </h4>
+            <form action="" method="POST">
+                {%csrf_token%}
+                {%if lista.estado_lista == 'normal'%}
+                <button class="btn btn-success" value="mandar_pedido" name="hacer_pedido">Mandar el pedido</button>
+                {%elif lista.estado_lista == 'enviada' and lista.cancelaciones != 0%}
+                <button class="btn btn-danger" value="cancelar_pedido" name="cancelar_pedido">
+                    Cancelar el pedido
+                </button>
+                {%elif lista.estado_lista == 'completada'%}
+                <button class="btn btn-info" value="cambiar_normal_completada" name="cambiar_normal">
+                    Volver a lista normal
+                </button>
+                {%elif lista.estado_lista == 'no_retirada'%}
+                <button class="btn btn-info" value="cambiar_normal_no_retirada" name="cambiar_normal">
+                    Volver a lista normal
+                </button>
+                {%elif lista.estado_lista == 'cancelada'%}
+                <button class="btn btn-info" value="cambiar_normal_cancelada" name="cambiar_normal">
+                    Volver a lista normal
+                </button>
+                {%endif%}
+                {%if lista.cancelaciones != 0%}
+                <p class="pt-2">Le quedan <strong>{{lista.cancelaciones}}</strong> oportunidades para cancelar</p>
+                {%else%}
+                <p>Si quiere cancelar el pedido, contacte con el vendedor o contactenos a nosotros</p>
+                {%endif%}
+            </form>
         </div>
 
-        <div class="col-12 m-4">
-            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        <div class="col-md-5 col-12 pb-md-0 pb-2">
+            <hr class="d-block d-sm-none">
+            <h5>Total de la lista: <strong>${{total_aprox}}</strong></h5>
+            {%if productos%}
+            <h5>Productos marcados: <strong>${{total_marcado}}</strong></h5>
+            {%endif%}
         </div>
-        <!--FIN CONTENIDO-->
+
+        <div class="col-md-4 col-12 pb-md-0 pb-4">
+             <hr class="d-block d-sm-none">
+            <h5>Comentarios de la lista</h5>
+            {%if lista.comentario_cliente%}
+            <p>{{lista.comentario_cliente}}</p>
+            {%else%}
+            <p>No hay comentarios para esta lista</p>
+            {%endif%}
+            <a href="{%url 'cliente:actualizar_lista' lista.id%}?msg=act_lista" class="btn btn-primary btn-sm">Editar comentario</a>
+            {%if lista.comentario_vendedor%}
+            <hr>
+            <h5>Comentarios del vendedor</h5>
+            <p>{{lista.comentario_vendedor}}</p>
+            {%endif%}
+        </div>
+
+    </div>
+
+    <div class="row">
+        {%if productos%}
+        <div class="col-12 table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="2">Nombre del producto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio unitario</th>
+                  <th scope="col" class="text-center">Marcado</th>
+                </tr>
+              </thead>
+              <tbody>
+              <form action="" method="POST">
+               {%csrf_token%}
+              {%for producto in productos%}
+                <tr>
+
+                  <td class="pr-0">
+                    {%if lista.estado_lista == 'normal'%}
+                      <a href="{%url 'cliente:eliminar_producto_lista' lista.id producto.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
+                      <a href="{%url 'cliente:actualizar_producto_lista' lista.id producto.id%}" class="btn btn-primary"><span data-icon="u"></span></a>
+                    {%endif%}
+                  </td>
+                  <td>{{producto.productos.nombre}}</td>
+                  <td>{{producto.cantidad}}</td>
+                  <td>{{producto.precio_producto}}</td>
+                  <td class="text-center">
+                      <input type="checkbox" id="checkbox_{{producto.id}}" name="{{producto.id}}" style="width:18px;height:18px"
+                      {%if producto.producto_marcado%}checked{%endif%}
+                      {%if tipo.tipo_usuario == 'cliente' and lista.estado_lista != 'normal'%}
+                      disabled
+                      {%endif%}>
+                  </td>
+                </tr>
+              {%endfor%}
+                  {%if tipo.tipo_usuario == 'cliente' and lista.estado_lista == 'normal'%}
+                  <tr>
+                    <td colspan="4"></td>
+                    <td class="text-center"><input type="submit" value="Guardar" class="btn btn-primary" name="Guardar_progreso"></td>
+                  </tr>
+                  {%endif%}
+              </form>
+              </tbody>
+            </table>
+        </div>
+        {%else%}
+        <div class="col-12 text-center pt-5 pb-5">
+          <h4>No hay productos añadidos en esta lista aun.</h4>
+        </div>
+
+        {%endif%}
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-4 mb-4">
+            <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
     </div>
 </div>
 {%endblock%}

@@ -20,6 +20,8 @@
                 {%endif%}
                  Productos de la tienda {{local.nombre_local}}</h2>
             <p><em>Aqui encontraras todos los productos pertenecientes a esta tienda.</em></p>
+            <p class="d-none d-md-block">Si no puedes visualizar bien un producto,
+                <a href="{%url 'cliente:listar_productos_tiendas' local.user.id%}" class="btn btn-light">Haz click aqui</a></p>
             <hr>
         </div>
         <!--FIN TITULO-->

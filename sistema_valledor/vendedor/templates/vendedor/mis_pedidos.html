@@ -17,15 +17,121 @@
             <hr>
         </div>
         <!--FIN TITULO-->
-        <a href="{%url 'vendedor:detalle_mis_pedidos' request.user.id%}" class="btn btn-info">Detalle de un pedido</a>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando.gif" alt="" class="img-fluid">
+        <!--FILTROS Y BUSCADORES-->
+        <form action="" method="POST" class="col-12 col-md-4" onsubmit="return validar_buscar();">
+            {%csrf_token%}
+            <label for="buscar_producto">Buscador de pedidos</label>
+            <input type="text" name="buscar" class="form-control" id="buscar_producto">
+             <div class="invalid-feedback">
+                <p id="buscar_producto-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Buscar Lista" class="btn btn-secondary mt-2">
+        </form>
+
+        <div class="col-7 col-md-4 mt-4 mt-md-4 text-center">
+            <li class="list-group-item active text-center btn bg-base bc-base"  data-toggle="collapse" href="#categorias_lg" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <strong>Estado de pedidos <span class="icon-angle-double-down"></span></strong>
+                </li>
+                <div class="list-group-item collapse pr-0 pl-0" id="categorias_lg">
+                  <ul class="list-group list-group-flush">
+                      <a href="{%url 'vendedor:mis_pedidos' request.user.id%}?estado_lista=enviada" class="list-group-item Categorias">Lista Enviada</a>
+                      <a href="{%url 'vendedor:mis_pedidos' request.user.id%}?estado_lista=armando_pedido" class="list-group-item Categorias">Preparando lista</a>
+                      <a href="{%url 'vendedor:mis_pedidos' request.user.id%}?estado_lista=lista_retiro" class="list-group-item Categorias">Lista para retiro</a>
+                      <a href="{%url 'vendedor:mis_pedidos' request.user.id%}?estado_lista=no_retirada" class="list-group-item Categorias">Lista no retirada</a>
+                  </ul>
+                </div>
         </div>
 
+        <div class="col-5 col-md-4 mt-4 mt-md-4 text-center">
+            <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="btn btn-primary"><span class="icon-list"></span> Mis Pedidos</a>
+        </div>
+        <!--FIN DE FILTROS Y BUSCADORES-->
+
+        <!--CONTENIDO-->
+        {%if listas%}
+        {%for lista in listas%}
+        <div class="col-12 col-md-6 p-3" data-aos="zoom-in-right">
+            <div class="media shadow rounded productos_listar">
+                <!--Contenedor de la imagen-->
+                <div class="col-4 col-sm-3 p-2">
+                    <a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}">
+                        <img class="img-fluid rounded" src="{{lista.local.imagen_muestra.url}}">
+                    </a>
+                </div>
+                <!--Contenedor del parrafo-->
+                <div class="col-7 col-sm-9 p-2">
+                  <div class="media-body">
+                      <!--Titulo para Mobile-->
+                    <p class="d-sm-none mb-1">
+                        <a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="h6">
+                        <strong>{{lista.nombre}}</strong>
+                        </a>
+                    </p>
+                      <!--Titulo para PC-->
+                    <p class="d-none d-sm-block">
+                        <a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="h4">
+                            <strong>{{lista.nombre}}</strong>
+                        </a>
+                    </p>
+                      <!--Fecha creacion-->
+                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Actualizacion: <strong>{{lista.fecha_actualizacion|date:"d/m/Y"}}</strong></p>
+                      <!--Total-->
+                    <p class="mb-1">Total: <strong>$ {{lista.total}}</strong></p>
+                      <!--Estado-->
+                    <p>Estado
+                        {%if lista.estado_lista == 'enviada'%}
+                        <strong><span class="badge badge-pill badge-primary">Enviada</span></strong>
+                        {%elif lista.estado_lista == 'armando_pedido'%}
+                        <strong><span class="badge badge-pill badge-info">Armando el pedido</span></strong>
+                        {%elif lista.estado_lista == 'lista_retiro'%}
+                        <strong><span class="badge badge-pill badge-success">Lista para retiro</span></strong>
+                        {%elif lista.estado_lista == 'completada'%}
+                        <strong><span class="badge badge-pill badge-success">Completada</span></strong>
+                        {%elif lista.estado_lista == 'no_retirada'%}
+                        <strong><span class="badge badge-pill badge-danger">No retirada</span></strong>
+                        {%endif%}
+                    </p>
+
+
+                    <!--Botones-->
+                      <!--Botones PC-->
+                     <p class="d-none d-sm-block mb-1"><a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Ver mas</a></p>
+                      <!--Botones Mobile-->
+                     <p class="d-sm-none mb-1"><a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Ver mas</a></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+        <div class="col-12 p-4">
+             <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                  {% if listas.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ listas.previous_page_number }}">&laquo;</a>
+                    </li>
+                  {% endif %}
+                  {% for i in listas.paginator.page_range %}
+                    <li class="page-item {% if listas.number == i %}active{% endif %}">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                  {% endfor %}
+                  {% if listas.has_next %}
+                    <li class="page-item">
+                      <a class="page-link" href="?page={{listas.next_page_number}}">&raquo;</a>
+                    </li>
+                  {% endif %}
+                </ul>
+            </nav>
+        </div>
+        {%else%}
+        <div class="col-12 pt-5 text-center">
+            <h3>No tienes pedidos en este estado.</h3>
+        </div>
+        <div class="col-6 col-md-2 pb-5">
+            <img src="/media/core/triste.jpg" alt="Triste2 por no encontrar productos" class="img-fluid">
+        </div>
+        {%endif%}
         <div class="col-12 m-4">
             <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>

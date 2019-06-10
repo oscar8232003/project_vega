@@ -95,6 +95,9 @@
 						    <li class="nav-item">
 						        <a class="nav-link" href="{%url 'admin:index'%}">Admin<span class="sr-only">(current)</span></a>
 						    </li>
+							<li class="nav-item">
+						        <a class="nav-link {%if request.path|slice:"10:23" == 'reporte_admin'%}active{%endif%}" href="{%url 'vendedor:reporte_admin'%}">Registros<span class="sr-only">(current)</span></a>
+						    </li>
 							{%endif%}
 							<!--FIN PARA ADMINISTRADOR-->
 

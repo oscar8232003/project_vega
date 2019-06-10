@@ -1,24 +1,21 @@
 {%extends 'core/base.html'%}
-{%block title%}Eliminar Producto x{%endblock%}
+{%block title%}Eliminar {{producto.productos.nombre}}{%endblock%}
 {%block content%}
 <div class="container shadow container-whithe">
 
     <div class="row justify-content-center">
         <div class="col-12 text-center p-5">
-            <h2><strong>Eliminar producto x de la lista x</strong></h2>
-        </div>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3 pt-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+            <h3><strong>Quieres eliminar {{producto.productos.nombre}}?</strong></h3>
         </div>
 
-        <div class="col-12 m-4">
-            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        <form action="" method="POST" class="col-12 text-center mb-5 mt-4">
+            {%csrf_token%}
+            <input type="submit" class="btn btn-danger" value="Si quiero eliminarlo de esta lista">
+        </form>
+
+        <div class="col-12 mt-5 mb-5">
+            <a href="{%url 'cliente:detalle_listas' id_lista%}" class="btn btn-secondary"><span data-icon="x"></span> Regresar a la lista</a>
         </div>
-        <!--FIN CONTENIDO-->
     </div>
 </div>
 {%endblock%}

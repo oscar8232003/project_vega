@@ -4,7 +4,7 @@ from .models import Listas, Productos_listas
 # Register your models here.
 
 class Listas_admin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'local', 'nombre', 'estado_lista',)
 
 class Productos_listas_admin(admin.ModelAdmin):
     pass

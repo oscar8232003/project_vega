@@ -1,5 +1,6 @@
 from django import forms
 from .models import Productos, Local, Oferta
+#from cliente.models import Productos_listas
 
 class Productos_form(forms.ModelForm):
     class Meta:

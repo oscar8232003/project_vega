@@ -4,105 +4,183 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/vendedor/Mis_ofertas.png" class="img-fluid">
+            <img src="/media/cliente/Listas_compras.png" class="img-fluid">
         </div>
     </div>
 </div>
 <div class="container container-whithe shadow">
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
-        <div class="col-12 text-center pt-4 pb-4">
+        <div class="col-12 text-center pt-4 pb-1">
             <h2>Bienvenido a tu seccion de Listas de compras!</h2>
             <p class="text-muted"><em>Aqui podras ver tus listas, actualizarlas y borrarlas.</em></p>
             <hr>
         </div>
-        <div class="col-12 pb-3">
+        <!--FIN TITULO-->
+         <!--ALERTS-->
+        <div class="col-12 text-center">
+            {%if request.GET.msg%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span>
+                  {%if request.GET.msg == 'form_ok'%}
+                  La lista se creo con exito!
+                  {%elif request.GET.msg == 'act_ok'%}
+                  La lista se actualizo con exito!
+                  {%elif request.GET.msg == 'elim_ok'%}
+                   La lista se elimino con exito!
+                  {%endif%}
+              </strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+        </div>
+        <!--FIN ALERTS-->
+        <!--FILTROS-->
+        <form action="" method="POST" class="col-6 col-md-3" onsubmit="return validar_buscar();">
+            {%csrf_token%}
+            <label for="buscar_producto">Buscador de listas</label>
+            <input type="text" name="buscar" class="form-control" id="buscar_producto">
+             <div class="invalid-feedback">
+                <p id="buscar_producto-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Buscar Lista" class="btn btn-secondary mt-2">
+        </form>
+
+        <form action="" method="post" class="col-6 col-md-3" onsubmit="return validar_buscar_local();">
+            {%csrf_token%}
+            <label>Locales</label>
+            {{form.local}}
+            <div class="invalid-feedback">
+                <p id="id_local-invalid" class="m-0"></p>
+            </div>
+            <input type="submit" value="Filtrar por Tienda" class="btn btn-info mt-2">
+        </form>
+
+        <div class="col-7 col-md-4 mt-4 mt-md-4 text-center">
+            <li class="list-group-item active text-center btn bg-base bc-base"  data-toggle="collapse" href="#categorias_lg" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <strong>Estado de listas <span class="icon-angle-double-down"></span></strong>
+                </li>
+                <div class="list-group-item collapse pr-0 pl-0" id="categorias_lg">
+                  <ul class="list-group list-group-flush">
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=normal" class="list-group-item Categorias">Lista normal</a>
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=enviada" class="list-group-item Categorias">Lista enviada</a>
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=armando_pedido" class="list-group-item Categorias">Preparando lista</a>
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=lista_retiro" class="list-group-item Categorias">Lista para retiro</a>
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=cancelada" class="list-group-item Categorias">Lista cancelada</a>
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=no_retirada" class="list-group-item Categorias">Lista no retirada</a>
+                      <a href="{%url 'cliente:mis_listas' request.user.id%}?estado_lista=completada" class="list-group-item Categorias">Lista completada</a>
+                  </ul>
+                </div>
+        </div>
+
+        <div class="col-5 col-md-2 mt-4 mt-md-4 text-center">
+            <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-primary"><span class="icon-list"></span> Mis listas</a>
+        </div>
+        <!--FIN FILTROS-->
+         <!--CONTENIDO-->
+        <div class="col-12 p-3">
             <a href="{%url 'cliente:agregar_lista'%}" class="btn btn-success">Agregar una lista</a>
         </div>
+        {%if listas%}
+        {%for lista in listas%}
         <div class="col-12 col-md-6 p-3" data-aos="zoom-in-right">
             <div class="media shadow rounded productos_listar">
                 <!--Contenedor de la imagen-->
                 <div class="col-4 col-sm-3 p-2">
-                    <a href="{%url 'cliente:detalle_listas' request.user.id%}"><img class="img-fluid rounded" src="/media/core/sin_imagen.jpg"></a>
+                    <a href="{%url 'cliente:detalle_listas' lista.id%}">
+                        <img class="img-fluid rounded" src="{{lista.local.imagen_muestra.url}}">
+                    </a>
                 </div>
                 <!--Contenedor del parrafo-->
                 <div class="col-7 col-sm-9 p-2">
                   <div class="media-body">
                       <!--Titulo para Mobile-->
-                    <p class="d-sm-none"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h6"><strong>Lista x</strong></a></p>
+                    <p class="d-sm-none mb-1">
+                        <a href="{%url 'cliente:detalle_listas' lista.id%}" class="h6">
+                        <strong>{{lista.nombre}}</strong>
+                        </a>
+                    </p>
                       <!--Titulo para PC-->
-                    <p class="d-none d-sm-block"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h4"><strong>Lista x</strong></a></p>
+                    <p class="d-none d-sm-block">
+                        <a href="{%url 'cliente:detalle_listas' lista.id%}" class="h4">
+                            <strong>{{lista.nombre}}</strong>
+                        </a>
+                    </p>
                       <!--Fecha creacion-->
-                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Creacion: <strong>07/04/2019</strong></p>
+                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Actualizacion: <strong>{{lista.fecha_actualizacion|date:"d/m/Y"}}</strong></p>
                       <!--Local-->
-                    <p class="small text-muted d-none d-sm-block">Local: <strong>Kampito</strong></p>
+                    <p class="small text-muted mb-1">Local: <strong>{{lista.local.nombre_local}}</strong></p>
                       <!--Total-->
-                    <p class="mb-1">Total: <strong>$ 40000</strong></p>
+                      {%if lista.total != 0%}
+                    <p class="mb-1">Total: <strong>$ {{lista.total}}</strong></p>
+                      {%endif%}
                       <!--Estado-->
-                    <p class="">Estado: <strong>Sin enviar</strong></p>
+                    <p>Estado
+                        {%if lista.estado_lista == 'normal'%}
+                        <strong><span class="badge badge-pill badge-secondary">Normal</span></strong>
+                        {%elif lista.estado_lista == 'enviada'%}
+                        <strong><span class="badge badge-pill badge-primary">Enviada</span></strong>
+                        {%elif lista.estado_lista == 'cancelada'%}
+                        <strong><span class="badge badge-pill badge-danger">Cancelada</span></strong>
+                        {%elif lista.estado_lista == 'armando_pedido'%}
+                        <strong><span class="badge badge-pill badge-info">Armando el pedido</span></strong>
+                        {%elif lista.estado_lista == 'lista_retiro'%}
+                        <strong><span class="badge badge-pill badge-success">Lista para retiro</span></strong>
+                        {%elif lista.estado_lista == 'completada'%}
+                        <strong><span class="badge badge-pill badge-success">Completada</span></strong>
+                        {%elif lista.estado_lista == 'no_retirada'%}
+                        <strong><span class="badge badge-pill badge-danger">No retirada</span></strong>
+                        {%endif%}
+                    </p>
 
 
                     <!--Botones-->
                       <!--Botones PC-->
-                     <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
-                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a></p>
+                     <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:eliminar_lista' lista.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
+                        <a href="{%url 'cliente:actualizar_lista' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a></p>
                       <!--Botones Mobile-->
-                     <p class="d-sm-none mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
-                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span></a></p>
+                     <p class="d-sm-none mb-1"><a href="{%url 'cliente:eliminar_lista' lista.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
+                        <a href="{%url 'cliente:actualizar_lista' lista.id%}" class="btn btn-primary"><span data-icon="u"></span></a></p>
                   </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-12 col-md-6 p-3" data-aos="zoom-in-right">
-            <div class="media shadow rounded productos_listar">
-                <!--Contenedor de la imagen-->
-                <div class="col-4 col-sm-3 p-2">
-                    <a href="{%url 'cliente:detalle_listas' request.user.id%}"><img class="img-fluid rounded" src="/media/core/sin_imagen.jpg"></a>
-                </div>
-                <!--Contenedor del parrafo-->
-                <div class="col-7 col-sm-9 p-2">
-                  <div class="media-body">
-                      <!--Titulo para Mobile-->
-                    <p class="d-sm-none"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h6"><strong>Lista x</strong></a></p>
-                      <!--Titulo para PC-->
-                    <p class="d-none d-sm-block"><a href="{%url 'cliente:detalle_listas' request.user.id%}" class="h4"><strong>Lista x</strong></a></p>
-                      <!--Fecha creacion-->
-                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Creacion: <strong>07/04/2019</strong></p>
-                      <!--Local-->
-                    <p class="small text-muted d-none d-sm-block">Local: <strong>RanchoLindo</strong></p>
-                      <!--Total-->
-                    <p class="mb-1">Total: <strong>$ 50000</strong></p>
-                      <!--Estado-->
-                    <p class="">Estado: <strong><span class="badge badge-pill badge-success">Lista para retirar!</span></strong></p>
-
-
-                    <!--Botones-->
-                      <!--Botones PC-->
-                     <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
-                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a></p>
-                      <!--Botones Mobile-->
-                     <p class="d-sm-none mb-1"><a href="{%url 'cliente:eliminar_lista' request.user.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
-                        <a href="{%url 'cliente:actualizar_lista' request.user.id%}" class="btn btn-primary"><span data-icon="u"></span></a></p>
-                  </div>
-                </div>
-            </div>
+        {%endfor%}
+        <div class="col-12 p-4">
+             <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                  {% if listas.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ listas.previous_page_number }}">&laquo;</a>
+                    </li>
+                  {% endif %}
+                  {% for i in listas.paginator.page_range %}
+                    <li class="page-item {% if listas.number == i %}active{% endif %}">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                  {% endfor %}
+                  {% if listas.has_next %}
+                    <li class="page-item">
+                      <a class="page-link" href="?page={{listas.next_page_number}}">&raquo;</a>
+                    </li>
+                  {% endif %}
+                </ul>
+            </nav>
         </div>
-
-        <!--FIN TITULO-->
-
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
+        {%else%}
+        <div class="col-12 pt-5 text-center">
+            <h3>Aun no has creado una lista de compra, que esperas!</h3>
         </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+        <div class="col-6 col-md-2 pb-5">
+            <img src="/media/core/triste.jpg" alt="Triste2 por no encontrar productos" class="img-fluid">
         </div>
-
+        {%endif%}
+        <!--FIN CONTENIDO-->
         <div class="col-12 m-4">
             <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>
-        <!--FIN CONTENIDO-->
     </div>
 </div>
 {%endblock%}

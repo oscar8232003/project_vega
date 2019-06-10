@@ -19,7 +19,7 @@
         <!--FIN TITULO-->
         {%if vendedor.activado == False%}
         <div class="col-12 p-3 text-center">
-            <h4>Lo siento, no tienes un local activado actualmente, contactanos al soporte para mas informacion.</h4>
+            <h4>Lo siento, no tienes un local activado actualmente, contactanos para mas informacion.</h4>
             <img src="/media/core/triste.jpg" width="200px" class="img-fluid">
         </div>
         <!--MENSAJE-->
@@ -35,6 +35,7 @@
               <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="list-group-item list-group-item-action">Mis productos</a>
               <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="list-group-item list-group-item-action">Mis pedidos</a>
               <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="list-group-item list-group-item-action">Mis ofertas</a>
+              <a href="{%url 'vendedor:reporte_listas' request.user.id%}" class="list-group-item list-group-item-action">Mi Registro</a>
             </div>
             <!--FIN BARRA IZQUIERA XL-->
 
@@ -45,8 +46,9 @@
             <div class="collapse list-group" id="collapsemenu">
               <a href="{%url 'vendedor:mi_tienda' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mi tienda</a>
               <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis productos</a>
-              <a href="#" class="list-group-item list-group-item-action d-block d-lg-none">Mis pedidos</a>
-              <a href="#" class="list-group-item list-group-item-action d-block d-lg-none">Mis ofertas</a>
+              <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis pedidos</a>
+              <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis ofertas</a>
+              <a href="{%url 'vendedor:reporte_listas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mi Registro</a>
             </div>
             <!--FIN BARRA IZQUIERA COLLAPSADA-->
         </div>

@@ -42,9 +42,91 @@
             {%else%}
             <p>No se cuenta con descripcion el producto</p>
             {%endif%}
+            <!--ALERTS-->
+            {%if request.GET.msg == 'form_no_valid'%}
+            <div class="alert alert-danger alert-dismissible fade show text-center col-12 col-md-10" role="alert">
+              <span class="icon-exclamation-triangle"></span> <strong>No se pudo agregar el producto, intentelo otra vez.</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%elif request.GET.msg == 'error_cantidad'%}
+            <div class="alert alert-danger alert-dismissible fade show text-center col-12 col-md-10" role="alert">
+              <span class="icon-exclamation-triangle"></span> <strong>Ya tienes 15 productos en la lista escogida, escoge o crea otra lista</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%elif request.GET.msg == 'error_duplicado'%}
+            <div class="alert alert-danger alert-dismissible fade show text-center col-12 col-md-10" role="alert">
+              <span class="icon-exclamation-triangle"></span> <strong>No puedes tener repetidos 5 veces el mismo producto en una lista</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%elif request.GET.msg == 'form_ok'%}
+            <div class="alert alert-success alert-dismissible fade show col-12 col-md-10" role="alert">
+              <strong><span class="icon-angellist"></span> Producto agregado exitosamente!</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+            <!--FIN ALERTS-->
+            {%if tipo.tipo_usuario == 'cliente'%}
+                <form action="" method="POST" class="col-12 col-md-10 p-3 rounded shadow" onsubmit="return validar_agregar_listas()">
+                    {%csrf_token%}
+                    <h4 class="mb-3 color-base text-center"><strong>Agregar producto a una lista</strong></h4>
+                    <input type="hidden" name="user" id="id_user" value="{{request.user.id}}">
+                    <input type="hidden" name="productos" id="id_productos" value="{{object.id}}">
+                    <input type="hidden" name="local" id="id_local" value="{{local.id}}">
+                    <input type="hidden" name="precio_producto" id="id_precio_producto"
+                    {%if object.oferta%}
+                           value="{{object.precio_oferta}}"
+                    {%else%}
+                           value="{{object.precio}}"
+                    {%endif%}
+                    >
 
+                    <div class="col-12 form-group p-0">
+                        {%if listas%}
+                        <label>Escoga la lista</label>
+                        <select name="lista" class="form-control" id="id_lista">
+                          <option value="" selected="">---------</option>
+                          {%for lista in listas%}
+                          <option value="{{lista.id}}">{{lista.nombre}}</option>
+                          {%endfor%}
+                        </select>
+                        <div class="invalid-feedback">
+                            <p id="id_lista-invalid" class="m-0"></p>
+                        </div>
+                        {%else%}
+                        <p>No tienes una lista valida para esta tienda, ve a crear una!</p>
+                        <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary btn-block">Crear una lista para esta tienda</a>
+                        <p class="small color-rojo" hidden id="id_texto_emergencia">Para agregar un producto se necesita una lista</p>
+                        {%endif%}
+                    </div>
+
+                    <div class="col-12 form-group p-0">
+                        <label>Cantidad a agregar</label>
+                        {{form.cantidad}}
+                        <div class="invalid-feedback">
+                            <p id="id_cantidad-invalid" class="m-0"></p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 form-group p-0">
+                        <label>Comentarios del producto</label>
+                        {{form.comentarios}}
+                    </div>
+
+                    <div class="col-12 form-group p-0 text-center">
+                        <input type="submit" class="btn btn-success" value="Agregar a la lista">
+                    </div>
+
+                </form>
+            {%endif%}
         </div>
-
         <div class="col-12 pt-4">
             <a href="{%url 'cliente:listar_productos'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>

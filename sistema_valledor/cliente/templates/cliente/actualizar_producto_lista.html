@@ -4,21 +4,46 @@
 <div class="container shadow container-whithe">
 
     <div class="row justify-content-center">
-        <div class="col-12 text-center p-5">
-            <h2><strong>Actualizar producto x</strong></h2>
+        <!--TITULO-->
+        <div class="col-12 text-center pt-5">
+            <h3><strong>Actualizar {{producto.productos.nombre}}</strong></h3>
+            <hr>
+            <!--ALERTS-->
+            {%if request.GET.msg == 'act_error'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <strong><span class="icon-exclamation-triangle"></span> No se pudo actualizar el producto, intentelo otra vez.</strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+            {%endif%}
+            <!--FIN ALERTS-->
         </div>
+        <!--FIN TITULO-->
         <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3 pt-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
-        </div>
-
-        <div class="col-12 m-4">
-            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
-        </div>
+        <form action="" method="POST" class="col-md-6 col-12" onsubmit="return validar_stock_modificar_productos_de_lista()">
+            {%csrf_token%}
+            <div class="col-12 form-group">
+                <label for="id_cantidad_pedido">Ingrese la cantidad del pedido</label>
+                <input type="number" class="form-control" id="id_cantidad_pedido" min="1" value="{{producto.cantidad}}" name="stock">
+                <div class="invalid-feedback">
+                    <p id="id_cantidad_pedido-invalid" class="m-0"></p>
+                </div>
+            </div>
+            <div class="col-12 form-group">
+                <label>Comentarios del producto</label>
+                <textarea name="comentarios" cols="30" rows="5" class="form-control">{{producto.comentarios}}</textarea>
+            </div>
+            <div class="col-12 form-group text-center">
+                <input type="submit" class="btn btn-primary" value="Actualizar">
+            </div>
+        </form>
         <!--FIN CONTENIDO-->
+
+
+        <div class="col-12 mt-5 mb-5">
+            <a href="{%url 'cliente:detalle_listas' lista.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
     </div>
 </div>
 {%endblock%}

@@ -64,6 +64,7 @@ class Productos(models.Model):
     oferta = models.BooleanField(verbose_name="Producto en Oferta", null=True, blank=True, default=False)
     precio_oferta = models.PositiveIntegerField(verbose_name="Precio de la Oferta", null=True, blank=True, default=0)
     stock = models.PositiveIntegerField(verbose_name="Stock del Producto", null=True, blank=True, default=0)
+    maximo_prod_comprar = models.PositiveIntegerField(verbose_name="Maximo de productos a comprar", null=True, blank=True, default=0)
     imagen = models.ImageField(upload_to=borrar_imagen_anterior_producto, null=True, blank=True, default='core/sin_imagen.jpg')
     cambios_restantes = models.PositiveIntegerField(verbose_name="Cambios restantes de precios", null=True, blank=True,
                                                     default=3)
@@ -124,3 +125,4 @@ class Puntos(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.user.first_name, self.tipo_cuenta)
+

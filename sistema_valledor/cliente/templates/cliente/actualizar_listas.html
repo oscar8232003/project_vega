@@ -2,23 +2,54 @@
 {%block title%}Actualizar Lista{%endblock%}
 {%block content%}
 <div class="container shadow container-whithe">
-
     <div class="row justify-content-center">
-        <div class="col-12 text-center p-5">
-            <h2><strong>Actualizar Lista x</strong></h2>
+        <div class="col-12 pt-5 pb-1 text-center">
+            <h2>Seccion para actulizar tu lista de compras</h2>
+            <p><em>Aqui podras actualizar tus listas de compras</em></p>
+            <hr>
         </div>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3 pt-3">
-            <h2>Sitio en desarrollo.</h2>
+        <div class="col-12 text-center">
+            {%if request.GET.msg == 'form_no_valid'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> No se pudo actualizar la lista, intentelo otra vez.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
         </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
+    </div>
+    <form action="" class="row justify-content-center" method="POST" onsubmit="return validar_nombre_lista()" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="col-12 col-sm-4 form-group">
+            {{form.nombre.label}}
+            {{form.nombre}}
+            <div class="invalid-feedback">
+                <p id="id_nombre-invalid" class="m-0"></p>
+            </div>
         </div>
+        <div class="w-100"></div>
+        <div class="col-12 col-sm-4 form-group">
+             {{form.comentario_cliente.label}}
+             {{form.comentario_cliente}}
+             <div class="invalid-feedback">
+                <p id="id_comentario_cliente-invalid" class="m-0"></p>
+            </div>
+        </div>
+        <div class="w-100"></div>
 
-        <div class="col-12 m-4">
-            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        <div class="col-12 form-group text-center mt-3">
+            <button type="submit" class="btn btn-primary"><span data-icon="u"></span> Actualizar</button>
         </div>
-        <!--FIN CONTENIDO-->
+    </form>
+    <div class="row justify-content-center">
+        <div class="col-12 m-4">
+            {%if request.GET.msg != 'act_lista'%}
+            <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+            {%else%}
+            <a href="{%url 'cliente:detalle_listas' id_lista%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+            {%endif%}
+        </div>
     </div>
 </div>
 {%endblock%}

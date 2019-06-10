@@ -32,28 +32,22 @@
         <!--FIN BOTON-->
 
         <!--CONTENIDO-->
-        <div class="col-12 pb-4">
+        <div class="col-12 pb-5">
             <p class="h4">Imagen de banner</p>
             <img src="/media/{{local.imagen_banner}}" alt="" class="img-fluid">
         </div>
 
-        <div class="col-12 pb-4">
+        <div class="col-12 col-md-4 text-center">
             <p class="h4">Imagen de muestra</p>
             <img src="/media/{{local.imagen_muestra}}" alt="" width="200px">
         </div>
 
-        <div class="col-12 pb-4">
+        <div class="col-12 col-md-8">
             <p class="h4">Nombre del local</p>
             <p class="h5">{{local.nombre_local}}</p>
-        </div>
-
-        <div class="col-12 pb-4">
             <p class="h4">Ubicacion del local</p>
             <p class="h5">{{local.ubicacion_local}}</p>
-        </div>
-
-        <div class="col-12 pb-4">
-            <p class="h5">El local esta activo actualmente?</p>
+            <p class="h4">El local esta activo actualmente?</p>
             {%if local.activado%}
             <p class="h5">Si</p>
             {%else%}

@@ -5,13 +5,11 @@
 
     <div class="row justify-content-center">
         <div class="col-12 pt-5 pb-5 text-center">
-            <h2>¿Estas seguro de querer eliminar Lista x?</h2>
-            <p><em>Recuerda que puedes desactivar una lista en vez de eliminarla.</em></p>
-            <hr>
-
+            <h2>¿Estas seguro de querer eliminar "{{lista.nombre}}"?</h2>
+            <hr class="pb-5">
             {%if request.GET.msg == 'elim_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo eliminar el producto, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo eliminar la lista, intentelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -25,18 +23,10 @@
                 <button type="submit" class="btn btn-danger"><span class="icon-trash-b"> Si, la quiero borrar de todos modos</span></button>
             </form>
         </div>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3 pt-3">
-            <h2>Sitio en desarrollo.</h2>
-        </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando2.gif" alt="" class="img-fluid">
-        </div>
 
-        <div class="col-12 m-4">
-            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        <div class="col-12 m-4 pt-5">
+            <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
         </div>
-        <!--FIN CONTENIDO-->
     </div>
 </div>
 {%endblock%}

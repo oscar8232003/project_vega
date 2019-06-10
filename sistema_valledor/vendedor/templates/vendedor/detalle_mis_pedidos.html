@@ -1,5 +1,5 @@
 {%extends 'core/base.html'%}
-{%block title%}Pedido x{%endblock%}
+{%block title%}Pedido {{lista.nombre}}{%endblock%}
 {%block content%}
 <div class="container">
     <div class="row">
@@ -9,28 +9,128 @@
     </div>
 </div>
 <div class="container container-whithe shadow">
-    <div class="row pb-4 justify-content-center">
-        <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
-            <h2>Lista n° x</h2>
-            <p><em>nombre lista</em></p>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center pt-4 pb-3">
+            <h2>Pedido "{{lista.nombre}}"</h2>
+            <p>Aqui podras administrar tus pedidos.</p>
             <hr>
         </div>
-        <!--FIN TITULO-->
-        <a href="{%url 'vendedor:revisar_mis_pedidos' request.user.id%}" class="btn btn-info">Revisar un pedido</a>
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
+        <!--ALERTS-->
+        <div class="col-12 text-center">
+            {%if request.GET.msg == 'estado_cambiado'%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong><span class="icon-angellist"></span> Estado del producto cambiado exitosamente!.</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
         </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando.gif" alt="" class="img-fluid">
+        <!--FIN ALERTS-->
+    </div>
+
+    <div class="row pb-5">
+        <div class="col-md-4 col-12 pb-md-0 pb-4 text-center">
+            <h5>Estado de la lista</h5>
+            <h4 class="m-3">
+                {%if lista.estado_lista == 'normal'%}
+                <strong><span class="badge badge-pill badge-secondary">Normal</span></strong>
+                {%elif lista.estado_lista == 'enviada'%}
+                <strong><span class="badge badge-pill badge-primary">Enviada</span></strong>
+                {%elif lista.estado_lista == 'cancelada'%}
+                <strong><span class="badge badge-pill badge-danger">Cancelada</span></strong>
+                {%elif lista.estado_lista == 'armando_pedido'%}
+                <strong><span class="badge badge-pill badge-info">Armando el pedido</span></strong>
+                {%elif lista.estado_lista == 'lista_retiro'%}
+                <strong><span class="badge badge-pill badge-success">Lista para retiro</span></strong>
+                {%elif lista.estado_lista == 'completada'%}
+                <strong><span class="badge badge-pill badge-success">Completada</span></strong>
+                {%elif lista.estado_lista == 'no_retirada'%}
+                <strong><span class="badge badge-pill badge-danger">No retirada</span></strong>
+                {%endif%}
+            </h4>
+            {%if lista.estado_lista != 'normal' and lista.estado_lista != 'completada'%}
+            <form action="" method="POST">
+                {%csrf_token%}
+                <button type="submit" class="btn btn-primary btn-small" name="Modificar_estado" value="Modificar">Modificar estado pedido/comentarios</button>
+            </form>
+            {%endif%}
         </div>
 
-        <div class="col-12 m-4">
-            <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        <div class="col-md-4 col-12 pb-md-0 pb-4">
+            <hr class="d-block d-sm-none">
+            <h5>Comentarios del cliente</h5>
+            {%if lista.comentario_cliente%}
+            <p>-{{lista.comentario_cliente}}</p>
+            {%else%}
+            <p>No hay comentarios para esta lista</p>
+            {%endif%}
         </div>
-        <!--FIN CONTENIDO-->
+
+        <div class="col-md-4 col-12 pb-md-0 pb-4">
+             <hr class="d-block d-sm-none">
+            <h5>Comentarios del vendedor</h5>
+            {%if lista.comentario_vendedor%}
+            <p>-{{lista.comentario_vendedor}}</p>
+            {%else%}
+            <p>No hay comentarios para esta lista</p>
+            {%endif%}
+        </div>
+
     </div>
+
+    <div class="row">
+        {%if productos%}
+        <div class="col-12 table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre del producto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio unitario</th>
+                  <th scope="col">Marcado</th>
+                </tr>
+              </thead>
+              <tbody>
+              <form action="" method="POST">
+              {%for producto in productos%}
+                 {%csrf_token%}
+                <tr>
+                  <td>{{producto.productos.nombre}}</td>
+                  <td>{{producto.cantidad}}</td>
+                  <td>{{producto.precio_producto}}</td>
+                  <td class="text-center">
+                      <input type="checkbox" id="checkbox_{{producto.id}}" name="{{producto.id}}" style="width:18px;height:18px"
+                      {%if producto.producto_marcado%}checked{%endif%}
+                      {%if tipo.tipo_usuario == 'vendedor' and lista.estado_lista != 'armando_pedido'%}
+                      disabled
+                      {%endif%}>
+                  </td>
+                </tr>
+              {%endfor%}
+                {%if tipo.tipo_usuario == 'vendedor' and lista.estado_lista == 'armando_pedido'%}
+                  <tr>
+                    <td colspan="3"></td>
+                     <td class="text-center"><input type="submit" value="Guardar" class="btn btn-primary" name="Guardar_progreso"></td>
+                  </tr>
+                  {%endif%}
+              </form>
+              </tbody>
+            </table>
+        </div>
+        {%else%}
+        <div class="col-12 text-center pt-5 pb-5">
+          <h4>No hay productos añadidos en esta lista aun.</h4>
+        </div>
+        {%endif%}
+    </div>
+
+    <div class="row">
+        <div class="col-12 mt-4 mb-4">
+            <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+
 </div>
 {%endblock%}
 

@@ -9,28 +9,52 @@
     </div>
 </div>
 <div class="container container-whithe shadow">
-    <div class="row pb-4 justify-content-center">
+    <form method="POST" class="row pb-4 justify-content-center">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
-            <h2>Revision de Pedido n° </h2>
-            <p><em>nombre lista</em></p>
+        <div class="col-12 text-center pt-4 pb-4">
+            <h2>Actualizar estado del pedido</h2>
             <hr>
+            <!--ALERT-->
+            {%if request.GET.msg == 'form_error'%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> No se actualizar el estado de la lista, intentelo otra vez.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
+            <!--FIN ALERT-->
         </div>
         <!--FIN TITULO-->
+        {%csrf_token%}
+        <div class="col-12 col-md-5 form-group p-0">
+            <label>Nuevo estado de la lista</label>
+            <select name="lista" class="form-control" id="id_lista">
+                <option value="enviada"{%if lista.estado_lista == 'enviada'%} selected{%endif%}>Enviada</option>
+                <option value="armando_pedido"{%if lista.estado_lista == 'armando_pedido'%} selected{%endif%}>Armando Pedido</option>
+                <option value="lista_retiro"{%if lista.estado_lista == 'lista_retiro'%} selected{%endif%}>Listo para retirar</option>
+                <option value="completada"{%if lista.estado_lista == 'completada'%} selected{%endif%}>Completada</option>
+                <option value="cancelada"{%if lista.estado_lista == 'cancelada'%} selected{%endif%}>Cancelada</option>
+                <option value="no_retirada"{%if lista.estado_lista == 'no_retirada'%} selected{%endif%}>No retirada</option>
+            </select>
+            <div class="invalid-feedback">
+                <p id="id_lista-invalid" class="m-0"></p>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12 col-md-5 form-group p-0">
+            <label>Comentarios del pedido</label>
+            <textarea name="comentarios" rows="4" cols="20" class="form-control">{{lista.comentario_vendedor|safe|escape}}</textarea>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12 col-md-5 text-center">
+            <input type="submit" class="btn btn-success" value="Modificar Datos">
+        </div>
 
-        <!--CONTENIDO-->
-        <div class="col-12 text-center pb-3">
-            <h2>Sitio en desarrollo.</h2>
+        <div class="col-12 mt-4 mb-4 text-center">
+            <a href="{%url 'vendedor:detalle_mis_pedidos' id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver al pedido</a>
         </div>
-        <div class="col-md-4 col-12">
-            <img src="/media/core/trabajando.gif" alt="" class="img-fluid">
-        </div>
-
-        <div class="col-12 m-4">
-            <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
-        </div>
-        <!--FIN CONTENIDO-->
-    </div>
+    </form>
 </div>
 {%endblock%}
 

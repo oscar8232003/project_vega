@@ -1,0 +1,18 @@
+{%extends 'core/base.html'%}
+{%block title%}Guardado!{%endblock%}
+{%block content%}
+<div class="container shadow container-whithe">
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-6 pt-5 pb-5">
+            <img src="/media/core/success.jpg" alt="imagen de listo" class="img-fluid">
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12 text-center">
+            <h4><strong>Productos Guardados exitosamente!</strong></h4>
+        </div>
+        <div class="col-12 mt-4 mb-4 text-center">
+            <a href="{%url 'cliente:detalle_listas' id%}" class="btn btn-secondary "><span data-icon="x"></span> Ir a mi lista</a>
+        </div>
+    </div>
+</div>
+{%endblock%}

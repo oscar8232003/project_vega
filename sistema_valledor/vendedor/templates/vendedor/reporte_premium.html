@@ -1,0 +1,126 @@
+{%extends 'core/base.html'%}
+{%block title%}Reporte de Clientes Premium{%endblock%}
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row">
+        <div class="col-12 text-center pt-4 pb-2">
+            <h2>Registro de Clientes Premium</h2>
+            <em>Aqui podras ver el registro de tus clientes premium.</em>
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!--SECCION DE ALERTAS-->
+        {%if mensaje_error%}
+        <div class="col-12 text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <strong><span class="icon-exclamation-triangle"></span> {{mensaje_error}}</strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+        </div>
+        {%endif%}
+        <!--FIN SECCION DE ALERTAS-->
+        <!--SECCION DE FILTROS-->
+        <form action="" method="GET" class="col-12 col-md-3 pb-3 form-group text-center" onsubmit="return validar_buscar_cliente();">
+            {%csrf_token%}
+            <label>Buscar Cliente</label>
+            <input id="id_cliente" type="text" name="cliente" class="form-control" placeholder="Ingrese el rut del cliente">
+            <div class="invalid-feedback">
+                <p id="id_cliente-invalid" class="m-0"></p>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3" value="buscar_cliente" name="buscar_cliente">Buscar</button>
+        </form>
+
+        <form action="" method="GET" class="col-12 col-md-3 pb-3 form-group text-center" onsubmit="return validar_premium();">
+            {%csrf_token%}
+            <label>Buscar tipo de premium</label>
+            <select id="id_premium" name="premium" class="form-control">
+                <option value="">-----</option>
+                <option value="1">Premium nivel 1</option>
+                <option value="2">Premium nivel 2</option>
+                <option value="3">Premium nivel 3</option>
+            </select>
+            <div class="invalid-feedback">
+                <p id="id_premium-invalid" class="m-0"></p>
+            </div>
+            <button type="submit" class="btn btn-info mt-3" value="buscar_premium" name="buscar_premium">Buscar</button>
+        </form>
+
+        <form action="" method="GET" class="col-12 col-md-6 pb-3 form-group text-center d-md-flex" onsubmit="return validar_fechas()">
+            {%csrf_token%}
+            <div class="col-12 col-md-6">
+                <label for="fecha_inicio">Intervalo inicial</label>
+                <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio">
+                <div class="invalid-feedback">
+                    <p id="fecha_inicio-invalid" class="m-0"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="fecha_fin">Intervalo final</label>
+                <input id="fecha_fin" type="date" class="form-control" name="fecha_final">
+                <div class="invalid-feedback">
+                    <p id="fecha_fin-invalid" class="m-0"></p>
+                </div>
+                <button type="submit" class="btn btn-success mt-3" value="buscar_fecha" name="buscar_fecha">Buscar</button>
+            </div>
+        </form>
+        <!--FIN SECCION DE FILTROS-->
+
+        <div class="col-12 pb-3">
+            {%if registros%}
+                {%if not request.GET%}
+                <a href="{%url 'vendedor:reporte_admin'%}?all=yes" class="btn btn-danger"><span class="icon-list"></span> Descargar los registros de la tabla</a>
+                {%else%}
+                <a href="{{request.get_full_path}}&pdf=yes" class="btn btn-danger"><span class="icon-list"></span> Descargar los registros de la tabla</a>
+                {%endif%}
+            {%endif%}
+             <a href="{%url 'vendedor:reporte_admin'%}" class="btn btn-success mt-md-0 mt-3">Ver todos los registros</a>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 table-responsive">
+            {%if registros%}
+            <table class="table table-hover text-center">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Tipo de Premium</th>
+                  <th scope="col">Fecha de Inicio</th>
+                  <th scope="col">Fecha de Caducidad</th>
+                  <th scope="col">PDF</th>
+                </tr>
+              </thead>
+              <tbody>
+              {%for x in registros%}
+                <tr>
+                  <td>{{x.user.username}}</td>
+                    {%if x.premium == 1%}
+                  <td>Premium de Nivel 1</td>
+                    {%elif x.premium == 2%}
+                  <td>Premium de Nivel 2</td>
+                    {%elif x.premium == 3%}
+                  <td>Premium de Nivel 3</td>
+                     {%endif%}
+                  <td>{{x.fecha_inicio}}</td>
+                  <td>{{x.fecha_caducidad}}</td>
+                  <td><a href="{%url 'vendedor:reporte_admin'%}?doc={{x.id}}" class="btn btn-danger"><span class="icon-list"></span> PDF</a></td>
+                </tr>
+              {%endfor%}
+              </tbody>
+            </table>
+            {%else%}
+            <h3 class="text-center pt-5 pb-5">No hay registros para los criterios de filtros utilizados.</h3>
+            {%endif%}
+        </div>
+        <div class="col-12 mt-4 mb-4">
+            <a href="{%url 'core:index'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+</div>
+{%endblock%}
