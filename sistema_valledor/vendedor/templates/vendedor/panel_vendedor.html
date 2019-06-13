@@ -57,36 +57,48 @@
         <div CLASS="col-12 col-lg-9 pb-3">
             <h3 class="text-center pb-3">Hola {{vendedor.nombre_local}}!</h3>
             <!--SECCION DE ALERTAS-->
-            <h5 class="pb-3"><strong>Tienes Pendiente *Construccion*</strong></h5>
-            {%if prod.prod_sin_stock != 0%}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <strong><span class="icon-exclamation-triangle"></span> Tienes {{prod.prod_sin_stock}} productos sin stock</strong> ve a hecharles una mirada
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+            <h5 class="pb-3"><strong>Tienes Pendiente</strong></h5>
+            {%if arr_pedidos%}
+                {%for x in arr_pedidos%}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong><span class="icon-exclamation-triangle"></span> {{x}}</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {%endfor%}
             {%endif%}
 
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <strong><span class="icon-exclamation-triangle"></span> Tienes x listas pendientes</strong> ve a prepararlas!
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+            {%if arr_productos%}
+                {%for x in arr_productos%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong><span class="icon-bell"></span> {{x}}</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {%endfor%}
+            {%endif%}
 
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong><span class="icon-bell"></span> Tienes x productos con menos 25% de stock</strong> ve a hecharles una mirada
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+            {%if arr_ofertas%}
+                {%for x in arr_ofertas%}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong><span class="icon-exclamation-triangle"></span> {{x}}</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                {%endfor%}
+            {%endif%}
 
+            {%if not arr_pedidos and not arr_productos and not arr_ofertas%}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               <strong><span class="icon-angellist"></span> Estas al dia con tus labores</strong>, ve a tomarte un descanso, te lo mereces!
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            {%endif%}
             <!--FIN SECCION DE ALERTAS-->
             <hr>
             <h5><strong>Productos</strong></h5>
@@ -141,12 +153,12 @@
                             {{oferta_general.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                    <p>No hay ofertas actualmente para esta seccion</p>
+                    <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
                     <hr>
                 </div>
                 <div class="col-12">
-                    <hP><strong>Ofertas de Temporadas</strong></hP>
+                    <p><strong>Ofertas de Temporadas</strong></p>
                     {%if temporada%}
                         {%for oferta_temporada in temporada%}
                         <p class="d-none d-sm-block">
@@ -172,7 +184,7 @@
                             {{oferta_temporada.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion</p>
+                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
                     <hr>
                 </div>
@@ -205,7 +217,7 @@
                             {{oferta_diamante.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion</p>
+                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
 
                     <p><strong>Clientes Oro</strong></p>
@@ -234,7 +246,7 @@
                             {{oferta_oro.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion</p>
+                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
 
                     <p><strong>Clientes Plata</strong></p>
@@ -263,7 +275,7 @@
                             {{oferta_plata.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion</p>
+                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
                     <hr>
                 </div>
@@ -294,15 +306,12 @@
                             {{oferta_convencional.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion</p>
+                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
 
                 </div>
             <hr>
             <!--FIN SECCION DE OFERTAS-->
-            <h5 class="pb-3"><strong>x personas han comprado en tu local *Construccion* </strong></h5>
-            <p>Lista de personas de menos a mayor en puntos</p>
-            <hr>
             <h5 class="pb-3"><strong>Tipo de Cuenta</strong></h5>
             <p>
                 {%if prod.tipo_premium == 0%}

@@ -57,9 +57,10 @@ class Registro_listas(models.Model):
 
     class Meta:
         verbose_name = "Auditoria de Listas"
+        verbose_name_plural = "Auditoria de Listas"
 
     def __str__(self):
-        return "Cliente {}, total {}".format(self.rut_cliente, self.total)
+        return "ID Registro {}".format(self.id)
 
 
 class Registro_premium(models.Model):
@@ -71,6 +72,7 @@ class Registro_premium(models.Model):
 
     class Meta:
         verbose_name = "Auditoria de premium"
+        verbose_name_plural = "Auditoria de premium"
 
     def __str__(self):
-        return "Usuario {}".format(self.user.first_name)
+        return "ID Registro {}".format(self.id)

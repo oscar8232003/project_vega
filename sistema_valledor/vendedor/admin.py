@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Local, Categoria_Productos, Unidad_Medida, Productos, Oferta, Puntos
+
 # Register your models here.
 
 class Local_admin(admin.ModelAdmin):

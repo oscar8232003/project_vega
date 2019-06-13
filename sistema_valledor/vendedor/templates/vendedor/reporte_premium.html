@@ -89,16 +89,19 @@
             <table class="table table-hover text-center">
               <thead class="thead-dark">
                 <tr>
+                  <th scope="col">ID Cliente</th>
                   <th scope="col">Cliente</th>
                   <th scope="col">Tipo de Premium</th>
                   <th scope="col">Fecha de Inicio</th>
                   <th scope="col">Fecha de Caducidad</th>
+                  <th scope="col">Accion</th>
                   <th scope="col">PDF</th>
                 </tr>
               </thead>
               <tbody>
               {%for x in registros%}
                 <tr>
+                  <td>{{x.user.id}}</td>
                   <td>{{x.user.username}}</td>
                     {%if x.premium == 1%}
                   <td>Premium de Nivel 1</td>
@@ -109,6 +112,7 @@
                      {%endif%}
                   <td>{{x.fecha_inicio}}</td>
                   <td>{{x.fecha_caducidad}}</td>
+                  <td>Insertado</td>
                   <td><a href="{%url 'vendedor:reporte_admin'%}?doc={{x.id}}" class="btn btn-danger"><span class="icon-list"></span> PDF</a></td>
                 </tr>
               {%endfor%}

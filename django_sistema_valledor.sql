@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2019 a las 19:14:35
+-- Tiempo de generación: 13-06-2019 a las 07:56:29
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -161,11 +161,11 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-06-10 17:07:15.237569', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
-(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-06-09 06:27:01.159175', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
-(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-05-22 17:36:37.038218', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
+(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-06-12 18:12:10.854139', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
+(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-06-12 17:47:34.014108', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
+(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-06-11 03:03:50.293886', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
 (13, 'pbkdf2_sha256$120000$ljKSzUCD3jaj$q+CUtBxOE6xhsid0jVm8bHOVB+HZulb/0NQmAOs7vi0=', '2019-05-19 17:36:24.629145', 0, '19.036.216-7', 'Katherine', '', '', 0, 1, '2019-04-04 01:22:42.392909'),
-(14, 'pbkdf2_sha256$120000$kNmI3pFAV6v8$c2TfcY64hgiyC8T7k62PcxtlODYdqZ/ttSiHDIFJK6Y=', '2019-05-17 23:37:43.843731', 0, '19.169.969-7', 'Maria', '', '', 0, 1, '2019-05-01 06:34:12.603680'),
+(14, 'pbkdf2_sha256$120000$kNmI3pFAV6v8$c2TfcY64hgiyC8T7k62PcxtlODYdqZ/ttSiHDIFJK6Y=', '2019-06-10 23:22:33.949063', 0, '19.169.969-7', 'Maria', '', '', 0, 1, '2019-05-01 06:34:12.603680'),
 (15, 'pbkdf2_sha256$120000$adiB9kBXzJ11$BfZIqihCGP4CRf8758Resc/v4p+RZsvAqCf4qcWTVFQ=', '2019-05-05 19:22:18.845965', 0, '11.111.111-1', 'prueba', '', '', 0, 1, '2019-05-04 05:10:35.000000'),
 (17, 'pbkdf2_sha256$120000$uiTC8ImCE9XR$8BF5M1T/s9EJC9TtGDxrcSqpLrtCKFFCXEkBLmZAH2E=', NULL, 0, '12.493.793-1', '', '', '', 0, 1, '2019-06-06 21:32:43.294778');
 
@@ -234,14 +234,14 @@ CREATE TABLE `cliente_listas` (
 INSERT INTO `cliente_listas` (`id`, `nombre`, `total`, `fecha_enviado`, `fecha_expiracion`, `local_id`, `comentario_cliente`, `comentario_vendedor`, `estado_lista`, `user_id`, `fecha_actualizacion`, `cancelaciones`, `total_marcado`) VALUES
 (2, 'LISTA 2', 0, NULL, NULL, 1, 'Lista bonita', '', 'normal', 12, '2019-06-05 19:32:19.172087', 4, 0),
 (3, 'Lista cancelada', 0, NULL, NULL, 1, '', '', 'normal', 12, '2019-06-05 19:32:26.379556', 5, 0),
-(4, 'Lista armando pedido', 0, NULL, NULL, 1, '', '', 'armando_pedido', 12, '2019-06-05 19:36:32.408069', 5, 0),
-(5, 'Lista Para retirar', 0, NULL, NULL, 1, '', '', 'lista_retiro', 12, '2019-06-05 19:36:22.983966', 5, 0),
+(4, 'Lista armando pedido', 0, NULL, NULL, 1, '', '', 'armando_pedido', 12, '2019-06-11 03:04:03.385001', 5, 0),
+(5, 'Lista Para retirar', 0, NULL, NULL, 1, '', '', 'lista_retiro', 12, '2019-06-11 03:02:47.312833', 5, 0),
 (6, 'Lista Completada', 0, NULL, NULL, 1, '', '', 'normal', 12, '2019-06-05 19:34:41.882984', 5, 0),
 (7, 'Lista no retirada', 0, NULL, NULL, 1, '', '', 'normal', 12, '2019-06-05 19:36:12.301658', 5, 0),
 (10, 'Lista 5', 0, NULL, NULL, 1, '', NULL, 'normal', 12, '2019-05-16 00:00:00.000000', 5, 0),
 (11, 'Lista 6 prueba', 0, '2019-06-02', NULL, 1, 'Cositas rikas y mas', '', 'normal', 12, '2019-06-02 22:38:28.500383', 3, 0),
 (12, 'Lista para el martes', 0, NULL, NULL, 2, '', '', 'normal', 12, '2019-06-05 19:32:10.821903', 5, 0),
-(13, 'Prueba continua', 230000, '2019-06-05', NULL, 1, 'Fono +228232003', 'Armando pedido 24/05/2019', 'normal', 12, '2019-06-06 02:08:21.519243', 4, 0);
+(13, 'Prueba continua', 230000, '2019-06-11', NULL, 1, 'Fono +228232003', 'Armando pedido 24/05/2019', 'enviada', 12, '2019-06-11 04:22:10.131089', 4, 0);
 
 --
 -- Disparadores `cliente_listas`
@@ -639,11 +639,12 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('05cepzb109uiq4ys9zr6gyzbpaqfhqda', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-25 04:07:37.357691'),
 ('16jtefushhshfryzc1b3gxwcxfdyd7wd', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-07 23:34:15.706395'),
 ('5w2qtc3dg9uzzs5s6bpbrylfb80ykvvw', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-15 22:45:23.725871'),
 ('81eld3kyw7jdp43uzdjfevasx010u05p', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-16 19:16:55.385709'),
 ('avwckdx5e5l8hnr6ttn8c1mhpna4z04q', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-07 21:56:37.274975'),
-('ckhqfxxsm8p7fdntkux22cekvjuhn7t9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-06-24 17:09:31.833658'),
+('g72pnxf3qri3l1oau3ihkozoovfv4303', 'NGExZDllMjQ2M2FlZGY1MjE0MzM3OGM0Yjc4YjRhZmFhZWE1YWQ0Yzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjE0NjZmNTlhODdhOTU0NDA1NzVkNGZhOWZkOTkxZjhmOGNiNTAxZDAifQ==', '2019-06-26 18:12:10.898174'),
 ('l4o3w5t7ih9bwpew9mjko8z4alhrkkg6', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-20 01:01:03.444909'),
 ('lcf0tk8cbxu8tj62vcdvvk33pmvzexya', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-05 19:37:29.714530'),
 ('pqo0mccskbmr7ym003m24jig0ueelraj', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-12 18:16:32.038554'),
@@ -837,7 +838,7 @@ CREATE TABLE `vendedor_productos` (
 --
 
 INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_oferta`, `stock`, `imagen`, `cambios_restantes`, `activado`, `categoria_id`, `unidad_medida_id`, `user_id`, `comentario`, `maximo_prod_comprar`) VALUES
-(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2800, 'vendedor/img_productos/7801420220138.png', 3, 1, 1, 3, 11, '', 500),
+(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2600, 'vendedor/img_productos/7801420220138.png', 3, 1, 1, 3, 11, '', 500),
 (4, 'Pasta frola', 600, 1, 300, 600, 'vendedor/img_productos/pastafrola-membrillo-batata-dulce-de-leche-tartas-dulces-D_NQ_NP__eBn8ND8.jpg', 3, 1, 1, 3, 11, '', 50),
 (6, 'Arroz Marca Chancho', 300, 0, 0, 500, 'vendedor/img_productos/wmtcl.jpg', 3, 1, 1, 3, 11, '', 0),
 (13, 'Pansito', 0, 0, 0, 0, 'core/sin_imagen.jpg', 3, 0, 7, 3, 11, '', 0),
@@ -852,7 +853,7 @@ INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_of
 (22, 'Aceitunas Jumbo', 2200, 1, 1750, 200, 'core/sin_imagen.jpg', 3, 1, 8, 4, 13, '', 0),
 (23, 'Azucar Iansa de kilo', 900, 0, 0, 300, 'vendedor/img_productos/wmtcl_1.jpg', 3, 1, 1, 3, 11, '', 0),
 (24, 'Azucar Acuenta', 650, 1, 550, 500, 'vendedor/img_productos/wmtcl_2.jpg', 3, 1, 1, 3, 11, '', 50),
-(25, 'Azucar Rubia', 1000, 0, 0, 250, 'vendedor/img_productos/wmtcl_3.jpg', 3, 1, 1, 3, 11, '', 60),
+(25, 'Azucar Rubia', 1000, 0, 0, 200, 'vendedor/img_productos/wmtcl_3.jpg', 3, 1, 1, 3, 11, '', 60),
 (26, 'Duraznos en conserva wasil', 950, 0, 0, 100, 'vendedor/img_productos/wmtcl_4.jpg', 3, 1, 8, 3, 13, '', 0),
 (27, 'Lomito san jose en agua', 1250, 1, 1000, 500, 'vendedor/img_productos/wmtcl_5.jpg', 3, 1, 8, 3, 13, '', 0),
 (28, 'Palmitos enteros', 1890, 1, 1550, 200, 'vendedor/img_productos/wmtcl_6.jpg', 3, 1, 8, 3, 13, '', 0),

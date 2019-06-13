@@ -20,6 +20,9 @@
     </div>
     <div class="row justify-content-center">
         <!--OBJETO LISTA-->
+        <div class="col-sm-10 col-12 pb-3">
+            <p><a href="{%url 'cliente:listado_locales'%}?pdf=yes" class="btn btn-danger">Descargar detalle de las tiendas</a></p>
+        </div>
         {%for obj in locales%}
             {%if obj.nombre_local != 'Sin definir'%}
             <!--El contenedor de obj-->

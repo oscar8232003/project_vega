@@ -21,9 +21,9 @@
         <!--FIN TITULO-->
     </div>
 
-    <div class="row pb-5 justify-content-center">
+    <div class="row pb-2 justify-content-center">
         <!--SECCION DE BUSCADORES-->
-        <form action="" method="POST" class="col-6 col-md-4" onsubmit="return validar_buscar();">
+        <form action="" method="GET" class="col-6 col-md-4" onsubmit="return validar_buscar();">
             {%csrf_token%}
             <label for="buscar_producto">Buscador</label>
             <input type="text" name="buscar" class="form-control" placeholder="ejem. arroz aruba" id="buscar_producto">
@@ -33,7 +33,7 @@
             <input type="submit" value="Buscar producto" class="btn btn-secondary mt-2">
         </form>
 
-        <form action="" method="post" class="col-6 col-md-4" onsubmit="return validar_categoria();">
+        <form action="" method="GET" class="col-6 col-md-4" onsubmit="return validar_categoria();">
             {%csrf_token%}
             <label for="id_categoria">Categorias</label>
             {{form_categoria.categoria}}
@@ -48,6 +48,15 @@
             <a href="{%url 'cliente:listar_productos'%}" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
         </div>
         <!--FIN SECCION DE BUSCADORES-->
+        <div class="col-12 mt-3">
+            {%if productos%}
+                {%if not request.GET%}
+                <p><a href="{%url 'cliente:listar_productos'%}?pdf_all=yes" class="btn btn-danger">Descargar detalle de los productos</a></p>
+                {%else%}
+                <p><a href="{{request.get_full_path}}&pdf=yes" class="btn btn-danger">Descargar detalle de los productos</a></p>
+                {%endif%}
+            {%endif%}
+        </div>
     </div>
 
     {%if productos%}

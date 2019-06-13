@@ -89,10 +89,13 @@
             <table class="table table-hover text-center">
               <thead class="thead-dark">
                 <tr>
+                  <th scope="col">ID Lista</th>
+                  <th scope="col">ID Cliente</th>
                   <th scope="col">Cliente</th>
                   <th scope="col">Fecha de registro</th>
                   <th scope="col">Total</th>
-                  <th scope="col">Cantidad de productos</th>
+                  <th scope="col">ID Local</th>
+                  <th scope="col">Accion</th>
                   <th scope="col">Estado del pedido</th>
                   <th scope="col">Descarga</th>
                 </tr>
@@ -100,10 +103,13 @@
               <tbody>
               {%for x in registros%}
                 <tr>
+                  <td>{{x.lista.id}}</td>
+                  <td>{{x.cliente.id}}</td>
                   <td>{{x.cliente.username}}</td>
                   <td>{{x.fecha_registro}}</td>
                   <td>{{x.total}}</td>
-                  <td>{{x.cantidad_productos}}</td>
+                  <td>{{x.local.id}}</td>
+                  <td>Actualizar</td>
                     {%if x.estado == 'cancelada'%}
                     <td><span class="badge badge-pill badge-danger">Cancelada</span></td>
                     {%elif x.estado == 'completada'%}

@@ -22,21 +22,34 @@ from reportlab.lib import colors
 
 @login_required(redirect_field_name='login')
 def Panel_de_vendedor(request, id):
-    #Falta arreglar el tema de los alerts
-    #falta poner el sistemas de puntos
     tipo = buscar_tipo(request.user.id)
 
     if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id:
         dic_productos = {}
-
+        arr_productos = []
+        arr_pedidos = []
+        arr_ofertas = []
         try:
             vendedor = Local.objects.get(user=id)
             total_productos = Productos.objects.filter(user=id).count()
             productos_vigentes = Productos.objects.filter(Q(user = id) , Q(activado = True)).exclude(stock = 0).count()
             productos_desactivados = Productos.objects.filter(Q(user=id), Q(activado=False)).count()
             productos_sin_stock = Productos.objects.filter(Q(user=id), Q(stock=0), Q(activado=True)).count()
+            listas_pendiendtes = Listas.objects.filter(estado_lista='enviada').count()
             tipo_premium = tipo.tipo_premium
             fecha_caducidad_premium = tipo.fecha_caducidad
+            #SECCION DE ALERTAS PARA PRODUCTOS
+            if productos_sin_stock != 0:
+                mensaje="Tienes {} productos sin stock, ve a echarle una mirada, sino desactivalo.".format(productos_sin_stock)
+                arr_productos.append(mensaje)
+            if productos_vigentes == 0:
+                mensaje = "No tienes productos para mostrar, ve a crear o modifica algunos productos para tu tienda!"
+                arr_productos.append(mensaje)
+            #SECCION DE ALERTAS PARA PEDIDOS
+            if listas_pendiendtes != 0:
+                mensaje = "Tienes {} pedidos pendientes para completar, ve a terminarlos!".format(listas_pendiendtes)
+                arr_pedidos.append(mensaje)
+
             if total_productos != 0:
                 productos_vigentes_por = int((productos_vigentes*100)/total_productos)
                 productos_desactivados_por = int((productos_desactivados * 100) / total_productos)
@@ -57,6 +70,26 @@ def Panel_de_vendedor(request, id):
             rango_oro = Oferta.objects.filter(Q(local=vendedor.id), Q(tipo_oferta='rango_oro'), Q(activado = True))
             rango_diamante = Oferta.objects.filter(Q(local=vendedor.id), Q(tipo_oferta='rango_diamante'), Q(activado = True))
             convencional = Oferta.objects.filter(Q(local=vendedor.id), Q(tipo_oferta='convencional'), Q(activado = True))
+            total_ofertas = Oferta.objects.filter(Q(local=vendedor.id), Q(activado= True)).count()
+            # SECCION DE ALERTAS PARA OFERTAS
+            if total_ofertas != 0:
+                if tipo_premium != 0:
+                    if general.count() == 0:
+                        mensaje="No tienes ofertas generales, recuerda que una oferta general es la mejor forma de atraer nuevos clientes"
+                        arr_ofertas.append(mensaje)
+                if rango_plata.count() == 0:
+                    mensaje = "No tienes ofertas para el rango Plata, recuerda entre mas beneficios tienen tus clientes, mas ventas tendras!"
+                    arr_ofertas.append(mensaje)
+                if rango_oro.count() == 0:
+                    mensaje = "No tienes ofertas para el rango Oro, recuerda entre mas beneficios tienen tus clientes, mas ventas tendras!"
+                    arr_ofertas.append(mensaje)
+                if rango_diamante.count() == 0:
+                    mensaje = "No tienes ofertas para el rango Diamante, recuerda entre mas beneficios tienen tus clientes, mas ventas tendras!"
+                    arr_ofertas.append(mensaje)
+            else:
+                mensaje = "No tienes ninguna ofertas a mostrar, ve y crea una oferta, recuerda, entre mas beneficios tienen tus clientes, tendras mas compradores en tu tienda"
+                arr_ofertas.append(mensaje)
+
         except:
             vendedor = None
 
@@ -64,7 +97,8 @@ def Panel_de_vendedor(request, id):
                                                                'tipo': tipo, 'general': general, 'temporada': temporada,
                                                                'rango_plata': rango_plata, 'rango_oro': rango_oro,
                                                                'rango_diamante': rango_diamante,
-                                                               'convencional': convencional, 'tipo':tipo
+                                                               'convencional': convencional, 'tipo':tipo, 'arr_ofertas': arr_ofertas,
+                                                               'arr_productos': arr_productos, 'arr_pedidos': arr_pedidos
                                                                })
     else:
         return redirect('registration:sin_permiso')
@@ -305,7 +339,31 @@ def Revisar_Listas(request, id):
                 lista.estado_lista = request.POST.get('lista')
                 lista.comentario_vendedor = request.POST.get('comentarios')
                 lista.save()
+                #DEVOLVER STOCK SI SE CANCELA O NO SE RETIRA
+                if estado == 'cancelada' or estado == 'no_retirada':
+                    productos_lista = Productos_listas.objects.filter(Q(user=lista.user.id), Q(lista=id))
+                    for producto in productos_lista:
+                        producto_cambiar = Productos.objects.get(id=producto.productos.id)
+                        producto_cambiar.stock += producto.cantidad
+                        producto_cambiar.save()
                 return redirect(reverse('vendedor:detalle_mis_pedidos', args=[id])+'?msg=estado_cambiado')
+                #SISTEMA DE PUNTOS
+                if estado == 'completada':
+                    try:
+                        persona_puntos = Puntos.objects.get(Q(user = lista.user.id), Q(local=local.id))
+                    except:
+                        persona_puntos = None
+                    total_puntos = int(lista.total/10000)
+                    if persona_puntos:
+                        persona_puntos.puntos+=total_puntos
+                        tipo_de_cuenta = calcular_puntos_persona(persona_puntos.puntos)
+                        persona_puntos.tipo_cuenta = tipo_de_cuenta
+                        persona_puntos.save()
+                    else:
+                        usuario_nuevo = User.objects.get(id = lista.user.id)
+                        tipo_de_cuenta = calcular_puntos_persona(total_puntos)
+                        Puntos.objects.create(user = usuario_nuevo, puntos = total_puntos, local = local, tipo_cuenta = tipo_de_cuenta)
+                return redirect(reverse('vendedor:detalle_mis_pedidos', args=[id]) + '?msg=estado_cambiado')
             else:
                 return redirect(reverse('vendedor:revisar_mis_pedidos', args=[id]) + '?msg=form_error')
         return render(request, 'vendedor/revisar_mis_pedidos.html',{'lista':lista, 'id':id})
@@ -555,7 +613,7 @@ def Imprimir_pdf_premium(datos):
     response = HttpResponse(content_type='application/pdf')
     #este es para descarga directa
     #response['Content-Disposition']= 'attachment; filename= TuVegaApp Reporte de Usuarios Premium.pdf'
-    response['Content-Disposition'] = 'filename= TuVegaApp Reporte de Usuarios Premium.pdf'
+    response['Content-Disposition'] = 'filename= TuVegaApp Registro de Usuarios Premium.pdf'
     buff = io.BytesIO()
     doc = SimpleDocTemplate(buff,
                             pagesize=letter,
@@ -567,53 +625,14 @@ def Imprimir_pdf_premium(datos):
     imagen = Image('media/core/Logo.png', width=201, height=44)
     premium.append(imagen)
     styles = getSampleStyleSheet()
-    header = Paragraph("Informe de Usuarios Premium", styles['Heading2'])
+    header = Paragraph("Registro de Usuarios Premium", styles['Heading2'])
     premium.append(header)
 
-    headings = ('Cliente', 'Tipo de Premium', 'Fecha de Inicio', 'Fecha de Caducidad')
-    Datos = [(x.user.username, x.premium, x.fecha_inicio, x.fecha_caducidad)
+    headings = (Paragraph("ID Cliente", styles['Normal']), 'Cliente', Paragraph("Tipo de Premium", styles['Normal']),
+                Paragraph("Fecha de Inicio", styles['Normal']), Paragraph("Fecha de Caducidad", styles['Normal']))
+    Datos = [(x.user.id, x.user.username, x.premium, x.fecha_inicio, x.fecha_caducidad)
                        for x in datos]
-    t = Table([headings]+Datos, colWidths=[155,100,100,100])
-
-    t.setStyle(TableStyle(
-        [
-            ('GRID', (0, 0), (3, -1), 1, colors.dodgerblue),
-            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
-            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue),
-            ('ALIGN', (0, 0), (0, 0), 'CENTER'),
-        ]
-    ))
-
-    premium.append(t)
-    doc.build(premium)
-    response.write(buff.getvalue())
-    buff.close()
-
-    return response
-
-def Imprimir_pdf_listas(datos):
-    response = HttpResponse(content_type='application/pdf')
-    #este es para descarga directa
-    #response['Content-Disposition']= 'attachment; filename= TuVegaApp Reporte de Usuarios Premium.pdf'
-    response['Content-Disposition'] = 'filename= TuVegaApp Reporte de pedidos.pdf'
-    buff = io.BytesIO()
-    doc = SimpleDocTemplate(buff,
-                            pagesize=letter,
-                            rightMargin=72,
-                            leftMargin=72,
-                            topMargin=60,
-                            bottomMargin=18,)
-    premium = []
-    imagen = Image('media/core/Logo.png', width=201, height=44)
-    premium.append(imagen)
-    styles = getSampleStyleSheet()
-    header = Paragraph("Informe de Pedidos", styles['Heading2'])
-    premium.append(header)
-
-    headings = ('Cliente', 'Fecha de Registro', 'Total', 'Cantidad de Productos', 'Estado del Pedido')
-    Datos = [(x.cliente.username, x.fecha_registro, x.total, x.cantidad_productos, x.estado)
-                       for x in datos]
-    t = Table([headings]+Datos, colWidths=[91,91,71,111,91])
+    t = Table([headings]+Datos, colWidths=[91, 91, 91, 91, 91])
 
     t.setStyle(TableStyle(
         [
@@ -631,3 +650,54 @@ def Imprimir_pdf_listas(datos):
 
     return response
 
+def Imprimir_pdf_listas(datos):
+    response = HttpResponse(content_type='application/pdf')
+    #este es para descarga directa
+    #response['Content-Disposition']= 'attachment; filename= TuVegaApp Reporte de Usuarios Premium.pdf'
+    response['Content-Disposition'] = 'filename= TuVegaApp Registro de pedidos.pdf'
+    buff = io.BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=letter,
+                            rightMargin=72,
+                            leftMargin=72,
+                            topMargin=60,
+                            bottomMargin=18,)
+    premium = []
+    imagen = Image('media/core/Logo.png', width=201, height=44)
+    premium.append(imagen)
+    styles = getSampleStyleSheet()
+    header = Paragraph("Registro de Pedidos", styles['Heading2'])
+    premium.append(header)
+    headings = (Paragraph('ID Lista', styles['Normal']), Paragraph('ID Cliente', styles['Normal']),'Cliente',
+                Paragraph('Fecha de Registro', styles['Normal']), 'Total', Paragraph('ID Local', styles['Normal']),
+                Paragraph('Estado del Pedido', styles['Normal']))
+    Datos = [(x.lista.id, x.cliente.id, x.cliente.username, Paragraph(str(x.fecha_registro), styles['Normal']), x.total,
+              x.local.id, x.estado)
+                       for x in datos]
+    t = Table([headings]+Datos, colWidths=[65, 65, 65, 65, 65, 65, 65])
+
+    t.setStyle(TableStyle(
+        [
+            ('GRID', (0, 0), (6, -1), 1, colors.dodgerblue),
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue),
+            ('ALIGN', (0, 0), (0, 0), 'CENTER'),
+        ]
+    ))
+
+    premium.append(t)
+    doc.build(premium)
+    response.write(buff.getvalue())
+    buff.close()
+
+    return response
+
+def calcular_puntos_persona(datos):
+    rango = ""
+    if datos <= 200:
+        rango = "Plata"
+    elif datos >200 and datos <= 500:
+        rango = "Oro"
+    elif datos > 500:
+        rango = "Diamante"
+    return rango

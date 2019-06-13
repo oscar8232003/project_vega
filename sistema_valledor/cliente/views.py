@@ -1,13 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.models import User
 from .forms import FormCategoria, FormTienda, FormListas, Productos_listas_form
-from vendedor.models import Productos, Local, Oferta
+from vendedor.models import Productos, Local, Oferta, Puntos
 from registration.models import Tipo_usuarios
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import Listas, Productos_listas
 from django.contrib.auth.decorators import login_required
 import time
+from django.http import HttpResponse
+
+#GENERAR PDFS
+import io
+from reportlab.lib.pagesizes import letter, A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, TableStyle, Table, Image
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.enums import TA_CENTER
+from reportlab.lib import colors
+
 # Create your views here.
 def Panel_Cliente(request, id):
 
@@ -15,7 +25,8 @@ def Panel_Cliente(request, id):
     if tipo is not None and tipo.tipo_usuario == 'cliente' and id == request.user.id:
         cliente = get_object_or_404(User,id=id)
         ofertas_generales = Oferta.objects.filter(Q(tipo_oferta='general'), Q(activado=True), Q(local__activado=True)).order_by('local__nombre_local')
-        return render(request, 'cliente/panel_cliente.html',{'cliente':cliente, 'oferta_general':ofertas_generales, })
+        puntos = Puntos.objects.filter(user = request.user.id)
+        return render(request, 'cliente/panel_cliente.html',{'cliente':cliente, 'oferta_general':ofertas_generales, 'puntos':puntos })
     else:
         return redirect('registration:sin_permiso')
 
@@ -23,22 +34,38 @@ def Listar_Productos(request):
 
     form = FormCategoria()
     locales = Local.objects.all()
-
-    if request.method == 'POST':
-        buscar = request.POST.get('buscar', None)
-        categoria = request.POST.get('categoria', None)
-        if buscar is not None:
-            productos = Productos.objects.filter((Q(nombre__contains = buscar)|Q(nombre__icontains = buscar)),Q(activado = True)).order_by('-oferta').exclude(stock = 0)
-        else:
-            productos = Productos.objects.filter(Q(categoria = categoria),Q(activado = True)).order_by('-oferta').exclude(stock = 0)
-        return render(request, 'cliente/listado_productos.html', {'form_categoria': form, 'productos':productos, 'locales':locales,})
+    pdf_all = request.GET.get('pdf_all', None)
+    pdf = request.GET.get('pdf', None)
+    buscar = request.GET.get('buscar', None)
+    categoria = request.GET.get('categoria', None)
+    if categoria:
+        productos = Productos.objects.filter(Q(categoria=categoria), Q(activado=True)).order_by('-oferta').exclude(
+            stock=0)
+        if pdf == 'yes':
+            prod = convertir_datos_para_pdf(productos)
+            return Imprimir_pdf_detalle_productos(prod)
+        return render(request, 'cliente/listado_productos.html',
+                      {'form_categoria': form, 'productos': productos, 'locales': locales, })
+    elif buscar:
+        productos = Productos.objects.filter((Q(nombre__contains = buscar)|Q(nombre__icontains = buscar)),Q(activado = True)).order_by('-oferta').exclude(stock = 0)
+        if pdf == 'yes':
+            prod = convertir_datos_para_pdf(productos)
+            return Imprimir_pdf_detalle_productos(prod)
+        return render(request, 'cliente/listado_productos.html',
+                      {'form_categoria': form, 'productos':productos, 'locales':locales,})
     elif request.GET.get('filtro') == 'ofertas':
         productos = Productos.objects.filter(Q(oferta=True),Q(activado = True)).exclude(stock = 0)
         productos = paginador_propio(request, productos, 18)
+        if pdf == 'yes':
+            prod = convertir_datos_para_pdf(productos)
+            return Imprimir_pdf_detalle_productos(prod)
         return render(request, 'cliente/listado_productos.html', {'form_categoria': form, 'productos': productos, 'locales':locales,})
     else:
         productos = Productos.objects.filter(Q(activado = True)).order_by('-oferta').exclude(stock = 0)
         productos = paginador_propio(request, productos, 18)
+        if pdf_all == 'yes':
+            prod = convertir_datos_para_pdf(productos)
+            return Imprimir_pdf_detalle_productos(prod)
         return render(request, 'cliente/listado_productos.html', {'form_categoria': form, 'productos': productos, 'locales':locales,})
 
 def Detalle_Productos(request, id):
@@ -49,6 +76,24 @@ def Detalle_Productos(request, id):
 
     if producto.activado and producto.stock != 0:
         form = Productos_listas_form()
+        pdf = request.GET.get('pdf', None)
+        if pdf == 'yes':
+            datos = []
+            dic = {}
+            dic['nombre']= producto.nombre
+            dic['categoria'] = producto.categoria.categoria
+            if producto.oferta:
+                dic['oferta'] = 'SI'
+                dic['precio_oferta'] = producto.precio_oferta
+            else:
+                dic['oferta'] = 'NO'
+                dic['precio_oferta'] = 0
+            dic['precio'] = producto.precio
+            dic['stock'] = producto.stock
+            dic['unidad_medida'] = producto.unidad_medida.medida_plural
+            dic['tienda'] = local.nombre_local
+            datos.append(dic)
+            return Imprimir_pdf_detalle_productos(datos)
         if request.method == 'POST':
             form = Productos_listas_form(request.POST)
             #Validador de datos de inputs hidden
@@ -120,7 +165,11 @@ def Listado_Locales(request):
             diccionario['numero_ofertas'] = ofertas_locales
             diccionario['oferta_general'] = oferta_general
             objetos.append(diccionario)
+    if request.GET.get('pdf', None):
+        return Imprimir_pdf_listas(objetos)
+
     return render(request, 'cliente/listado_locales.html',{'locales':objetos})
+
 
 def Detalle_Locales(request,id):
     local =get_object_or_404(Local,user=id)
@@ -143,6 +192,7 @@ def Detalle_Locales(request,id):
         rango_oro = Oferta.objects.filter(Q(local=local.id), Q(tipo_oferta='rango_oro'), Q(activado=True))
         rango_diamante = Oferta.objects.filter(Q(local=local.id), Q(tipo_oferta='rango_diamante'), Q(activado=True))
         convencional = Oferta.objects.filter(Q(local=local.id), Q(tipo_oferta='convencional'), Q(activado=True))
+        total_ofertas = Oferta.objects.filter(Q(local=local.id), Q(activado=True)).count()
 
         dict_productos = {'id':id,'productos_vigentes': productos_vigentes, 'productos':productos,
                           'productos_oferta':productos_oferta,'productos_porcentaje':productos_porcentaje,
@@ -528,3 +578,112 @@ def convertidor_numero(numero):
     except:
         x = None
     return x
+
+def Imprimir_pdf_detalle_productos(datos):
+    response = HttpResponse(content_type='application/pdf')
+    #este es para descarga directa
+    #response['Content-Disposition']= 'attachment; filename= TuVegaApp Reporte de Usuarios Premium.pdf'
+    response['Content-Disposition'] = 'filename= cotizacion de producto.pdf'
+    buff = io.BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=letter,
+                            rightMargin=72,
+                            leftMargin=72,
+                            topMargin=60,
+                            bottomMargin=18,)
+    premium = []
+    imagen = Image('media/core/Logo.png', width=201, height=44)
+    premium.append(imagen)
+    styles = getSampleStyleSheet()
+    header = Paragraph("Cotizacion de producto", styles['Heading2'])
+    premium.append(header)
+
+    headings = ('Nombre', 'Categoria', 'Oferta', Paragraph('Precio Oferta', styles['Normal']), 'Precio', 'Stock', 'Tienda', 'Medida')
+    Datos = [(Paragraph(x['nombre'], styles['Normal']),Paragraph(x['categoria'], styles['Normal']), x['oferta'],
+              x['precio_oferta'], x['precio'], x['stock'], Paragraph(x['tienda'], styles['Normal']),
+              Paragraph(x['unidad_medida'], styles['Normal']))
+                       for x in datos]
+    t = Table([headings]+Datos, colWidths=[70,62,56,46,46,56,56,56])
+
+    t.setStyle(TableStyle(
+        [
+            ('GRID', (0, 0), (7, -1), 1, colors.dodgerblue),
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue),
+            ('ALIGN', (0, 0), (0, 0), 'CENTER'),
+        ]
+    ))
+
+    premium.append(t)
+    doc.build(premium)
+    response.write(buff.getvalue())
+    buff.close()
+
+    return response
+
+def convertir_datos_para_pdf(datos):
+    arr = []
+    for x in datos:
+        dic = {}
+        dic['nombre'] = x.nombre
+        dic['categoria'] = x.categoria.categoria
+        if x.oferta:
+            dic['oferta'] = 'SI'
+            dic['precio_oferta'] = x.precio_oferta
+        else:
+            dic['oferta'] = 'NO'
+            dic['precio_oferta'] = 0
+        dic['precio'] = x.precio
+        dic['stock'] = x.stock
+        dic['unidad_medida'] = x.unidad_medida.medida_plural
+        nombre_local = ""
+        for y in Local.objects.all():
+            if y.user.id == x.user.id:
+                nombre_local = y.nombre_local
+                break
+        dic['tienda'] = nombre_local
+        arr.append(dic)
+    return arr
+
+def Imprimir_pdf_listas(datos):
+    response = HttpResponse(content_type='application/pdf')
+    #este es para descarga directa
+    #response['Content-Disposition']= 'attachment; filename= TuVegaApp Reporte de Usuarios Premium.pdf'
+    response['Content-Disposition'] = 'filename= cotizacion de producto.pdf'
+    buff = io.BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=letter,
+                            rightMargin=72,
+                            leftMargin=72,
+                            topMargin=60,
+                            bottomMargin=18,)
+    premium = []
+    imagen = Image('media/core/Logo.png', width=201, height=44)
+    premium.append(imagen)
+    styles = getSampleStyleSheet()
+    header = Paragraph("Cotizacion de Locales", styles['Heading2'])
+    premium.append(header)
+
+    headings = (Paragraph('Nombre Local', styles['Normal']), Paragraph('Ubicacion Local', styles['Normal']),
+                Paragraph('Productos vigentes', styles['Normal']), Paragraph('Productos en Oferta', styles['Normal']),
+                Paragraph('Numero de Ofertas', styles['Normal']))
+    Datos = [(Paragraph(x['nombre_local'], styles['Normal']),Paragraph(x['ubicacion_local'], styles['Normal']), x['productos'],
+              x['productos_oferta'], x['numero_ofertas'])
+                       for x in datos]
+    t = Table([headings]+Datos, colWidths=[91,91,91,91,91])
+
+    t.setStyle(TableStyle(
+        [
+            ('GRID', (0, 0), (7, -1), 1, colors.dodgerblue),
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
+            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue),
+            ('ALIGN', (0, 0), (0, 0), 'CENTER'),
+        ]
+    ))
+
+    premium.append(t)
+    doc.build(premium)
+    response.write(buff.getvalue())
+    buff.close()
+
+    return response

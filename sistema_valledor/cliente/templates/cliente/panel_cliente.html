@@ -45,7 +45,21 @@
         <div CLASS="col-12 col-md-9 pb-3">
             <h3 class="text-center pb-3 d-none d-lg-block">Hola {{cliente.first_name}}, que tal?</h3>
             <h5 class="pb-3"><strong>Tus puntos en diferentes tiendas</strong></h5>
-            <p>*Construccion* Tienda kampito tienes <strong class="badge badge-info">20 puntos</strong>, tienes descuento de <span class="">cliente frecuente</span></p>
+            {%if puntos%}
+            {%for x in puntos%}
+            <p>Tienda {{puntos.local.nombre_local}} tienes <strong class="badge badge-info">{{puntos}} puntos</strong>, actualmente eres
+                {%if x.tipo_cuenta == 'Plata'%}
+                <span style="color:#C0C0C0"><strong>{{x.tipo_cuenta}}</strong></span>
+                {%elif x.tipo_cuenta == 'Oro'%}
+                <span style="color:#D4AF37"><strong>{{x.tipo_cuenta}}</strong></span>
+                {%elif x.tipo_cuenta == 'Diamante'%}
+                <span style="color:#B9F2FF"><strong>{{x.tipo_cuenta}}</strong></span>
+                {%endif%}
+                , ve a ver tus beneficios <a href="{%url 'cliente:detalle_locales' x.local.user.id%}"><span class="badge badge-success">Ir a la tienda</span></a></p>
+            {%endfor%}
+            {%else%}
+            <p>Actualmente no tienes puntos en ningun local asociado, ve a comprar algo para sumar puntos!</p>
+            {%endif%}
             <hr>
             <h5 class="pb-3"><strong>Tiendas con ofertas generales</strong></h5>
             {%for oferta in oferta_general%}
