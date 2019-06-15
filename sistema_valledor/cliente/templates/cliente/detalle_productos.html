@@ -104,7 +104,6 @@
                         </div>
                         {%else%}
                         <p>No tienes una lista valida para esta tienda, ve a crear una!</p>
-                        <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary btn-block">Crear una lista para esta tienda</a>
                         <p class="small color-rojo" hidden id="id_texto_emergencia">Para agregar un producto se necesita una lista</p>
                         {%endif%}
                     </div>
@@ -124,6 +123,8 @@
 
                     <div class="col-12 form-group p-0 text-center">
                         <input type="submit" class="btn btn-success" value="Agregar a la lista">
+                        <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary">Crear una lista para esta tienda</a>
+
                     </div>
 
                 </form>
