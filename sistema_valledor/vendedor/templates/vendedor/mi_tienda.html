@@ -4,7 +4,7 @@
 <div class="container container-whithe shadow">
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
+        <div class="col-12 text-center pt-3 pb-3">
             <h2>Bienvenido a la seccion dedicada a tu tienda</h2>
             <p><em>Aqui podras administrar todo lo relacionado con la informacion de tu local.</em></p>
             <hr>
@@ -43,15 +43,15 @@
         </div>
 
         <div class="col-12 col-md-8">
-            <p class="h4">Nombre del local</p>
-            <p class="h5">{{local.nombre_local}}</p>
-            <p class="h4">Ubicacion del local</p>
-            <p class="h5">{{local.ubicacion_local}}</p>
-            <p class="h4">El local esta activo actualmente?</p>
+            <p class="h5">Nombre del local</p>
+            <p class="h6">{{local.nombre_local}}</p>
+            <p class="h5">Ubicacion del local</p>
+            <p class="h6">{{local.ubicacion_local}}</p>
+            <p class="h5">El local esta activo actualmente?</p>
             {%if local.activado%}
-            <p class="h5">Si</p>
+            <p class="h6">Si</p>
             {%else%}
-            <p class="h5">No</p>
+            <p class="h6">No</p>
             {%endif%}
         </div>
 

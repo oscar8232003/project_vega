@@ -48,8 +48,14 @@
                         {%if obj.oferta_general%}
                         <p class="d-none d-sm-block color-rojo"><strong>Oferta! {{obj.oferta_general}}</strong></p>
                         {%endif%}
-
-                        <p class="d-none d-sm-block">Ubicacion:  <strong>{{obj.ubicacion_local}}</strong></p>
+                        {%if obj.valorizacion%}
+                            <p class="d-none d-sm-block m-0">Servicio:
+                                {%for x in x|rjust:obj.valorizacion%}
+                                    <strong class="icon-android-star"></strong>
+                                {%endfor%}
+                            </p>
+                        {%endif%}
+                        <p class="d-none d-sm-block m-0">Ubicacion:  <strong>{{obj.ubicacion_local}}</strong></p>
 
                         {%if obj.productos != 0 or obj.productos_oferta != 0 %}
                         <p class="m-0">Contamos con</p>

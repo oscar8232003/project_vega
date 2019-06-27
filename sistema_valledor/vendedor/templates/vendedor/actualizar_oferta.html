@@ -11,7 +11,7 @@
 <div class="container container-whithe shadow">
     <div class="row justify-content-center pb-4">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5">
+        <div class="col-12 text-center pt-3">
             <h2>Actualizar ofertas</h2>
             <p>Aqui podras actualizar o editar tus ofertas de la forma que quieras</p>
             <hr>
@@ -21,21 +21,21 @@
         <div class="col-12 text-center">
             {%if request.GET.msg == 'act_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo actualizar la oferta, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> <strong>No se pudo actualizar la oferta, intentelo otra vez.</strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             {%elif request.GET.msg == 'act_user_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No puede actualizar una oferta diferente a esta.
+              <span class="icon-exclamation-triangle"></span><strong>No puede actualizar una oferta diferente a esta.</strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             {%elif request.GET.msg == 'premium_error' or request.GET.msg == 'general_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No tiene suscripcion para poder editar esta oferta.
+              <span class="icon-exclamation-triangle"></span> <strong>No tiene suscripcion para poder editar esta oferta.</strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -86,7 +86,7 @@
         </div>
         <div class="w-100"></div>
         <div class="col-12 col-md-6 text-center pb-5">
-            <input type="submit" value="Actualizar Oferta" class="btn btn-primary">
+            <button type="submit" value="Actualizar Oferta" class="btn btn-primary"><span data-icon="u"></span> Actualizar Oferta</button>
         </div>
         <div class="col-12 m-4">
             <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>

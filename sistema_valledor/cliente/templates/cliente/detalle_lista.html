@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div class="row pb-md-5 pb-3">
+    <div class="row pb-md-4 pb-3">
         <div class="col-md-3 col-12 pb-md-0 pb-4 text-center">
             <h5>Estado de la lista</h5>
             <h4 class="m-3">
@@ -115,9 +115,35 @@
 
         <div class="col-md-5 col-12 pb-md-0 pb-2">
             <hr class="d-block d-sm-none">
-            <h5>Total de la lista: <strong>${{total_aprox}}</strong></h5>
-            {%if productos%}
-            <h5>Productos marcados: <strong>${{total_marcado}}</strong></h5>
+            <div class="col-12 pb-2">
+                <h5>Total de la lista: <strong>${{total_aprox}}</strong></h5>
+                {%if productos and total_marcado != 0%}
+                <h5>Productos marcados: <strong>${{total_marcado}}</strong></h5>
+                {%endif%}
+            </div>
+            {%if lista.estado_lista == 'completada'%}
+                {%if lista.valorizacion == False%}
+                <form method="POST" class="col-md-9 col-12 text-center">
+                    {%csrf_token%}
+                    <label for="valor_id"><strong>Como te fue con la compra?</strong></label>
+                    <select name="valor" id="valor_id" class="form-control mb-3">
+                        <option value="">----</option>
+                        <option value="1">1. Pesimo!</option>
+                        <option value="2">2. Regular</option>
+                        <option value="3">3. Relativamente bien</option>
+                        <option value="4">4. Me gusto</option>
+                        <option value="5">5. Me encanto!</option>
+                    </select>
+                    <label for="id_comentarios_valorizacion">Danos tu opinion si deseas!</label>
+                    <textarea name="comentarios_valorizacion" id="id_comentarios_valorizacion" cols="30" rows="2" class="form-control"></textarea>
+                    <button class="btn btn-primary btn-small mt-3" type="submit" name="valorizar" value="valorizar"><span class="icon-android-star"></span> Valorizar</button>
+                </form>
+                {%else%}
+                <div class="col-12 text-center">
+                    <p><strong>Ya valorizaste este pedido, muchas gracias!</strong></p>
+                    <img src="/media/core/success.jpg" alt="lista_valorizada" width="100px;">
+                </div>
+                {%endif%}
             {%endif%}
         </div>
 
@@ -140,6 +166,9 @@
     </div>
 
     <div class="row">
+        <div class="col-12 pb-3">
+            <a href="{%url 'cliente:listar_productos_tiendas' lista.local.user.id%}" class="btn btn-primary btn-sm">Ir a seleccionar Productos</a>
+        </div>
         {%if productos%}
         <div class="col-12 table-responsive">
             <table class="table table-hover">

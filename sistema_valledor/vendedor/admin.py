@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Local, Categoria_Productos, Unidad_Medida, Productos, Oferta, Puntos
+from .models import Local, Categoria_Productos, Unidad_Medida, Productos, Oferta, Puntos, Registro_auditoria_productos
 
 # Register your models here.
 
@@ -29,9 +29,15 @@ class Oferta_admin(admin.ModelAdmin):
 class Puntos_admin(admin.ModelAdmin):
     pass
 
+class Registro_auditoria_productos_admin(admin.ModelAdmin):
+    list_display = ('id', 'producto', 'vendedor_id', 'nombre_producto', 'accion', 'fecha_registro')
+    search_fields = ('producto',)
+    list_filter = ('vendedor',)
+
 admin.site.register(Local, Local_admin)
 admin.site.register(Categoria_Productos, Categoria_Productos_admin)
 admin.site.register(Unidad_Medida, Unidad_Medida_admin)
 admin.site.register(Productos, Productos_admin)
 admin.site.register(Oferta, Oferta_admin)
 admin.site.register(Puntos, Puntos_admin)
+admin.site.register(Registro_auditoria_productos, Registro_auditoria_productos_admin)

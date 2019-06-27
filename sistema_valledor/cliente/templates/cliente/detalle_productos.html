@@ -67,8 +67,10 @@
               </button>
             </div>
             {%elif request.GET.msg == 'form_ok'%}
-            <div class="alert alert-success alert-dismissible fade show col-12 col-md-10" role="alert">
-              <strong><span class="icon-angellist"></span> Producto agregado exitosamente!</strong>
+            <div class="alert alert-success alert-dismissible fade show col-12 col-md-10 text-center" role="alert">
+              <strong><span class="icon-angellist"></span> Producto agregado exitosamente!
+              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-success btn-sm">Ir a Listas</a>
+              </strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -79,6 +81,7 @@
                 <form action="" method="POST" class="col-12 col-md-10 p-3 rounded shadow" onsubmit="return validar_agregar_listas()">
                     {%csrf_token%}
                     <h4 class="mb-3 color-base text-center"><strong>Agregar producto a una lista</strong></h4>
+                    <a href="{%url 'cliente:mis_listas' request.user.id%}" class="btn btn-primary btn-sm mb-2">Mis Listas</a>
                     <input type="hidden" name="user" id="id_user" value="{{request.user.id}}">
                     <input type="hidden" name="productos" id="id_productos" value="{{object.id}}">
                     <input type="hidden" name="local" id="id_local" value="{{local.id}}">
@@ -89,10 +92,9 @@
                            value="{{object.precio}}"
                     {%endif%}
                     >
-
+                    {%if listas%}
                     <div class="col-12 form-group p-0">
-                        {%if listas%}
-                        <label>Escoga la lista</label>
+                        <label>Escoja la lista</label>
                         <select name="lista" class="form-control" id="id_lista">
                           <option value="" selected="">---------</option>
                           {%for lista in listas%}
@@ -102,10 +104,7 @@
                         <div class="invalid-feedback">
                             <p id="id_lista-invalid" class="m-0"></p>
                         </div>
-                        {%else%}
-                        <p>No tienes una lista valida para esta tienda, ve a crear una!</p>
                         <p class="small color-rojo" hidden id="id_texto_emergencia">Para agregar un producto se necesita una lista</p>
-                        {%endif%}
                     </div>
 
                     <div class="col-12 form-group p-0">
@@ -122,11 +121,16 @@
                     </div>
 
                     <div class="col-12 form-group p-0 text-center">
-                        <input type="submit" class="btn btn-success" value="Agregar a la lista">
+                        <input type="submit" class="btn btn-success mb-2" value="Agregar a la lista">
+                        <p class="mb-2">o si deseas puedes</p>
                         <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary">Crear una lista para esta tienda</a>
-
                     </div>
-
+                    {%else%}
+                    <p class="text-center"><strong>No tienes una lista valida para esta tienda, ve a crear una!</strong></p>
+                    <div class="col-12 form-group p-0 text-center">
+                        <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary">Crear una lista para esta tienda</a>
+                    </div>
+                    {%endif%}
                 </form>
             {%endif%}
         </div>

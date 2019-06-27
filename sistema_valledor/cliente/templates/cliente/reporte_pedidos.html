@@ -1,0 +1,219 @@
+{%extends 'core/base.html'%}
+{%block title%}Reporte de Pedidos{%endblock%}
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row">
+        <div class="col-12 text-center pt-4 pb-2">
+            <h2>Reporte de Pedidos</h2>
+            <em>Aqui tienes el reporte de los pedidos que haz hecho hasta ahora</em>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <!--SECCION DE ALERTAS-->
+        {%if mensaje_error%}
+        <div class="col-12 text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <strong><span class="icon-exclamation-triangle"></span> {{mensaje_error}}</strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+        </div>
+        {%endif%}
+        <!--FIN SECCION DE ALERTAS-->
+
+        <!--SECCION DE FILTROS-->
+        <!--Seleccion de locales-->
+         <form action="" method="POST" class="col-12 col-md-3 form-group text-center" onsubmit="return validar_tienda();">
+            {%csrf_token%}
+            <label>Buscar pedidos por tiendas</label>
+            <select id="id_tienda" name="tienda" class="form-control">
+                <option value="">-----</option>
+                {%for x in dic_datos.tiendas%}
+                    <option value="{{x.id}}">{{x.nombre_local}}</option>
+                {%endfor%}
+            </select>
+            <div class="invalid-feedback">
+                <p id="id_tienda-invalid" class="m-0"></p>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3" value="buscar_tienda" name="buscar_tienda">Buscar</button>
+        </form>
+
+        <!--Estado de los pedidos-->
+        <form action="" method="POST" class="col-12 col-md-3 form-group text-center" onsubmit="return validar_estado();">
+            {%csrf_token%}
+            <label>Buscar pedidos por estados</label>
+            <select id="id_estado" name="estado" class="form-control">
+                <option value="">-----</option>
+                <option value="completada">Completada</option>
+                <option value="no_retirada">No retirada</option>
+                <option value="cancelada">Cancelada</option>
+            </select>
+            <div class="invalid-feedback">
+                <p id="id_estado-invalid" class="m-0"></p>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3" value="buscar_estado" name="buscar_estado">Buscar</button>
+        </form>
+
+        <!--Busca pedidos por rangos de fechas-->
+        <form action="" method="POST" class="col-12 col-md-6 form-group text-center d-md-flex" onsubmit="return validar_fechas()">
+            {%csrf_token%}
+            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-2 pl-md-2 mb-2 mb-md-0">
+                <label for="fecha_inicio">Intervalo inicial</label>
+                <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio">
+                <div class="invalid-feedback">
+                    <p id="fecha_inicio-invalid" class="m-0"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-2 pl-md-2">
+                <label for="fecha_fin">Intervalo final</label>
+                <input id="fecha_fin" type="date" class="form-control" name="fecha_final">
+                <div class="invalid-feedback">
+                    <p id="fecha_fin-invalid" class="m-0"></p>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" value="buscar_fecha" name="buscar_fecha">Buscar</button>
+            </div>
+        </form>
+
+        <div class="col-12 pb-3">
+            <a href="{%url 'cliente:reporte_pedidos' request.user.id%}" class="btn btn-primary">Reporte inicial</a>
+        </div>
+        <!--FIN SECCION DE FILTROS-->
+
+         <!--Seccion de reportes por filtros-->
+        <div class="col-12 pb-4">
+            <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#tabla_colapsada"
+                    aria-expanded="false" aria-controls="collapseExample">
+                <span class="icon-angle-double-down"></span> Haz click aqui para ver los registros
+                {%if criterio%} de busqueda "{{criterio}}"{%endif%}
+                <span class="icon-angle-double-down"></span>
+            </button>
+
+            <div class="collapse table-responsive text-center" id="tabla_colapsada">
+              {%if datos%}
+                {%if titulo%}
+                <h3 class="pt-3">{{titulo}}</h3>
+                {%endif%}
+                <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Local</th>
+                          <th scope="col">Cantidad de Items</th>
+                          <th scope="col">Cantidad de Productos</th>
+                          <th scope="col">Total</th>
+                          <th scope="col">Fecha de registro</th>
+                          <th scope="col">Estado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {%if datos%}
+                          {%for x in datos%}
+                            <tr>
+                              <td>{{x.local.nombre_local}}</td>
+                              <td>{{x.cantidad_items}}</td>
+                              <td>{{x.cantidad_productos}}</td>
+                              <td>{{x.total}}</td>
+                              <td>{{x.fecha_registro}}</td>
+                              <td>{{x.estado}}</td>
+                            </tr>
+                          {%endfor%}
+                      {%endif%}
+                      </tbody>
+                    </table>
+                {%else%}
+                <h4 class="pt-3 text-center">No hay datos para mostar</h4>
+                <img src="/media/core/triste.jpg" alt="no_hay_datos_reporte" width="100px">
+               {%endif%}
+            </div>
+        </div>
+        <!--Fin seccion de reporte por filtros-->
+
+        <div class="col-12 pb-4 d-flex flex-wrap">
+        <!--Seccion de reporteria de productos-->
+            <div class="col-md-6 col-12 pt-3">
+                <h4 class="text-center">Informacion de los Pedidos</h4>
+                <p class="m-0">Tienes <span class="badge badge-primary">{{dic_datos.total_pedidos}}</span> Pedidos de diferentes estados</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_datos.total_pedidos_porcentaje}}%"></div>
+                </div>
+                <p class="m-0">Tienes <span class="badge badge-success">{{dic_datos.total_completados}}</span> Pedidos completados</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_datos.total_completados_porcentaje}}%"></div>
+                </div>
+                <p class="m-0">Tienes <span class="badge badge-danger">{{dic_datos.total_cancelados}}</span> Pedidos Cancelados</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_datos.total_cancelados_porcentaje}}%"></div>
+                </div>
+                <p class="m-0">Tienes <span class="badge badge-danger">{{dic_datos.total_no_retirados}}</span> Pedidos no retirados</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_datos.total_no_retirados_porcentaje}}%"></div>
+                </div>
+
+                <hr>
+
+                <h4 class="text-center">Informacion de Compras en tiendas en el {%now "Y"%}</h4>
+                {%for x in dic_datos.veces_compradas_total%}
+                <button class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                  <strong>{{x.tienda}},</strong> <strong>{{x.cantidad}}</strong> compras hechas, sumando
+                un total de <strong>{{x.total}}</strong>
+                </button>
+                {%empty%}
+
+                {%endfor%}
+            </div>
+
+        <!--Seccion de productos de mayor valor-->
+            <div class="col-md-6 col-12 pb-4 text-center table-responsive">
+                <h4 class="text-center">Compras mensuales en el {%now "Y"%}</h4>
+                <table class="table table-hover table-sm">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Mes</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Total Productos</th>
+                      <th scope="col">Total Items</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {%for x in dic_datos.compras_mensuales%}
+                    <tr>
+                      <td>{{x.mes}}</td>
+
+                      {%if x.total_dinero%}
+                      <td>{{x.total_dinero}}</td>
+                      {%else%}
+                      <td>0</td>
+                      {%endif%}
+
+                      {%if x.total_productos%}
+                      <td>{{x.total_productos}}</td>
+                      {%else%}
+                      <td>0</td>
+                      {%endif%}
+
+                      {%if x.total_items%}
+                      <td>{{x.total_items}}</td>
+                      {%else%}
+                      <td>0</td>
+                      {%endif%}
+                    </tr>
+                  {%endfor%}
+                </table>
+            </div>
+
+        </div>
+
+        <div class="col-12 mt-4 mb-4">
+            <a href="{%url 'cliente:reportes' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

@@ -8,6 +8,8 @@
             <h3><strong>Quieres eliminar {{producto.productos.nombre}}?</strong></h3>
         </div>
 
+        <img src="/media/core/papelera.jpg" alt="simbolo_eliminar" width="200px">
+
         <form action="" method="POST" class="col-12 text-center mb-5 mt-4">
             {%csrf_token%}
             <input type="submit" class="btn btn-danger" value="Si quiero eliminarlo de esta lista">

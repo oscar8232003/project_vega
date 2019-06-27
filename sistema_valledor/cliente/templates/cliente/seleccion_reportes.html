@@ -1,0 +1,39 @@
+{%extends 'core/base.html'%}
+{%block title%}Seleccion de reportes{%endblock%}
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row">
+        <div class="col-12 p-0 m-0">
+            <img src="/media/vendedor/img_tiendas/Banner_reportes.png" alt="Banner_reportes" class="img-fluid">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center pt-3 pb-3">
+            <h3>Reportes varios</h3>
+            <p><em>Podras visualizar los reportes que mas se adecuen a tus necesidades</em></p>
+            <hr>
+        </div>
+
+        <div class="col-11 pb-3 d-flex flex-wrap">
+
+            <div class="col-md-3 col-12 pb-3">
+                <a href="{%url 'cliente:reporte_pedidos' request.user.id%}">
+                    <div class="card bg-dark text-white card_reportes">
+                        <img src="/media/cliente/pedidos_img_reporte.png" class="card-img card_reportes_img" alt="pedidos_img_reporte">
+                      <div class="card-img-overlay text-center">
+                        <h5 class="card-title card_reportes_texto mt-3"><strong>Reportes de Pedidos</strong></h5>
+                      </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="col-12 m-4">
+            <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+
+    </div>
+
+</div>
+{%endblock%}

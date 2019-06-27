@@ -1,0 +1,300 @@
+{%extends 'core/base.html'%}
+{%block title%}Reporte de Productos{%endblock%}
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row">
+        <div class="col-12 text-center pt-4 pb-2">
+            <h2>Reporte de Productos</h2>
+            <em>Aqui tienes el reporte de los productos de tu tienda</em>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <!--SECCION DE ALERTAS-->
+        {%if mensaje_error%}
+        <div class="col-12 text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <strong><span class="icon-exclamation-triangle"></span> {{mensaje_error}}</strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+        </div>
+        {%endif%}
+        <!--FIN SECCION DE ALERTAS-->
+
+        <!--SECCION DE FILTROS-->
+        <!--Se buscara todos los registros de dicho productos-->
+        <form action="" method="POST" class="col-12 col-md-3  form-group text-center" onsubmit="return validar_buscar_cliente();">
+            {%csrf_token%}
+            <label>Buscar Producto</label>
+            <input id="id_cliente" type="text" name="nombre_prod" class="form-control" placeholder="Ingrese el nombre del prod.">
+            <div class="invalid-feedback">
+                <p id="id_cliente-invalid" class="m-0"></p>
+            </div>
+            <button type="submit" class="btn btn-info mt-3" value="buscar_producto_total" name="buscar_producto">Buscar</button>
+        </form>
+
+        <!--Solo buscara los productos agrupados por el mes escogido con el total y la cantidad-->
+        <form action="" method="POST" class="col-12 col-md-3  form-group text-center" onsubmit="return validar_estado();">
+            {%csrf_token%}
+            <label>Buscar productos por mes</label>
+            <select id="id_estado" name="estado" class="form-control">
+                <option value="">-----</option>
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+            <div class="invalid-feedback">
+                <p id="id_estado-invalid" class="m-0"></p>
+            </div>
+            <button type="submit" class="btn btn-info mt-3" value="buscar_mes" name="buscar_mes">Buscar</button>
+        </form>
+
+        <!--Busca todos los productos en ese rango de fechas-->
+        <form action="" method="POST" class="col-12 col-md-6  form-group text-center d-md-flex" onsubmit="return validar_fechas()">
+            {%csrf_token%}
+            <div class="col-12 col-md-6 pl-0 pr-0 mb-2 pr-md-2 pl-md-2 mb-md-0 ">
+                <label for="fecha_inicio">Intervalo inicial</label>
+                <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio">
+                <div class="invalid-feedback">
+                    <p id="fecha_inicio-invalid" class="m-0"></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pl-0 pr-0 pr-md-2 pl-md-2">
+                <label for="fecha_fin">Intervalo final</label>
+                <input id="fecha_fin" type="date" class="form-control" name="fecha_final">
+                <div class="invalid-feedback">
+                    <p id="fecha_fin-invalid" class="m-0"></p>
+                </div>
+                <button type="submit" class="btn btn-info mt-3" value="buscar_fecha" name="buscar_fecha">Buscar</button>
+            </div>
+        </form>
+        <div class="col-12 pb-3">
+            <a href="{%url 'vendedor:reporte_productos' request.user.id%}" class="btn btn-info">Reporte inicial</a>
+        </div>
+        <!--FIN SECCION DE FILTROS-->
+
+        <!--Seccion de reportes por filtros-->
+        <div class="col-12 pb-4">
+            <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#tabla_colapsada"
+                    aria-expanded="false" aria-controls="collapseExample">
+                <span class="icon-angle-double-down"></span> Haz click aqui para ver los registros
+                {%if criterio%} de busqueda "{{criterio}}"{%endif%}
+                <span class="icon-angle-double-down"></span>
+            </button>
+
+            <div class="collapse table-responsive text-center" id="tabla_colapsada">
+              {%if datos or datos_mes%}
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nombre del Producto</th>
+                          <th scope="col">Cantidad</th>
+                          <th scope="col">Total</th>
+                          <th scope="col">Fecha de Registro</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {%if datos%}
+                          {%for x in datos%}
+                            <tr>
+                              <td>{{x.nombre_producto}}</td>
+                              <td>{{x.cantidad}}</td>
+                              <td>{{x.Total}}</td>
+                              <td>{{x.fecha_registro}}</td>
+                            </tr>
+                          {%endfor%}
+                      {%endif%}
+
+                      {%if datos_mes%}
+                          {%for x in datos_mes%}
+                            <tr>
+                              <td>{{x.nombre}}</td>
+                              <td>{{x.cantidad}}</td>
+                              <td>{{x.total}}</td>
+                              <td>{{criterio}}</td>
+                            </tr>
+                          {%endfor%}
+                      {%endif%}
+
+                      </tbody>
+                    </table>
+                {%else%}
+                <h4 class="pt-3 text-center">No hay datos para mostar</h4>
+                <img src="/media/core/triste.jpg" alt="no_hay_datos_reporte" width="100px">
+               {%endif%}
+            </div>
+        </div>
+        <!--Fin seccion de reporte por filtros-->
+
+        <div class="col-12 pb-4 d-flex flex-wrap">
+            <!--Seccion de productos mas vendidos-->
+            <div class="col-12 pt-3 pt-md-0 pb-3 d-flex flex-wrap">
+                <div class="col-12 col-md-4 mb-md-0 mb-2">
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+                      <div class="toast-header">
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                            <rect width="100%" height="100%" fill="#28a745"></rect>
+                        </svg>
+                        <strong class="mr-auto">Productos vendidos</strong>
+                        <small>{%now "j-F"%}</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="toast-body">
+                        Al dia de hoy, se han vendido <strong>{{dic_informacion.productos_cantidad_totales}}</strong> productos en total.
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-md-0 mb-2">
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+                      <div class="toast-header">
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                            <rect width="100%" height="100%" fill="#007aff"></rect>
+                        </svg>
+                        <strong class="mr-auto">Productos vendidos sin oferta</strong>
+                        <small>{%now "j-F"%}</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="toast-body">
+                        Al dia de hoy, se han vendido <strong>{{dic_informacion.productos_cantidad}}</strong> productos sin ofertas en total.
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-md-0 mb-2">
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+                      <div class="toast-header">
+                        <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                            <rect width="100%" height="100%" fill="#dc3545"></rect>
+                        </svg>
+                        <strong class="mr-auto">Productos vendidos con oferta</strong>
+                        <small>{%now "j-F"%}</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="toast-body">
+                        Al dia de hoy, se han vendido <strong>{{dic_informacion.productos_cantidad_oferta}}</strong> productos con ofertas en total.
+                      </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--Seccion de reporteria de productos-->
+            <div class="col-md-6 col-12 pt-3">
+                <h4 class="text-center">Informacion de Productos</h4>
+                <p class="m-0">Tienes <span class="badge badge-success">{{dic_informacion.productos_totales}}</span> Productos Vigentes</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_informacion.productos_totales_porcentaje}}%"></div>
+                </div>
+                <p class="m-0">Tienes <span class="badge badge-primary">{{dic_informacion.productos_estado_normal}}</span> Productos sin oferta</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_informacion.productos_estado_normal_porcentaje}}%"></div>
+                </div>
+                <p class="m-0">Tienes <span class="badge badge-info">{{dic_informacion.productos_oferta}}</span> Productos en oferta</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_informacion.productos_oferta_porcentaje}}%"></div>
+                </div>
+                <p class="m-0">Tienes <span class="badge badge-danger">{{dic_informacion.productos_sin_stock}}</span> Productos sin stock</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
+                       aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{dic_informacion.productos_sin_stock_porcentaje}}%"></div>
+                </div>
+
+            </div>
+
+            <!--Seccion de productos mas vendidos -->
+            <div class="col-md-6 col-12 table-responsive text-center pt-3">
+                <h4>Productos mas vendidos actualmente</h4>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {%for x in dic_informacion.productos_mas_vendidos%}
+                    <tr>
+                      <td>{{x.nombre|slice:":20"}}</td>
+                      <td>{{x.cantidad}}</td>
+                      <td>{{x.total}}</td>
+                    </tr>
+                  {%endfor%}
+                </table>
+            </div>
+
+            <!--Seccion de productos de mayor valor-->
+            <div class="col-md-6 col-12 pt-md-3 table-responsive">
+                <h4 class="text-center">Productos de Mayor Valor</h4>
+                <table class="table table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Stock actual</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {%for x in dic_informacion.productos_mayor_valor%}
+                    <tr>
+                      <td>{{x.nombre|slice:":20"}}</td>
+                      <td>{{x.stock}}</td>
+                      <td>{{x.precio}}</td>
+                    </tr>
+                  {%endfor%}
+                </table>
+            </div>
+
+            <!--Seccion de productos de menor valor-->
+            <div class="col-md-6 col-12 pt-md-3 table-responsive">
+                <h4 class="text-center">Productos de Menor Valor</h4>
+                <table class="table table-hover">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Stock actual</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {%for x in dic_informacion.productos_menor_valor%}
+                    <tr>
+                      <td>{{x.nombre|slice:":20"}}</td>
+                      <td>{{x.stock}}</td>
+                      <td>{{x.precio}}</td>
+                    </tr>
+                  {%endfor%}
+                </table>
+            </div>
+
+        </div>
+
+        <div class="col-12 mt-4 mb-4">
+            <a href="{%url 'vendedor:reportes' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

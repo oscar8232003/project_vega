@@ -11,7 +11,7 @@
 <div class="container container-whithe shadow">
     <div class="row pb-4">
         <!--TITULO-->
-        <div class="col-12 text-center pt-3 pb-4">
+        <div class="col-12 text-center pt-3 pb-3">
             <h2>Bienvenido al Panel de Vendedores de TuVegaApp</h2>
             <p><em>Aqui podras administrar todo lo relacionado con tu local</em></p>
             <hr>
@@ -35,7 +35,7 @@
               <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="list-group-item list-group-item-action">Mis productos</a>
               <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="list-group-item list-group-item-action">Mis pedidos</a>
               <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="list-group-item list-group-item-action">Mis ofertas</a>
-              <a href="{%url 'vendedor:reporte_listas' request.user.id%}" class="list-group-item list-group-item-action">Mi Registro</a>
+              <a href="{%url 'vendedor:reportes' request.user.id%}" class="list-group-item list-group-item-action">Mis Reportes</a>
             </div>
             <!--FIN BARRA IZQUIERA XL-->
 
@@ -48,7 +48,7 @@
               <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis productos</a>
               <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis pedidos</a>
               <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis ofertas</a>
-              <a href="{%url 'vendedor:reporte_listas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mi Registro</a>
+              <a href="{%url 'vendedor:reportes' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Reportes</a>
             </div>
             <!--FIN BARRA IZQUIERA COLLAPSADA-->
         </div>
@@ -61,7 +61,8 @@
             {%if arr_pedidos%}
                 {%for x in arr_pedidos%}
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong><span class="icon-exclamation-triangle"></span> {{x}}</strong>
+                  <strong><span class="icon-exclamation-triangle"></span> {{x}}
+                      <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="btn btn-danger btn-sm"> Ir a pedidos</a></strong>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -72,7 +73,9 @@
             {%if arr_productos%}
                 {%for x in arr_productos%}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                  <strong><span class="icon-bell"></span> {{x}}</strong>
+                  <strong><span class="icon-bell"></span> {{x}}
+                  <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="btn btn-warning btn-sm"> Ir a productos</a></strong>
+                    </strong>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -83,7 +86,8 @@
             {%if arr_ofertas%}
                 {%for x in arr_ofertas%}
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong><span class="icon-exclamation-triangle"></span> {{x}}</strong>
+                  <strong><span class="icon-exclamation-triangle"></span> {{x}}
+                      <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="btn btn-danger btn-sm">Ir a Ofertas</a></strong>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>

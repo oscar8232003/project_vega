@@ -1,12 +1,12 @@
 {%extends 'core/base.html'%}
-{%block title%}Eliminar lista x{%endblock%}
+{%block title%}Eliminar "{{lista.nombre}}"{%endblock%}
 {%block content%}
 <div class="container shadow container-whithe">
 
     <div class="row justify-content-center">
-        <div class="col-12 pt-5 pb-5 text-center">
-            <h2>¿Estas seguro de querer eliminar "{{lista.nombre}}"?</h2>
-            <hr class="pb-5">
+        <div class="col-12 pt-4 pb-4 text-center">
+            <h2 class="pb-3">¿Estas seguro de querer eliminar "{{lista.nombre}}"?</h2>
+            <hr class="pb-3">
             {%if request.GET.msg == 'elim_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
               <span class="icon-exclamation-triangle"></span> No se pudo eliminar la lista, intentelo otra vez.
@@ -17,7 +17,9 @@
             {%endif%}
         </div>
 
-        <div class="col-12 text-center pb-5">
+        <img src="/media/core/papelera.jpg" alt="simbolo_eliminar" width="200px">
+
+        <div class="col-12 text-center pt-4 pb-5">
             <form method="POST">
                 {%csrf_token%}
                 <button type="submit" class="btn btn-danger"><span class="icon-trash-b"> Si, la quiero borrar de todos modos</span></button>

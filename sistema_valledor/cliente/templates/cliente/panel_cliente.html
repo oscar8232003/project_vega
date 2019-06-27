@@ -11,7 +11,7 @@
 <div class="container container-whithe shadow">
     <div class="row pb-4">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
+        <div class="col-12 text-center pt-4 pb-4">
             <h2>Bienvenido al Panel de Clientes de TuVegaApp</h2>
             <p><em>Aqui podras encontrar todo lo necesario para facilitarte tu compra</em></p>
             <hr>
@@ -27,6 +27,7 @@
               <a href="{%url 'cliente:panel_cliente' request.user.id %}" class="list-group-item list-group-item-action active">Panel del Cliente</a>
               <a href="{%url 'cliente:listar_productos'%}" class="list-group-item list-group-item-action">Productos</a>
               <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action">Mis Listas</a>
+              <a href="{%url 'cliente:reportes' request.user.id%}" class="list-group-item list-group-item-action">Mis Reportes</a>
             </div>
             <!--FIN BARRA IZQUIERA XL-->
 
@@ -37,6 +38,7 @@
             <div class="collapse list-group" id="collapsemenu">
               <a href="{%url 'cliente:listar_productos'%}" class="list-group-item list-group-item-action d-block d-lg-none">Productos</a>
               <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Listas</a>
+              <a href="{%url 'cliente:reportes' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Reportes</a>
             </div>
             <!--FIN BARRA IZQUIERA COLLAPSADA-->
         </div>
@@ -47,7 +49,7 @@
             <h5 class="pb-3"><strong>Tus puntos en diferentes tiendas</strong></h5>
             {%if puntos%}
             {%for x in puntos%}
-            <p>Tienda {{puntos.local.nombre_local}} tienes <strong class="badge badge-info">{{puntos}} puntos</strong>, actualmente eres
+            <p>Tienda {{x.local.nombre_local}} tienes <strong class="badge badge-info">{{x.puntos}} puntos</strong>, actualmente eres
                 {%if x.tipo_cuenta == 'Plata'%}
                 <span style="color:#C0C0C0"><strong>{{x.tipo_cuenta}}</strong></span>
                 {%elif x.tipo_cuenta == 'Oro'%}

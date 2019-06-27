@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, get_list_or_404
-from django.db.models import Q
-from .models import Local, Productos, Categoria_Productos, Oferta
+from django.db.models import Q, Count, Sum, Max, Min
+from .models import Local, Productos, Categoria_Productos, Oferta, Puntos
 from registration.models import Tipo_usuarios
 from .forms import Productos_form, Local_form, Ofertas_form
 from django.contrib.auth.decorators import login_required
 from cliente.views import paginador_propio, buscar_tipo
-from cliente.models import Listas, Productos_listas, Registro_listas, Registro_premium
-from django.http import HttpResponse
+from cliente.models import Listas, Productos_listas, Registro_premium, Reporte_productos
+from django.http import HttpResponse, Http404
 import datetime
+from datetime import date
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 
 #GENERAR PDFS
@@ -18,8 +20,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib import colors
 
-# Create your views here.
 
+#Verficado
 @login_required(redirect_field_name='login')
 def Panel_de_vendedor(request, id):
     tipo = buscar_tipo(request.user.id)
@@ -103,6 +105,8 @@ def Panel_de_vendedor(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+
+#Verficado
 @login_required(redirect_field_name='login')
 def Listar_Productos(request,id):
 
@@ -142,6 +146,8 @@ def Listar_Productos(request,id):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificado
+#Problemas con el form por defecto
 @login_required(redirect_field_name='login')
 def Agregar_Productos(request,id):
 
@@ -152,7 +158,10 @@ def Agregar_Productos(request,id):
         form = Productos_form()
         if request.method == 'POST':
             form_llenado = Productos_form(request.POST, request.FILES)
-            id_user = int(request.POST['user'])
+            try:
+                id_user = int(request.POST['user'])
+            except:
+                id_user = None
             if form_llenado.is_valid() and id_user == id:
                 form_llenado.save()
                 return redirect(reverse('vendedor:listar_productos', args=[request.user.id])+ '?msg=form_ok')
@@ -162,7 +171,7 @@ def Agregar_Productos(request,id):
     else:
         return redirect('registration:sin_permiso')
 
-
+#verificado
 @login_required(redirect_field_name='login')
 def Actualizar_Productos(request, id):
 
@@ -175,11 +184,18 @@ def Actualizar_Productos(request, id):
             form = Productos_form(instance=objeto)
             if request.method == 'POST':
                 form_llenado = Productos_form(request.POST, request.FILES, instance=objeto)
-                id_user = int(request.POST['user'])
-                if form_llenado.is_valid() and (id_user == request.user.id):
+                try:
+                    id_user = int(request.POST['user'])
+                except:
+                    id_user = None
+                if form_llenado.is_valid() and id_user == request.user.id:
                     form_llenado.save()
-                    if stock_antiguo != int(request.POST['stock']):
-                        prod_max = int(int(request.POST['stock']) * 0.1)
+                    try:
+                        stock = int(request.POST['stock'])
+                    except:
+                        stock=None
+                    if stock and stock_antiguo != stock:
+                        prod_max = int(stock * 0.1)
                         objeto.maximo_prod_comprar = prod_max
                         objeto.save()
                     return redirect(reverse('vendedor:listar_productos', args=[request.user.id])+ '?msg=act_ok')
@@ -192,6 +208,7 @@ def Actualizar_Productos(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificado
 @login_required(redirect_field_name='login')
 def Eliminar_Productos(request, id):
 
@@ -215,6 +232,7 @@ def Eliminar_Productos(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificado
 @login_required(redirect_field_name='login')
 def Detalle_Local(request,id):
 
@@ -231,6 +249,7 @@ def Detalle_Local(request,id):
         return redirect('registration:sin_permiso')
 
 
+#Verificado
 @login_required(redirect_field_name='login')
 def Actualizar_Local(request, id):
 
@@ -242,8 +261,11 @@ def Actualizar_Local(request, id):
         local_form = Local_form(instance=local)
         if request.method == 'POST':
             form = Local_form(request.POST, request.FILES, instance=local)
-            id_user = int(request.POST['user'])
-            if form.is_valid() and (id_user == request.user.id):
+            try:
+                id_user = int(request.POST['user'])
+            except:
+                id_user = None
+            if form.is_valid() and id_user == request.user.id:
                 form.save()
                 return redirect(reverse('vendedor:mi_tienda', args=[request.user.id]) + '?msg=act_ok')
             else:
@@ -252,6 +274,7 @@ def Actualizar_Local(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificado
 @login_required(redirect_field_name='login')
 def Panel_Listas(request, id):
 
@@ -281,12 +304,11 @@ def Panel_Listas(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+#verificado
 @login_required(redirect_field_name='login')
 def Detalle_Listas(request, id):
-
     tipo = buscar_tipo(request.user.id)
     local = buscar_local(request.user.id)
-
     lista = get_object_or_404(Listas, id=id)
     if tipo is not None and tipo.tipo_usuario == 'vendedor' and local.activado == True and lista.local.id == local.id\
             and lista.estado_lista != 'normal':
@@ -324,12 +346,14 @@ def Detalle_Listas(request, id):
 def Detalle_pedidos_success(request, id):
     return render(request, 'vendedor/verificar_marcado_detalle_pedidos.html', {'id':id})
 
+#Verificado
 @login_required(redirect_field_name='login')
 def Revisar_Listas(request, id):
 
     tipo = buscar_tipo(request.user.id)
     local = buscar_local(request.user.id)
     lista = get_object_or_404(Listas, id=id)
+
     if tipo is not None and tipo.tipo_usuario == 'vendedor' and local.activado == True and lista.local.id == local.id \
             and lista.estado_lista != 'normal':
         if request.method == 'POST':
@@ -346,9 +370,18 @@ def Revisar_Listas(request, id):
                         producto_cambiar = Productos.objects.get(id=producto.productos.id)
                         producto_cambiar.stock += producto.cantidad
                         producto_cambiar.save()
-                return redirect(reverse('vendedor:detalle_mis_pedidos', args=[id])+'?msg=estado_cambiado')
-                #SISTEMA DE PUNTOS
+
+                #SISTEMA DE PUNTOS y AGREGAR DATOS A REPORTERIA DE PRODUCTOS
                 if estado == 'completada':
+                    productos_lista = Productos_listas.objects.filter(Q(user=lista.user.id), Q(lista=id))
+                    for prod in productos_lista:
+                        client = User.objects.get(id = prod.user.id)
+                        total = int(prod.cantidad * prod.precio_producto)
+                        Reporte_productos.objects.create(cliente=client, lista=prod.lista.id, local=local,
+                                                         producto=prod.productos.id, nombre_producto=prod.productos.nombre,
+                                                         cantidad=prod.cantidad, oferta=prod.oferta, Total=total,
+                                                         fecha_registro=date.today())
+
                     try:
                         persona_puntos = Puntos.objects.get(Q(user = lista.user.id), Q(local=local.id))
                     except:
@@ -370,7 +403,7 @@ def Revisar_Listas(request, id):
     else:
         return redirect('registration:sin_permiso')
 
-
+#Verificado
 @login_required(redirect_field_name='login')
 def Mis_Ofertas(request, id):
 
@@ -390,6 +423,7 @@ def Mis_Ofertas(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificar
 @login_required(redirect_field_name='login')
 def Agregar_Ofertas(request, id):
 
@@ -401,7 +435,10 @@ def Agregar_Ofertas(request, id):
         form = Ofertas_form()
         if request.method == 'POST':
             form = Ofertas_form(request.POST)
-            id_local = int(request.POST['local'])
+            try:
+                id_local = int(request.POST['local'])
+            except:
+                id_local = None
             ofertas_general = Oferta.objects.filter(Q(local=local.id),Q(activado=True),Q(tipo_oferta='general'))
 
             if ofertas_general.count() >= 1 and request.POST['tipo_oferta'] == 'general':
@@ -417,11 +454,11 @@ def Agregar_Ofertas(request, id):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificada
 @login_required(redirect_field_name='login')
 def Actualizar_Ofertas(request, id_oferta):
 
     tipo = buscar_tipo(request.user.id)
-
     oferta = get_object_or_404(Oferta,id = id_oferta)
     local = get_object_or_404(Local,id = int(oferta.local.id))
     if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == local.user.id and local.activado == True:
@@ -445,13 +482,19 @@ def Actualizar_Ofertas(request, id_oferta):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificado
 @login_required(redirect_field_name='login')
 def Eliminar_Ofertas(request, id_oferta):
 
     tipo = buscar_tipo(request.user.id)
 
     oferta = get_object_or_404(Oferta,id = id_oferta)
-    local = get_object_or_404(Local,id = int(oferta.local.id))
+    try:
+        local_id = int(oferta.local.id)
+    except:
+        local_id = None
+
+    local = get_object_or_404(Local,id = local_id)
     if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == local.user.id:
         if request.method == 'POST':
             if oferta.delete():
@@ -462,72 +505,13 @@ def Eliminar_Ofertas(request, id_oferta):
     else:
         return redirect('registration:sin_permiso')
 
-def Reportes_Registro_Listas(request, id_user):
-    tipo = buscar_tipo(request.user.id)
-    local = buscar_local(request.user.id)
+#Seccion de Reportes
+@login_required(redirect_field_name='login')
+def Seleccion_Reportes(request, id_user):
+    return render(request, 'vendedor/seleccion_reportes.html', )
 
-    if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id_user and local.activado == True:
 
-        documento = request.GET.get('doc', None)
-        all_document = request.GET.get('all', None)
-        buscar_cliente = request.GET.get('buscar_cliente', None)
-        buscar_estado = request.GET.get('buscar_estado', None)
-        buscar_fecha = request.GET.get('buscar_fecha', None)
-        mensaje_error = ""
-        registro = Registro_listas.objects.filter(local__user__id=request.user.id)
-
-        if documento:
-            datos = get_list_or_404(Registro_listas, id=documento)
-            return Imprimir_pdf_listas(datos)
-
-        elif all_document:
-            datos = Registro_listas.objects.filter(local__user__id=request.user.id)
-            return Imprimir_pdf_listas(datos)
-
-        elif buscar_cliente:
-            buscado = request.GET.get('cliente', None)
-            datos = Registro_listas.objects.filter(
-                Q(cliente__username__contains=buscado) | Q(cliente__username__icontains=buscado))
-            if request.GET.get('pdf', None):
-                return Imprimir_pdf_listas(datos)
-            return render(request, 'vendedor/reporte_registro_listas.html', {'registros': datos})
-
-        elif buscar_estado:
-            buscado = request.GET.get('estado', None)
-            if buscado == 'completada' or buscado == 'cancelada' or buscado == 'no_retirada':
-                datos = Registro_listas.objects.filter(estado=buscado)
-                if request.GET.get('pdf', None):
-                    return Imprimir_pdf_listas(datos)
-                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': datos})
-            else:
-                mensaje_error = "Seleccione una opcion valida de la lista"
-                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': registro,
-                                                                         'mensaje_error': mensaje_error})
-
-        elif buscar_fecha:
-            buscado1 = request.GET.get('fecha_inicio', None)
-            buscado1 = datetime.datetime.strptime(buscado1, '%Y-%m-%d')
-            buscado1 = buscado1.date()
-            buscado2 = request.GET.get('fecha_final', None)
-            buscado2 = datetime.datetime.strptime(buscado2, '%Y-%m-%d')
-            buscado2 = buscado2.date()
-
-            if buscado1 <= buscado2:
-                datos = Registro_listas.objects.filter(fecha_registro__range=(buscado1, buscado2))
-
-                if request.GET.get('pdf', None):
-                    return Imprimir_pdf_listas(datos)
-                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': datos})
-            else:
-                mensaje_error = "La fecha de inicio no puede ser mayor a la fecha final"
-                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': registro,
-                                                                         'mensaje_error': mensaje_error})
-
-        return render(request, 'vendedor/reporte_registro_listas.html',{'registros':registro})
-
-    else:
-        return redirect('registration:sin_permiso')
-
+#Auditoria para admin
 def Reportes_Premium(request):
     #RENDER, ES PARA PASAR UN TEMPLATE, PUEDE SER TAMBIEN UN CONTENT-TYPE PERO PARA ESTE CASO NO
     #EL HTTPRESPONSE SIRVE PARA ESCRIBIR EN BLANCO, PARA UN PDF SIRVE MUCHO
@@ -596,7 +580,214 @@ def Reportes_Premium(request):
     else:
         return redirect('registration:sin_permiso')
 
+#Verificado
+#Reporteria para vendedor
+def Reporte_Productos(request, id_user):
+
+    tipo = buscar_tipo(request.user.id)
+    local = buscar_local(request.user.id)
+
+    if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id_user and local.activado == True:
+        diccionario = {}
+        query=None
+        ##Cantidad de Productos Totales Activados
+        productos_totales = Productos.objects.filter(Q(user=id_user), Q(activado=True)).count()
+        if productos_totales >=1:
+            diccionario['productos_totales'] = productos_totales
+            diccionario['productos_totales_porcentaje'] = 100
+        else:
+            diccionario['productos_totales'] = productos_totales
+            diccionario['productos_totales_porcentaje'] = 0
+            productos_totales = 1
+
+        ##Cantidad de Producto con Stock y Activados
+        productos_estado_normal = Productos.objects.filter(Q(user=id_user), Q(activado=True), Q(oferta=False)).exclude(stock=0)
+        diccionario['productos_estado_normal'] = productos_estado_normal.count()
+        diccionario['productos_estado_normal_porcentaje'] = int((productos_estado_normal.count()*100)/productos_totales)
+
+        ##Cantidad de productos en oferta con stock
+        productos_oferta = Productos.objects.filter(Q(user=id_user), Q(activado=True), Q(oferta=True)).exclude(stock=0)
+        diccionario['productos_oferta'] = productos_oferta.count()
+        diccionario['productos_oferta_porcentaje'] = int((productos_oferta.count()*100)/productos_totales)
+
+        ##cantidad de productos Sin stock y Activados
+        productos_sin_stock= Productos.objects.filter(Q(user=id_user), Q(activado=True), Q(stock=0))
+        diccionario['productos_sin_stock'] = productos_sin_stock.count()
+        diccionario['productos_sin_stock_porcentaje'] = int((productos_sin_stock.count()*100)/productos_totales)
+
+
+        ##Info Producto mas vendido, son 3
+        productos_diferentes = Reporte_productos.objects.filter(Q(local__user=id_user)).values('producto').distinct()
+        arr_productos_mas_vendidos = []
+        for x in productos_diferentes:
+            diccionario_custom = {}
+            nombre = ""
+            nombre = Reporte_productos.objects.filter(producto=x['producto']).values('nombre_producto').order_by(
+                '-fecha_registro')[0]
+            nombre = nombre['nombre_producto']
+            Sumas = ""
+            Sumas = Reporte_productos.objects.filter(producto=x['producto']).aggregate(suma_cantidad=Sum('cantidad'),
+                                                                                       suma_totales=Sum('Total'))
+            diccionario_custom = {'nombre': nombre, 'cantidad': Sumas['suma_cantidad'], 'total': Sumas['suma_totales']}
+            arr_productos_mas_vendidos.append(diccionario_custom)
+
+            # Metodo burbuja para ordenar de mayor a menor
+        if len(arr_productos_mas_vendidos) > 1:
+            lista_ordenada = ordenar_listas(arr_productos_mas_vendidos, 'cantidad', 'mayor-menor')
+            diccionario['productos_mas_vendidos'] = lista_ordenada[0:3]
+        else:
+            diccionario['productos_mas_vendidos'] = arr_productos_mas_vendidos[0:3]
+
+        ##Productos de mayor valor en la tienda, son 5, no tienen que estar en oferta
+        productos_mayor_valor = Productos.objects.filter(Q(user=id_user), Q(activado=True), Q(oferta=False)).order_by('-precio').exclude(stock=0)
+        arr_productos_mayor_valor = []
+
+        for x in productos_mayor_valor:
+            if len(arr_productos_mayor_valor) < 5:
+                arr_productos_mayor_valor.append(x)
+            else:
+                break
+        diccionario['productos_mayor_valor'] = arr_productos_mayor_valor
+
+
+        ##Productos mas baratos de la tienda, son 5, no tienen que estar en oferta
+        productos_menor_valor = Productos.objects.filter(Q(user=id_user), Q(activado=True), Q(oferta=False)).order_by(
+            'precio').exclude(stock=0)
+        arr_productos_menor_valor = []
+        for x in productos_menor_valor:
+            if len(arr_productos_menor_valor) < 5:
+                arr_productos_menor_valor.append(x)
+            else:
+                break
+        diccionario['productos_menor_valor'] = arr_productos_menor_valor
+
+
+        ##cantidad de productos vendidos totales
+        productos_cantidad_tatales = Reporte_productos.objects.filter(Q(local__user=id_user)).aggregate(
+            Suma=Sum('cantidad'))
+        diccionario['productos_cantidad_totales'] = productos_cantidad_tatales['Suma']
+
+        ##cantidad de productos vendidos sin oferta
+        productos_cantidad = Reporte_productos.objects.filter(Q(local__user=id_user), Q(oferta=False)).aggregate(
+            Suma=Sum('cantidad'))
+        diccionario['productos_cantidad'] = productos_cantidad['Suma']
+
+        ##cantidad de productos vendidos con oferta
+        productos_cantidad_oferta = Reporte_productos.objects.filter(Q(local__user=id_user), Q(oferta=True)).aggregate(Suma=Sum('cantidad'))
+        diccionario['productos_cantidad_oferta'] = productos_cantidad_oferta['Suma']
+
+
+        if request.method == 'POST':
+            buscar_producto= request.POST.get('buscar_producto', None)
+            buscar_mes = request.POST.get('buscar_mes', None)
+            buscar_fecha = request.POST.get('buscar_fecha', None)
+
+            if buscar_producto:
+                buscado = request.POST.get('nombre_prod', None)
+                query = Reporte_productos.objects.filter(Q(local__user=id_user),
+                                                         Q(fecha_registro__year=date.today().year),
+                                                         (Q(nombre_producto__contains=buscado) | Q(nombre_producto__icontains = buscado)))
+                return render(request, 'vendedor/reporte_productos.html',
+                              {'dic_informacion': diccionario, 'datos': query, 'criterio':request.POST.get('nombre_prod', None)})
+
+            elif buscar_mes:
+                buscado = request.POST.get('estado', None)
+                #Evitar que la pagina se caiga por valores literales
+                try:
+                    buscado = int(buscado)
+                except:
+                    buscado = 0
+
+                if traer_mes(int(buscado)):
+                    query = Reporte_productos.objects.filter(Q(local__user=id_user),
+                                                             Q(fecha_registro__month=int(buscado))).values('producto').distinct()
+                    productos_mes = []
+                    for x in query:
+                        diccionario_custom = {}
+                        nombre = ""
+                        nombre = \
+                        Reporte_productos.objects.filter(producto=x['producto']).values('nombre_producto').order_by(
+                            '-fecha_registro')[0]
+                        nombre = nombre['nombre_producto']
+                        Sumas = ""
+                        Sumas = Reporte_productos.objects.filter(producto=x['producto']).aggregate(
+                            suma_cantidad=Sum('cantidad'), suma_totales=Sum('Total'))
+                        diccionario_custom = {'nombre': nombre, 'cantidad': Sumas['suma_cantidad'],
+                                              'total': Sumas['suma_totales']}
+                        productos_mes.append(diccionario_custom)
+
+                    criterio = traer_mes(int(buscado))
+                    return render(request, 'vendedor/reporte_productos.html',
+                                  {'dic_informacion': diccionario, 'datos_mes': productos_mes,
+                                   'criterio': criterio})
+                else:
+                    raise Http404
+            elif buscar_fecha:
+                buscado1 = request.POST.get('fecha_inicio', None)
+                buscado2 = request.POST.get('fecha_final', None)
+                try:
+                    buscado1 = datetime.datetime.strptime(buscado1, '%Y-%m-%d')
+                    buscado1 = buscado1.date()
+
+                    buscado2 = datetime.datetime.strptime(buscado2, '%Y-%m-%d')
+                    buscado2 = buscado2.date()
+                except:
+                    buscado1=None
+                    buscado2=None
+                if buscado1 and buscado2:
+                    query = None
+                    mensaje_error = None
+                    criterio = None
+                    if buscado1 <= buscado2:
+                        query = Reporte_productos.objects.filter(fecha_registro__range=(buscado1, buscado2))
+                        criterio = "Datos desde {} hasta el {}".format(buscado1, buscado2)
+                    else:
+                        mensaje_error = "La fecha de inicio no puede ser mayor a la fecha final"
+
+                    return render(request, 'vendedor/reporte_productos.html',
+                                  {'dic_informacion': diccionario, 'datos': query,
+                                   'criterio': criterio, 'mensaje_error':mensaje_error})
+                else:
+                    raise Http404
+        else:
+            ##Productos del mes actual, pagina inicio
+            mes_actual = date.today().month
+            productos_del_mes = Reporte_productos.objects.filter(Q(local__user=id_user), Q(fecha_registro__month=mes_actual))
+            query = productos_del_mes
+
+        return render(request, 'vendedor/reporte_productos.html',{'dic_informacion':diccionario, 'datos':query})
+    else:
+        return redirect('registration:sin_permiso')
+
 #FUNCIONES PERSONALIZADAS
+def traer_mes(mes):
+    mes_literal = None
+    if mes ==1:
+        mes_literal="Enero"
+    elif mes == 2:
+        mes_literal = "Febrero"
+    elif mes == 3:
+        mes_literal = "Marzo"
+    elif mes == 4:
+        mes_literal = "Abril"
+    elif mes == 5:
+        mes_literal = "Mayo"
+    elif mes == 6:
+        mes_literal = "Junio"
+    elif mes == 7:
+        mes_literal = "Julio"
+    elif mes == 8:
+        mes_literal = "Agosto"
+    elif mes == 9:
+        mes_literal = "Septiembre"
+    elif mes == 10:
+        mes_literal = "Octubre"
+    elif mes == 11:
+        mes_literal = "Noviembre"
+    elif mes == 12:
+        mes_literal = "Diciembre"
+    return mes_literal
+
 def buscar_local(id):
     try:
         local = Local.objects.get(user=id)
@@ -701,3 +892,90 @@ def calcular_puntos_persona(datos):
     elif datos > 500:
         rango = "Diamante"
     return rango
+
+def ordenar_listas(lista, campo, orden):
+    lista_a_ordenar = lista
+    if orden == 'mayor-menor':
+        for num in range(len(lista_a_ordenar) - 1, 0, -1):
+            for i in range(num):
+                if lista_a_ordenar[i][campo] < lista_a_ordenar[i + 1][campo]:
+                    temp = lista_a_ordenar[i]
+                    lista_a_ordenar[i] = lista_a_ordenar[i + 1]
+                    lista_a_ordenar[i + 1] = temp
+    else:
+        for num in range(len(lista_a_ordenar) - 1, 0, -1):
+            for i in range(num):
+                if lista_a_ordenar[i][campo] > lista_a_ordenar[i + 1][campo]:
+                    temp = lista_a_ordenar[i]
+                    lista_a_ordenar[i] = lista_a_ordenar[i + 1]
+                    lista_a_ordenar[i + 1] = temp
+    return lista_a_ordenar
+
+'''''
+#reporte_registro_listas.html template hay que eliminarlo o dejarlo en standby
+def Reportes_Listas(request, id_user):
+    tipo = buscar_tipo(request.user.id)
+    local = buscar_local(request.user.id)
+
+    if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id_user and local.activado == True:
+
+        documento = request.GET.get('doc', None)
+        all_document = request.GET.get('all', None)
+        buscar_cliente = request.GET.get('buscar_cliente', None)
+        buscar_estado = request.GET.get('buscar_estado', None)
+        buscar_fecha = request.GET.get('buscar_fecha', None)
+        mensaje_error = ""
+        registro = Registro_listas.objects.filter(local__user__id=request.user.id)
+
+        if documento:
+            datos = get_list_or_404(Registro_listas, id=documento)
+            return Imprimir_pdf_listas(datos)
+
+        elif all_document:
+            datos = Registro_listas.objects.filter(local__user__id=request.user.id)
+            return Imprimir_pdf_listas(datos)
+
+        elif buscar_cliente:
+            buscado = request.GET.get('cliente', None)
+            datos = Registro_listas.objects.filter(
+                Q(cliente__username__contains=buscado) | Q(cliente__username__icontains=buscado))
+            if request.GET.get('pdf', None):
+                return Imprimir_pdf_listas(datos)
+            return render(request, 'vendedor/reporte_registro_listas.html', {'registros': datos})
+
+        elif buscar_estado:
+            buscado = request.GET.get('estado', None)
+            if buscado == 'completada' or buscado == 'cancelada' or buscado == 'no_retirada':
+                datos = Registro_listas.objects.filter(estado=buscado)
+                if request.GET.get('pdf', None):
+                    return Imprimir_pdf_listas(datos)
+                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': datos})
+            else:
+                mensaje_error = "Seleccione una opcion valida de la lista"
+                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': registro,
+                                                                         'mensaje_error': mensaje_error})
+
+        elif buscar_fecha:
+            buscado1 = request.GET.get('fecha_inicio', None)
+            buscado1 = datetime.datetime.strptime(buscado1, '%Y-%m-%d')
+            buscado1 = buscado1.date()
+            buscado2 = request.GET.get('fecha_final', None)
+            buscado2 = datetime.datetime.strptime(buscado2, '%Y-%m-%d')
+            buscado2 = buscado2.date()
+
+            if buscado1 <= buscado2:
+                datos = Registro_listas.objects.filter(fecha_registro__range=(buscado1, buscado2))
+
+                if request.GET.get('pdf', None):
+                    return Imprimir_pdf_listas(datos)
+                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': datos})
+            else:
+                mensaje_error = "La fecha de inicio no puede ser mayor a la fecha final"
+                return render(request, 'vendedor/reporte_registro_listas.html', {'registros': registro,
+                                                                         'mensaje_error': mensaje_error})
+
+        return render(request, 'vendedor/reporte_registro_listas.html',{'registros':registro})
+
+    else:
+        return redirect('registration:sin_permiso')
+'''''

@@ -204,3 +204,22 @@
 		}
 
 		/*------------------------------END LOCALES------------------------------*/
+
+		/*------------------------------REPORTES---------------------------------*/
+		.card_reportes{
+		border: 0px;
+		}
+
+		.card_reportes_img{
+		opacity: 0.5;
+		}
+
+        .card_reportes_texto{
+        transition: 0.5s all;
+        }
+
+        .card_reportes_texto:hover{
+        transform:scale(1.1);
+        }
+
+		/*------------------------------END REPORTES-----------------------------*/

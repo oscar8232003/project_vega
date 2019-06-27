@@ -66,8 +66,6 @@ class Productos(models.Model):
     stock = models.PositiveIntegerField(verbose_name="Stock del Producto", null=True, blank=True, default=0)
     maximo_prod_comprar = models.PositiveIntegerField(verbose_name="Maximo de productos a comprar", null=True, blank=True, default=0)
     imagen = models.ImageField(upload_to=borrar_imagen_anterior_producto, null=True, blank=True, default='core/sin_imagen.jpg')
-    cambios_restantes = models.PositiveIntegerField(verbose_name="Cambios restantes de precios", null=True, blank=True,
-                                                    default=3)
     activado = models.BooleanField(verbose_name="Producto activado?", null=True, blank=True, default=True)
     unidad_medida = models.ForeignKey(Unidad_Medida, on_delete=models.CASCADE, null=True, blank=True)
     comentario = models.TextField(verbose_name="Comentarios", null=True, blank=True)
@@ -126,3 +124,17 @@ class Puntos(models.Model):
     def __str__(self):
         return "{} {}".format(self.user.first_name, self.tipo_cuenta)
 
+#Auditoria para vendedor
+class Registro_auditoria_productos(models.Model):
+    producto = models.PositiveIntegerField(verbose_name="ID Producto", default=0, null=True, blank=True)
+    vendedor = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    nombre_producto = models.CharField(verbose_name="Nombre Producto", max_length=200, null=True, blank=True)
+    accion = models.CharField(verbose_name="Accion", max_length=200, null=True, blank=True)
+    fecha_registro = models.DateField(verbose_name="Fecha de registro", null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Auditoria de Productos"
+        verbose_name_plural = "Auditoria de Productos"
+
+    def __str__(self):
+        return "Registro ID {}".format(self.id)

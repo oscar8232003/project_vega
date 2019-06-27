@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import Panel_Cliente, Listar_Productos, Detalle_Productos, Listado_Locales, Detalle_Locales, \
     Listar_Productos_Tiendas, Mis_Listas, Detalle_Listas, Agregar_Listas, Actualizar_Listas, Eliminar_Listas, \
-    Eliminar_Productos_Listas, Actualizar_Productos_Listas, Detalle_lista_success
+    Eliminar_Productos_Listas, Actualizar_Productos_Listas, Detalle_lista_success, Seleccion_Reportes, Reporte_Pedidos
 
 
 cliente_urlpatterns = ([
@@ -19,4 +19,6 @@ cliente_urlpatterns = ([
     path('eliminar_lista/<int:id>/', Eliminar_Listas, name="eliminar_lista"),
     path('detalle_listas/<int:id_lista>/eliminar_producto_lista/<int:id_prod>',Eliminar_Productos_Listas, name="eliminar_producto_lista"),
     path('detalle_listas/<int:id_lista>/actualizar_producto_lista/<int:id_prod>',Actualizar_Productos_Listas, name="actualizar_producto_lista"),
+    path('reporte_pedidos/<int:id_user>/', Reporte_Pedidos, name = "reporte_pedidos"),
+    path('seccion_reportes/<int:id_user>/', Seleccion_Reportes, name = "reportes"),
     ],'cliente')

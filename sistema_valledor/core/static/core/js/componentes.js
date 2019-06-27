@@ -20,3 +20,7 @@
     $('.grid-padre').masonry({
       itemSelector: '.grid-hijo'
     });
+
+    $(document).ready(function(){
+      $('.toast').toast('show');
+    });

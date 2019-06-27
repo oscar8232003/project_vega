@@ -11,7 +11,7 @@
 <div class="container container-whithe shadow">
     <div class="row pb-4">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
+        <div class="col-12 text-center pt-4 pb-4">
             <h2>Seccion de Productos</h2>
             <p><em>Aqui podras ver tus productos, actualizarlos, eliminarlos, desactivarlos, etc.</em></p>
             <hr>
@@ -104,10 +104,10 @@
         <!--FIN BARRA IZQUIERDA-->
         <!--MENU-->
         <div CLASS="col-12 col-lg-9 pb-3 p-0">
-            <form action="" method="POST" class="col-md-7 col-12 form-inline text-center" onsubmit="return validar_buscar();">
+            <form action="" method="POST" class="col-md-7 col-12 form-inline text-center pl-md-0 pl-3" onsubmit="return validar_buscar();">
                 {%csrf_token%}
-                <input type="text" name="buscar" class="form-control" placeholder="ejem. arroz aruba" id="buscar_producto">
-                <button type="submit" class="btn btn-secondary ml-2 d-none d-sm-block">Buscar producto</button>
+                <input type="text" name="buscar" class="form-control mr-3" placeholder="ejem. arroz aruba" id="buscar_producto">
+                <button type="submit" class="btn btn-secondary d-none d-sm-block">Buscar producto</button>
                 <div class="invalid-feedback">
                     <p id="buscar_producto-invalid" class="m-0"></p>
                 </div>
@@ -115,9 +115,9 @@
 
             </form>
 
-            <div class="col-12 mt-3 p-0 shadow-sm text-center" style="border-radius:10px;">
+            <div class="col-12 mt-2 pl-md-0 pr-md-3 p-3 shadow-sm text-center table-responsive" style="border-radius:10px;">
                 {%if productos|length != 0%}
-                <table class="table table-hover table-responsive">
+                <table class="table table-hover">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Acciones</th>
@@ -127,7 +127,6 @@
                       <th scope="col">Stock</th>
                       <th scope="col">Oferta</th>
                       <th scope="col">Cat.</th>
-                      <th scope="col">Cambios</th>
                       <th scope="col">Act.</th>
                     </tr>
                   </thead>
@@ -145,7 +144,6 @@
                       <td>{{producto.stock}} {{producto.unidad_medida.medida_plural}}</td>
                       <td>{%if producto.oferta%}<span class="badge badge-success">Si</span>{%else%}<p class="badge badge-danger">No</p>{%endif%}{%if producto.oferta%} <p>{{producto.precio_oferta}} x {{producto.unidad_medida.medida_unidad}}</p> {%endif%}</td>
                       <td>{{producto.categoria}}</td>
-                      <td>{{producto.cambios_restantes}}</td>
                       <td>{%if producto.activado%}<span class="badge badge-success">Si</span>{%else%}<span class="badge badge-danger">No</span>{%endif%}</td>
                     </tr>
                   {%endfor%}

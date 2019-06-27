@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import Listar_Productos, Agregar_Productos, Actualizar_Productos, Eliminar_Productos, Panel_de_vendedor, \
     Detalle_Local, Actualizar_Local, Panel_Listas, Detalle_Listas, Revisar_Listas, Mis_Ofertas, Agregar_Ofertas,\
-    Actualizar_Ofertas, Eliminar_Ofertas,Detalle_pedidos_success, Reportes_Registro_Listas, Reportes_Premium
+    Actualizar_Ofertas, Eliminar_Ofertas,Detalle_pedidos_success, Reportes_Premium,\
+    Reporte_Productos, Seleccion_Reportes
 
 vendedor_urlpatterns = ([
     path('panel_de_vendedor/<int:id>/', Panel_de_vendedor, name = "panel_de_vendedor"),
@@ -19,6 +20,7 @@ vendedor_urlpatterns = ([
     path('agregar_oferta/<int:id>/',Agregar_Ofertas, name = "agregar_oferta"),
     path('actualizar_oferta/<int:id_oferta>/',Actualizar_Ofertas, name = "actualizar_oferta"),
     path('eliminar_oferta/<int:id_oferta>/',Eliminar_Ofertas, name = "eliminar_oferta"),
-    path('reportes_listas/<int:id_user>/' , Reportes_Registro_Listas, name = "reporte_listas"),
     path('reporte_admin/' , Reportes_Premium, name = "reporte_admin"),
+    path('reporte_productos/<int:id_user>/', Reporte_Productos, name = "reporte_productos"),
+    path('seccion_reportes/<int:id_user>/', Seleccion_Reportes, name = "reportes"),
 ], 'vendedor')

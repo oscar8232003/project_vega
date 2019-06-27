@@ -1,11 +1,11 @@
 {%extends 'core/base.html'%}
-{%block title%}Actualizar Producto en lista x{%endblock%}
+{%block title%}Actualizar Producto en "{{producto.productos.nombre}}"{%endblock%}
 {%block content%}
 <div class="container shadow container-whithe">
 
     <div class="row justify-content-center">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5">
+        <div class="col-12 text-center pt-4 pb-4">
             <h3><strong>Actualizar {{producto.productos.nombre}}</strong></h3>
             <hr>
             <!--ALERTS-->
@@ -35,7 +35,7 @@
                 <textarea name="comentarios" cols="30" rows="5" class="form-control">{{producto.comentarios}}</textarea>
             </div>
             <div class="col-12 form-group text-center">
-                <input type="submit" class="btn btn-primary" value="Actualizar">
+                <button type="submit" class="btn btn-primary" value="Actualizar"><span data-icon="u"></span> Actualizar</button>
             </div>
         </form>
         <!--FIN CONTENIDO-->

@@ -11,10 +11,9 @@
 <div class="container container-whithe shadow">
     <!--TITULO-->
     <div class="row pb-4 justify-content-center">
-        <div class="col-12 text-center pt-5">
+        <div class="col-12 text-center pt-3">
             <h2>Agregar una oferta al local</h2>
-            <p>Aqui puedes agregar las <strong>ofertas que mas te convengan</strong>, recuerda que puedes crear ofertas y activarlas para mas tarde. asi te ahorras
-             tiempo en crearlas</p>
+            <p>Aqui puedes agregar <strong>ofertas para que captes mas publico</strong>, recuerda que puedes crear ofertas ahora y activarlas mas tarde.</p>
             <hr>
         </div>
          <!--ALERTS-->
@@ -85,7 +84,7 @@
         </div>
         <div class="w-100"></div>
         <div class="col-12 col-md-6 text-center pb-5">
-            <input type="submit" value="Agregar Oferta" class="btn btn-success">
+            <button type="submit" value="Agregar Oferta" class="btn btn-success"><span data-icon="v"></span> Agregar Oferta</button>
         </div>
         <div class="col-12 m-4">
             <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>

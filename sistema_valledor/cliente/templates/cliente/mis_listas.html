@@ -55,11 +55,11 @@
             <div class="invalid-feedback">
                 <p id="id_local-invalid" class="m-0"></p>
             </div>
-            <input type="submit" value="Filtrar por Tienda" class="btn btn-info mt-2">
+            <input type="submit" value="Filtrar por Tienda" class="btn btn-secondary mt-2">
         </form>
 
         <div class="col-7 col-md-4 mt-4 mt-md-4 text-center">
-            <li class="list-group-item active text-center btn bg-base bc-base"  data-toggle="collapse" href="#categorias_lg" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <li class="list-group-item active text-center btn btn-small bg-base bc-base"  data-toggle="collapse" href="#categorias_lg" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <strong>Estado de listas <span class="icon-angle-double-down"></span></strong>
                 </li>
                 <div class="list-group-item collapse pr-0 pl-0" id="categorias_lg">
@@ -81,7 +81,7 @@
         <!--FIN FILTROS-->
          <!--CONTENIDO-->
         <div class="col-12 p-3">
-            <a href="{%url 'cliente:agregar_lista'%}" class="btn btn-success">Agregar una lista</a>
+            <a href="{%url 'cliente:agregar_lista'%}" class="btn btn-success"><span data-icon="v"></span> Crear una Lista</a>
         </div>
         {%if listas%}
         {%for lista in listas%}
