@@ -36,7 +36,8 @@
          {%endif%}
 
         <div class="col-12 col-sm-5 form-group">
-            <input type="text" name="username" autofocus maxlength="254"  id="id_username" class="form-control" placeholder="Rut"/>
+            <input type="text" name="username" autofocus maxlength="254"  id="id_username" class="form-control" placeholder="Rut"
+            {%if request.COOKIES.username%} value="{{request.COOKIES.username}}"{%endif%}>
             <div class="invalid-feedback">
                 <p id="id_username-invalid" class="m-0"></p>
             </div>
@@ -60,7 +61,11 @@
          </div>
          <div class="w-100"></div>
          <div class="col-12 col-sm-5 form-group m-4 pb-5 text-center">
-             <p>Si no estas registrado, pincha <a href="{%url 'registration:registro'%}">aqui</a></p>
+             <p>Si no estas registrado, pincha <a href="{%url 'registration:registro'%}" class="badge badge-primary">aqui</a></p>
+             <p>Si quieres recuperar tu contraseña, pincha <a href="{%url 'registration:seleccion_usuario'%}" class="badge badge-success">aqui</a></p>
+         </div>
+         <div class="col-12">
+             <a href="{%url 'core:index'%}" class="btn btn-secondary">Volver al Inicio</a>
          </div>
     </div>
     {%else%}

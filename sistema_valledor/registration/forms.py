@@ -14,6 +14,7 @@ class RegistrationForm(UserCreationForm):
             "password2",
         ]
 
+
 class UpdateUserForm(UserCreationForm):
     class Meta:
         model=User

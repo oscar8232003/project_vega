@@ -440,10 +440,41 @@ function validar_password2_registro(){
         }
 }
 
+function validar_pregunta_secreta(){
+	var pregunta_secreta = document.getElementById("id_pregunta_secreta");
+	var span_pregunta_secreta = document.getElementById("id_pregunta_secreta-invalid");
+	pregunta_secreta.classList.remove("is-valid");
+	pregunta_secreta.classList.remove("is-invalid");
+	if(!pregunta_secreta.value ==""){
+			pregunta_secreta.classList.add("is-valid");
+			return true;
+	}else{
+		span_pregunta_secreta.innerHTML="Seleccione una opcion";
+		pregunta_secreta.classList.add("is-invalid");
+		pregunta_secreta.focus();
+		return false;
+	}
+}
+
+function validar_respuesta_secreta(){
+	var respuesta_secreta = document.getElementById("id_respuesta_secreta");
+	var span_respuesta_secreta = document.getElementById("id_respuesta_secreta-invalid");
+	respuesta_secreta.classList.remove("is-valid");
+	respuesta_secreta.classList.remove("is-invalid");
+	    if (respuesta_secreta.value.trim().length != 0){
+            respuesta_secreta.classList.add("is-valid");
+            return true;
+        }else{
+            span_respuesta_secreta.innerHTML="Rellene el campo vacio";
+            respuesta_secreta.classList.add("is-invalid");
+            respuesta_secreta.focus();
+            return false;
+        }
+}
 
 function validar_registro(){
 
-	if(validar_nombre_registro()&& validar_usuario() && validar_password_registro() && validar_password2_registro()){
+	if(validar_nombre_registro()&& validar_usuario() && validar_password_registro() && validar_password2_registro() && validar_pregunta_secreta() && validar_respuesta_secreta()){
 		return true;
 	}else{
 		return false;

@@ -8,6 +8,7 @@
             src: 'img/top.png'}
             });
     });
+
     $('#scrollUpTheme').attr('href', 'css/estilos.css');
     $('.image-switch').addClass('active');
 

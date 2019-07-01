@@ -33,7 +33,7 @@ def borrar_imagen_anterior_local_banner(instance, filename):
 #///////////////////////////////////////////////////////////////////////////////////////
 
 class Categoria_Productos(models.Model):
-    categoria = models.CharField(verbose_name="Categoria", max_length=200, null=True, blank=True)
+    categoria = models.CharField(verbose_name="Categoria", max_length=30, null=True, blank=True)
 
     class Meta:
         ordering = ['categoria']
@@ -44,8 +44,8 @@ class Categoria_Productos(models.Model):
         return self.categoria
 
 class Unidad_Medida(models.Model):
-    medida_unidad = models.CharField(verbose_name="Unidad de Medida Unidad", max_length=200, null=True, blank=True)
-    medida_plural = models.CharField(verbose_name="Unidad de Medida Plural", max_length=200, null=True, blank=True)
+    medida_unidad = models.CharField(verbose_name="Unidad de Medida Unidad", max_length=30, null=True, blank=True)
+    medida_plural = models.CharField(verbose_name="Unidad de Medida Plural", max_length=30, null=True, blank=True)
 
     class Meta:
         verbose_name = "Unidad de Medida"
@@ -58,7 +58,7 @@ class Unidad_Medida(models.Model):
 # Create your models here.
 class Productos(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True )
-    nombre = models.CharField(verbose_name="Nombre", max_length=200, null=True, blank=True)
+    nombre = models.CharField(verbose_name="Nombre", max_length=50, null=True, blank=True)
     precio = models.PositiveIntegerField(verbose_name="Precio", null=True, blank=True, default=0)
     categoria = models.ForeignKey(Categoria_Productos, on_delete=models.CASCADE,null=True, blank=True)
     oferta = models.BooleanField(verbose_name="Producto en Oferta", null=True, blank=True, default=False)
@@ -80,8 +80,8 @@ class Productos(models.Model):
 
 class Local(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    nombre_local = models.CharField(verbose_name="Nombre del Local", max_length=200, null=True, blank=True)
-    ubicacion_local = models.CharField(verbose_name="Ubicacion del Local", max_length=200, null=True, blank=True)
+    nombre_local = models.CharField(verbose_name="Nombre del Local", max_length=50, null=True, blank=True)
+    ubicacion_local = models.CharField(verbose_name="Ubicacion del Local", max_length=100, null=True, blank=True)
     imagen_muestra = models.ImageField(verbose_name="Imagen de muestra", upload_to=borrar_imagen_anterior_local_muestra, default='core/sin_imagen.jpg', null=True, blank=True)
     imagen_banner = models.ImageField(verbose_name="Imagen de Banner", upload_to=borrar_imagen_anterior_local_banner,default='vendedor/Mi_Tienda.png', null=True, blank=True)
     activado = models.BooleanField(verbose_name="Local activado?", null=True, blank=True, default=True)
@@ -98,8 +98,8 @@ class Oferta(models.Model):
     tipos_de_ofertas = (('general', 'Oferta General'), ('temporada', 'Oferta de Temporada'), ('rango_plata', 'Oferta para clientes de rango plata'),
                         ('rango_oro', 'Oferta para clientes de rango oro'), ('rango_diamante', 'Oferta para clientes de rango diamante'), ('convencional','Oferta Convencional'))
     local = models.ForeignKey(Local, on_delete=models.CASCADE, null=True, blank=True)
-    oferta = models.CharField(verbose_name="Oferta", null=True, blank=True, max_length=200)
-    tipo_oferta = models.CharField(verbose_name="Tipo de Oferta", null = True, blank = True, max_length=200, choices=tipos_de_ofertas)
+    oferta = models.CharField(verbose_name="Oferta", null=True, blank=True, max_length=100)
+    tipo_oferta = models.CharField(verbose_name="Tipo de Oferta", null = True, blank = True, max_length=30, choices=tipos_de_ofertas)
     activado = models.BooleanField(verbose_name="Oferta activada?", null=True, blank=True, default=True)
 
     class Meta:
@@ -114,7 +114,7 @@ class Puntos(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     puntos = models.PositiveIntegerField(verbose_name="Total de puntos", null=True, blank=True, default=0)
     local = models.ForeignKey(Local, on_delete=models.CASCADE,null=True, blank=True)
-    tipo_cuenta = models.CharField(verbose_name="Tipo de cuenta", null=True, blank=True, max_length=200)
+    tipo_cuenta = models.CharField(verbose_name="Tipo de cuenta", null=True, blank=True, max_length=30)
 
     class Meta:
         ordering = ['user']
@@ -129,7 +129,7 @@ class Registro_auditoria_productos(models.Model):
     producto = models.PositiveIntegerField(verbose_name="ID Producto", default=0, null=True, blank=True)
     vendedor = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     nombre_producto = models.CharField(verbose_name="Nombre Producto", max_length=200, null=True, blank=True)
-    accion = models.CharField(verbose_name="Accion", max_length=200, null=True, blank=True)
+    accion = models.CharField(verbose_name="Accion", max_length=30, null=True, blank=True)
     fecha_registro = models.DateField(verbose_name="Fecha de registro", null=True, blank=True)
 
     class Meta:

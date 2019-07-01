@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2019 a las 06:10:45
+-- Tiempo de generación: 01-07-2019 a las 20:28:18
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `django_sistema_valledor`
 --
+DROP DATABASE IF EXISTS `django_sistema_valledor`;
+CREATE DATABASE IF NOT EXISTS `django_sistema_valledor` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `django_sistema_valledor`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +31,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `auth_group`
 --
 
+DROP TABLE IF EXISTS `auth_group`;
 CREATE TABLE `auth_group` (
   `id` int(11) NOT NULL,
   `name` varchar(80) COLLATE utf8_spanish_ci NOT NULL
@@ -39,6 +43,7 @@ CREATE TABLE `auth_group` (
 -- Estructura de tabla para la tabla `auth_group_permissions`
 --
 
+DROP TABLE IF EXISTS `auth_group_permissions`;
 CREATE TABLE `auth_group_permissions` (
   `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
@@ -51,6 +56,7 @@ CREATE TABLE `auth_group_permissions` (
 -- Estructura de tabla para la tabla `auth_permission`
 --
 
+DROP TABLE IF EXISTS `auth_permission`;
 CREATE TABLE `auth_permission` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
@@ -134,7 +140,35 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (69, 'Can add Registro de Productos', 18, 'add_registro_de_productos'),
 (70, 'Can change Registro de Productos', 18, 'change_registro_de_productos'),
 (71, 'Can delete Registro de Productos', 18, 'delete_registro_de_productos'),
-(72, 'Can view Registro de Productos', 18, 'view_registro_de_productos');
+(72, 'Can view Registro de Productos', 18, 'view_registro_de_productos'),
+(73, 'Can add Reporte de Productos', 19, 'add_reporte_productos'),
+(74, 'Can change Reporte de Productos', 19, 'change_reporte_productos'),
+(75, 'Can delete Reporte de Productos', 19, 'delete_reporte_productos'),
+(76, 'Can view Reporte de Productos', 19, 'view_reporte_productos'),
+(77, 'Can add Auditoria de Productos', 20, 'add_registro_auditoria_productos'),
+(78, 'Can change Auditoria de Productos', 20, 'change_registro_auditoria_productos'),
+(79, 'Can delete Auditoria de Productos', 20, 'delete_registro_auditoria_productos'),
+(80, 'Can view Auditoria de Productos', 20, 'view_registro_auditoria_productos'),
+(81, 'Can add Valorizacion de Pedidos', 21, 'add_valorizacion_pedidos'),
+(82, 'Can change Valorizacion de Pedidos', 21, 'change_valorizacion_pedidos'),
+(83, 'Can delete Valorizacion de Pedidos', 21, 'delete_valorizacion_pedidos'),
+(84, 'Can view Valorizacion de Pedidos', 21, 'view_valorizacion_pedidos'),
+(85, 'Can add Reporte de Pedidos', 22, 'add_reporte_listas'),
+(86, 'Can change Reporte de Pedidos', 22, 'change_reporte_listas'),
+(87, 'Can delete Reporte de Pedidos', 22, 'delete_reporte_listas'),
+(88, 'Can view Reporte de Pedidos', 22, 'view_reporte_listas'),
+(89, 'Can add Log de Acceso', 23, 'add_log_acceso'),
+(90, 'Can change Log de Acceso', 23, 'change_log_acceso'),
+(91, 'Can delete Log de Acceso', 23, 'delete_log_acceso'),
+(92, 'Can view Log de Acceso', 23, 'view_log_acceso'),
+(93, 'Can add Preguntas secretas', 24, 'add_preguntas_secretas'),
+(94, 'Can change Preguntas secretas', 24, 'change_preguntas_secretas'),
+(95, 'Can delete Preguntas secretas', 24, 'delete_preguntas_secretas'),
+(96, 'Can view Preguntas secretas', 24, 'view_preguntas_secretas'),
+(97, 'Can add Tabla de Preguntas y Respuestas', 25, 'add_login_respuesta_secreta'),
+(98, 'Can change Tabla de Preguntas y Respuestas', 25, 'change_login_respuesta_secreta'),
+(99, 'Can delete Tabla de Preguntas y Respuestas', 25, 'delete_login_respuesta_secreta'),
+(100, 'Can view Tabla de Preguntas y Respuestas', 25, 'view_login_respuesta_secreta');
 
 -- --------------------------------------------------------
 
@@ -142,6 +176,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 -- Estructura de tabla para la tabla `auth_user`
 --
 
+DROP TABLE IF EXISTS `auth_user`;
 CREATE TABLE `auth_user` (
   `id` int(11) NOT NULL,
   `password` varchar(128) COLLATE utf8_spanish_ci NOT NULL,
@@ -161,21 +196,29 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-06-12 18:12:10.854139', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
-(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-06-15 03:15:45.438086', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
-(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-06-15 03:16:36.996817', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
-(13, 'pbkdf2_sha256$120000$ljKSzUCD3jaj$q+CUtBxOE6xhsid0jVm8bHOVB+HZulb/0NQmAOs7vi0=', '2019-05-19 17:36:24.629145', 0, '19.036.216-7', 'Katherine', '', '', 0, 1, '2019-04-04 01:22:42.392909'),
-(14, 'pbkdf2_sha256$120000$kNmI3pFAV6v8$c2TfcY64hgiyC8T7k62PcxtlODYdqZ/ttSiHDIFJK6Y=', '2019-06-10 23:22:33.949063', 0, '19.169.969-7', 'Maria', '', '', 0, 1, '2019-05-01 06:34:12.603680'),
+(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-06-29 20:55:02.782175', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
+(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-06-30 23:42:45.554681', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
+(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-06-29 22:38:36.681641', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
+(13, 'pbkdf2_sha256$120000$ljKSzUCD3jaj$q+CUtBxOE6xhsid0jVm8bHOVB+HZulb/0NQmAOs7vi0=', '2019-06-17 19:25:42.442930', 0, '19.036.216-7', 'Katherine', '', '', 0, 1, '2019-04-04 01:22:42.392909'),
+(14, 'pbkdf2_sha256$120000$kNmI3pFAV6v8$c2TfcY64hgiyC8T7k62PcxtlODYdqZ/ttSiHDIFJK6Y=', '2019-06-27 22:15:56.211459', 0, '19.169.969-7', 'Maria', '', '', 0, 1, '2019-05-01 06:34:12.603680'),
 (15, 'pbkdf2_sha256$120000$adiB9kBXzJ11$BfZIqihCGP4CRf8758Resc/v4p+RZsvAqCf4qcWTVFQ=', '2019-05-05 19:22:18.845965', 0, '11.111.111-1', 'prueba', '', '', 0, 1, '2019-05-04 05:10:35.000000'),
-(17, 'pbkdf2_sha256$120000$uiTC8ImCE9XR$8BF5M1T/s9EJC9TtGDxrcSqpLrtCKFFCXEkBLmZAH2E=', NULL, 0, '12.493.793-1', '', '', '', 0, 1, '2019-06-06 21:32:43.294778');
+(17, 'pbkdf2_sha256$120000$uiTC8ImCE9XR$8BF5M1T/s9EJC9TtGDxrcSqpLrtCKFFCXEkBLmZAH2E=', NULL, 0, '12.493.793-1', '', '', '', 0, 1, '2019-06-06 21:32:43.294778'),
+(18, 'pbkdf2_sha256$120000$Ldqwkr7hu8gf$gvhv4RPs7xcJWYbuvlHH3q25TNgob9i4g+uyN5cJAlU=', '2019-06-28 20:03:12.490104', 0, '19.184.388-6', 'Ronald', '', '', 0, 1, '2019-06-28 20:03:00.771334'),
+(19, 'pbkdf2_sha256$120000$DFuMTe1s3irl$bVz+eQeYwdgFgEJBi3CZq0bz/vU5kmZAx5dw3HjmLMM=', NULL, 0, '19.036.216-9', 'Regina', '', '', 0, 1, '2019-06-29 02:18:02.719432'),
+(20, 'pbkdf2_sha256$120000$rGmZ74fei2QR$P7NbGFoxp7MqcmllVHsuvLu0mFa5IvyuIxH3X5SiCF8=', NULL, 0, '11.123.456-8', 'Monica', '', '', 0, 1, '2019-06-29 06:22:52.907879'),
+(21, 'pbkdf2_sha256$120000$pDtJSrDVO4NX$zXJh3CFY0GuX/mwRO46AOuyj3gGMbzdLPqS80V6pWZs=', NULL, 0, '22.123.123-1', 'Morticia', '', '', 0, 1, '2019-06-29 06:36:56.961067'),
+(22, 'pbkdf2_sha256$120000$QfkM5SlzEFX1$SXWwxgqkdcPfcUkmYzyz+5cY880x6YEoPXYcwONza+I=', NULL, 0, '22.123.123-2', 'Morticia Valenzuela', '', '', 0, 1, '2019-06-29 06:38:01.947470'),
+(23, 'pbkdf2_sha256$120000$SyzY7hQTXgLE$uRmg9Abo0ar+IBHqnLI2c03rx0BmdnhwteoOHE+ZSO0=', NULL, 0, '22.123.123-3', 'Juanita', '', '', 0, 1, '2019-06-29 06:43:31.699839');
 
 --
 -- Disparadores `auth_user`
 --
+DROP TRIGGER IF EXISTS `delete_tipo`;
 DELIMITER $$
 CREATE TRIGGER `delete_tipo` BEFORE DELETE ON `auth_user` FOR EACH ROW delete from registration_tipo_usuarios where user_id_id = OLD.username
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_tipo`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_tipo` AFTER INSERT ON `auth_user` FOR EACH ROW INSERT INTO registration_tipo_usuarios (tipo_usuario, tipo_premium, fecha_caducidad, user_id_id, fecha_inicio) values("cliente", 0 , '2019-01-01',NEW.id, '2019-01-01')
 $$
@@ -187,6 +230,7 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `auth_user_groups`
 --
 
+DROP TABLE IF EXISTS `auth_user_groups`;
 CREATE TABLE `auth_user_groups` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -199,6 +243,7 @@ CREATE TABLE `auth_user_groups` (
 -- Estructura de tabla para la tabla `auth_user_user_permissions`
 --
 
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
 CREATE TABLE `auth_user_user_permissions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -211,46 +256,58 @@ CREATE TABLE `auth_user_user_permissions` (
 -- Estructura de tabla para la tabla `cliente_listas`
 --
 
+DROP TABLE IF EXISTS `cliente_listas`;
 CREATE TABLE `cliente_listas` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `total` int(10) UNSIGNED DEFAULT NULL,
   `fecha_enviado` date DEFAULT NULL,
   `fecha_expiracion` date DEFAULT NULL,
   `local_id` int(11) DEFAULT NULL,
   `comentario_cliente` longtext COLLATE utf8_spanish_ci,
   `comentario_vendedor` longtext COLLATE utf8_spanish_ci,
-  `estado_lista` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado_lista` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `fecha_actualizacion` datetime(6) DEFAULT NULL,
   `cancelaciones` int(10) UNSIGNED,
-  `total_marcado` int(10) UNSIGNED
+  `total_marcado` int(10) UNSIGNED,
+  `valorizacion` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `cliente_listas`
 --
 
-INSERT INTO `cliente_listas` (`id`, `nombre`, `total`, `fecha_enviado`, `fecha_expiracion`, `local_id`, `comentario_cliente`, `comentario_vendedor`, `estado_lista`, `user_id`, `fecha_actualizacion`, `cancelaciones`, `total_marcado`) VALUES
-(13, 'Prueba continua', 245000, '2019-06-15', NULL, 1, 'Fono +228232003', 'Armando pedido 24/05/2019', 'normal', 12, '2019-06-15 04:03:59.856602', 5, 0);
+INSERT INTO `cliente_listas` (`id`, `nombre`, `total`, `fecha_enviado`, `fecha_expiracion`, `local_id`, `comentario_cliente`, `comentario_vendedor`, `estado_lista`, `user_id`, `fecha_actualizacion`, `cancelaciones`, `total_marcado`, `valorizacion`) VALUES
+(13, 'Prueba continua', 78000, '2019-06-26', NULL, 1, 'Fono +228232003', 'Armando pedido 24/05/2019', 'normal', 12, '2019-06-27 20:10:37.706200', 5, 0, 0),
+(14, 'Prueba para borrar', 0, NULL, NULL, 1, '', NULL, 'normal', 12, '2019-06-27 20:17:40.786466', 5, 0, 0),
+(15, 'Preba QA', 1800, '2019-06-27', NULL, 1, '', NULL, 'enviada', 12, '2019-06-27 19:27:38.034465', 5, 0, 0);
 
 --
 -- Disparadores `cliente_listas`
 --
+DROP TRIGGER IF EXISTS `ingresar_datos_pedidos`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_datos_pedidos` AFTER UPDATE ON `cliente_listas` FOR EACH ROW BEGIN
 declare cantidad_productos int;
+declare items int;
 set cantidad_productos = 0;
+set items = 0;
 
-select sum(cantidad) 
+select sum(cantidad)
 into cantidad_productos
-from cliente_productos_listas 
+from cliente_productos_listas
+where lista_id = new.id;
+
+select count(*)
+into items
+from cliente_productos_listas
 where lista_id = new.id;
 
 if old.estado_lista = 'lista_retiro' or old.estado_lista = 'armando_pedido' then
 if new.estado_lista = 'completada' or new.estado_lista = 'cancelada' or new.estado_lista = 'no_retirada' then
 
-insert into cliente_registro_listas (lista_id, local_id, nombre_lista, cliente_id, fecha_registro, total, cantidad_productos, estado) values (new.id, new.local_id, new.nombre, new.user_id, now(), new.total, cantidad_productos, new.estado_lista);
+insert into cliente_reporte_listas(lista, local_id, nombre_lista, cliente_id, fecha_registro, total, cantidad_productos, estado, cantidad_items) values (new.id, new.local_id, new.nombre, new.user_id, now(), new.total, cantidad_productos, new.estado_lista, items);
 end if;
 end if;
 
@@ -264,6 +321,7 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `cliente_productos_listas`
 --
 
+DROP TABLE IF EXISTS `cliente_productos_listas`;
 CREATE TABLE `cliente_productos_listas` (
   `id` int(11) NOT NULL,
   `cantidad` int(10) UNSIGNED DEFAULT NULL,
@@ -273,48 +331,19 @@ CREATE TABLE `cliente_productos_listas` (
   `local_id` int(11) DEFAULT NULL,
   `productos_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `producto_marcado` tinyint(1)
+  `producto_marcado` tinyint(1),
+  `oferta` tinyint(1)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `cliente_productos_listas`
 --
 
-INSERT INTO `cliente_productos_listas` (`id`, `cantidad`, `comentarios`, `precio_producto`, `lista_id`, `local_id`, `productos_id`, `user_id`, `producto_marcado`) VALUES
-(8, 200, '', 900, 13, 1, 1, 12, 0),
-(10, 50, '', 1000, 13, 1, 25, 12, 0),
-(11, 50, '', 300, 13, 1, 6, 12, 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cliente_registro_listas`
---
-
-CREATE TABLE `cliente_registro_listas` (
-  `id` int(11) NOT NULL,
-  `nombre_lista` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_registro` date DEFAULT NULL,
-  `total` int(10) UNSIGNED DEFAULT NULL,
-  `estado` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `lista_id` int(11) DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `cliente_id` int(11) DEFAULT NULL,
-  `cantidad_productos` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `cliente_registro_listas`
---
-
-INSERT INTO `cliente_registro_listas` (`id`, `nombre_lista`, `fecha_registro`, `total`, `estado`, `lista_id`, `local_id`, `cliente_id`, `cantidad_productos`) VALUES
-(9, 'Prueba continua', '2019-06-05', 230000, 'completada', 13, 1, 12, 250),
-(10, 'Prueba continua', '2019-06-05', 230000, 'cancelada', 13, 1, 12, 250),
-(11, 'Prueba continua', '2019-06-05', 230000, 'no_retirada', 13, 1, 12, 250),
-(12, 'Prueba continua', '2019-06-05', 230000, 'completada', 13, 1, 12, 250),
-(13, 'Prueba continua', '2019-06-05', 230000, 'cancelada', 13, 1, 12, 250),
-(14, 'Prueba continua', '2019-06-05', 230000, 'cancelada', 13, 1, 12, 250),
-(15, 'Prueba continua', '2019-06-05', 230000, 'cancelada', 13, 1, 12, 250);
+INSERT INTO `cliente_productos_listas` (`id`, `cantidad`, `comentarios`, `precio_producto`, `lista_id`, `local_id`, `productos_id`, `user_id`, `producto_marcado`, `oferta`) VALUES
+(12, 20, '', 1800, 13, 1, 17, 12, 0, 1),
+(13, 50, '', 300, 13, 1, 4, 12, 0, 1),
+(14, 30, '', 900, 13, 1, 23, 12, 0, 0),
+(15, 1, '', 1800, 15, 1, 17, 12, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -322,6 +351,7 @@ INSERT INTO `cliente_registro_listas` (`id`, `nombre_lista`, `fecha_registro`, `
 -- Estructura de tabla para la tabla `cliente_registro_premium`
 --
 
+DROP TABLE IF EXISTS `cliente_registro_premium`;
 CREATE TABLE `cliente_registro_premium` (
   `id` int(11) NOT NULL,
   `fecha_inicio` date DEFAULT NULL,
@@ -345,9 +375,109 @@ INSERT INTO `cliente_registro_premium` (`id`, `fecha_inicio`, `fecha_caducidad`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `cliente_reporte_listas`
+--
+
+DROP TABLE IF EXISTS `cliente_reporte_listas`;
+CREATE TABLE `cliente_reporte_listas` (
+  `id` int(11) NOT NULL,
+  `lista` int(10) UNSIGNED DEFAULT NULL,
+  `nombre_lista` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_registro` date DEFAULT NULL,
+  `total` int(10) UNSIGNED DEFAULT NULL,
+  `cantidad_items` int(10) UNSIGNED DEFAULT NULL,
+  `cantidad_productos` int(10) UNSIGNED DEFAULT NULL,
+  `estado` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `cliente_id` int(11) DEFAULT NULL,
+  `local_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cliente_reporte_listas`
+--
+
+INSERT INTO `cliente_reporte_listas` (`id`, `lista`, `nombre_lista`, `fecha_registro`, `total`, `cantidad_items`, `cantidad_productos`, `estado`, `cliente_id`, `local_id`) VALUES
+(1, 13, 'Prueba continua', '2019-06-21', 245000, 3, 300, 'completada', 12, 1),
+(2, 13, 'Prueba continua', '2019-06-21', 101000, 3, 120, 'completada', 12, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente_reporte_productos`
+--
+
+DROP TABLE IF EXISTS `cliente_reporte_productos`;
+CREATE TABLE `cliente_reporte_productos` (
+  `id` int(11) NOT NULL,
+  `lista` int(10) UNSIGNED DEFAULT NULL,
+  `producto` int(10) UNSIGNED DEFAULT NULL,
+  `nombre_producto` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `cantidad` int(10) UNSIGNED DEFAULT NULL,
+  `oferta` tinyint(1) DEFAULT NULL,
+  `Total` int(10) UNSIGNED DEFAULT NULL,
+  `fecha_registro` date DEFAULT NULL,
+  `cliente_id` int(11) DEFAULT NULL,
+  `local_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cliente_reporte_productos`
+--
+
+INSERT INTO `cliente_reporte_productos` (`id`, `lista`, `producto`, `nombre_producto`, `cantidad`, `oferta`, `Total`, `fecha_registro`, `cliente_id`, `local_id`) VALUES
+(1, 13, 6, 'Arroz Marca Chancho', 50, 0, 15000, '2019-06-21', 12, 1),
+(2, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-21', 12, 1),
+(3, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-23', 12, 1),
+(4, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-23', 12, 1),
+(5, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-23', 12, 1),
+(6, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-23', 12, 1),
+(7, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-23', 12, 1),
+(8, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-23', 12, 1),
+(9, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
+(10, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
+(11, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1),
+(12, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
+(13, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
+(14, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1),
+(15, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
+(16, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
+(17, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1),
+(18, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
+(19, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
+(20, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente_valorizacion_pedidos`
+--
+
+DROP TABLE IF EXISTS `cliente_valorizacion_pedidos`;
+CREATE TABLE `cliente_valorizacion_pedidos` (
+  `id` int(11) NOT NULL,
+  `lista` int(10) UNSIGNED DEFAULT NULL,
+  `puntuacion` int(10) UNSIGNED DEFAULT NULL,
+  `comentarios` longtext COLLATE utf8_spanish_ci,
+  `local_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `fecha_registro` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cliente_valorizacion_pedidos`
+--
+
+INSERT INTO `cliente_valorizacion_pedidos` (`id`, `lista`, `puntuacion`, `comentarios`, `local_id`, `user_id`, `fecha_registro`) VALUES
+(1, 13, 5, 'Todo super bien', 1, 12, '2019-06-26'),
+(3, 13, 4, 'Todo bien!', 1, 12, '2019-06-26');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `django_admin_log`
 --
 
+DROP TABLE IF EXISTS `django_admin_log`;
 CREATE TABLE `django_admin_log` (
   `id` int(11) NOT NULL,
   `action_time` datetime(6) NOT NULL,
@@ -505,7 +635,27 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (139, '2019-06-06 21:32:30.204780', '16', '12.493.793-1', 3, '', 4, 1),
 (140, '2019-06-06 21:32:43.377787', '17', '12.493.793-1', 1, '[{\"added\": {}}]', 4, 1),
 (141, '2019-06-06 21:33:01.567118', '12', '12.493.793-1, , tipo cliente, premium 0, caduce 2019-01-01', 2, '[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]', 7, 1),
-(142, '2019-06-10 17:08:05.782225', '1', 'root', 2, '[{\"changed\": {\"fields\": [\"password\"]}}]', 4, 1);
+(142, '2019-06-10 17:08:05.782225', '1', 'root', 2, '[{\"changed\": {\"fields\": [\"password\"]}}]', 4, 1),
+(143, '2019-06-29 03:04:39.333088', '1', 'Cuantos hijos tienes?', 1, '[{\"added\": {}}]', 24, 1),
+(144, '2019-06-29 03:05:04.719435', '2', 'Cuales son los ultimos 3 digitos de documento de su cedula de identidad?', 1, '[{\"added\": {}}]', 24, 1),
+(145, '2019-06-29 06:11:56.605044', '1', 'Cuantos hijos tienes?', 3, '', 24, 1),
+(146, '2019-06-29 06:13:57.721047', '3', 'Color favorito?', 1, '[{\"added\": {}}]', 24, 1),
+(147, '2019-06-29 06:13:57.764066', '4', 'Color favorito?', 1, '[{\"added\": {}}]', 24, 1),
+(148, '2019-06-29 06:14:08.480979', '5', 'Nombre de la primera mascota?', 1, '[{\"added\": {}}]', 24, 1),
+(149, '2019-06-29 06:14:18.707117', '3', 'Color favorito?', 3, '', 24, 1),
+(150, '2019-06-29 06:14:28.409723', '6', 'Nombre de la madre', 1, '[{\"added\": {}}]', 24, 1),
+(151, '2019-06-29 06:14:35.428002', '7', 'Lugar de nacimiento', 1, '[{\"added\": {}}]', 24, 1),
+(152, '2019-06-29 06:14:42.410796', '8', 'Lugar de nacimiento de la madre', 1, '[{\"added\": {}}]', 24, 1),
+(153, '2019-06-29 06:14:50.775913', '9', 'Nombre de un familiar querido', 1, '[{\"added\": {}}]', 24, 1),
+(154, '2019-06-29 06:14:56.455802', '10', 'Nombre de un hijo', 1, '[{\"added\": {}}]', 24, 1),
+(155, '2019-06-29 06:15:07.343472', '11', 'Nombre de su primer amor', 1, '[{\"added\": {}}]', 24, 1),
+(156, '2019-06-29 06:15:12.160449', '12', 'Nombre de su amor', 1, '[{\"added\": {}}]', 24, 1),
+(157, '2019-06-29 06:15:21.216082', '13', 'Comida favorita', 1, '[{\"added\": {}}]', 24, 1),
+(158, '2019-06-29 06:15:34.537045', '14', 'Color de pelo favorito', 1, '[{\"added\": {}}]', 24, 1),
+(159, '2019-06-29 06:15:40.417151', '15', 'Banda preferida', 1, '[{\"added\": {}}]', 24, 1),
+(160, '2019-06-29 06:15:58.105987', '16', 'Nombre de un MMORPG', 1, '[{\"added\": {}}]', 24, 1),
+(161, '2019-06-29 06:21:52.889769', '1', 'Cuales son los ultimos 3 digitos de documento de su cedula de identidad? - 823', 1, '[{\"added\": {}}]', 25, 1),
+(162, '2019-06-29 19:33:05.630691', '3', 'Nombre de un MMORPG - wow', 1, '[{\"added\": {}}]', 25, 1);
 
 -- --------------------------------------------------------
 
@@ -513,6 +663,7 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 -- Estructura de tabla para la tabla `django_content_type`
 --
 
+DROP TABLE IF EXISTS `django_content_type`;
 CREATE TABLE `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
@@ -533,7 +684,13 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (18, 'cliente', 'registro_de_productos'),
 (16, 'cliente', 'registro_listas'),
 (17, 'cliente', 'registro_premium'),
+(22, 'cliente', 'reporte_listas'),
+(19, 'cliente', 'reporte_productos'),
+(21, 'cliente', 'valorizacion_pedidos'),
 (5, 'contenttypes', 'contenttype'),
+(23, 'registration', 'log_acceso'),
+(25, 'registration', 'login_respuesta_secreta'),
+(24, 'registration', 'preguntas_secretas'),
 (7, 'registration', 'tipo_usuarios'),
 (6, 'sessions', 'session'),
 (11, 'vendedor', 'categoria_productos'),
@@ -541,6 +698,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (10, 'vendedor', 'oferta'),
 (13, 'vendedor', 'productos'),
 (9, 'vendedor', 'puntos'),
+(20, 'vendedor', 'registro_auditoria_productos'),
 (8, 'vendedor', 'unidad_medida');
 
 -- --------------------------------------------------------
@@ -549,6 +707,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 -- Estructura de tabla para la tabla `django_migrations`
 --
 
+DROP TABLE IF EXISTS `django_migrations`;
 CREATE TABLE `django_migrations` (
   `id` int(11) NOT NULL,
   `app` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
@@ -609,7 +768,23 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (46, 'cliente', '0015_auto_20190606_1521', '2019-06-06 19:22:01.387881'),
 (47, 'registration', '0004_tipo_usuarios_fecha_inicio', '2019-06-06 19:37:14.048769'),
 (48, 'cliente', '0016_registro_premium', '2019-06-06 19:51:16.457009'),
-(49, 'cliente', '0017_auto_20190606_1557', '2019-06-06 19:57:03.503946');
+(49, 'cliente', '0017_auto_20190606_1557', '2019-06-06 19:57:03.503946'),
+(50, 'cliente', '0018_auto_20190616_2227', '2019-06-17 02:27:50.082464'),
+(51, 'vendedor', '0014_remove_productos_cambios_restantes', '2019-06-17 02:28:45.249883'),
+(52, 'vendedor', '0015_registro_auditoria_productos', '2019-06-17 20:07:16.888489'),
+(53, 'cliente', '0019_listas_valorizacion', '2019-06-21 04:26:52.877515'),
+(54, 'cliente', '0020_valorizacion_pedidos', '2019-06-21 04:43:50.944794'),
+(55, 'cliente', '0021_auto_20190621_1730', '2019-06-21 21:30:46.238709'),
+(56, 'cliente', '0022_productos_listas_oferta', '2019-06-21 22:09:12.088783'),
+(57, 'cliente', '0023_valorizacion_pedidos_fecha_registro', '2019-06-26 07:01:47.397588'),
+(58, 'registration', '0005_log_acceso', '2019-06-27 21:48:47.562134'),
+(59, 'registration', '0006_preguntas_secretas', '2019-06-29 02:22:01.649026'),
+(60, 'registration', '0007_login_respuesta_secreta', '2019-06-29 02:59:21.903058'),
+(61, 'cliente', '0024_auto_20190630_2139', '2019-07-01 01:39:50.021212'),
+(62, 'cliente', '0025_auto_20190630_2144', '2019-07-01 01:44:36.517245'),
+(63, 'cliente', '0026_auto_20190701_1337', '2019-07-01 17:37:39.811236'),
+(64, 'vendedor', '0016_auto_20190701_1341', '2019-07-01 17:41:39.212182'),
+(65, 'registration', '0008_auto_20190701_1342', '2019-07-01 17:42:40.574604');
 
 -- --------------------------------------------------------
 
@@ -617,6 +792,7 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 -- Estructura de tabla para la tabla `django_session`
 --
 
+DROP TABLE IF EXISTS `django_session`;
 CREATE TABLE `django_session` (
   `session_key` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `session_data` longtext COLLATE utf8_spanish_ci NOT NULL,
@@ -630,7 +806,9 @@ CREATE TABLE `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('05cepzb109uiq4ys9zr6gyzbpaqfhqda', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-25 04:07:37.357691'),
 ('16jtefushhshfryzc1b3gxwcxfdyd7wd', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-07 23:34:15.706395'),
-('3s6g8xr5d6em671sjg13qs3mn30363pb', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-29 04:10:35.576365'),
+('1vzwaovwjpvr90lczl20zju1bp05itfr', 'N2Q5ZTM2Mjc0YTk3YmIzOTIyNjlhMzQ2YTQ2NjBiYzdhYTcyZDkwOTp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0MWY3NWExM2VjNDA4YTEzM2ZjZDJlYWY4ZDNjOGFkM2E3MWU0NzBmIn0=', '2019-07-07 22:04:32.760411'),
+('4ordgwyicevyfnb1alruiyj0gaigd74t', 'N2Q5ZTM2Mjc0YTk3YmIzOTIyNjlhMzQ2YTQ2NjBiYzdhYTcyZDkwOTp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0MWY3NWExM2VjNDA4YTEzM2ZjZDJlYWY4ZDNjOGFkM2E3MWU0NzBmIn0=', '2019-07-11 05:16:22.590784'),
+('4v5iua9xn247kqv4p59ip1le3z5hs3ja', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-07-05 23:01:20.088314'),
 ('5w2qtc3dg9uzzs5s6bpbrylfb80ykvvw', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-15 22:45:23.725871'),
 ('81eld3kyw7jdp43uzdjfevasx010u05p', 'MDFhNzhlMDg5MTIxYTMyZmVhNjA4MmM4OTY4OGQ5OWNjOGViMWRmNDp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-06-16 19:16:55.385709'),
 ('avwckdx5e5l8hnr6ttn8c1mhpna4z04q', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-07 21:56:37.274975'),
@@ -638,7 +816,102 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('lcf0tk8cbxu8tj62vcdvvk33pmvzexya', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-05 19:37:29.714530'),
 ('p1shzbjcodtmesdwik7nziyjekm09bhi', 'N2Q5ZTM2Mjc0YTk3YmIzOTIyNjlhMzQ2YTQ2NjBiYzdhYTcyZDkwOTp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0MWY3NWExM2VjNDA4YTEzM2ZjZDJlYWY4ZDNjOGFkM2E3MWU0NzBmIn0=', '2019-06-29 03:16:37.027843'),
 ('pqo0mccskbmr7ym003m24jig0ueelraj', 'OGUwODgzNWJkNTcxMTI3MzJlNGRiYzc4ZTQ0OGI0ZjUxM2E1ZjJmYzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6Ijg2NzQ3NWI0YWU5MmRlZDc0ZGUwYmYxYzU5Y2QxZmE0ZGU2Nzk1MzAifQ==', '2019-06-12 18:16:32.038554'),
+('prxrr9wwwpmwsax4crncyitkl779y1y7', 'YmMxMGZkMTcxZDBkOTI4NGVhYTUxOGM0ZTcwMmI3NTEyMjBlMDZjYjp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyIsImlkX3BlcnNvbmEiOjExLCJmZWNoYSI6IjIwMTktMDYtMzAgMjA6Mzk6MjEuNDA5NjU1In0=', '2019-07-15 00:39:21.432660'),
+('wbigc0kidrhjz2f3n2n02l488m92i48u', 'NGExZDllMjQ2M2FlZGY1MjE0MzM3OGM0Yjc4YjRhZmFhZWE1YWQ0Yzp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjE0NjZmNTlhODdhOTU0NDA1NzVkNGZhOWZkOTkxZjhmOGNiNTAxZDAifQ==', '2019-07-01 20:12:35.656307'),
 ('wly0b0tsglzq4oh8t61j6bifmgawmpwd', 'OGI1NTcwOTM0N2ZiYzNjYmZmNWYyNzBkNzg5ZDlhMzU3NjVhMzEyMzp7Il9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyJ9', '2019-04-15 01:32:22.207073');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registration_login_respuesta_secreta`
+--
+
+DROP TABLE IF EXISTS `registration_login_respuesta_secreta`;
+CREATE TABLE `registration_login_respuesta_secreta` (
+  `id` int(11) NOT NULL,
+  `respuesta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `pregunta_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `registration_login_respuesta_secreta`
+--
+
+INSERT INTO `registration_login_respuesta_secreta` (`id`, `respuesta`, `pregunta_id`, `user_id`) VALUES
+(1, '823', 2, 11),
+(2, 'AC/DC', 15, 23),
+(3, 'wow', 16, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registration_log_acceso`
+--
+
+DROP TABLE IF EXISTS `registration_log_acceso`;
+CREATE TABLE `registration_log_acceso` (
+  `id` int(11) NOT NULL,
+  `fecha_registro` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `tipo_cliente` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `registration_log_acceso`
+--
+
+INSERT INTO `registration_log_acceso` (`id`, `fecha_registro`, `tipo_cliente`, `user_id`) VALUES
+(1, '2019-06-27 18:01:35.459829', 'cliente', 12),
+(2, '2019-06-27 18:02:08.562671', 'administrador', 1),
+(3, '2019-06-27 18:03:38.687678', 'vendedor', 11),
+(4, '2019-06-27 18:06:33.374899', 'cliente', 12),
+(5, '2019-06-27 18:14:58.388509', 'cliente', 12),
+(6, '2019-06-27 18:15:56.230463', 'vendedor', 14),
+(7, '2019-06-27 23:03:09.649849', 'vendedor', 11),
+(8, '2019-06-28 16:03:12.508109', 'cliente', 18),
+(9, '2019-06-28 23:04:22.794343', 'administrador', 1),
+(10, '2019-06-29 02:52:20.355060', 'vendedor', 11),
+(11, '2019-06-29 02:57:55.718245', 'administrador', 1),
+(12, '2019-06-29 15:32:22.865614', 'administrador', 1),
+(13, '2019-06-29 16:55:02.805180', 'administrador', 1),
+(14, '2019-06-29 18:04:18.679247', 'cliente', 12),
+(15, '2019-06-29 18:36:47.950623', 'cliente', 12),
+(16, '2019-06-29 18:37:43.040322', 'cliente', 12),
+(17, '2019-06-29 18:38:36.698645', 'cliente', 12),
+(18, '2019-06-30 19:42:45.582687', 'vendedor', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registration_preguntas_secretas`
+--
+
+DROP TABLE IF EXISTS `registration_preguntas_secretas`;
+CREATE TABLE `registration_preguntas_secretas` (
+  `id` int(11) NOT NULL,
+  `pregunta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `registration_preguntas_secretas`
+--
+
+INSERT INTO `registration_preguntas_secretas` (`id`, `pregunta`) VALUES
+(2, 'Cuales son los ultimos 3 digitos de documento de su cedula de identidad?'),
+(4, 'Color favorito?'),
+(5, 'Nombre de la primera mascota?'),
+(6, 'Nombre de la madre'),
+(7, 'Lugar de nacimiento'),
+(8, 'Lugar de nacimiento de la madre'),
+(9, 'Nombre de un familiar querido'),
+(10, 'Nombre de un hijo'),
+(11, 'Nombre de su primer amor'),
+(12, 'Nombre de su amor'),
+(13, 'Comida favorita'),
+(14, 'Color de pelo favorito'),
+(15, 'Banda preferida'),
+(16, 'Nombre de un MMORPG');
 
 -- --------------------------------------------------------
 
@@ -646,9 +919,10 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 -- Estructura de tabla para la tabla `registration_tipo_usuarios`
 --
 
+DROP TABLE IF EXISTS `registration_tipo_usuarios`;
 CREATE TABLE `registration_tipo_usuarios` (
   `id` int(11) NOT NULL,
-  `tipo_usuario` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `tipo_usuario` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `tipo_premium` int(10) UNSIGNED DEFAULT NULL,
   `fecha_caducidad` date DEFAULT NULL,
   `user_id_id` int(11) NOT NULL,
@@ -666,11 +940,18 @@ INSERT INTO `registration_tipo_usuarios` (`id`, `tipo_usuario`, `tipo_premium`, 
 (8, 'vendedor', 1, '2019-07-05', 13, '2019-06-05'),
 (9, 'vendedor', 3, NULL, 14, '2019-06-06'),
 (10, 'vendedor', 1, '2019-07-06', 15, '2019-06-06'),
-(12, 'cliente', 0, '0000-00-00', 17, '2019-06-05');
+(12, 'cliente', 0, '0000-00-00', 17, '2019-06-05'),
+(13, 'cliente', 0, '2019-01-01', 18, '2019-01-01'),
+(14, 'cliente', 0, '2019-01-01', 19, '2019-01-01'),
+(15, 'cliente', 0, '2019-01-01', 20, '2019-01-01'),
+(16, 'cliente', 0, '2019-01-01', 21, '2019-01-01'),
+(17, 'cliente', 0, '2019-01-01', 22, '2019-01-01'),
+(18, 'cliente', 0, '2019-01-01', 23, '2019-01-01');
 
 --
 -- Disparadores `registration_tipo_usuarios`
 --
+DROP TRIGGER IF EXISTS `crear_actualizar_local`;
 DELIMITER $$
 CREATE TRIGGER `crear_actualizar_local` BEFORE UPDATE ON `registration_tipo_usuarios` FOR EACH ROW BEGIN
 declare verificador int;
@@ -729,9 +1010,10 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `vendedor_categoria_productos`
 --
 
+DROP TABLE IF EXISTS `vendedor_categoria_productos`;
 CREATE TABLE `vendedor_categoria_productos` (
   `id` int(11) NOT NULL,
-  `categoria` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL
+  `categoria` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -754,10 +1036,11 @@ INSERT INTO `vendedor_categoria_productos` (`id`, `categoria`) VALUES
 -- Estructura de tabla para la tabla `vendedor_local`
 --
 
+DROP TABLE IF EXISTS `vendedor_local`;
 CREATE TABLE `vendedor_local` (
   `id` int(11) NOT NULL,
-  `nombre_local` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `ubicacion_local` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nombre_local` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `ubicacion_local` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen_muestra` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen_banner` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -780,10 +1063,11 @@ INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_m
 -- Estructura de tabla para la tabla `vendedor_oferta`
 --
 
+DROP TABLE IF EXISTS `vendedor_oferta`;
 CREATE TABLE `vendedor_oferta` (
   `id` int(11) NOT NULL,
-  `oferta` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `tipo_oferta` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `oferta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `tipo_oferta` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `local_id` int(11) DEFAULT NULL,
   `activado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -806,15 +1090,15 @@ INSERT INTO `vendedor_oferta` (`id`, `oferta`, `tipo_oferta`, `local_id`, `activ
 -- Estructura de tabla para la tabla `vendedor_productos`
 --
 
+DROP TABLE IF EXISTS `vendedor_productos`;
 CREATE TABLE `vendedor_productos` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `precio` int(10) UNSIGNED DEFAULT NULL,
   `oferta` tinyint(1) DEFAULT NULL,
   `precio_oferta` int(10) UNSIGNED DEFAULT NULL,
   `stock` int(10) UNSIGNED DEFAULT NULL,
   `imagen` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `cambios_restantes` int(10) UNSIGNED DEFAULT NULL,
   `activado` tinyint(1) DEFAULT NULL,
   `categoria_id` int(11) DEFAULT NULL,
   `unidad_medida_id` int(11) DEFAULT NULL,
@@ -827,35 +1111,62 @@ CREATE TABLE `vendedor_productos` (
 -- Volcado de datos para la tabla `vendedor_productos`
 --
 
-INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_oferta`, `stock`, `imagen`, `cambios_restantes`, `activado`, `categoria_id`, `unidad_medida_id`, `user_id`, `comentario`, `maximo_prod_comprar`) VALUES
-(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2800, 'vendedor/img_productos/7801420220138.png', 3, 1, 1, 3, 11, '', 500),
-(4, 'Pasta frola', 600, 1, 300, 600, 'vendedor/img_productos/pastafrola-membrillo-batata-dulce-de-leche-tartas-dulces-D_NQ_NP__eBn8ND8.jpg', 3, 1, 1, 3, 11, '', 60),
-(6, 'Arroz Marca Chancho', 300, 0, 0, 500, 'vendedor/img_productos/wmtcl.jpg', 3, 1, 1, 3, 11, '', 50),
-(13, 'Pansito', 0, 0, 0, 0, 'core/sin_imagen.jpg', 3, 0, 7, 3, 11, '', 0),
-(14, 'Cloro clorinda litro', 990, 0, 0, 200, 'vendedor/img_productos/clorinda-1-lt.jpg', 3, 1, 1, 3, 11, '', 20),
-(15, 'Arroz aruba pregraneado 500gr', 540, 0, 0, 100, 'vendedor/img_productos/Arroz_Aruba_Pregraneado_medio_kilo.jpg', 3, 1, 1, 3, 11, '', 10),
-(16, 'Pan de molde grande', 1800, 1, 1750, 100, 'vendedor/img_productos/Ideal_Pan_de_Molde_Blanco_Ideal_580_g-500x500.jpg', 3, 1, 1, 3, 11, '', 10),
-(17, 'Aceitunas Jumbo', 2000, 1, 1800, 300, 'vendedor/img_productos/Aceituna-Negra.jpg', 3, 1, 8, 4, 11, '', 30),
-(18, 'Oregano kilo', 1150, 0, 0, 50, 'vendedor/img_productos/6593e88301bf4c-oregano-x-kilo-481618.jpg', 3, 1, 3, 4, 11, '', 5),
-(19, 'Cloro litro', 980, 0, 0, 300, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, '', 30),
-(20, 'Arroz aruba pregraneado 500gr', 550, 0, 0, 100, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, '', 10),
-(21, 'Pan de molde', 1800, 1, 1710, 200, 'core/sin_imagen.jpg', 3, 1, 1, 3, 13, '', 20),
-(22, 'Aceitunas Jumbo', 2200, 1, 1750, 200, 'core/sin_imagen.jpg', 3, 1, 8, 4, 13, '', 20),
-(23, 'Azucar Iansa de kilo', 900, 0, 0, 300, 'vendedor/img_productos/wmtcl_1.jpg', 3, 1, 1, 3, 11, '', 30),
-(24, 'Azucar Acuenta', 650, 1, 550, 500, 'vendedor/img_productos/wmtcl_2.jpg', 3, 1, 1, 3, 11, '', 50),
-(25, 'Azucar Rubia', 1000, 0, 0, 250, 'vendedor/img_productos/wmtcl_3.jpg', 3, 1, 1, 3, 11, '', 60),
-(26, 'Duraznos en conserva wasil', 950, 0, 0, 100, 'vendedor/img_productos/wmtcl_4.jpg', 3, 1, 8, 3, 13, '', 10),
-(27, 'Lomito san jose en agua', 1250, 1, 1000, 500, 'vendedor/img_productos/wmtcl_5.jpg', 3, 1, 8, 3, 13, '', 50),
-(28, 'Palmitos enteros', 1890, 1, 1550, 200, 'vendedor/img_productos/wmtcl_6.jpg', 3, 1, 8, 3, 13, '', 20),
-(29, 'Jurel san jose', 1250, 0, 0, 300, 'vendedor/img_productos/wmtcl_7.jpg', 3, 1, 8, 3, 13, '', 10),
-(33, 'Aceite Barato', 5000, 0, 0, 500, 'core/sin_imagen.jpg', 3, 1, 1, 3, 11, '', 50);
+INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_oferta`, `stock`, `imagen`, `activado`, `categoria_id`, `unidad_medida_id`, `user_id`, `comentario`, `maximo_prod_comprar`) VALUES
+(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2600, 'vendedor/img_productos/7801420220138.png', 1, 1, 3, 11, '', 500),
+(4, 'Pasta frola', 600, 1, 300, 400, 'vendedor/img_productos/pastafrola-membrillo-batata-dulce-de-leche-tartas-dulces-D_NQ_NP__eBn8ND8.jpg', 1, 1, 3, 11, '', 60),
+(6, 'Arroz Marca Chancho', 300, 0, 0, 0, 'vendedor/img_productos/wmtcl.jpg', 1, 1, 3, 11, '', 50),
+(13, 'Pansito', 0, 0, 0, 0, 'core/sin_imagen.jpg', 0, 7, 3, 11, '', 0),
+(14, 'Cloro clorinda litro', 990, 0, 0, 200, 'vendedor/img_productos/clorinda-1-lt.jpg', 1, 1, 3, 11, '', 20),
+(15, 'Arroz aruba pregraneado 500gr', 540, 0, 0, 100, 'vendedor/img_productos/Arroz_Aruba_Pregraneado_medio_kilo.jpg', 1, 1, 3, 11, '', 10),
+(16, 'Pan de molde grande', 1800, 1, 1750, 100, 'vendedor/img_productos/Ideal_Pan_de_Molde_Blanco_Ideal_580_g-500x500.jpg', 1, 1, 3, 11, '', 10),
+(17, 'Aceitunas Jumbo', 2000, 1, 1800, 39, 'vendedor/img_productos/Aceituna-Negra.jpg', 1, 8, 4, 11, '', 30),
+(18, 'Oregano kilo', 1150, 0, 0, 50, 'vendedor/img_productos/6593e88301bf4c-oregano-x-kilo-481618.jpg', 1, 3, 4, 11, '', 5),
+(19, 'Cloro litro', 980, 0, 0, 300, 'core/sin_imagen.jpg', 1, 1, 3, 13, '', 30),
+(21, 'Pan de molde', 1800, 1, 1710, 200, 'core/sin_imagen.jpg', 1, 1, 3, 13, '', 20),
+(22, 'Aceitunas Jumbo', 2200, 1, 1750, 200, 'core/sin_imagen.jpg', 1, 8, 4, 13, '', 20),
+(23, 'Azucar Iansa de kilo', 900, 0, 0, 180, 'vendedor/img_productos/wmtcl_1.jpg', 1, 1, 3, 11, '', 30),
+(24, 'Azucar Acuenta', 650, 1, 550, 500, 'vendedor/img_productos/wmtcl_2.jpg', 1, 1, 3, 11, '', 50),
+(25, 'Azucar Rubia', 1000, 0, 0, 0, 'vendedor/img_productos/wmtcl_3.jpg', 1, 1, 3, 11, '', 60),
+(26, 'Duraznos en conserva wasil', 950, 0, 0, 100, 'vendedor/img_productos/wmtcl_4.jpg', 1, 8, 3, 13, '', 10),
+(27, 'Lomito san jose en agua', 1250, 1, 1000, 500, 'vendedor/img_productos/wmtcl_5.jpg', 1, 8, 3, 13, '', 50),
+(28, 'Palmitos enteros', 1890, 1, 1550, 180, 'vendedor/img_productos/wmtcl_6.jpg', 1, 8, 3, 13, '', 20),
+(29, 'Jurel san jose', 1300, 0, 0, 300, 'vendedor/img_productos/wmtcl_7.jpg', 1, 8, 3, 13, '', 10),
+(33, 'Aceite Barato', 5000, 0, 0, 500, 'core/sin_imagen.jpg', 1, 1, 3, 11, '', 50),
+(34, 'Porotos burros', 800, 0, 0, 250, 'core/sin_imagen.jpg', 1, 1, 4, 13, '', 25),
+(35, 'Lentejas', 1200, 0, 0, 500, 'core/sin_imagen.jpg', 1, 1, 4, 13, '', 50),
+(36, 'Garbanzos', 1500, 0, 0, 500, 'core/sin_imagen.jpg', 1, 1, 4, 13, '', 0),
+(37, 'Porotos negros', 2000, 0, 0, 100, 'core/sin_imagen.jpg', 1, 1, 4, 13, '', 0),
+(38, 'Comida Gaty', 500, 0, 0, 500, 'core/sin_imagen.jpg', 1, 8, 3, 11, '', 50);
 
 --
 -- Disparadores `vendedor_productos`
 --
+DROP TRIGGER IF EXISTS `actualizar_max_productos_compra`;
 DELIMITER $$
 CREATE TRIGGER `actualizar_max_productos_compra` BEFORE INSERT ON `vendedor_productos` FOR EACH ROW BEGIN
 SET new.maximo_prod_comprar=round(new.stock*0.1);
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_auditoria_prod_actualizar`;
+DELIMITER $$
+CREATE TRIGGER `ingresar_auditoria_prod_actualizar` AFTER UPDATE ON `vendedor_productos` FOR EACH ROW begin
+insert into vendedor_registro_auditoria_productos (producto, vendedor_id, nombre_producto, accion, fecha_registro) values(new.id, new.user_id, new.nombre, 'Update', now());
+end
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_auditoria_prod_eliminar`;
+DELIMITER $$
+CREATE TRIGGER `ingresar_auditoria_prod_eliminar` BEFORE DELETE ON `vendedor_productos` FOR EACH ROW begin
+insert into vendedor_registro_auditoria_productos (producto, vendedor_id, nombre_producto, accion, fecha_registro) values(old.id, old.user_id, old.nombre, 'Delete', now());
+end
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_auditoria_productos`;
+DELIMITER $$
+CREATE TRIGGER `ingresar_auditoria_productos` AFTER INSERT ON `vendedor_productos` FOR EACH ROW BEGIN
+insert into vendedor_registro_auditoria_productos (producto, vendedor_id, nombre_producto, accion, fecha_registro) values(new.id, new.user_id, new.nombre, 'Insert', now());
+
 END
 $$
 DELIMITER ;
@@ -866,13 +1177,106 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `vendedor_puntos`
 --
 
+DROP TABLE IF EXISTS `vendedor_puntos`;
 CREATE TABLE `vendedor_puntos` (
   `id` int(11) NOT NULL,
   `puntos` int(10) UNSIGNED DEFAULT NULL,
-  `tipo_cuenta` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `tipo_cuenta` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `local_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `vendedor_puntos`
+--
+
+INSERT INTO `vendedor_puntos` (`id`, `puntos`, `tipo_cuenta`, `local_id`, `user_id`) VALUES
+(1, 52, 'Plata', 1, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vendedor_registro_auditoria_productos`
+--
+
+DROP TABLE IF EXISTS `vendedor_registro_auditoria_productos`;
+CREATE TABLE `vendedor_registro_auditoria_productos` (
+  `id` int(11) NOT NULL,
+  `producto` int(10) UNSIGNED DEFAULT NULL,
+  `nombre_producto` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `accion` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_registro` date DEFAULT NULL,
+  `vendedor_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `vendedor_registro_auditoria_productos`
+--
+
+INSERT INTO `vendedor_registro_auditoria_productos` (`id`, `producto`, `nombre_producto`, `accion`, `fecha_registro`, `vendedor_id`) VALUES
+(1, 0, 'Porotos burros', 'Insert', '2019-06-17', 13),
+(2, 0, 'Lentejas', 'Insert', '2019-06-17', 13),
+(3, 0, 'Garbanzos', 'Insert', '2019-06-17', 13),
+(4, 37, 'Porotos negros', 'Insert', '2019-06-17', 13),
+(5, 20, 'Arroz aruba pregraneado 500gr', 'Delete', '2019-06-17', 13),
+(6, 29, 'Jurel san jose', 'Update', '2019-06-17', 13),
+(7, 1, 'Arroz Tucapel 500gramos', 'Update', '2019-06-21', 11),
+(8, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(9, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(10, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(11, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(12, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(13, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(14, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(15, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(16, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(17, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(18, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(19, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(20, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(21, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(22, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(23, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(24, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(25, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
+(26, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(27, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(28, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(29, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(30, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(31, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(32, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(33, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(34, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(35, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(36, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
+(37, 17, 'Aceitunas Jumbo', 'Update', '2019-06-21', 11),
+(38, 17, 'Aceitunas Jumbo', 'Update', '2019-06-23', 11),
+(39, 4, 'Pasta frola', 'Update', '2019-06-23', 11),
+(40, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-23', 11),
+(41, 17, 'Aceitunas Jumbo', 'Update', '2019-06-23', 11),
+(42, 4, 'Pasta frola', 'Update', '2019-06-23', 11),
+(43, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-23', 11),
+(44, 17, 'Aceitunas Jumbo', 'Update', '2019-06-23', 11),
+(45, 4, 'Pasta frola', 'Update', '2019-06-23', 11),
+(46, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-23', 11),
+(47, 17, 'Aceitunas Jumbo', 'Update', '2019-06-26', 11),
+(48, 4, 'Pasta frola', 'Update', '2019-06-26', 11),
+(49, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-26', 11),
+(50, 17, 'Aceitunas Jumbo', 'Update', '2019-06-26', 11),
+(51, 4, 'Pasta frola', 'Update', '2019-06-26', 11),
+(52, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-26', 11),
+(53, 17, 'Aceitunas Jumbo', 'Update', '2019-06-26', 11),
+(54, 4, 'Pasta frola', 'Update', '2019-06-26', 11),
+(55, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-26', 11),
+(56, 17, 'Aceitunas Jumbo', 'Update', '2019-06-26', 11),
+(57, 4, 'Pasta frola', 'Update', '2019-06-26', 11),
+(58, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-26', 11),
+(59, 17, 'Aceitunas Jumbo', 'Update', '2019-06-26', 11),
+(60, 4, 'Pasta frola', 'Update', '2019-06-26', 11),
+(61, 23, 'Azucar Iansa de kilo', 'Update', '2019-06-26', 11),
+(62, 17, 'Aceitunas Jumbo', 'Update', '2019-06-27', 11),
+(63, 38, 'Comida Gaty', 'Insert', '2019-06-27', 11);
 
 -- --------------------------------------------------------
 
@@ -880,10 +1284,11 @@ CREATE TABLE `vendedor_puntos` (
 -- Estructura de tabla para la tabla `vendedor_unidad_medida`
 --
 
+DROP TABLE IF EXISTS `vendedor_unidad_medida`;
 CREATE TABLE `vendedor_unidad_medida` (
   `id` int(11) NOT NULL,
-  `medida_plural` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `medida_unidad` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL
+  `medida_plural` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `medida_unidad` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -966,21 +1371,36 @@ ALTER TABLE `cliente_productos_listas`
   ADD KEY `cliente_productos_listas_user_id_53abd657_fk_auth_user_id` (`user_id`);
 
 --
--- Indices de la tabla `cliente_registro_listas`
---
-ALTER TABLE `cliente_registro_listas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cliente_registro_listas_lista_id_4a095a8c_fk_cliente_listas_id` (`lista_id`),
-  ADD KEY `cliente_registro_listas_local_id_098865fc_fk_vendedor_local_id` (`local_id`),
-  ADD KEY `cliente_registro_listas_cliente_id_8d5ec432_fk_auth_user_id` (`cliente_id`);
-
---
 -- Indices de la tabla `cliente_registro_premium`
 --
 ALTER TABLE `cliente_registro_premium`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cliente_registro_pre_id_registro_id_d1309675_fk_registrat` (`id_registro_id`),
   ADD KEY `cliente_registro_premium_user_id_73bb43e3_fk_auth_user_id` (`user_id`);
+
+--
+-- Indices de la tabla `cliente_reporte_listas`
+--
+ALTER TABLE `cliente_reporte_listas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cliente_reporte_listas_cliente_id_132a24a5_fk_auth_user_id` (`cliente_id`),
+  ADD KEY `cliente_reporte_listas_local_id_a68885d9_fk_vendedor_local_id` (`local_id`);
+
+--
+-- Indices de la tabla `cliente_reporte_productos`
+--
+ALTER TABLE `cliente_reporte_productos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cliente_reporte_productos_cliente_id_09032704_fk_auth_user_id` (`cliente_id`),
+  ADD KEY `cliente_reporte_productos_local_id_78037625_fk_vendedor_local_id` (`local_id`);
+
+--
+-- Indices de la tabla `cliente_valorizacion_pedidos`
+--
+ALTER TABLE `cliente_valorizacion_pedidos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cliente_valorizacion_local_id_100241c5_fk_vendedor_` (`local_id`),
+  ADD KEY `cliente_valorizacion_pedidos_user_id_6865b9a3_fk_auth_user_id` (`user_id`);
 
 --
 -- Indices de la tabla `django_admin_log`
@@ -1009,6 +1429,27 @@ ALTER TABLE `django_migrations`
 ALTER TABLE `django_session`
   ADD PRIMARY KEY (`session_key`),
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
+
+--
+-- Indices de la tabla `registration_login_respuesta_secreta`
+--
+ALTER TABLE `registration_login_respuesta_secreta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `registration_login_r_pregunta_id_77b62eb0_fk_registrat` (`pregunta_id`),
+  ADD KEY `registration_login_r_user_id_3746c3ed_fk_auth_user` (`user_id`);
+
+--
+-- Indices de la tabla `registration_log_acceso`
+--
+ALTER TABLE `registration_log_acceso`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `registration_log_acceso_user_id_f84455f5_fk_auth_user_id` (`user_id`);
+
+--
+-- Indices de la tabla `registration_preguntas_secretas`
+--
+ALTER TABLE `registration_preguntas_secretas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `registration_tipo_usuarios`
@@ -1055,6 +1496,13 @@ ALTER TABLE `vendedor_puntos`
   ADD KEY `vendedor_puntos_user_id_685f2908_fk_auth_user_id` (`user_id`);
 
 --
+-- Indices de la tabla `vendedor_registro_auditoria_productos`
+--
+ALTER TABLE `vendedor_registro_auditoria_productos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `vendedor_registro_au_vendedor_id_d57a4c81_fk_auth_user` (`vendedor_id`);
+
+--
 -- Indices de la tabla `vendedor_unidad_medida`
 --
 ALTER TABLE `vendedor_unidad_medida`
@@ -1080,13 +1528,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT de la tabla `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
@@ -1104,18 +1552,12 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT de la tabla `cliente_listas`
 --
 ALTER TABLE `cliente_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_productos_listas`
 --
 ALTER TABLE `cliente_productos_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de la tabla `cliente_registro_listas`
---
-ALTER TABLE `cliente_registro_listas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
@@ -1125,28 +1567,64 @@ ALTER TABLE `cliente_registro_premium`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `cliente_reporte_listas`
+--
+ALTER TABLE `cliente_reporte_listas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente_reporte_productos`
+--
+ALTER TABLE `cliente_reporte_productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente_valorizacion_pedidos`
+--
+ALTER TABLE `cliente_valorizacion_pedidos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT de la tabla `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
+--
+-- AUTO_INCREMENT de la tabla `registration_login_respuesta_secreta`
+--
+ALTER TABLE `registration_login_respuesta_secreta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `registration_log_acceso`
+--
+ALTER TABLE `registration_log_acceso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `registration_preguntas_secretas`
+--
+ALTER TABLE `registration_preguntas_secretas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_tipo_usuarios`
 --
 ALTER TABLE `registration_tipo_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_categoria_productos`
@@ -1170,13 +1648,19 @@ ALTER TABLE `vendedor_oferta`
 -- AUTO_INCREMENT de la tabla `vendedor_productos`
 --
 ALTER TABLE `vendedor_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_puntos`
 --
 ALTER TABLE `vendedor_puntos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `vendedor_registro_auditoria_productos`
+--
+ALTER TABLE `vendedor_registro_auditoria_productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_unidad_medida`
@@ -1232,14 +1716,6 @@ ALTER TABLE `cliente_productos_listas`
   ADD CONSTRAINT `cliente_productos_listas_user_id_53abd657_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
--- Filtros para la tabla `cliente_registro_listas`
---
-ALTER TABLE `cliente_registro_listas`
-  ADD CONSTRAINT `cliente_registro_listas_cliente_id_8d5ec432_fk_auth_user_id` FOREIGN KEY (`cliente_id`) REFERENCES `auth_user` (`id`),
-  ADD CONSTRAINT `cliente_registro_listas_lista_id_4a095a8c_fk_cliente_listas_id` FOREIGN KEY (`lista_id`) REFERENCES `cliente_listas` (`id`),
-  ADD CONSTRAINT `cliente_registro_listas_local_id_098865fc_fk_vendedor_local_id` FOREIGN KEY (`local_id`) REFERENCES `vendedor_local` (`id`);
-
---
 -- Filtros para la tabla `cliente_registro_premium`
 --
 ALTER TABLE `cliente_registro_premium`
@@ -1247,11 +1723,45 @@ ALTER TABLE `cliente_registro_premium`
   ADD CONSTRAINT `cliente_registro_premium_user_id_73bb43e3_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
+-- Filtros para la tabla `cliente_reporte_listas`
+--
+ALTER TABLE `cliente_reporte_listas`
+  ADD CONSTRAINT `cliente_reporte_listas_cliente_id_132a24a5_fk_auth_user_id` FOREIGN KEY (`cliente_id`) REFERENCES `auth_user` (`id`),
+  ADD CONSTRAINT `cliente_reporte_listas_local_id_a68885d9_fk_vendedor_local_id` FOREIGN KEY (`local_id`) REFERENCES `vendedor_local` (`id`);
+
+--
+-- Filtros para la tabla `cliente_reporte_productos`
+--
+ALTER TABLE `cliente_reporte_productos`
+  ADD CONSTRAINT `cliente_reporte_productos_cliente_id_09032704_fk_auth_user_id` FOREIGN KEY (`cliente_id`) REFERENCES `auth_user` (`id`),
+  ADD CONSTRAINT `cliente_reporte_productos_local_id_78037625_fk_vendedor_local_id` FOREIGN KEY (`local_id`) REFERENCES `vendedor_local` (`id`);
+
+--
+-- Filtros para la tabla `cliente_valorizacion_pedidos`
+--
+ALTER TABLE `cliente_valorizacion_pedidos`
+  ADD CONSTRAINT `cliente_valorizacion_local_id_100241c5_fk_vendedor_` FOREIGN KEY (`local_id`) REFERENCES `vendedor_local` (`id`),
+  ADD CONSTRAINT `cliente_valorizacion_pedidos_user_id_6865b9a3_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
 -- Filtros para la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
   ADD CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Filtros para la tabla `registration_login_respuesta_secreta`
+--
+ALTER TABLE `registration_login_respuesta_secreta`
+  ADD CONSTRAINT `registration_login_r_pregunta_id_77b62eb0_fk_registrat` FOREIGN KEY (`pregunta_id`) REFERENCES `registration_preguntas_secretas` (`id`),
+  ADD CONSTRAINT `registration_login_r_user_id_3746c3ed_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Filtros para la tabla `registration_log_acceso`
+--
+ALTER TABLE `registration_log_acceso`
+  ADD CONSTRAINT `registration_log_acceso_user_id_f84455f5_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Filtros para la tabla `registration_tipo_usuarios`
@@ -1285,6 +1795,12 @@ ALTER TABLE `vendedor_productos`
 ALTER TABLE `vendedor_puntos`
   ADD CONSTRAINT `vendedor_puntos_local_id_f9c09d2b_fk_vendedor_local_id` FOREIGN KEY (`local_id`) REFERENCES `vendedor_local` (`id`),
   ADD CONSTRAINT `vendedor_puntos_user_id_685f2908_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Filtros para la tabla `vendedor_registro_auditoria_productos`
+--
+ALTER TABLE `vendedor_registro_auditoria_productos`
+  ADD CONSTRAINT `vendedor_registro_au_vendedor_id_d57a4c81_fk_auth_user` FOREIGN KEY (`vendedor_id`) REFERENCES `auth_user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,19 +7,20 @@
             <h2>Bienvenid@ a TuVegaApp</h2>
         </div>
     </div>
-    <div class="row p-2">
+    <div class="row p-2 pb-4">
         <div class="col-12 col-md-3 pb-3">
             <h3 class="pb-3">Panel del cliente</h3>
             <div class="list-group">
-              <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="list-group-item list-group-item-action active">Ir al panel del liente</a>
+              <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="list-group-item list-group-item-action active">Ir al panel del cliente</a>
             </div>
         </div>
-        <div class="col-12 col-md-9 p-3 shadow" style="border-radius:20px">
+        <div class="col-12 col-md-9 p-3 shadow rounded mb-3">
             <h3 class="pb-3">Mis datos</h3>
             <p><strong>Rut:</strong> {{perfil.username}}</p>
             <p><strong>Nombre:</strong> {{perfil.first_name}}</p>
-            <p><strong>Apellido:</strong> {%if perfil.last_name|length != 0%}{{perfil.last_name}}{%else%}Apellido sin registrar{%endif%}</p>
+            {%if request.session.tipo == 'vendedor'%}
             <p><strong>Email:</strong> {%if perfil.email|length != 0%}{{perfil.email}}{%else%}No tiene un email registrado aun{%endif%}</p>
+            {%endif%}
             <p><strong>Fecha de Creacion: </strong>{{perfil.date_joined}}</p>
             <p><strong>Fecha Actual:</strong> {%now "d/m/y"%}</p>
 

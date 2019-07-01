@@ -27,6 +27,7 @@ def Panel_Cliente(request, id):
         cliente = get_object_or_404(User,id=id)
         ofertas_generales = Oferta.objects.filter(Q(tipo_oferta='general'), Q(activado=True), Q(local__activado=True)).order_by('local__nombre_local')
         puntos = Puntos.objects.filter(user = request.user.id)
+
         return render(request, 'cliente/panel_cliente.html',{'cliente':cliente, 'oferta_general':ofertas_generales, 'puntos':puntos })
     else:
         return redirect('registration:sin_permiso')
@@ -257,31 +258,61 @@ def Detalle_Locales(request,id):
 def Listar_Productos_Tiendas(request, id):
     form = FormCategoria()
     local = get_object_or_404(Local, user=id)
+
     if local.activado:
-        if request.method == 'POST':
-            buscar = request.POST.get('buscar', None)
-            categoria = request.POST.get('categoria', None)
-            if buscar is not None:
-                productos = Productos.objects.filter((Q(nombre__contains=buscar) | Q(nombre__icontains=buscar)),
+        buscar = request.GET.get('buscar', None)
+        categoria = request.GET.get('categoria', None)
+        pdf = request.GET.get('pdf', None)
+        if buscar:
+            productos = Productos.objects.filter((Q(nombre__contains=buscar) | Q(nombre__icontains=buscar)),
                                                      Q(user=id), Q(activado=True)).order_by('-oferta').exclude(stock=0)
-            else:
-                try:
-                    categoria = int(categoria)
-                except:
-                    categoria = None
-                productos = Productos.objects.filter(Q(categoria=categoria), Q(activado=True), Q(user=id)).order_by('-oferta').exclude(
-                    stock=0)
+            if pdf == 'yes':
+                prod = convertir_datos_para_pdf(productos)
+                return Imprimir_pdf_detalle_productos(prod)
             productos = paginador_propio(request, productos, 8)
             return render(request, 'cliente/listar_productos_tiendas.html',
                           {'form_categoria': form, 'productos': productos, 'local': local})
+
+        elif categoria:
+
+            try:
+                categoria = int(categoria)
+            except:
+                categoria = None
+
+            if categoria:
+                productos = Productos.objects.filter(Q(categoria=categoria), Q(activado=True), Q(user=id)).order_by('-oferta').exclude(
+                stock=0)
+                if pdf == 'yes':
+                    prod = convertir_datos_para_pdf(productos)
+                    return Imprimir_pdf_detalle_productos(prod)
+                productos = paginador_propio(request, productos, 8)
+                return render(request, 'cliente/listar_productos_tiendas.html',
+                              {'form_categoria': form, 'productos': productos, 'local': local})
+            else:
+                productos = Productos.objects.filter(Q(activado=True), Q(user=id)).order_by('-oferta').exclude(stock=0)
+                if pdf == 'yes':
+                    prod = convertir_datos_para_pdf(productos)
+                    return Imprimir_pdf_detalle_productos(prod)
+                return render(request, 'cliente/listar_productos_tiendas.html',
+                              {'form_categoria': form, 'productos': productos, 'local': local})
+
         elif request.GET.get('filtro') == 'ofertas':
             productos = Productos.objects.filter(Q(oferta=True), Q(activado=True), Q(user=id)).exclude(stock=0)
             productos = paginador_propio(request, productos, 18)
+            if pdf == 'yes':
+                prod = convertir_datos_para_pdf(productos)
+                return Imprimir_pdf_detalle_productos(prod)
             return render(request, 'cliente/listar_productos_tiendas.html',
                           {'form_categoria': form, 'productos': productos, 'local': local})
         else:
             productos = Productos.objects.filter(Q(activado=True), Q(user=id)).order_by('-oferta').exclude(stock=0)
             productos = paginador_propio(request, productos, 18)
+
+            if pdf == 'yes':
+                prod = convertir_datos_para_pdf(productos)
+                return Imprimir_pdf_detalle_productos(prod)
+
             return render(request, 'cliente/listar_productos_tiendas.html',
                           {'form_categoria': form, 'productos': productos, 'local': local})
     else:
@@ -345,6 +376,7 @@ def Detalle_Listas(request,id):
                 total_lista_seleccionados+=int(productos.cantidad*productos.precio_producto)
         lista.total_marcado=total_lista_seleccionados
         lista.save()
+
 
         if request.method == 'POST':
             mandar_pedido = request.POST.get('hacer_pedido', None)

@@ -1,0 +1,42 @@
+{%extends 'core/base.html'%}
+{%block title%}Seleccion de Usuario a recuperar{%endblock%}
+
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row">
+        <div class="col-12 p-0 m-0">
+            <img src="/media/registration/recuperacion_contraseña.png" alt="recuperacion_contraseña" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 pt-4 pb-3 text-center">
+            <h3>Seleccione que tipo de usuario es usted</h3>
+            <hr>
+        </div>
+        <div class="col-md-8 col-12 d-flex flex-wrap pb-3 pt-3 justify-content-center">
+            <div class="col-md-4 col-6 pb-3">
+                <a href="{%url 'registration:seleccion_usuario_cliente'%}">
+                    <div class="card bg-dark text-white card_reportes">
+                        <img src="/media/registration/cliente.jpg" class="card-img card_reportes_img" alt="img_cliente">
+                      <div class="card-img-overlay text-center">
+                        <h5 class="card-title card_reportes_texto mt-3">Usuario cliente</h5>
+                      </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 col-6 pb-3">
+                <a href="{%url 'registration:seleccion_usuario_vendedor'%}">
+                    <div class="card bg-dark text-white card_reportes">
+                        <img src="/media/registration/vendedor.jpg" class="card-img card_reportes_img" alt="img_vendedor">
+                      <div class="card-img-overlay text-center">
+                        <h5 class="card-title card_reportes_texto mt-3">Usuario vendedor</h5>
+                      </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
