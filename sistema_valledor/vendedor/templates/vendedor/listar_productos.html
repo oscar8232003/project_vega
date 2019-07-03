@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/vendedor/productos.png" class="img-fluid">
+            <img src="/media/vendedor/productos.webp" alt="alt_productos" class="img-fluid">
         </div>
     </div>
 </div>
@@ -138,7 +138,7 @@
                           <a href="{%url 'vendedor:actualizar_productos' producto.id%}" class="mr-1" ><span class="icon-pencil color-base" style="font-size:20px;"></span></a>
                           <a href="{%url 'vendedor:eliminar_productos' producto.id%}" ><span class="icon-trash-b color-rojo" style="font-size:20px;"></span></a>
                       </th>
-                      <td class="pt-1 pl-0 pr-0 pb-1"><img src="/media/{{producto.imagen}}" width="80px"></td>
+                      <td class="pt-1 pl-0 pr-0 pb-1"><img src="/media/{{producto.imagen}}" alt="alt_productos" width="80px"></td>
                       <td>{{producto.nombre}}</td>
                       <td>{{producto.precio}} x {{producto.unidad_medida.medida_unidad}}</td>
                       <td>{{producto.stock}} {{producto.unidad_medida.medida_plural}}</td>
@@ -151,7 +151,7 @@
                 </table>
              {%else%}
                 <h2>No hay productos para mostrar actualmente</h2>
-                <img src="/media/core/triste.jpg" width="200px" class="img-fluid">
+                <img src="/media/core/triste.webp" alt="alt_triste" width="200px" class="img-fluid">
                 <div class="col-12 mt-4">
                     <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
                 </div>

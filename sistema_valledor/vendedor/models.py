@@ -8,7 +8,7 @@ def borrar_imagen_anterior_producto(instance, filename):
         old_instance = Productos.objects.get(pk=instance.pk)
     except:
         old_instance=None
-    if old_instance and old_instance.imagen != 'core/sin_imagen.jpg':
+    if old_instance and old_instance.imagen != 'core/sin_imagen.webp':
         old_instance.imagen.delete()
     return 'vendedor/img_productos/'+filename
 
@@ -17,7 +17,7 @@ def borrar_imagen_anterior_local_muestra(instance, filename):
         old_instance = Local.objects.get(pk=instance.pk)
     except:
         old_instance=None
-    if old_instance and old_instance.imagen_muestra != 'core/sin_imagen.jpg':
+    if old_instance and old_instance.imagen_muestra != 'core/sin_imagen.webp':
         old_instance.imagen_muestra.delete()
     return 'vendedor/img_tiendas/'+filename
 
@@ -26,7 +26,7 @@ def borrar_imagen_anterior_local_banner(instance, filename):
         old_instance = Local.objects.get(pk=instance.pk)
     except:
         old_instance=None
-    if old_instance and old_instance.imagen_banner != 'vendedor/Mi_Tienda.png':
+    if old_instance and old_instance.imagen_banner != 'vendedor/Mi_Tienda.webp':
         old_instance.imagen_banner.delete()
     return 'vendedor/img_tiendas/'+filename
 
@@ -65,7 +65,7 @@ class Productos(models.Model):
     precio_oferta = models.PositiveIntegerField(verbose_name="Precio de la Oferta", null=True, blank=True, default=0)
     stock = models.PositiveIntegerField(verbose_name="Stock del Producto", null=True, blank=True, default=0)
     maximo_prod_comprar = models.PositiveIntegerField(verbose_name="Maximo de productos a comprar", null=True, blank=True, default=0)
-    imagen = models.ImageField(upload_to=borrar_imagen_anterior_producto, null=True, blank=True, default='core/sin_imagen.jpg')
+    imagen = models.ImageField(upload_to=borrar_imagen_anterior_producto, null=True, blank=True, default='core/sin_imagen.webp')
     activado = models.BooleanField(verbose_name="Producto activado?", null=True, blank=True, default=True)
     unidad_medida = models.ForeignKey(Unidad_Medida, on_delete=models.CASCADE, null=True, blank=True)
     comentario = models.TextField(verbose_name="Comentarios", null=True, blank=True)
@@ -82,8 +82,8 @@ class Local(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     nombre_local = models.CharField(verbose_name="Nombre del Local", max_length=50, null=True, blank=True)
     ubicacion_local = models.CharField(verbose_name="Ubicacion del Local", max_length=100, null=True, blank=True)
-    imagen_muestra = models.ImageField(verbose_name="Imagen de muestra", upload_to=borrar_imagen_anterior_local_muestra, default='core/sin_imagen.jpg', null=True, blank=True)
-    imagen_banner = models.ImageField(verbose_name="Imagen de Banner", upload_to=borrar_imagen_anterior_local_banner,default='vendedor/Mi_Tienda.png', null=True, blank=True)
+    imagen_muestra = models.ImageField(verbose_name="Imagen de muestra", upload_to=borrar_imagen_anterior_local_muestra, default='core/sin_imagen.webp', null=True, blank=True)
+    imagen_banner = models.ImageField(verbose_name="Imagen de Banner", upload_to=borrar_imagen_anterior_local_banner,default='vendedor/Mi_Tienda.webp', null=True, blank=True)
     activado = models.BooleanField(verbose_name="Local activado?", null=True, blank=True, default=True)
 
     class Meta:

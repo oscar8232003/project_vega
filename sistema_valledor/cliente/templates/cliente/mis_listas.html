@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/cliente/Listas_compras.png" class="img-fluid">
+            <img src="/media/cliente/Listas_compras.webp" alt="alt_listas_compras" class="img-fluid">
         </div>
     </div>
 </div>
@@ -90,7 +90,7 @@
                 <!--Contenedor de la imagen-->
                 <div class="col-4 col-sm-3 p-2">
                     <a href="{%url 'cliente:detalle_listas' lista.id%}">
-                        <img class="img-fluid rounded" src="{{lista.local.imagen_muestra.url}}">
+                        <img alt="alt_img_muestra" class="img-fluid rounded" src="{{lista.local.imagen_muestra.url}}">
                     </a>
                 </div>
                 <!--Contenedor del parrafo-->
@@ -174,7 +174,7 @@
             <h3>Aun no has creado una lista de compra, que esperas!</h3>
         </div>
         <div class="col-6 col-md-2 pb-5">
-            <img src="/media/core/triste.jpg" alt="Triste2 por no encontrar productos" class="img-fluid">
+            <img src="/media/core/triste.webp" alt="Triste2 por no encontrar productos" class="img-fluid">
         </div>
         {%endif%}
         <!--FIN CONTENIDO-->

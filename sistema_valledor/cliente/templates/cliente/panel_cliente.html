@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/cliente/panel_clientes.png" class="img-fluid">
+            <img src="/media/cliente/panel_clientes.webp" alt="alt_panel_cliente" class="img-fluid">
         </div>
     </div>
 </div>
@@ -66,7 +66,7 @@
             <h5 class="pb-3"><strong>Tiendas con ofertas generales</strong></h5>
             {%for oferta in oferta_general%}
                 <p>
-                    <img src="{{oferta.local.imagen_muestra.url}}" width="50px" height="50px" class="rounded-circle">
+                    <img alt="alt_imagen_muestra" src="{{oferta.local.imagen_muestra.url}}" width="50px" height="50px" class="rounded-circle">
                      {{oferta.local.nombre_local}} <a href="{%url 'cliente:detalle_locales' oferta.local.user.id%}"><span class="badge badge-success">Ir a la tienda</span></a></p>
                 <p><strong><span class="icon-android-star"> </span> {{oferta.oferta}}.</strong></p>
             {%endfor%}

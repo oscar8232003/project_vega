@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/cliente/Productos.png" class="img-fluid">
+            <img src="/media/cliente/Productos.webp" alt="alt_producto" class="img-fluid">
         </div>
     </div>
 </div>
@@ -80,7 +80,7 @@
                     </div>
                 <!--FIN HEADER-->
                 {%endif%}
-                <a href="{%url 'cliente:detalle_productos' producto.id%}"><img class="card-img-top img-fluid" src="/media/{{producto.imagen}}" width="200px;">
+                <a href="{%url 'cliente:detalle_productos' producto.id%}"><img alt="alt_prod_imagen" class="card-img-top img-fluid" src="/media/{{producto.imagen}}" width="200px;">
                 </a>
                 <!--CAR BODY-->
                   <div class="card-body text-center p-1">
@@ -149,7 +149,7 @@
             <h3>No se encuentran productos disponibles para el filtro que utilizo.</h3>
         </div>
         <div class="col-6 col-md-2 pb-5">
-            <img src="/media/core/triste.jpg" alt="Triste por no encontrar productos" class="img-fluid">
+            <img src="/media/core/triste.webp" alt="Triste por no encontrar productos" class="img-fluid">
         </div>
         <!--MENSAJE SI NO HAY PRODUCTOS-->
     </div>

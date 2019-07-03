@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/cliente/locales.png" class="img-fluid">
+            <img src="/media/cliente/locales.webp" class="img-fluid" alt="imagen_locales">
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
                 <div class="media shadow-sm rounded  {%if obj.tipo_premium != 0%}premium{%else%}div-local{%endif%}">
                     <!--Contenedor de la imagen-->
                     <div class="col-4 col-sm-3 p-2">
-                        <a href="{%url 'cliente:detalle_locales' obj.user.id%}"><img class="img-fluid rounded" src="/media/{{obj.imagen_muestra}}"></a>
+                        <a href="{%url 'cliente:detalle_locales' obj.user.id%}"><img class="img-fluid rounded" src="/media/{{obj.imagen_muestra}}" alt="imagen_muestra"></a>
                     </div>
                     <!--Contenedor del parrafo-->
                     <div class="col-8 col-sm-8 p-2">

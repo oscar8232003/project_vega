@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 p-0">
-            <img src="/media/vendedor/mis pedidos.png" class="img-fluid">
+            <img src="/media/vendedor/mis pedidos.webp" alt="alt_pedidos" class="img-fluid">
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
                 <!--Contenedor de la imagen-->
                 <div class="col-4 col-sm-3 p-2">
                     <a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}">
-                        <img class="img-fluid rounded" src="{{lista.local.imagen_muestra.url}}">
+                        <img class="img-fluid rounded" src="{{lista.local.imagen_muestra.url}}" alt="alt_img_muestra">
                     </a>
                 </div>
                 <!--Contenedor del parrafo-->
@@ -129,7 +129,7 @@
             <h3>No tienes pedidos actualmente.</h3>
         </div>
         <div class="col-6 col-md-2 pb-5">
-            <img src="/media/core/triste.jpg" alt="Triste2 por no encontrar productos" class="img-fluid">
+            <img src="/media/core/triste.webp" alt="Triste2 por no encontrar productos" class="img-fluid">
         </div>
         {%endif%}
         <div class="col-12 m-4">

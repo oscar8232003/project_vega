@@ -8,27 +8,71 @@
   <component name="ChangeListManager">
     <list default="true" id="253a218f-4fef-46d0-944e-4fec62b195a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/eliminar_producto_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/eliminar_producto_lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/listado_locales.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/listado_locales.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/static/core/css/scrollUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/core/css/scrollUp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/static/core/js/componentes.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/core/js/componentes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/static/core/js/validaciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/core/js/validaciones.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/reporte_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/reporte_pedidos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/seleccion_reportes.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/seleccion_reportes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/static/core/css/estilos_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/core/css/estilos_base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/vendedor/img_tiendas/Banner_reportes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/mi_perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/mi_perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/registro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/registration/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cliente/Listas_compras.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cliente/Productos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cliente/locales.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cliente/panel_clientes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/cliente/pedidos_img_reporte.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/inicio/card1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/inicio/card2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/inicio/card3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/inicio/pregunta.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/papelera.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/slide/1_slide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/slide/2_slide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/success.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/trabajando.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/trabajando2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/core/triste.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/registration/cliente.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/registration/password.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/registration/recuperacion_contraseña.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/registration/vendedor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/Mi_Tienda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/Mis_ofertas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/img_tiendas/Mi_Tienda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/mis pedidos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/panel_vendedores.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/productos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/vendedor/productos_img_reporte.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration/templates/registration/sin_permiso.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/sin_permiso.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendedor/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/detalle_mis_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/detalle_mis_pedidos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/listar_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/listar_productos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/revisar_mis_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/revisar_mis_pedidos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/verificar_marcado_detalle_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/verificar_marcado_detalle_pedidos.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/registration/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="204">
               <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
@@ -68,7 +112,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cliente/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1537">
+            <state relative-caret-position="109">
               <caret line="91" column="84" selection-start-line="91" selection-start-column="84" selection-end-line="91" selection-end-column="84" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -80,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendedor/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="131" column="66" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="66" />
+            <state relative-caret-position="-381">
+              <caret line="85" column="149" selection-start-line="85" selection-start-column="149" selection-end-line="85" selection-end-column="149" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -89,13 +133,59 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/registration/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="104" selection-start-line="47" selection-start-column="104" selection-end-line="47" selection-end-column="104" />
+            <state relative-caret-position="-109">
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sistema_valledor/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1275" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/templates/core/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="105" column="64" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1700">
+              <caret line="148" column="97" selection-start-line="148" selection-start-column="94" selection-end-line="148" selection-end-column="97" />
+              <folding>
+                <element signature="n#style#0;n#strong#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,48 +201,20 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>img</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/listado_locales.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_productos.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html" />
-        <option value="$PROJECT_DIR$/vendedor/views.py" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/agregar_lista.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/actualizar_listas.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/actualizar_producto_lista.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/eliminar_producto_lista.html" />
-        <option value="$PROJECT_DIR$/core/templates/core/index.html" />
-        <option value="$PROJECT_DIR$/registration/admin.py" />
-        <option value="$PROJECT_DIR$/core/static/core/js/validaciones.js" />
-        <option value="$PROJECT_DIR$/registration/templates/registration/registro.html" />
         <option value="$PROJECT_DIR$/registration/templates/registration/Seleccion_usuario.html" />
         <option value="$PROJECT_DIR$/registration/templates/registration/recuperacion.html" />
         <option value="$PROJECT_DIR$/registration/templates/registration/recuperacion_vendedor.html" />
-        <option value="$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html" />
-        <option value="$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html" />
-        <option value="$PROJECT_DIR$/core/templates/core/base.html" />
         <option value="$PROJECT_DIR$/core/static/core/js/componentes.js" />
         <option value="$PROJECT_DIR$/core/static/core/css/scrollUp.css" />
         <option value="$PROJECT_DIR$/registration/forms.py" />
@@ -162,17 +224,51 @@
         <option value="$PROJECT_DIR$/registration/views.py" />
         <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/cliente/views.py" />
-        <option value="$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html" />
-        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html" />
         <option value="$PROJECT_DIR$/core/templates/core/footer.html" />
         <option value="$PROJECT_DIR$/cliente/models.py" />
-        <option value="$PROJECT_DIR$/vendedor/models.py" />
         <option value="$PROJECT_DIR$/registration/models.py" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/eliminar_producto_lista.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/listado_locales.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/reporte_pedidos.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/seleccion_reportes.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html" />
+        <option value="$PROJECT_DIR$/core/templates/core/base.html" />
+        <option value="$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html" />
+        <option value="$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html" />
+        <option value="$PROJECT_DIR$/registration/templates/registration/sin_permiso.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/detalle_mis_pedidos.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/listar_productos.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/revisar_mis_pedidos.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html" />
+        <option value="$PROJECT_DIR$/vendedor/templates/vendedor/verificar_marcado_detalle_pedidos.html" />
+        <option value="$PROJECT_DIR$/core/static/core/css/estilos_base.css" />
+        <option value="$PROJECT_DIR$/core/templates/core/index.html" />
+        <option value="$PROJECT_DIR$/vendedor/models.py" />
+        <option value="$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="378" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1916" />
+    <option name="y" value="60" />
     <option name="width" value="1527" />
     <option name="height" value="1047" />
   </component>
@@ -347,15 +443,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\vendedor\img_tiendas" />
-      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\registration" />
-      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\core" />
-      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\core\static\core\js" />
-      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\cliente" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\cliente\templates\cliente" />
+      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\cliente" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\core" />
+      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\vendedor\img_tiendas" />
+      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\registration" />
+      <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\core\static\core\js" />
       <recent name="C:\Users\oscar\Desktop\Pre-repo\Django\django2\project_vega\sistema_valledor\media\cliente" />
     </key>
   </component>
@@ -394,10 +490,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="378" y="0" width="1527" height="1047" extended-state="0" />
+    <frame x="1916" y="60" width="1527" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4937413" visible="true" weight="0.17931497" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4937413" visible="true" weight="0.17931497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50625867" side_tool="true" weight="0.18653576" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -410,7 +506,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4956597" weight="0.32822758" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5043403" side_tool="true" weight="0.19693655" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49817652" weight="0.32932165" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.47664937" visible="true" weight="0.21444201" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.47664937" visible="true" weight="0.21444201" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -421,248 +517,72 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html">
+    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/reporte_pedidos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="62" column="82" selection-start-line="62" selection-start-column="82" selection-end-line="62" selection-end-column="82" />
+        <state relative-caret-position="223">
+          <caret line="126" column="20" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html">
+    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-          <folding>
-            <element signature="e#914#921#1" expanded="true" />
-          </folding>
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html">
+    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/seleccion_reportes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="56" column="124" selection-start-line="56" selection-start-column="124" selection-end-line="56" selection-end-column="124" />
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="86" column="132" selection-start-line="86" selection-start-column="132" selection-end-line="86" selection-end-column="132" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/contactanos.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#p#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#p#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="86" column="57" lean-forward="true" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="83" column="106" selection-start-line="83" selection-start-column="106" selection-end-line="83" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="178" column="54" lean-forward="true" selection-start-line="178" selection-start-column="54" selection-end-line="178" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/agregar_lista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-406">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/actualizar_listas.html">
+    <entry file="file://$PROJECT_DIR$/core/templates/core/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/actualizar_producto_lista.html">
+    <entry file="file://$PROJECT_DIR$/core/templates/core/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="-1931">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/eliminar_producto_lista.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/contrib/admin/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6002">
-          <caret line="32" column="16" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/contrib/contenttypes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2262">
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/contrib/sessions/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/core/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/contrib/redirects/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registration/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="75" lean-forward="true" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/static/core/js/validaciones.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="469" column="38" lean-forward="true" selection-start-line="469" selection-start-column="38" selection-end-line="469" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9554">
-          <caret line="582" column="11" selection-start-line="582" selection-start-column="11" selection-end-line="582" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/slide.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+        <state relative-caret-position="228">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html">
+    <entry file="file://$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="398">
+          <caret line="54" column="90" selection-start-line="54" selection-start-column="87" selection-end-line="54" selection-end-column="90" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/static/core/css/scrollUp.css">
+    <entry file="file://$PROJECT_DIR$/registration/templates/registration/sin_permiso.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/static/core/js/componentes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/static/core/js/scrollUp.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/core/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+        <state relative-caret-position="153">
+          <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/registration/templates/registration/registro.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+        <state relative-caret-position="68">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -673,120 +593,205 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_valledor/settings.py">
+    <entry file="file://$PROJECT_DIR$/registration/templates/registration/update_perfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2058" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_valledor/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registration/templates/registration/mi_perfil.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+        <state relative-caret-position="102">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/views.py">
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="245">
+          <caret line="57" column="127" selection-start-line="57" selection-start-column="127" selection-end-line="57" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="115" column="68" selection-start-line="115" selection-start-column="65" selection-end-line="115" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/agregar_productos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="30" lean-forward="true" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/detalle_mis_pedidos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="88" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/listar_productos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="36" column="88" selection-start-line="36" selection-start-column="85" selection-end-line="36" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="131" column="98" selection-start-line="131" selection-start-column="95" selection-end-line="131" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/reporte_premium.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="182" column="191" selection-start-line="182" selection-start-column="188" selection-end-line="182" selection-end-column="191" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/reporte_registro_listas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/revisar_mis_pedidos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="88" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/verificar_marcado_detalle_pedidos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="80" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/css/colores_base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/css/estilos_base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/css/estilos_detalles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3111" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/css/iconos.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1275" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/css/lightbox.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/css/scrollUp.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/static/core/js/componentes.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/templates/core/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="105" column="64" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="56" column="25" lean-forward="true" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        <state relative-caret-position="1700">
+          <caret line="148" column="97" selection-start-line="148" selection-start-column="94" selection-end-line="148" selection-end-column="97" />
           <folding>
             <element signature="n#style#0;n#strong#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="103" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="103" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registration/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="34" column="113" selection-start-line="34" selection-start-column="113" selection-end-line="34" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registration/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registration/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="38" column="56" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/templates/core/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="63" lean-forward="true" selection-start-line="64" selection-start-column="63" selection-end-line="64" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/registration/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="204">
           <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4964">
-          <caret line="311" column="18" selection-start-line="311" selection-start-column="18" selection-end-line="311" selection-end-column="18" />
           <folding>
             <element signature="e#0#73#0" expanded="true" />
           </folding>
@@ -795,7 +800,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cliente/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1537">
+        <state relative-caret-position="109">
           <caret line="91" column="84" selection-start-line="91" selection-start-column="84" selection-end-line="91" selection-end-column="84" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -805,8 +810,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendedor/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="131" column="66" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="66" />
+        <state relative-caret-position="-381">
+          <caret line="85" column="149" selection-start-line="85" selection-start-column="149" selection-end-line="85" selection-end-column="149" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -815,12 +820,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/registration/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="104" selection-start-line="47" selection-start-column="104" selection-end-line="47" selection-end-column="104" />
+        <state relative-caret-position="-109">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/core/Logo.webp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/core/sin_imagen.webp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_valledor/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1275" />
       </provider>
     </entry>
   </component>
