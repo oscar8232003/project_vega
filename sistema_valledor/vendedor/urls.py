@@ -2,9 +2,10 @@ from django.urls import path
 from .views import Listar_Productos, Agregar_Productos, Actualizar_Productos, Eliminar_Productos, Panel_de_vendedor, \
     Detalle_Local, Actualizar_Local, Panel_Listas, Detalle_Listas, Revisar_Listas, Mis_Ofertas, Agregar_Ofertas,\
     Actualizar_Ofertas, Eliminar_Ofertas,Detalle_pedidos_success, Reportes_Premium,\
-    Reporte_Productos, Seleccion_Reportes
+    Reporte_Productos, Seleccion_Reportes, Contacto_vendedor
 
 vendedor_urlpatterns = ([
+    path('contacto_vendedor/', Contacto_vendedor, name = "contacto_vendedor"),
     path('panel_de_vendedor/<int:id>/', Panel_de_vendedor, name = "panel_de_vendedor"),
     path('lista_productos/<int:id>/',Listar_Productos, name = "listar_productos"),
     path('agregar_productos/<int:id>/', Agregar_Productos, name="agregar_productos"),

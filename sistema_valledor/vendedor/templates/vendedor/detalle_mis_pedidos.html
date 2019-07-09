@@ -70,8 +70,8 @@
         <div class="col-md-4 col-12 pb-md-0 pb-4">
              <hr class="d-block d-sm-none">
             <h5>Comentarios del vendedor</h5>
-            {%if lista.comentario_vendedor%}
-            <p>-{{lista.comentario_vendedor}}</p>
+            {%if lista.comentario_vendedor and lista.comentario_vendedor == 'None'%}
+            <p>{{lista.comentario_vendedor}}</p>
             {%else%}
             <p>No hay comentarios para esta lista</p>
             {%endif%}

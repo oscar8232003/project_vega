@@ -75,7 +75,7 @@
                 {%elif lista.estado_lista == 'cancelada'%}
                 <strong><span class="badge badge-pill badge-danger">Cancelada</span></strong>
                 {%elif lista.estado_lista == 'armando_pedido'%}
-                <strong><span class="badge badge-pill badge-info">Armando el pedido</span></strong>
+                <strong><span class="badge badge-pill badge-info">Armando el ped.</span></strong>
                 {%elif lista.estado_lista == 'lista_retiro'%}
                 <strong><span class="badge badge-pill badge-success">Lista para retiro</span></strong>
                 {%elif lista.estado_lista == 'completada'%}
@@ -123,7 +123,7 @@
             </div>
             {%if lista.estado_lista == 'completada'%}
                 {%if lista.valorizacion == False%}
-                <form method="POST" class="col-md-9 col-12 text-center">
+                <form method="POST" class="col-md-10 col-12 text-center">
                     {%csrf_token%}
                     <label for="valor_id"><strong>Como te fue con la compra?</strong></label>
                     <select name="valor" id="valor_id" class="form-control mb-3">

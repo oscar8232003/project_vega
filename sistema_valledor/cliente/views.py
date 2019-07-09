@@ -102,6 +102,7 @@ def Detalle_Productos(request, id):
             dic['tienda'] = local.nombre_local
             datos.append(dic)
             return Imprimir_pdf_detalle_productos(datos)
+
         if request.method == 'POST':
             form = Productos_listas_form(request.POST)
             #Validador de datos de inputs hidden
@@ -486,12 +487,12 @@ def Detalle_Listas(request,id):
                                                                   Q(estado_lista='lista_retiro')).count()
 
                 if contador_de_listas > 0:
-                    mensaje = "Ya hay un pedido enviado o en proceso de armado, debe esperar a que ese pedido finalize " \
+                    mensaje = "Ya hay un pedido enviado o en proceso de armado, debe esperar a que ese pedido este listo para retirar " \
                               "para poder realizar otro pedido"
                     mensaje_error.append(mensaje)
 
                 if contador_de_listas_espera > 1:
-                    mensaje = "Ya hay 2 pedidos listos para retirar, debe esperar a que ese pedido finalize " \
+                    mensaje = "Ya hay 2 pedidos listos para retirar, debe retirar esos pedidos o esperar a que ese pedido finalize " \
                               "para poder realizar otro pedido"
                     mensaje_error.append(mensaje)
 
@@ -962,7 +963,7 @@ def Imprimir_pdf_detalle_productos(datos):
                             topMargin=60,
                             bottomMargin=18,)
     premium = []
-    imagen = Image('media/core/Logo.png', width=201, height=44)
+    imagen = Image('media/core/Logo.webp', width=201, height=44)
     premium.append(imagen)
     styles = getSampleStyleSheet()
     header = Paragraph("Cotizacion de producto", styles['Heading2'])
@@ -1028,7 +1029,7 @@ def Imprimir_pdf_listas(datos):
                             topMargin=60,
                             bottomMargin=18,)
     premium = []
-    imagen = Image('media/core/Logo.png', width=201, height=44)
+    imagen = Image('media/core/Logo.webp', width=201, height=44)
     premium.append(imagen)
     styles = getSampleStyleSheet()
     header = Paragraph("Cotizacion de Locales", styles['Heading2'])

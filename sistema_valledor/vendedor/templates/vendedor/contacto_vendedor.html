@@ -1,0 +1,93 @@
+{%extends 'core/base.html'%}
+{%block title%}Suscripciones y mas!{%endblock%}
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row justify-content-center">
+        <div class="col-12 m-0 p-0">
+            <img src="/media/vendedor/Suscripciones.webp" alt="alt_suscripciones" class="img-fluid">
+        </div>
+        <div class="col-12 text-center pt-3 pb-3">
+            <h3>Beneficios de la suscripcion</h3>
+        </div>
+        <div class="col-12 col-md-10 pb-3">
+            <h5>Las cuentas de vendedores parten con el nivel Free</h5>
+            <h5>Contamos con 3 distintos niveles de suscripcion, <span style="color:#B87333"><strong>Bronce</strong></span>,
+            <span style="color:#C0C0C0"><strong>Plata</strong></span>, <span style="color:#D4AF37"><strong>Oro</strong></span></h5>
+        </div>
+        <div class="col-12 col-md-10 table-responsive">
+            <table class="table table-hover text-center shadow">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Beneficio</th>
+                  <th scope="col">Free</th>
+                  <th scope="col"><span style="color:#B87333"><strong>Bronce</strong></span></th>
+                  <th scope="col"><span style="color:#C0C0C0"><strong>Plata</strong></span></th>
+                  <th scope="col"><span style="color:#D4AF37"><strong>Oro</strong></span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Cantidad de productos.</th>
+                  <td>20</td>
+                  <td>40</td>
+                  <td>60</td>
+                  <td>Ilimitados</td>
+                </tr>
+                <tr>
+                  <th scope="row">Poner productos en ofertas.</th>
+                  <td><h4><span class="badge badge-danger"><span class="icon-times-circle"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                </tr>
+                <tr>
+                  <th scope="row">Crear OFertas Generales para la tienda.</th>
+                  <td><h4><span class="badge badge-danger"><span class="icon-times-circle"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                </tr>
+                <tr>
+                  <th scope="row">Crear OFertas de Temporada para la tienda.</th>
+                  <td><h4><span class="badge badge-danger"><span class="icon-times-circle"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                </tr>
+                <tr>
+                  <th scope="row">Crear OFertas Normales para la tienda.</th>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                </tr>
+                <tr>
+                  <th scope="row">Crear OFertas para sistema de puntos para la tienda.</th>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                </tr>
+                <tr>
+                  <th scope="row">Posicionamiento en listado de tiendas</th>
+                  <td>Bajo</td>
+                  <td>Medio</td>
+                  <td>Alto</td>
+                  <td><strong>Muy Alto</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">Acceder a reportes para la tienda.</th>
+                  <td><h4><span class="badge badge-danger"><span class="icon-times-circle"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                  <td><h4><span class="badge badge-success"><span class="icon-android-done"></span></span></h4></td>
+                </tr>
+            </table>
+            <h5 class="pt-3">No dudes en contactarnos para mayor informacion.</h5>
+        </div>
+        <div class="col-12 m-4">
+            <a href="{%url 'core:index'%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>
+        </div>
+    </div>
+</div>
+{%endblock%}

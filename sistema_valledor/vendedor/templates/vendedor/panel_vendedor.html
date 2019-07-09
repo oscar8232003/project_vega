@@ -12,7 +12,7 @@
     <div class="row pb-4">
         <!--TITULO-->
         <div class="col-12 text-center pt-3 pb-3">
-            <h2>Bienvenido al Panel de Vendedores de TuVegaApp</h2>
+            <h2>Bienvenido al Panel de Vendedores de <span class="TITULO">TuVegaApp</span></h2>
             <p><em>Aqui podras administrar todo lo relacionado con tu local</em></p>
             <hr>
         </div>
@@ -20,7 +20,7 @@
         {%if vendedor.activado == False%}
         <div class="col-12 p-3 text-center">
             <h4>Lo siento, no tienes un local activado actualmente, contactanos para mas informacion.</h4>
-            <img src="/media/core/triste.jpg" alt="alt_triste" width="200px" class="img-fluid">
+            <img src="/media/core/triste.webp" alt="alt_triste" width="200px" class="img-fluid">
         </div>
         <!--MENSAJE-->
         {%else%}
@@ -35,7 +35,9 @@
               <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="list-group-item list-group-item-action">Mis productos</a>
               <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="list-group-item list-group-item-action">Mis pedidos</a>
               <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="list-group-item list-group-item-action">Mis ofertas</a>
+              {%if request.session.premium != 0%}
               <a href="{%url 'vendedor:reportes' request.user.id%}" class="list-group-item list-group-item-action">Mis Reportes</a>
+              {%endif%}
             </div>
             <!--FIN BARRA IZQUIERA XL-->
 
@@ -48,14 +50,22 @@
               <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis productos</a>
               <a href="{%url 'vendedor:mis_pedidos' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis pedidos</a>
               <a href="{%url 'vendedor:mis_ofertas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis ofertas</a>
+              {%if request.session.premium != 0%}
               <a href="{%url 'vendedor:reportes' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Reportes</a>
+              {%endif%}
             </div>
             <!--FIN BARRA IZQUIERA COLLAPSADA-->
         </div>
         <!--FIN BARRA IZQUIERDA-->
         <!--MENU-->
         <div CLASS="col-12 col-lg-9 pb-3">
-            <h3 class="text-center pb-3">Hola {{vendedor.nombre_local}}!</h3>
+            <h3 class="text-center pb-3">
+                {%if vendedor.nombre_local != 'Sin definir'%}
+                   Hola {{vendedor.nombre_local}}!
+                {%else%}
+                    Bienvenid@!
+                {%endif%}
+            </h3>
             <!--SECCION DE ALERTAS-->
             <h5 class="pb-3"><strong>Tienes Pendiente</strong></h5>
             {%if arr_pedidos%}

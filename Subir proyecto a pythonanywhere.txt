@@ -1,44 +1,55 @@
-1° hay que hacerse una cuenta en https://www.pythonanywhere.com, para empezar a probar el plan gratis
+1° Hay que hacerse una cuenta en https://www.pythonanywhere.com, para empezar a probar el plan gratis.
 
-2° hay tener el proyecto en un repositorio para poder clonarlo (la opcion mas facil)
+2° Hay tener el proyecto en un repositorio para poder clonarlo (la opcion mas facil), tambien se puede subir fisicamente en la seccion de files.
 
-3° hay que crear un documento de texto "requeriments.txt" y poner dentro las librerias que se utilizaran con su version por ejemplo:
+3° Hay que crear un documento de texto "requeriments.txt" y poner dentro las librerias que se utilizaran con su version por ejemplo:
 django==2.1.0
 Pillow==5.0.0
-Despues hay que subirlo al repositorio donde esta nuestro proyecto, esto es opcional, se puede digitar tambien las librerias a mano en el hosting.
+etc.
+Despues hay que subirlo al repositorio donde esta nuestro proyecto, esto es opcional, se puede digitar tambien las librerias a mano en el hosting con "pip install libreria".
+
+3.5° Para usar las bases de datos, hay que crear una base de datos en el apartado de bases de datos de pythonanywhere, primero se creara la contraseña para la bd, despues te daran las credenciales de Host y username, en el mismo apartado de base de datos tienes que crear la bd que usaran, se crearan con el nombre "username$nombrebd" ese se ocupa para conectarse a ella, hay 2 formas para administrar estas base de datos, puede ser por la bash o se abre una consola que tiene el entorno ya creado con mysql, para importar datos a la bd que se creo, hay que tener un archivo.sql con las tablas o crearlas en el mismo entorno que nos dan, en el caso que sea un .sql se tiene que tener en los archivos del hosting, es decir, subir el archivo con el programam del repositorio y se digita el siguiente comando para subir el archivo.
+"source ruta/archivo.sql" y se empieza a crear la bd
 
 4° Despues de haber creado la cuenta, nos vamos a console (bash) para poder desplegar nuestro entorno virtual (virtualenv), nos aparece la consola del proyecto, primero que todo hay que digitar:
-mkvirtualenv --python=python3.7 django2
+"mkvirtualenv --python=python3.7 django2" sin comillas, django2 es el nombre que le puse a este entorno virtual, pueden llamarlo como quieran.
 
-se creara un entorno virtual de python 3.7 con el nombre de django2, se activara el entorno virtual, para desactivarlo se pone "deactivate" y para poder activarlo se pone:
--workon django2
-para ver los paquetes que vienen, puedes utilizar:
--pip list
+Se creara un entorno virtual de python 3.7 con el nombre de "django2", se activara el entorno virtual, para desactivarlo se pone "deactivate" y para poder activarlo en el caso que este desactivado se pone:
+"workon django2", django2 es el nombre del entorno virtual que le pusimos anteriormente.
+
+Para ver los paquetes que vienen, puedes utilizar:
+"pip list" en el entorno que esta activado, para ver el entorno activado te saldra a lado izquierdo el entorno en parentesis "(django2)consola>"
+
 Ahora se deben instalar los paquetes dentro del entorno virtual, ocuparemos el documento que creamos con "requeriments.txt", primero hay que clonar el repositorio con:
-git clone https://github.com/oscar8232003/Proyecto_django_basico.git
-Se empezara a clonar el repositorio y para ver que hay dentro del proyecto se hace un 
--ls -la
-despues se debe entrar al repositorio clonado con un
--cd Proyecto_django_basico
-y se ejecuta el comando
--pip install -r requeriments.txt
-y se empezaran a instalar los paquetes, ahora tenemos el entorno virtual preparado.
+"git clone https://github.com/oscar8232003/Proyecto_django_basico.git" esto se digita en la raiz de la bash, el clone se saca del repositorio donde lo tienen guardado.
 
-5° Ahora hay que ir a settings para poner el modo DEBUG=False, para eso debemos apretar arriba alado derecho en "files" y empezar a buscar el archivo settings, una vez encontrado se cambia la configuracion a 
--DEBUG = False
-y tambien aprovechando de cambiar los ALLOWED_HOST, en este caso estara vacio pero hay que poner la configuracion para que tome al host
--ALLOWED_HOSTS = ['oskar823.pythonanywhere.com', 'localhost', '127.0.0.1']
-y un ctrl+s para el save o apretar el boton save
+Se empezara a clonar el repositorio, al terminar y para ver que hay dentro del proyecto se hace un 
+"ls -la", esto te mostrara la carpeta clonada del repositorio.
 
-6° ahora iremos al apartado web, se apreta en en boton de lado derecha superior y ponemos crear una nueva app, con esto nos ayudara a gestionar la aplicacion,
+Despues se debe entrar al repositorio clonado con un
+"cd Proyecto_django_basico", Proyecto_django_basico es el nombre de mi proyecto, aqui tienen que ver el nombre de la carpeta que clonaron.
+
+Ahora se ejecuta el comando
+"pip install -r requeriments.txt", esto para que se empiezen a instalar los paquetes que necesita la aplicacion en el nuevo entorno virtual, al principio al crearse estara vacio, con esto tenemos los justos y necesarios para nuetro entorno virtual.
+
+Se empezaran a instalar los paquetes, ahora tenemos el entorno virtual preparado.
+
+5° Ahora hay que ir a settings para poner el modo DEBUG=False, para eso debemos apretar arriba alado derecho en "files" y empezar a buscar el archivo settings, este siempre se encuentra dentro de una parte donde estan las apps con el nombre del proyecto en el mayor de los casos, una vez encontrado se cambia la configuracion a 
+"DEBUG = False"
+
+Tambien aprovechando de cambiar los ALLOWED_HOST, en este caso estara vacio pero hay que poner la configuracion para que tome al host
+"ALLOWED_HOSTS = ['oskar823.pythonanywhere.com', 'localhost', '127.0.0.1']", aqui puse la url que me dara pythonanywhere al crear la app, pero solo digiten localhost o el clasico 127.0.0.1 y ctrl+s o apretar arriba donde dice "save".
+
+
+6° Ahora iremos al apartado web, se apreta en en boton de lado izquierda superior y ponemos crear una nueva app, con esto nos ayudara a gestionar la aplicacion,
 le apretamos siguiente, y despues seleccionar "Manual configuration" y seleccionamos la version 3.7, sino nos creara otro entorno y eso no lo queremos, y terminamos con next, nos aparecera las configuraciones de la app.
 
-7° Ahora vamos a "Code" para rellenar ese campo, para sacar la informacion de ese lado vamos a la terminal y digitamos 
--pwd
+7° Ahora vamos a "Code" para rellenar ese campo, para sacar la informacion de ese lado vamos a la terminal bash y digitamos 
+"pwd"
 y nos sale el lugar donde tenemos el manage.py, en nuestro caso saldra:
--/home/oskar823/Proyecto_django_basico/webpersonal_basica
+"/home/oskar823/Proyecto_django_basico/webpersonal_basica"
 eso se pone dentro de "source code", ahora nos falta configurar el entorno virtual en el apartado "virtualenv", en nuestro caso es, si queremos sacarlo de la terminal digitamos "which python" y nos mostrara la direccion del entorno virtual 
--/home/oskar823/.virtualenvs/django2
+"/home/oskar823/.virtualenvs/django2"
 Ahora vamos al apartado de "Code" en "WSGI configuration file:" le apretamos y editamos el archivo, borramos todo dentro del archivo y lo reemplazamos por
 
 """
@@ -67,15 +78,16 @@ y listo! tenemos nuestra app corriendo pero debemos arreglar el tema de las dire
 
 8° Ahora iremos a configurar los static y los media, iremos al apartado de "Static files:"
 y en URL y Directory es asi
+
+Carpeta	  Localizacion de la carpeta
 /static/ /home/oskar823/Proyecto_django_basico/webpersonal_basica/static/
 /media/  /home/oskar823/Proyecto_django_basico/webpersonal_basica/media/
 
-ahora hay que ir al apartado de files para configurar los static, vamos a buscar el settings.py e iremos hacia abajo en el apartado de static y media, pondremos lo siguiente:
+Ahora hay que ir al apartado de files para configurar los static, vamos a buscar el settings.py e iremos hacia abajo en el apartado de static y media, pondremos lo siguiente:
 
 #Archivos estaticos, si ya lo tienes no importa
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
 
 
 #Archivos Media, si ya lo tienes no importa
@@ -83,30 +95,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
-y un save, ahora hay que ir al bash y poner un ultimo comando para poder colectar los archivos staticos
--python manage.py collectstatic
+y un save, ahora hay que ir al bash y poner un ultimo comando para poder colectar los archivos estaticos
+"python manage.py collectstatic"
 
-y listo tenemos el proyecto andando.
+y listo tenemos el proyecto andando, en el caso que les salga un error por no encontrar la carpeta statics, no se preocupen, poniendo las configuraciones que les di anteriormente no deben tener problema ya que apunta directamente a las carpeta donde estan los estaticos.
 
-
-
-import os
-
-import sys
-
-#Aqui va la direccion del proyecto
-
-path = os.path.expanduser('~/Proyecto_negocio/negocio')
-
-if path not in sys.path:
-
-    sys.path.insert(0, path)
-
-#Aqui se pone el lugar donde esta el settings
-os.environ['DJANGO_SETTINGS_MODULE'] = 'negocio.settings'
-
-from django.core.wsgi import get_wsgi_application
-
-from django.contrib.staticfiles.handlers import StaticFilesHandler
-
-application = StaticFilesHandler(get_wsgi_application())

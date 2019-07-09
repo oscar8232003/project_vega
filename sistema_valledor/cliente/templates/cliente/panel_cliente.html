@@ -12,7 +12,7 @@
     <div class="row pb-4">
         <!--TITULO-->
         <div class="col-12 text-center pt-4 pb-4">
-            <h2>Bienvenido al Panel de Clientes de TuVegaApp</h2>
+            <h2>Bienvenido al Panel de Clientes de <span class="TITULO">TuVegaApp</span></h2>
             <p><em>Aqui podras encontrar todo lo necesario para facilitarte tu compra</em></p>
             <hr>
         </div>
@@ -62,7 +62,7 @@
             {%else%}
             <p>Actualmente no tienes puntos en ningun local asociado, ve a comprar algo para sumar puntos!</p>
             {%endif%}
-            <hr>
+            <hr class="mt-3">
             <h5 class="pb-3"><strong>Tiendas con ofertas generales</strong></h5>
             {%for oferta in oferta_general%}
                 <p>

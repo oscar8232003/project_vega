@@ -68,10 +68,10 @@
 
     {%if productos%}
     <!--PRODUCTOS-->
-    <div class="row pt-4 pb-5 grid-padre">
+   <div class="row pb-5 justify-content-center">
+        <div class="card-columns p-3 col-10 col-md-12">
         <!--PRODUCTO NORMAL-->
         {%for producto in productos%}
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 grid-hijo">
             <div class="card">
                 {%if producto.oferta%}
                 <!--CARD HEADER-->
@@ -103,9 +103,9 @@
               <!--FIN FOOTER-->
             </div>
             <!--FIN CARD-->
-        </div>
         <!--FIN PRODUCTO-->
         {%endfor%}
+       </div>
     </div>
         <div class="row">
         <div class="col-12 p-4">

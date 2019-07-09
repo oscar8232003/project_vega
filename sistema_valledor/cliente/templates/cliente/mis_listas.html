@@ -138,11 +138,19 @@
 
                     <!--Botones-->
                       <!--Botones PC-->
-                     <p class="d-none d-sm-block mb-1"><a href="{%url 'cliente:eliminar_lista' lista.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
-                        <a href="{%url 'cliente:actualizar_lista' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a></p>
+                        <p class="d-none d-sm-block mb-1">
+                            {%if lista.estado_lista == 'normal' or lista.estado_lista == 'completada' or lista.estado_lista == 'no_retirada'%}
+                            <a href="{%url 'cliente:eliminar_lista' lista.id%}" class="btn btn-danger"><span data-icon="t"></span> Borrar</a>
+                            {%endif%}
+                            <a href="{%url 'cliente:actualizar_lista' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Actualizar</a>
+                        </p>
                       <!--Botones Mobile-->
-                     <p class="d-sm-none mb-1"><a href="{%url 'cliente:eliminar_lista' lista.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
-                        <a href="{%url 'cliente:actualizar_lista' lista.id%}" class="btn btn-primary"><span data-icon="u"></span></a></p>
+                     <p class="d-sm-none mb-1">
+                         {%if lista.estado_lista == 'normal' or lista.estado_lista == 'completada' or lista.estado_lista == 'no_retirada'%}
+                         <a href="{%url 'cliente:eliminar_lista' lista.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
+                         {%endif%}
+                         <a href="{%url 'cliente:actualizar_lista' lista.id%}" class="btn btn-primary"><span data-icon="u"></span></a>
+                     </p>
                   </div>
                 </div>
             </div>

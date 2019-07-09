@@ -18,10 +18,27 @@
               </button>
             </div>
             {%endif%}
+            {%if mensaje_error_oferta%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> {{mensaje_error_oferta}}
+                <a href="{%url 'vendedor:contacto_vendedor'%}" class="btn btn-sm btn-success">Suscripciones</a>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
         </div>
         <!--FIN ALERTS-->
     </div>
-
+    {%if mensaje_error%}
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 text-center">
+                <h4>{{mensaje_error}}</h4>
+                <p>Mas informacion <a href="{%url 'vendedor:contacto_vendedor'%}"><span class="badge badge-success">Ir a ver suscripciones</span></a></p>
+                <img src="/media/core/triste.webp" alt="alt_productos_error" width="150px">
+            </div>
+        </div>
+    {%else%}
         <form action="" class="row" method="POST" onsubmit="return validar();" enctype="multipart/form-data">
             {%csrf_token%}
             <input type="hidden" name="user" id="id_user" value="{{request.user.id}}">
@@ -118,6 +135,7 @@
                 <button type="submit" class="btn btn-success"><span data-icon="v"></span> Agregar</button>
             </div>
         </form>
+    {%endif%}
     <div class="row justify-content-center">
         <div class="col-12 m-4">
             <a href="{%url 'vendedor:listar_productos' request.user.id%}" class="btn btn-secondary "><span data-icon="x"></span> Volver</a>

@@ -18,7 +18,10 @@
 
 						<!--<li><a href=""><h6 class="top-a"><span class="icon-question-circle"> </span>Quienes Somos </h6></a></li>-->
 						<!--<li><a href=""><h6 class="top-a"><span class="icon-hand-o-right"> </span>Quiero comprar </h6></a></li>-->
-						<li><a href="{%url 'core:contactanos'%}"><h6 class="top-a"><span class="icon-envelope"> </span> Contactanos </h6></a></li>
+						<!--<li><a href="{%url 'core:contactanos'%}"><h6 class="top-a"><span class="icon-envelope"> </span> Contactanos </h6></a></li>-->
+						{%if request.session.tipo == 'vendedor'%}
+						<li><a href="{%url 'vendedor:contacto_vendedor'%}"><h6 class="top-a"><span class="icon-android-star"> </span> Suscripciones</h6></a></li>
+						{%endif%}
 					</ul>
 				</div>
 			</div>
@@ -115,7 +118,10 @@
 						    -->
 
 						    <li class="nav-item d-lg-none">
-						      	<a href="#" class="nav-link"><span class="icon-envelope"> </span>Contactanos<span class="sr-only">(current)</span></a>
+						      	<!--<a href="#" class="nav-link"><span class="icon-envelope"> </span>Contactanos<span class="sr-only">(current)</span></a>-->
+								{%if request.session.tipo == 'vendedor'%}
+								<a href="{%url 'vendedor:contacto_vendedor'%}" class="nav-link"><span class="icon-android-star"> </span> Suscripciones<span class="sr-only">(current)</span></a>
+								{%endif%}
 						    </li>
 							<!--FIN-->
 

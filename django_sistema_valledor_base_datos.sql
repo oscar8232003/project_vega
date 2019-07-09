@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2019 a las 09:48:49
+-- Tiempo de generación: 09-07-2019 a las 03:29:21
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -30,29 +30,42 @@ USE `django_sistema_valledor`;
 -- Estructura de tabla para la tabla `auth_group`
 --
 
+DROP TABLE IF EXISTS `auth_group`;
 CREATE TABLE `auth_group` (
   `id` int(11) NOT NULL,
   `name` varchar(80) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `auth_group`
+--
+
+TRUNCATE TABLE `auth_group`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `auth_group_permissions`
 --
 
+DROP TABLE IF EXISTS `auth_group_permissions`;
 CREATE TABLE `auth_group_permissions` (
   `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `auth_group_permissions`
+--
+
+TRUNCATE TABLE `auth_group_permissions`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `auth_permission`
 --
 
+DROP TABLE IF EXISTS `auth_permission`;
 CREATE TABLE `auth_permission` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
@@ -60,6 +73,11 @@ CREATE TABLE `auth_permission` (
   `codename` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `auth_permission`
+--
+
+TRUNCATE TABLE `auth_permission`;
 --
 -- Volcado de datos para la tabla `auth_permission`
 --
@@ -172,6 +190,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 -- Estructura de tabla para la tabla `auth_user`
 --
 
+DROP TABLE IF EXISTS `auth_user`;
 CREATE TABLE `auth_user` (
   `id` int(11) NOT NULL,
   `password` varchar(128) COLLATE utf8_spanish_ci NOT NULL,
@@ -187,31 +206,32 @@ CREATE TABLE `auth_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `auth_user`
+--
+
+TRUNCATE TABLE `auth_user`;
+--
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-06-29 20:55:02.782175', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
-(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-07-03 07:20:35.589967', 0, '19.169.969-6', 'Oscar', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
-(12, 'pbkdf2_sha256$120000$aOBo7duktejv$6VzeZqXY8nk+VP1jdloWwQkyzA3QKU6ahXtAMeMburw=', '2019-07-03 07:19:43.131144', 0, '12.493.793-0', 'Lidia', 'Rojas', '', 0, 1, '2019-03-27 21:48:20.000000'),
-(13, 'pbkdf2_sha256$120000$ljKSzUCD3jaj$q+CUtBxOE6xhsid0jVm8bHOVB+HZulb/0NQmAOs7vi0=', '2019-06-17 19:25:42.442930', 0, '19.036.216-7', 'Katherine', '', '', 0, 1, '2019-04-04 01:22:42.392909'),
-(14, 'pbkdf2_sha256$120000$kNmI3pFAV6v8$c2TfcY64hgiyC8T7k62PcxtlODYdqZ/ttSiHDIFJK6Y=', '2019-06-27 22:15:56.211459', 0, '19.169.969-7', 'Maria', '', '', 0, 1, '2019-05-01 06:34:12.603680'),
-(15, 'pbkdf2_sha256$120000$adiB9kBXzJ11$BfZIqihCGP4CRf8758Resc/v4p+RZsvAqCf4qcWTVFQ=', '2019-05-05 19:22:18.845965', 0, '11.111.111-1', 'prueba', '', '', 0, 1, '2019-05-04 05:10:35.000000'),
-(17, 'pbkdf2_sha256$120000$uiTC8ImCE9XR$8BF5M1T/s9EJC9TtGDxrcSqpLrtCKFFCXEkBLmZAH2E=', NULL, 0, '12.493.793-1', '', '', '', 0, 1, '2019-06-06 21:32:43.294778'),
-(18, 'pbkdf2_sha256$120000$Ldqwkr7hu8gf$gvhv4RPs7xcJWYbuvlHH3q25TNgob9i4g+uyN5cJAlU=', '2019-06-28 20:03:12.490104', 0, '19.184.388-6', 'Ronald', '', '', 0, 1, '2019-06-28 20:03:00.771334'),
-(19, 'pbkdf2_sha256$120000$DFuMTe1s3irl$bVz+eQeYwdgFgEJBi3CZq0bz/vU5kmZAx5dw3HjmLMM=', NULL, 0, '19.036.216-9', 'Regina', '', '', 0, 1, '2019-06-29 02:18:02.719432'),
-(20, 'pbkdf2_sha256$120000$rGmZ74fei2QR$P7NbGFoxp7MqcmllVHsuvLu0mFa5IvyuIxH3X5SiCF8=', NULL, 0, '11.123.456-8', 'Monica', '', '', 0, 1, '2019-06-29 06:22:52.907879'),
-(21, 'pbkdf2_sha256$120000$pDtJSrDVO4NX$zXJh3CFY0GuX/mwRO46AOuyj3gGMbzdLPqS80V6pWZs=', NULL, 0, '22.123.123-1', 'Morticia', '', '', 0, 1, '2019-06-29 06:36:56.961067'),
-(22, 'pbkdf2_sha256$120000$QfkM5SlzEFX1$SXWwxgqkdcPfcUkmYzyz+5cY880x6YEoPXYcwONza+I=', NULL, 0, '22.123.123-2', 'Morticia Valenzuela', '', '', 0, 1, '2019-06-29 06:38:01.947470'),
-(23, 'pbkdf2_sha256$120000$SyzY7hQTXgLE$uRmg9Abo0ar+IBHqnLI2c03rx0BmdnhwteoOHE+ZSO0=', NULL, 0, '22.123.123-3', 'Juanita', '', '', 0, 1, '2019-06-29 06:43:31.699839');
+(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-07-09 01:18:27.764454', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
+(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-07-08 22:43:38.839587', 0, '19.169.969-6', 'Premium3', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
+(25, 'pbkdf2_sha256$120000$AdQ6X0CkWOIr$inK04wTLN4ltkh9fhhiSvLI2JdZqERolIZg6tLf4WYw=', '2019-07-08 21:45:43.532881', 0, '19.169.969-5', 'Premium2', '', '', 0, 1, '2019-07-08 21:20:44.000000'),
+(26, 'pbkdf2_sha256$120000$hFC1gjGbk0Yh$+pQz522h2dPN3FNKO6p/HNMen6Y1nBo495i7+V/aZ5Q=', '2019-07-08 22:37:03.748944', 0, '19.169.969-4', 'Premium1', '', '', 0, 1, '2019-07-08 21:21:09.000000'),
+(27, 'pbkdf2_sha256$120000$fiVN8T7peMGV$LWdCClbGd+YMYCEg0ZYKSM4yIFmuoILq5+2WH7QrYv0=', '2019-07-08 22:39:31.556839', 0, '12.493.793-0', 'Cliente1', '', '', 0, 1, '2019-07-08 21:21:45.000000'),
+(28, 'pbkdf2_sha256$120000$petCJzUg29Nc$uXVVrKmMFV2I16jMWUESvuyaa0xODk3hxvfn4WiqApo=', NULL, 0, '12.493.793-1', 'cliente2', '', '', 0, 1, '2019-07-08 21:22:29.000000'),
+(29, 'pbkdf2_sha256$120000$Wj616OOhfwyX$hOeYolpPABNQrvtnAd+bk4XdNyiQor1gJdC01I8Ws+o=', '2019-07-08 23:01:01.789867', 0, '19.361.998-2', 'Premium0', '', '', 0, 1, '2019-07-08 21:33:32.000000');
 
 --
 -- Disparadores `auth_user`
 --
+DROP TRIGGER IF EXISTS `delete_tipo`;
 DELIMITER $$
 CREATE TRIGGER `delete_tipo` BEFORE DELETE ON `auth_user` FOR EACH ROW delete from registration_tipo_usuarios where user_id_id = OLD.username
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_tipo`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_tipo` AFTER INSERT ON `auth_user` FOR EACH ROW INSERT INTO registration_tipo_usuarios (tipo_usuario, tipo_premium, fecha_caducidad, user_id_id, fecha_inicio) values("cliente", 0 , '2019-01-01',NEW.id, '2019-01-01')
 $$
@@ -223,30 +243,43 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `auth_user_groups`
 --
 
+DROP TABLE IF EXISTS `auth_user_groups`;
 CREATE TABLE `auth_user_groups` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `auth_user_groups`
+--
+
+TRUNCATE TABLE `auth_user_groups`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `auth_user_user_permissions`
 --
 
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
 CREATE TABLE `auth_user_user_permissions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `auth_user_user_permissions`
+--
+
+TRUNCATE TABLE `auth_user_user_permissions`;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `cliente_listas`
 --
 
+DROP TABLE IF EXISTS `cliente_listas`;
 CREATE TABLE `cliente_listas` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -265,17 +298,22 @@ CREATE TABLE `cliente_listas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `cliente_listas`
+--
+
+TRUNCATE TABLE `cliente_listas`;
+--
 -- Volcado de datos para la tabla `cliente_listas`
 --
 
 INSERT INTO `cliente_listas` (`id`, `nombre`, `total`, `fecha_enviado`, `fecha_expiracion`, `local_id`, `comentario_cliente`, `comentario_vendedor`, `estado_lista`, `user_id`, `fecha_actualizacion`, `cancelaciones`, `total_marcado`, `valorizacion`) VALUES
-(13, 'Prueba continua', 78000, '2019-06-26', NULL, 1, 'Fono +228232003', 'Armando pedido 24/05/2019', 'normal', 12, '2019-06-27 20:10:37.706200', 5, 0, 0),
-(14, 'Prueba para borrar', 0, NULL, NULL, 1, '', NULL, 'normal', 12, '2019-07-03 07:20:03.797858', 5, 0, 0),
-(15, 'Preba QA', 1800, '2019-06-27', NULL, 1, '', NULL, 'enviada', 12, '2019-07-03 07:20:07.108602', 5, 0, 0);
+(16, 'Cotizacion kampito', 23400, '2019-07-08', NULL, 1, 'Pedido avisarme al +5691237671, gracias!', '', 'completada', 27, '2019-07-08 22:59:27.142761', 5, 23400, 1),
+(17, 'Lista del sabado', 59500, '2019-07-08', NULL, 8, '', 'None', 'completada', 27, '2019-07-08 23:06:57.917975', 5, 59500, 1);
 
 --
 -- Disparadores `cliente_listas`
 --
+DROP TRIGGER IF EXISTS `ingresar_datos_pedidos`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_datos_pedidos` AFTER UPDATE ON `cliente_listas` FOR EACH ROW BEGIN
 declare cantidad_productos int;
@@ -310,6 +348,7 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `cliente_productos_listas`
 --
 
+DROP TABLE IF EXISTS `cliente_productos_listas`;
 CREATE TABLE `cliente_productos_listas` (
   `id` int(11) NOT NULL,
   `cantidad` int(10) UNSIGNED DEFAULT NULL,
@@ -324,14 +363,17 @@ CREATE TABLE `cliente_productos_listas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `cliente_productos_listas`
+--
+
+TRUNCATE TABLE `cliente_productos_listas`;
+--
 -- Volcado de datos para la tabla `cliente_productos_listas`
 --
 
 INSERT INTO `cliente_productos_listas` (`id`, `cantidad`, `comentarios`, `precio_producto`, `lista_id`, `local_id`, `productos_id`, `user_id`, `producto_marcado`, `oferta`) VALUES
-(12, 20, '', 1800, 13, 1, 17, 12, 0, 1),
-(13, 50, '', 300, 13, 1, 4, 12, 0, 1),
-(14, 30, '', 900, 13, 1, 23, 12, 0, 0),
-(15, 1, '', 1800, 15, 1, 17, 12, 0, 1);
+(17, 26, '', 900, 16, 1, 1, 27, 1, 0),
+(18, 50, '', 1190, 17, 8, 41, 27, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -339,6 +381,7 @@ INSERT INTO `cliente_productos_listas` (`id`, `cantidad`, `comentarios`, `precio
 -- Estructura de tabla para la tabla `cliente_registro_premium`
 --
 
+DROP TABLE IF EXISTS `cliente_registro_premium`;
 CREATE TABLE `cliente_registro_premium` (
   `id` int(11) NOT NULL,
   `fecha_inicio` date DEFAULT NULL,
@@ -349,15 +392,19 @@ CREATE TABLE `cliente_registro_premium` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `cliente_registro_premium`
+--
+
+TRUNCATE TABLE `cliente_registro_premium`;
+--
 -- Volcado de datos para la tabla `cliente_registro_premium`
 --
 
 INSERT INTO `cliente_registro_premium` (`id`, `fecha_inicio`, `fecha_caducidad`, `id_registro_id`, `user_id`, `premium`) VALUES
-(3, '2019-06-07', '2019-07-07', 10, 15, 1),
-(4, '2019-06-06', '2019-07-06', 10, 15, 1),
 (5, '2019-06-06', '2019-07-06', 5, 11, 3),
-(6, '2019-06-07', '2019-07-07', 8, 13, 1),
-(7, '2019-06-05', '2019-07-05', 8, 13, 1);
+(9, '2019-07-08', '2019-08-07', 21, 26, 1),
+(10, '2019-07-08', '2019-08-07', 20, 25, 2),
+(11, '2019-07-08', '2019-08-07', 5, 11, 3);
 
 -- --------------------------------------------------------
 
@@ -365,6 +412,7 @@ INSERT INTO `cliente_registro_premium` (`id`, `fecha_inicio`, `fecha_caducidad`,
 -- Estructura de tabla para la tabla `cliente_reporte_listas`
 --
 
+DROP TABLE IF EXISTS `cliente_reporte_listas`;
 CREATE TABLE `cliente_reporte_listas` (
   `id` int(11) NOT NULL,
   `lista` int(10) UNSIGNED DEFAULT NULL,
@@ -379,12 +427,17 @@ CREATE TABLE `cliente_reporte_listas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `cliente_reporte_listas`
+--
+
+TRUNCATE TABLE `cliente_reporte_listas`;
+--
 -- Volcado de datos para la tabla `cliente_reporte_listas`
 --
 
 INSERT INTO `cliente_reporte_listas` (`id`, `lista`, `nombre_lista`, `fecha_registro`, `total`, `cantidad_items`, `cantidad_productos`, `estado`, `cliente_id`, `local_id`) VALUES
-(1, 13, 'Prueba continua', '2019-06-21', 245000, 3, 300, 'completada', 12, 1),
-(2, 13, 'Prueba continua', '2019-06-21', 101000, 3, 120, 'completada', 12, 1);
+(3, 16, 'Cotizacion kampito', '2019-07-08', 23400, 1, 26, 'completada', 27, 1),
+(4, 17, 'Lista del sabado', '2019-07-08', 59500, 1, 50, 'completada', 27, 8);
 
 -- --------------------------------------------------------
 
@@ -392,6 +445,7 @@ INSERT INTO `cliente_reporte_listas` (`id`, `lista`, `nombre_lista`, `fecha_regi
 -- Estructura de tabla para la tabla `cliente_reporte_productos`
 --
 
+DROP TABLE IF EXISTS `cliente_reporte_productos`;
 CREATE TABLE `cliente_reporte_productos` (
   `id` int(11) NOT NULL,
   `lista` int(10) UNSIGNED DEFAULT NULL,
@@ -406,30 +460,17 @@ CREATE TABLE `cliente_reporte_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `cliente_reporte_productos`
+--
+
+TRUNCATE TABLE `cliente_reporte_productos`;
+--
 -- Volcado de datos para la tabla `cliente_reporte_productos`
 --
 
 INSERT INTO `cliente_reporte_productos` (`id`, `lista`, `producto`, `nombre_producto`, `cantidad`, `oferta`, `Total`, `fecha_registro`, `cliente_id`, `local_id`) VALUES
-(1, 13, 6, 'Arroz Marca Chancho', 50, 0, 15000, '2019-06-21', 12, 1),
-(2, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-21', 12, 1),
-(3, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-23', 12, 1),
-(4, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-23', 12, 1),
-(5, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-23', 12, 1),
-(6, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-23', 12, 1),
-(7, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-23', 12, 1),
-(8, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-23', 12, 1),
-(9, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
-(10, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
-(11, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1),
-(12, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
-(13, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
-(14, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1),
-(15, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
-(16, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
-(17, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1),
-(18, 13, 17, 'Aceitunas Jumbo', 20, 1, 36000, '2019-06-26', 12, 1),
-(19, 13, 4, 'Pasta frola', 50, 1, 15000, '2019-06-26', 12, 1),
-(20, 13, 23, 'Azucar Iansa de kilo', 30, 0, 27000, '2019-06-26', 12, 1);
+(21, 16, 1, 'Arroz Tucapel 500gramos', 26, 0, 23400, '2019-07-08', 27, 1),
+(22, 17, 41, 'Arroz miraflores', 50, 0, 59500, '2019-07-08', 27, 8);
 
 -- --------------------------------------------------------
 
@@ -437,6 +478,7 @@ INSERT INTO `cliente_reporte_productos` (`id`, `lista`, `producto`, `nombre_prod
 -- Estructura de tabla para la tabla `cliente_valorizacion_pedidos`
 --
 
+DROP TABLE IF EXISTS `cliente_valorizacion_pedidos`;
 CREATE TABLE `cliente_valorizacion_pedidos` (
   `id` int(11) NOT NULL,
   `lista` int(10) UNSIGNED DEFAULT NULL,
@@ -448,12 +490,17 @@ CREATE TABLE `cliente_valorizacion_pedidos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `cliente_valorizacion_pedidos`
+--
+
+TRUNCATE TABLE `cliente_valorizacion_pedidos`;
+--
 -- Volcado de datos para la tabla `cliente_valorizacion_pedidos`
 --
 
 INSERT INTO `cliente_valorizacion_pedidos` (`id`, `lista`, `puntuacion`, `comentarios`, `local_id`, `user_id`, `fecha_registro`) VALUES
-(1, 13, 5, 'Todo super bien', 1, 12, '2019-06-26'),
-(3, 13, 4, 'Todo bien!', 1, 12, '2019-06-26');
+(4, 16, 5, 'Super rapido, me encanto! un 7 si se pudiera!', 1, 27, '2019-07-08'),
+(5, 17, 4, 'La atención fue super agradable,  me gusto!', 8, 27, '2019-07-08');
 
 -- --------------------------------------------------------
 
@@ -461,6 +508,7 @@ INSERT INTO `cliente_valorizacion_pedidos` (`id`, `lista`, `puntuacion`, `coment
 -- Estructura de tabla para la tabla `django_admin_log`
 --
 
+DROP TABLE IF EXISTS `django_admin_log`;
 CREATE TABLE `django_admin_log` (
   `id` int(11) NOT NULL,
   `action_time` datetime(6) NOT NULL,
@@ -472,6 +520,11 @@ CREATE TABLE `django_admin_log` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `django_admin_log`
+--
+
+TRUNCATE TABLE `django_admin_log`;
 --
 -- Volcado de datos para la tabla `django_admin_log`
 --
@@ -638,7 +691,47 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (159, '2019-06-29 06:15:40.417151', '15', 'Banda preferida', 1, '[{\"added\": {}}]', 24, 1),
 (160, '2019-06-29 06:15:58.105987', '16', 'Nombre de un MMORPG', 1, '[{\"added\": {}}]', 24, 1),
 (161, '2019-06-29 06:21:52.889769', '1', 'Cuales son los ultimos 3 digitos de documento de su cedula de identidad? - 823', 1, '[{\"added\": {}}]', 25, 1),
-(162, '2019-06-29 19:33:05.630691', '3', 'Nombre de un MMORPG - wow', 1, '[{\"added\": {}}]', 25, 1);
+(162, '2019-06-29 19:33:05.630691', '3', 'Nombre de un MMORPG - wow', 1, '[{\"added\": {}}]', 25, 1),
+(163, '2019-07-05 05:17:33.437752', '24', '19.361.998-2', 1, '[{\"added\": {}}]', 4, 1),
+(164, '2019-07-05 05:17:42.032678', '24', '19.361.998-2', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(165, '2019-07-05 05:17:56.690816', '19', '19.361.998-2, Felipe, tipo vendedor, premium 0, caduce 2019-01-01', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(166, '2019-07-06 18:30:42.559274', '10', '11.111.111-1, prueba, tipo cliente, premium 0, caduce 2019-07-06', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\", \"tipo_premium\"]}}]', 7, 1),
+(167, '2019-07-06 18:31:34.115781', '10', '11.111.111-1, prueba, tipo vendedor, premium 0, caduce None', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(168, '2019-07-07 16:53:52.893994', '19', '19.361.998-2, Felipe, tipo vendedor, premium 1, caduce None', 2, '[{\"changed\": {\"fields\": [\"tipo_premium\", \"fecha_inicio\"]}}]', 7, 1),
+(169, '2019-07-08 18:06:01.669263', '15', '11.111.111-1', 3, '', 4, 1),
+(170, '2019-07-08 18:06:01.673254', '20', '11.123.456-8', 3, '', 4, 1),
+(171, '2019-07-08 18:06:01.675254', '12', '12.493.793-0', 3, '', 4, 1),
+(172, '2019-07-08 18:06:01.677257', '17', '12.493.793-1', 3, '', 4, 1),
+(173, '2019-07-08 18:06:01.679254', '13', '19.036.216-7', 3, '', 4, 1),
+(174, '2019-07-08 18:06:01.680254', '19', '19.036.216-9', 3, '', 4, 1),
+(175, '2019-07-08 18:06:01.682256', '14', '19.169.969-7', 3, '', 4, 1),
+(176, '2019-07-08 18:06:01.684256', '18', '19.184.388-6', 3, '', 4, 1),
+(177, '2019-07-08 18:06:01.686256', '24', '19.361.998-2', 3, '', 4, 1),
+(178, '2019-07-08 18:06:01.688256', '21', '22.123.123-1', 3, '', 4, 1),
+(179, '2019-07-08 18:06:01.690257', '22', '22.123.123-2', 3, '', 4, 1),
+(180, '2019-07-08 18:06:01.692256', '23', '22.123.123-3', 3, '', 4, 1),
+(181, '2019-07-08 21:20:44.675751', '25', '19.169.969-5', 1, '[{\"added\": {}}]', 4, 1),
+(182, '2019-07-08 21:20:55.202840', '25', '19.169.969-5', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(183, '2019-07-08 21:21:09.370833', '26', '19.169.969-4', 1, '[{\"added\": {}}]', 4, 1),
+(184, '2019-07-08 21:21:17.450929', '26', '19.169.969-4', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(185, '2019-07-08 21:21:30.109847', '11', '19.169.969-6', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(186, '2019-07-08 21:21:45.309769', '27', '12.493.793-0', 1, '[{\"added\": {}}]', 4, 1),
+(187, '2019-07-08 21:21:49.377901', '27', '12.493.793-0', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(188, '2019-07-08 21:22:30.057449', '28', '12.493.793-1', 1, '[{\"added\": {}}]', 4, 1),
+(189, '2019-07-08 21:22:37.630606', '28', '12.493.793-1', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(190, '2019-07-08 21:23:03.449828', '21', '19.169.969-4, Premium1, tipo vendedor, premium 1, caduce 2019-01-01', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\", \"tipo_premium\", \"fecha_inicio\"]}}]', 7, 1),
+(191, '2019-07-08 21:23:21.216275', '20', '19.169.969-5, Premium2, tipo vendedor, premium 2, caduce 2019-01-01', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\", \"tipo_premium\", \"fecha_inicio\"]}}]', 7, 1),
+(192, '2019-07-08 21:23:39.788953', '5', '19.169.969-6, Premium3, tipo vendedor, premium 3, caduce 2019-07-06', 2, '[{\"changed\": {\"fields\": [\"fecha_inicio\"]}}]', 7, 1),
+(193, '2019-07-08 21:33:32.917261', '29', '19.361.998-2', 1, '[{\"added\": {}}]', 4, 1),
+(194, '2019-07-08 21:33:37.370393', '29', '19.361.998-2', 2, '[{\"changed\": {\"fields\": [\"first_name\"]}}]', 4, 1),
+(195, '2019-07-08 21:33:54.806227', '24', '19.361.998-2, Premium0, tipo vendedor, premium 0, caduce 2019-01-01', 2, '[{\"changed\": {\"fields\": [\"tipo_usuario\"]}}]', 7, 1),
+(196, '2019-07-08 21:45:13.270393', '8', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(197, '2019-07-08 21:58:48.393195', '7', 'Alis', 2, '[{\"changed\": {\"fields\": [\"activado\"]}}]', 12, 1),
+(198, '2019-07-08 21:58:58.465025', '7', 'Alis', 2, '[{\"changed\": {\"fields\": [\"imagen_muestra\"]}}]', 12, 1),
+(199, '2019-07-08 21:59:06.404002', '8', 'Rancho', 2, '[{\"changed\": {\"fields\": [\"imagen_muestra\"]}}]', 12, 1),
+(200, '2019-07-09 01:21:32.757844', '4', 'Nombre de un MMORPG - wow', 1, '[{\"added\": {}}]', 25, 1),
+(201, '2019-07-09 01:21:52.725934', '5', 'Nombre de un MMORPG - wowsito', 1, '[{\"added\": {}}]', 25, 1),
+(202, '2019-07-09 01:21:58.432711', '4', 'Nombre de un MMORPG - wowsito', 2, '[{\"changed\": {\"fields\": [\"respuesta\"]}}]', 25, 1);
 
 -- --------------------------------------------------------
 
@@ -646,12 +739,18 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 -- Estructura de tabla para la tabla `django_content_type`
 --
 
+DROP TABLE IF EXISTS `django_content_type`;
 CREATE TABLE `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `model` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `django_content_type`
+--
+
+TRUNCATE TABLE `django_content_type`;
 --
 -- Volcado de datos para la tabla `django_content_type`
 --
@@ -689,6 +788,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 -- Estructura de tabla para la tabla `django_migrations`
 --
 
+DROP TABLE IF EXISTS `django_migrations`;
 CREATE TABLE `django_migrations` (
   `id` int(11) NOT NULL,
   `app` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
@@ -696,6 +796,11 @@ CREATE TABLE `django_migrations` (
   `applied` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `django_migrations`
+--
+
+TRUNCATE TABLE `django_migrations`;
 --
 -- Volcado de datos para la tabla `django_migrations`
 --
@@ -774,12 +879,18 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 -- Estructura de tabla para la tabla `django_session`
 --
 
+DROP TABLE IF EXISTS `django_session`;
 CREATE TABLE `django_session` (
   `session_key` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `session_data` longtext COLLATE utf8_spanish_ci NOT NULL,
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `django_session`
+--
+
+TRUNCATE TABLE `django_session`;
 --
 -- Volcado de datos para la tabla `django_session`
 --
@@ -7154,7 +7265,6 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('eipr75gag9wn9tp1g6e8wancsix5lixp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:30.833351'),
 ('eir0qw7fxsqclz3q7mcmuiczune7zh35', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:58.562372'),
 ('eishkj99rm3g4tge2xf4ii2hbb7wol5x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:03.444829'),
-('eiuil619ybo4qafxaucvggmowx4y5lq8', 'YThjN2U4YzRmY2IzYWJjMDYxNDcwNWY4MTIyMGExYWI5OGRiNzE3Yzp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzY1NWU0NGEyOTdlZWM4NjllMjg4MjZiM2VkYTJmZDU3MDcyYTg4YyIsImlkX3BlcnNvbmEiOjExLCJmZWNoYSI6IjIwMTktMDctMDMgMDM6MjA6MzUuNjA1OTc5In0=', '2019-07-17 07:20:35.623988'),
 ('eiw3wgwsfis99xcmi1le6ey76qvn2vut', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:11.594829'),
 ('ej03sg9umkw2yizmaiqrtvi8ezf3a8pf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:34.807616'),
 ('ej303h8dpg0yyhsuxreeutvg2yxv14w2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:14.625126'),
@@ -7365,6 +7475,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ezow9jcjh0zlte4at9iudkk892lcy5lj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:29.250026'),
 ('ezq7ffhjmyvkxrloa72g73j2x7zp2myo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:54.998571'),
 ('ezu5c6o002gica1bi5lgtupfrgg02kf2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:54.982392'),
+('ezvqtjssuo6oct75594ziara5lc1cn5p', 'ZTNjZWQ5NTJmYTM0NThmMDY3OWExZDVjZDIzYzQwNDc0ZmFmOGY2NDp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjE0NjZmNTlhODdhOTU0NDA1NzVkNGZhOWZkOTkxZjhmOGNiNTAxZDAiLCJpZF9wZXJzb25hIjoxLCJmZWNoYSI6IjIwMTktMDctMDYgMTQ6Mjk6NDQuNjY4ODUxIn0=', '2019-07-20 18:29:44.686855'),
 ('f01rtaovc995shgm3av9djae5fs6sufx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:51.472083'),
 ('f0580l4u099k4c47xw78fmt9ujpbvxbn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:30.823194'),
 ('f0fr93hjf8nsoyu4xgceawnj3jqtvuxs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:35.798832'),
@@ -12509,6 +12620,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('qc5isghzbpd83qpbtdhv8wl9ep6qibmp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:50.469688'),
 ('qc5pi8r7x78tzlta9hjxw09fdpxbwd7i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:19.104575'),
 ('qc9ehn1ifj4qvg4sbpv17fariwhea4gf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:34.880127'),
+('qc9hzcggifrgspniz8utzg0ysf1on2kp', 'ODIxYjYyZjRmMWU5NjNiNTU4ZWE1NDNmZmQ4MWFlZTI1ZTQxMDY5NTp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjE0NjZmNTlhODdhOTU0NDA1NzVkNGZhOWZkOTkxZjhmOGNiNTAxZDAiLCJpZF9wZXJzb25hIjoxLCJmZWNoYSI6IjIwMTktMDctMDUgMDE6MTc6MDguMDkzNjgxIn0=', '2019-07-19 05:17:08.167576'),
 ('qcb3guao8pv8f7n8rk96nlzg8ynvarsq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:23.801441'),
 ('qce75dcp2p0gge8z5vi5q5oiu3sxz4hi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:18.751302'),
 ('qcenmztcaqk7k8jr0f5o6w5lt8oshqri', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:00.095857'),
@@ -12776,10 +12888,10 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('qx1d3f2zexuo0rjj7dchol3o2xqb59pk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:04.449009'),
 ('qxfdogqsy9jejyasyswpzphjnul0ek2f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.899662'),
 ('qxh52vu45nokd4kfk8srlmnaqaocnv45', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:34.115957'),
-('qxihuiw37rxpyjgx0lsil8q3zlqoep8h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:35.697825'),
-('qxorwhgezs1q1mzh39yuy720edmc4eo5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:24.788502'),
-('qxpb64893jfujyu5vwn1sg83b33xflc7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.212617');
+('qxihuiw37rxpyjgx0lsil8q3zlqoep8h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:35.697825');
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('qxorwhgezs1q1mzh39yuy720edmc4eo5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:24.788502'),
+('qxpb64893jfujyu5vwn1sg83b33xflc7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.212617'),
 ('qxr4iemj3ixs3v3z9m9eqlmfmie8vlzv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:45.754952'),
 ('qxsuj9akd4v7s12xgtqz8y21oep8kp1q', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:31.446771'),
 ('qxy68q4hztk5lr90umfe0eihsti793de', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:28.193642'),
@@ -13092,10 +13204,10 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('rnf0fpjk9k1sbp0myqrgjt29kgdra7ir', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:14.393762'),
 ('rnica8gnt8hrs3cdy4uv23helcv9xnyi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:56.780845'),
 ('rnn3zughoqtn61ssywraudczckmq0u2z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:40.129427'),
-('rno2ptve18n00awkm3hat7m2tb035tlt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:13.649906'),
-('rnpy45iyjozh69lwfbmskt403e1r18px', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:43.853562'),
-('rns22njvbfobx1ixv1d84ihx6k8lboyc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.521110');
+('rno2ptve18n00awkm3hat7m2tb035tlt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:13.649906');
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('rnpy45iyjozh69lwfbmskt403e1r18px', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:43.853562'),
+('rns22njvbfobx1ixv1d84ihx6k8lboyc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.521110'),
 ('rnv5k8n27ji27tzrvjvc2ru120shr7g8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:44.245252'),
 ('rny0ckhymypx9yt7yqusjvkko89myw9h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:22.708386'),
 ('ro01avyt7hpputhntb6koxm99d081k2l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:39.177809'),
@@ -13408,10 +13520,10 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('sbsgfwm0v82nls1ld80j1mszthfy9eza', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:38.442805'),
 ('sbufqzjvcd0mqyi5pz4cjn60io9ykpka', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:16.929874'),
 ('sbykubhvkrnx32u7k7kqmyec5ri69wiy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:54.551751'),
-('sc1hmyr6hnlqr0nlxtxol3i8ch3gfxsm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:03.136100'),
-('sc2ubgmxslq103cq994nrjsn4qxy1v1s', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:59.752889'),
-('sc730b7eumxas496jmy2lrmh9o0q2ur4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:30.246581');
+('sc1hmyr6hnlqr0nlxtxol3i8ch3gfxsm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:03.136100');
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('sc2ubgmxslq103cq994nrjsn4qxy1v1s', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:59.752889'),
+('sc730b7eumxas496jmy2lrmh9o0q2ur4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:30.246581'),
 ('sc78xdrgx6ckq70wuvmielsrxzcgv6tr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:08.004643'),
 ('scb8k722lha9ncikvq0051a05gl19f8z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:58.887590'),
 ('sci1o7veqix0v44w68ay1gwz2kwpnxxe', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:02.773936'),
@@ -13525,6 +13637,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('sk2sti6nhkqx04sixx3g2xf4stsuzjt4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:02.319639'),
 ('sk70iux11d990nbqmbxk6glsjqt3uxop', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:51.832923'),
 ('sk9l64ofzxymglzi54ifd1h7759ct44x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:50.780498'),
+('skby0lgv8nuwc89e6958n406w5vod66q', 'YjhiYzE2OThhYWRmMWU2NDk2YzlhY2IxZjY0MTY4NWViYjU5OTc3Yjp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjAsIl9hdXRoX3VzZXJfaWQiOiIyOSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZTE1YjU5N2UxZGY5Y2UwZjg5OTZkN2ZmMzZjZGFjZmQ5Y2JlODUxMyIsImlkX3BlcnNvbmEiOjI5LCJmZWNoYSI6IjIwMTktMDctMDggMTk6MDE6MDEuODAyODcwIn0=', '2019-07-22 23:01:01.817874'),
 ('skfjgcuvcol8v90yyarhblgdlufiludz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:22.163634'),
 ('skg8eb2h63ncio5dw3k712umq1auzdhf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:35.606796'),
 ('skkiqneoiqbe2qytjjozryefnbhwq449', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:40.851471'),
@@ -13722,12 +13835,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('szcgtnkhnuokfgn966c19mgud9eev13a', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:55.529705'),
 ('szgxolh2i18a08u4tseo52z0j2p0xfhy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:22.619191'),
 ('szmcklm7y1ls2aw343kiam0cupl3i2bl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:43.039199'),
-('szq6wb4oiizo8ilen17juqvo73ginbpz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:24.785220'),
+('szq6wb4oiizo8ilen17juqvo73ginbpz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:24.785220');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('szw7zykt7h45ieqtpityinvyyaptrdq9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:29.140941'),
 ('szy3jcktpn9rckaobempg94zufgq73hz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:47.611986'),
 ('t014nxh8dw3iyv8qzl11thq8geu28e2c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:18.866539'),
-('t06cogirwwlrscb93n7yuuk0sb2dj4yw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:44.946714');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('t06cogirwwlrscb93n7yuuk0sb2dj4yw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:44.946714'),
 ('t08wfqqfe19lcperzeib15ho4lixhjqx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:57.063959'),
 ('t0atokppnoo30kdy7bjejyk78rtdi7w6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:50.683945'),
 ('t0e13mrmmnhv7wp7fx1cu02x6mzubqt4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:18.899901'),
@@ -14038,12 +14151,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('tp174q3uofeadorau7nem21rw4ltfomu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:55.829575'),
 ('tpbirph6rl8dmza5fz8jaz337idwlb55', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:10.365987'),
 ('tpd7c18y1hvd4nej10u9pl86ho0w2fek', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:44.849041'),
-('tpe88d6797nk9h43shmfteefh8ewnmzs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:47.695060'),
+('tpe88d6797nk9h43shmfteefh8ewnmzs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:47.695060');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('tpeiyen9v182d8qhiq61ksver5t1urri', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:58.444046'),
 ('tpeviq5d3ppckmvhks7wr9c2ovmkobr1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:35.744268'),
 ('tpfbnu4v51aaesmf0o1gtr9sqfjj8fmy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:59.828858'),
-('tpgb418pz6tm84qjyskftb75s8sxtd4i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:48.306195');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('tpgb418pz6tm84qjyskftb75s8sxtd4i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:48.306195'),
 ('tpiybhu9r0nbo6brao3446tgwry960t2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:52.825962'),
 ('tplqk4agdnwcj547gn6tfjqtqi0g5h60', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:04.152989'),
 ('tpm8ud1mquh2c2hdcbugk4mxfa1rmazw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:23.871865'),
@@ -14354,12 +14467,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('uebplxjcgvhf2yxixx17weiuleit3l83', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.236606'),
 ('uefy0hqxd9zjhcdblvglk4z8gjrbebqw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:38.081720'),
 ('uegpgjp7k8ydwmz2vi30w58z5sl21yiz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:21.054819'),
-('uegrj3htb5xvi6uyl3ebuf3ruc8s58uh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:22.915929'),
+('uegrj3htb5xvi6uyl3ebuf3ruc8s58uh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:22.915929');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('ueilm0itfp3fsv6ph6yp832qcoy4mvjs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.392345'),
 ('uepw7ret8owk0464n3sioldbzkshw2jp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:40.872343'),
 ('ueq21x0bq09mqa8ewcr65018zup7dkoi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:17.995540'),
-('uesbd4k3ols73n8tx4ztqj1uxaospio3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:21.176157');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('uesbd4k3ols73n8tx4ztqj1uxaospio3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:21.176157'),
 ('uesh5mfrpwcp21juub44nxkyxdo89k0e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:20.323868'),
 ('uetpz95cvcxramufflafo8wcth1dgpqj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:27.031794'),
 ('uettxm1lvombu4uop23o2uupijbijw2n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.513683'),
@@ -14670,12 +14783,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('v3jlksyl55abxcrg4p5rbz5nb3om1gj7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:39.893774'),
 ('v3x5nt4hgi77ullaka9fd5jm4ipj2xdg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:54.507059'),
 ('v49enk57go74j088u0nmy5hsau5ljgob', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:13.791759'),
-('v49skfvv5j3tob5tqfn1wwzxhsmea7wr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:02.374980'),
+('v49skfvv5j3tob5tqfn1wwzxhsmea7wr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:02.374980');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('v4aq25ric6pousxi7t7jbv59pz8eckn0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:40.486379'),
 ('v4igea2yf2av0uuhu7x0reokragf320v', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:38.779504'),
 ('v4oi2au1zd1v217ou53fs6h8fnckr0cg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:23.504319'),
-('v4qmg7zdf33q6krj0tjw3iogp13g5e54', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.531482');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('v4qmg7zdf33q6krj0tjw3iogp13g5e54', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.531482'),
 ('v4txmq8nprmbyruhzt3syuyydyetdf99', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:32.531647'),
 ('v4zzfmkx1h2o946x1c4suze0b43eec76', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:28.957291'),
 ('v515yqa566o3lsoh11kcrahguc1vr9qg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:04.693324'),
@@ -14897,6 +15010,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('vmvaa8357dc96d3rp9kzbz6l5h68tz8i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:01.922020'),
 ('vmxtfxajfe42ybnz6rtr38ubjq3vlr31', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:14.713146'),
 ('vmy8rsm1dmasggl4ex9ku1ivrhsvij2y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:10.273867'),
+('vn15yw53e95pz9aj8l9nl84vsm8v5x9x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-23 01:22:46.549460'),
 ('vnw2wvo6jxutzhziwbcwmwb9obldw4d4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:06.363131'),
 ('vnwwl2r239v8w0lbcb4nejk5ymqzpk8p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:11.724928'),
 ('vnza1e6pgblf93nvnufof00p3wg40738', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:41.347186'),
@@ -14985,13 +15099,13 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('vw94tl0zf75nst91ttpy4zzfn01ju2no', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:09.438393'),
 ('vwewxrz303todsbow8s4zhio2lzjrbic', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:47.288405'),
 ('vwfseecfkfeldsge49pm013cmh919rvo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:18.365068'),
-('vwfx2drpkbgph7hlupzkcxhkb55fepnt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.443506'),
+('vwfx2drpkbgph7hlupzkcxhkb55fepnt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.443506');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('vwgkmc206p3wbj04dtw9q8a2qgc3zkcr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:26.940411'),
 ('vwh0cnz54qspyx2o53l4ft3qkrepa5j6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:03.653118'),
 ('vwk4d7n911lgnluyirvxj9mga77q2e99', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:56.627264'),
 ('vwm1zthtnfl1kio66cpa5qk9ef3635kb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:22.728775'),
-('vwrf76ugu9h85kl0up8vz6b350dx7t5u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:05.466989');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('vwrf76ugu9h85kl0up8vz6b350dx7t5u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:05.466989'),
 ('vwvsspwd4csmsj15y9yvg492c6059sqr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:43.849647'),
 ('vww145uv5lyc99dbrbcjs6pxuesvz4jj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:13.201306'),
 ('vww2323k71xm2zmlmml62gizes8jngqh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:20.231829'),
@@ -15300,13 +15414,13 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('wkm37rrqvx2czpmtv224sqp4ap4nhn06', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:58.622835'),
 ('wksq6gs5v5vr7sjw2w6ghhdk4wvmvk8l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:12.610257'),
 ('wkv3kbd6544qn7xyyyff6nf571r554ma', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:31.335454'),
-('wkz1xck7vkjowon12zqa5g5jalzwd884', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.498665'),
+('wkz1xck7vkjowon12zqa5g5jalzwd884', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.498665');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('wl0o0iny3v0334vb00baczn7isi4jcfb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:32.924815'),
 ('wl13osk7bk8osvat6f9jrbv2gwqz6o38', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.082823'),
 ('wl7c1ykhbqpfhpm20wgxllhd2e0g2z2x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:07.140876'),
 ('wl7it547rvyaexi5yw6h3qugjzymp8t6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:08.304893'),
-('wlhgmg4zod6wh7govaxf3g3nb11j2oqp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:35.299723');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('wlhgmg4zod6wh7govaxf3g3nb11j2oqp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:35.299723'),
 ('wli0cjto5iff8a8lfxlbs0czc34i2tcp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:10.975375'),
 ('wljb3dbmjakl819i4k2dwl7e1bqeilku', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:08.814008'),
 ('wlmyu5nyr8bpd1esp270hoatedy2r44n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.064407'),
@@ -15615,13 +15729,13 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('xaxah8yra59ffg15nsueb1z0zvje0k5g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:12.612673'),
 ('xb0m5azv64xt9j18yljrltxiarnb4u6f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.454565'),
 ('xb4r4rb1h3ljzzuvzrkdl3t17o9vxesf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:44.663315'),
-('xb8ln8p24de0uryw42pw810q78e2we95', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.680498'),
+('xb8ln8p24de0uryw42pw810q78e2we95', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.680498');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('xbc5e90pws5rmc244sfah74oixmbn54c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:40.357500'),
 ('xbsn0dvfe2kwopz2m1hblfxltni438ni', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:03.285177'),
 ('xbtjk2gsymjb54xljkomfl82awwpcr7x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:25.077921'),
 ('xc2xtxj82n95vxuj274hdtonch39ytyp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:36.453714'),
-('xc4ff7ysczdd9ixbpj8ysmz1ccpw7mwr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:44.518797');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('xc4ff7ysczdd9ixbpj8ysmz1ccpw7mwr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:44.518797'),
 ('xc64q22ap5qglzq51gxyw90x47eczivd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:55.017401'),
 ('xc6ji0syzy5sire6nvrimht3ollxwyzc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:18.222016'),
 ('xc6vd4qjtz5p7of71xu4kephkxrwy45m', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:10.501443'),
@@ -15931,13 +16045,13 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('y0mdyuw38msdt8brtuwgwc5ohoaln1yy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:04.487064'),
 ('y0mq48cbf2n32hqw8w49rqxw9oqlh3yy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.619132'),
 ('y0pn2rgi04rybqusmigtzim5p4zqwwzx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:16.461979'),
-('y0x3r0qqh2iqwakvjs1iugk6dv4che3e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:04.537293'),
+('y0x3r0qqh2iqwakvjs1iugk6dv4che3e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:04.537293');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('y0ykw7p8u6w4t8ppg08r39e18cqxzjcn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:25.979770'),
 ('y1b694mijm76ejywz8dhgx6cc748q0ls', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.674808'),
 ('y1cp4nyoj06ywxmamskewd5uolgy2fed', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.963818'),
 ('y1f4w9bpn55q97zir05npi0ahfjnbce0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:57.717055'),
-('y1fns3iaxab7jubkarczoi2t6kr8xdjb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:41.518764');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('y1fns3iaxab7jubkarczoi2t6kr8xdjb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:41.518764'),
 ('y1jdl2xcq7b0mb65qs06uydw0gk29v2g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:28.629730'),
 ('y1kfrwrtbzb3luf1inp7hpd21b46mtj0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:15.885791'),
 ('y1ojmzpdqlxfmysq41g43skzl1qfgqka', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:50.585730'),
@@ -16247,13 +16361,13 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('yrc1rtihkmp7h6fx8ul7kpt3fp4p6cet', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:38.705864'),
 ('yrddkgxljnfagj15pu49nuw16xq3jbox', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:02.765041'),
 ('yrf73h4og8213nrf66ylxqhe0aahcdyx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:43.197143'),
-('yrgkeeuj3xtx99xfheu0v7sxwhvrghjg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:24.170120'),
+('yrgkeeuj3xtx99xfheu0v7sxwhvrghjg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:24.170120');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('yrs4mv31mabj3rmtrimicznck7ydygzu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.725551'),
 ('yru9bgr2eon30r6tod4r03nd8bhfs7ne', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:14.511556'),
 ('ys7ztypwq9mrw0e7400nixi1d59kchyp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:11.070791'),
 ('ys8x5hw4s87a75y9n08cwb670xo6uw2b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:52.233007'),
-('ys91sc40mee7ldixw0m8y63ihhg7td66', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:27.595452');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('ys91sc40mee7ldixw0m8y63ihhg7td66', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:27.595452'),
 ('yscpzj315dhihip726dy6t9smps0et5k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:42.999341'),
 ('ysh93t4ssefj0qq5f940hwhhqsvdul2e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:30.042990'),
 ('ysklia22rca56npn252vu1rj7krdeeio', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:50.497054'),
@@ -16563,13 +16677,13 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('zhgg1vt80idd6q9kwzi95gc4yv39rwgx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:38.867542'),
 ('zhlgzsmzq4x7l7ms0yvjqi9bbjp7yzkp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:53.901338'),
 ('zhnygnd73dlz49u313q8ks6141x237wl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:24.081698'),
-('zht5w59h5aeh8fdpiadkjx610z9ei6re', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:12.578110'),
+('zht5w59h5aeh8fdpiadkjx610z9ei6re', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:12.578110');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('zhu8vzglcetuieoue691vqwyge74nx7c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:56:20.367890'),
 ('zhx814hdjj5haeac3ocjefokbjk0274e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:17:44.219271'),
 ('zhyhjhm5vanbo7694t57yg5fwyiojre6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:50.801972'),
 ('zi3fk2zxjrgl8cy79hkkusemehh1raum', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:27.407701'),
-('zi6j1oxbdzjp6tei6e7r4msmk8kvfwuv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:39.647222');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('zi6j1oxbdzjp6tei6e7r4msmk8kvfwuv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:39.647222'),
 ('zi6nqeyy4n9oaou02w6ey0xk9jmol9rs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:27.228659'),
 ('zi9zpg5nt0uth815yp4vfxa9tlv6ovi2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:04.573035'),
 ('zibmq12agw49qz3l9xtbrplukdj3uhbm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:41.270448'),
@@ -16822,6 +16936,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 -- Estructura de tabla para la tabla `registration_login_respuesta_secreta`
 --
 
+DROP TABLE IF EXISTS `registration_login_respuesta_secreta`;
 CREATE TABLE `registration_login_respuesta_secreta` (
   `id` int(11) NOT NULL,
   `respuesta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -16830,13 +16945,18 @@ CREATE TABLE `registration_login_respuesta_secreta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `registration_login_respuesta_secreta`
+--
+
+TRUNCATE TABLE `registration_login_respuesta_secreta`;
+--
 -- Volcado de datos para la tabla `registration_login_respuesta_secreta`
 --
 
 INSERT INTO `registration_login_respuesta_secreta` (`id`, `respuesta`, `pregunta_id`, `user_id`) VALUES
 (1, '823', 2, 11),
-(2, 'AC/DC', 15, 23),
-(3, 'wow', 16, 12);
+(4, 'wowsito', 16, 27),
+(5, 'wowsito', 16, 28);
 
 -- --------------------------------------------------------
 
@@ -16844,6 +16964,7 @@ INSERT INTO `registration_login_respuesta_secreta` (`id`, `respuesta`, `pregunta
 -- Estructura de tabla para la tabla `registration_log_acceso`
 --
 
+DROP TABLE IF EXISTS `registration_log_acceso`;
 CREATE TABLE `registration_log_acceso` (
   `id` int(11) NOT NULL,
   `fecha_registro` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -16852,30 +16973,46 @@ CREATE TABLE `registration_log_acceso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `registration_log_acceso`
+--
+
+TRUNCATE TABLE `registration_log_acceso`;
+--
 -- Volcado de datos para la tabla `registration_log_acceso`
 --
 
 INSERT INTO `registration_log_acceso` (`id`, `fecha_registro`, `tipo_cliente`, `user_id`) VALUES
-(1, '2019-06-27 18:01:35.459829', 'cliente', 12),
 (2, '2019-06-27 18:02:08.562671', 'administrador', 1),
 (3, '2019-06-27 18:03:38.687678', 'vendedor', 11),
-(4, '2019-06-27 18:06:33.374899', 'cliente', 12),
-(5, '2019-06-27 18:14:58.388509', 'cliente', 12),
-(6, '2019-06-27 18:15:56.230463', 'vendedor', 14),
 (7, '2019-06-27 23:03:09.649849', 'vendedor', 11),
-(8, '2019-06-28 16:03:12.508109', 'cliente', 18),
 (9, '2019-06-28 23:04:22.794343', 'administrador', 1),
 (10, '2019-06-29 02:52:20.355060', 'vendedor', 11),
 (11, '2019-06-29 02:57:55.718245', 'administrador', 1),
 (12, '2019-06-29 15:32:22.865614', 'administrador', 1),
 (13, '2019-06-29 16:55:02.805180', 'administrador', 1),
-(14, '2019-06-29 18:04:18.679247', 'cliente', 12),
-(15, '2019-06-29 18:36:47.950623', 'cliente', 12),
-(16, '2019-06-29 18:37:43.040322', 'cliente', 12),
-(17, '2019-06-29 18:38:36.698645', 'cliente', 12),
 (18, '2019-06-30 19:42:45.582687', 'vendedor', 11),
-(19, '2019-07-03 03:19:43.151148', 'cliente', 12),
-(20, '2019-07-03 03:20:35.606962', 'vendedor', 11);
+(20, '2019-07-03 03:20:35.606962', 'vendedor', 11),
+(21, '2019-07-05 01:17:08.095549', 'administrador', 1),
+(22, '2019-07-06 14:29:44.669841', 'administrador', 1),
+(23, '2019-07-07 12:53:19.730652', 'administrador', 1),
+(24, '2019-07-07 13:18:49.093171', 'vendedor', 11),
+(25, '2019-07-07 15:13:09.599726', 'administrador', 1),
+(28, '2019-07-08 00:17:30.989166', 'vendedor', 11),
+(29, '2019-07-08 14:05:24.094089', 'administrador', 1),
+(30, '2019-07-08 17:33:09.714306', 'administrador', 1),
+(31, '2019-07-08 17:34:57.363664', 'vendedor', 29),
+(32, '2019-07-08 17:45:00.042839', 'administrador', 1),
+(33, '2019-07-08 17:45:43.547884', 'vendedor', 25),
+(34, '2019-07-08 17:47:57.804931', 'vendedor', 26),
+(35, '2019-07-08 17:58:37.358297', 'administrador', 1),
+(36, '2019-07-08 18:01:15.314994', 'vendedor', 29),
+(37, '2019-07-08 18:35:02.193225', 'vendedor', 11),
+(38, '2019-07-08 18:37:03.762954', 'vendedor', 26),
+(39, '2019-07-08 18:37:29.405837', 'vendedor', 29),
+(40, '2019-07-08 18:39:31.571852', 'cliente', 27),
+(41, '2019-07-08 18:43:38.853591', 'vendedor', 11),
+(42, '2019-07-08 19:01:01.802870', 'vendedor', 29),
+(43, '2019-07-08 21:18:27.782467', 'administrador', 1);
 
 -- --------------------------------------------------------
 
@@ -16883,11 +17020,17 @@ INSERT INTO `registration_log_acceso` (`id`, `fecha_registro`, `tipo_cliente`, `
 -- Estructura de tabla para la tabla `registration_preguntas_secretas`
 --
 
+DROP TABLE IF EXISTS `registration_preguntas_secretas`;
 CREATE TABLE `registration_preguntas_secretas` (
   `id` int(11) NOT NULL,
   `pregunta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `registration_preguntas_secretas`
+--
+
+TRUNCATE TABLE `registration_preguntas_secretas`;
 --
 -- Volcado de datos para la tabla `registration_preguntas_secretas`
 --
@@ -16914,6 +17057,7 @@ INSERT INTO `registration_preguntas_secretas` (`id`, `pregunta`) VALUES
 -- Estructura de tabla para la tabla `registration_tipo_usuarios`
 --
 
+DROP TABLE IF EXISTS `registration_tipo_usuarios`;
 CREATE TABLE `registration_tipo_usuarios` (
   `id` int(11) NOT NULL,
   `tipo_usuario` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -16924,27 +17068,27 @@ CREATE TABLE `registration_tipo_usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `registration_tipo_usuarios`
+--
+
+TRUNCATE TABLE `registration_tipo_usuarios`;
+--
 -- Volcado de datos para la tabla `registration_tipo_usuarios`
 --
 
 INSERT INTO `registration_tipo_usuarios` (`id`, `tipo_usuario`, `tipo_premium`, `fecha_caducidad`, `user_id_id`, `fecha_inicio`) VALUES
-(5, 'vendedor', 3, '2019-07-06', 11, '2019-06-06'),
-(6, 'cliente', 0, '2019-03-27', 12, NULL),
+(5, 'vendedor', 3, '2019-08-07', 11, '2019-07-08'),
 (7, 'administrador', 0, NULL, 1, NULL),
-(8, 'vendedor', 1, '2019-07-05', 13, '2019-06-05'),
-(9, 'vendedor', 3, NULL, 14, '2019-06-06'),
-(10, 'vendedor', 1, '2019-07-06', 15, '2019-06-06'),
-(12, 'cliente', 0, '0000-00-00', 17, '2019-06-05'),
-(13, 'cliente', 0, '2019-01-01', 18, '2019-01-01'),
-(14, 'cliente', 0, '2019-01-01', 19, '2019-01-01'),
-(15, 'cliente', 0, '2019-01-01', 20, '2019-01-01'),
-(16, 'cliente', 0, '2019-01-01', 21, '2019-01-01'),
-(17, 'cliente', 0, '2019-01-01', 22, '2019-01-01'),
-(18, 'cliente', 0, '2019-01-01', 23, '2019-01-01');
+(20, 'vendedor', 2, '2019-08-07', 25, '2019-07-08'),
+(21, 'vendedor', 1, '2019-08-07', 26, '2019-07-08'),
+(22, 'cliente', 0, '2019-01-01', 27, '2019-01-01'),
+(23, 'cliente', 0, '2019-01-01', 28, '2019-01-01'),
+(24, 'vendedor', 0, '2019-01-01', 29, '2019-01-01');
 
 --
 -- Disparadores `registration_tipo_usuarios`
 --
+DROP TRIGGER IF EXISTS `crear_actualizar_local`;
 DELIMITER $$
 CREATE TRIGGER `crear_actualizar_local` BEFORE UPDATE ON `registration_tipo_usuarios` FOR EACH ROW BEGIN
 declare verificador int;
@@ -16963,7 +17107,7 @@ where user_id=new.user_id_id;
 if tipo_antiguo != tipo_nuevo then
     IF tipo_antiguo = 'cliente' and tipo_nuevo = 'vendedor' THEN
     	if verificador = 0 then
-    		insert into vendedor_local (nombre_local, ubicacion_local, imagen_muestra, imagen_banner, user_id, activado) values ("Sin definir", "Sin definir","core/sin_imagen.jpg", "core/sin_imagen.jpg",new.user_id_id, true);
+    		insert into vendedor_local (nombre_local, ubicacion_local, imagen_muestra, imagen_banner, user_id, activado) values ("Sin definir", "Sin definir","core/sin_imagen.webp", "vendedor/Mi_Tienda.webp",new.user_id_id, true);
     	else
             update vendedor_local
             set activado = true
@@ -16989,8 +17133,8 @@ set fecha_nueva = ADDDATE(new.fecha_inicio, INTERVAL 30 DAY);
 insert into cliente_registro_premium (premium, fecha_inicio, fecha_caducidad, id_registro_id, user_id) values (new.tipo_premium, new.fecha_inicio, fecha_nueva, new.id, new.user_id_id);
 
 set new.fecha_caducidad = fecha_nueva;
-else
-set new.fecha_caducidad = '';
+#else
+#set new.fecha_caducidad = '';
 end if;
 
 END
@@ -17003,11 +17147,17 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `vendedor_categoria_productos`
 --
 
+DROP TABLE IF EXISTS `vendedor_categoria_productos`;
 CREATE TABLE `vendedor_categoria_productos` (
   `id` int(11) NOT NULL,
   `categoria` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `vendedor_categoria_productos`
+--
+
+TRUNCATE TABLE `vendedor_categoria_productos`;
 --
 -- Volcado de datos para la tabla `vendedor_categoria_productos`
 --
@@ -17028,6 +17178,7 @@ INSERT INTO `vendedor_categoria_productos` (`id`, `categoria`) VALUES
 -- Estructura de tabla para la tabla `vendedor_local`
 --
 
+DROP TABLE IF EXISTS `vendedor_local`;
 CREATE TABLE `vendedor_local` (
   `id` int(11) NOT NULL,
   `nombre_local` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -17039,14 +17190,19 @@ CREATE TABLE `vendedor_local` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `vendedor_local`
+--
+
+TRUNCATE TABLE `vendedor_local`;
+--
 -- Volcado de datos para la tabla `vendedor_local`
 --
 
 INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_muestra`, `imagen_banner`, `user_id`, `activado`) VALUES
 (1, 'Kampito', 'Calle 48, local 56', 'vendedor/img_tiendas/48417047_768112653535527_9149281488766763008_n.png', 'vendedor/img_tiendas/Mi_Tienda_M8pMWTQ.png', 11, 1),
-(2, 'Rancho', 'Calle 48, local 67', 'core/sin_imagen.webp', 'vendedor/img_tiendas/Mi_Tienda.webp', 13, 1),
-(3, 'MegaMax', 'Calle 48, local 69', 'vendedor/img_tiendas/descarga.jpg', 'vendedor/Mi_Tienda.webp', 14, 1),
-(4, 'Sin definir', 'Sin definir', 'core/sin_imagen.webp', 'core/sin_imagen.webp', 15, 0);
+(6, 'Agroboca', 'Pasillo 3, 2569', 'vendedor/img_tiendas/Mini1482402028_agroboca_logo_chhYn1n.jpg', 'vendedor/Mi_Tienda.webp', 26, 1),
+(7, 'Alis', 'Pasillo 3, 2697', 'vendedor/img_tiendas/unnamed_uhltIam.jpg', 'vendedor/Mi_Tienda.webp', 25, 1),
+(8, 'Rancho', 'Pasillo 3, 2564', 'vendedor/img_tiendas/descarga_JkzXICK.png', 'vendedor/Mi_Tienda.webp', 29, 1);
 
 -- --------------------------------------------------------
 
@@ -17054,6 +17210,7 @@ INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_m
 -- Estructura de tabla para la tabla `vendedor_oferta`
 --
 
+DROP TABLE IF EXISTS `vendedor_oferta`;
 CREATE TABLE `vendedor_oferta` (
   `id` int(11) NOT NULL,
   `oferta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -17062,6 +17219,11 @@ CREATE TABLE `vendedor_oferta` (
   `activado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `vendedor_oferta`
+--
+
+TRUNCATE TABLE `vendedor_oferta`;
 --
 -- Volcado de datos para la tabla `vendedor_oferta`
 --
@@ -17072,7 +17234,7 @@ INSERT INTO `vendedor_oferta` (`id`, `oferta`, `tipo_oferta`, `local_id`, `activ
 (4, '5% al final de su compra solo por abril', 'general', 1, 1),
 (5, '5% de descuento en especias', 'temporada', 1, 1),
 (6, '3x2 en sopas instantaneas mercadito', 'rango_diamante', 1, 0),
-(7, '10% de descuento en conservas con compras arriba de 20000', 'convencional', 2, 1);
+(8, '10% de descuento en conservas', 'convencional', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -17080,6 +17242,7 @@ INSERT INTO `vendedor_oferta` (`id`, `oferta`, `tipo_oferta`, `local_id`, `activ
 -- Estructura de tabla para la tabla `vendedor_productos`
 --
 
+DROP TABLE IF EXISTS `vendedor_productos`;
 CREATE TABLE `vendedor_productos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -17097,57 +17260,73 @@ CREATE TABLE `vendedor_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `vendedor_productos`
+--
+
+TRUNCATE TABLE `vendedor_productos`;
+--
 -- Volcado de datos para la tabla `vendedor_productos`
 --
 
 INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_oferta`, `stock`, `imagen`, `activado`, `categoria_id`, `unidad_medida_id`, `user_id`, `comentario`, `maximo_prod_comprar`) VALUES
-(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2600, 'vendedor/img_productos/7801420220138.png', 1, 1, 3, 11, '', 500),
+(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2574, 'vendedor/img_productos/7801420220138.png', 1, 1, 3, 11, '', 500),
 (4, 'Pasta frola', 600, 1, 300, 400, 'vendedor/img_productos/pastafrola-membrillo-batata-dulce-de-leche-tartas-dulces-D_NQ_NP__eBn8ND8.jpg', 1, 1, 3, 11, '', 60),
-(6, 'Arroz Marca Chancho', 300, 0, 0, 0, 'vendedor/img_productos/wmtcl.jpg', 1, 1, 3, 11, '', 50),
-(13, 'Pansito', 0, 0, 0, 0, 'core/sin_imagen.webp', 0, 7, 3, 11, '', 0),
+(6, 'Arroz Marca Chancho', 300, 0, 0, 1000, 'vendedor/img_productos/wmtcl.jpg', 1, 1, 3, 11, '', 100),
 (14, 'Cloro clorinda litro', 990, 0, 0, 200, 'vendedor/img_productos/clorinda-1-lt.jpg', 1, 1, 3, 11, '', 20),
 (15, 'Arroz aruba pregraneado 500gr', 540, 0, 0, 100, 'vendedor/img_productos/Arroz_Aruba_Pregraneado_medio_kilo.jpg', 1, 1, 3, 11, '', 10),
 (16, 'Pan de molde grande', 1800, 1, 1750, 100, 'vendedor/img_productos/Ideal_Pan_de_Molde_Blanco_Ideal_580_g-500x500.jpg', 1, 1, 3, 11, '', 10),
 (17, 'Aceitunas Jumbo', 2000, 1, 1800, 39, 'vendedor/img_productos/Aceituna-Negra.jpg', 1, 8, 4, 11, '', 30),
 (18, 'Oregano kilo', 1150, 0, 0, 50, 'vendedor/img_productos/6593e88301bf4c-oregano-x-kilo-481618.jpg', 1, 3, 4, 11, '', 5),
-(19, 'Cloro litro', 980, 0, 0, 300, 'core/sin_imagen.webp', 1, 1, 3, 13, '', 30),
-(21, 'Pan de molde', 1800, 1, 1710, 200, 'core/sin_imagen.webp', 1, 1, 3, 13, '', 20),
-(22, 'Aceitunas Jumbo', 2200, 1, 1750, 200, 'core/sin_imagen.webp', 1, 8, 4, 13, '', 20),
 (23, 'Azucar Iansa de kilo', 900, 0, 0, 180, 'vendedor/img_productos/wmtcl_1.jpg', 1, 1, 3, 11, '', 30),
 (24, 'Azucar Acuenta', 650, 1, 550, 500, 'vendedor/img_productos/wmtcl_2.jpg', 1, 1, 3, 11, '', 50),
-(25, 'Azucar Rubia', 1000, 0, 0, 0, 'vendedor/img_productos/wmtcl_3.jpg', 1, 1, 3, 11, '', 60),
-(26, 'Duraznos en conserva wasil', 950, 0, 0, 100, 'vendedor/img_productos/wmtcl_4.jpg', 1, 8, 3, 13, '', 10),
-(27, 'Lomito san jose en agua', 1250, 1, 1000, 500, 'vendedor/img_productos/wmtcl_5.jpg', 1, 8, 3, 13, '', 50),
-(28, 'Palmitos enteros', 1890, 1, 1550, 180, 'vendedor/img_productos/wmtcl_6.jpg', 1, 8, 3, 13, '', 20),
-(29, 'Jurel san jose', 1300, 0, 0, 300, 'vendedor/img_productos/wmtcl_7.jpg', 1, 8, 3, 13, '', 10),
+(25, 'Azucar Rubia', 1000, 0, 0, 500, 'vendedor/img_productos/wmtcl_3.jpg', 1, 1, 3, 11, '', 50),
 (33, 'Aceite Barato', 5000, 0, 0, 500, 'core/sin_imagen.webp', 1, 1, 3, 11, '', 50),
-(34, 'Porotos burros', 800, 0, 0, 250, 'core/sin_imagen.webp', 1, 1, 4, 13, '', 25),
-(35, 'Lentejas', 1200, 0, 0, 500, 'core/sin_imagen.webp', 1, 1, 4, 13, '', 50),
-(36, 'Garbanzos', 1500, 0, 0, 500, 'core/sin_imagen.webp', 1, 1, 4, 13, '', 0),
-(37, 'Porotos negros', 2000, 0, 0, 100, 'core/sin_imagen.webp', 1, 1, 4, 13, '', 0),
-(38, 'Comida Gaty', 500, 0, 0, 500, 'core/sin_imagen.webp', 1, 8, 3, 11, '', 50);
+(38, 'Comida Gaty', 500, 0, 0, 500, 'core/sin_imagen.webp', 1, 8, 3, 11, '', 50),
+(41, 'Arroz miraflores', 1190, 0, 0, 450, 'vendedor/img_productos/Arroz_miraflores.webp', 1, 1, 3, 29, '', 50),
+(42, 'Harina selecta sin polvos', 990, 0, 0, 300, 'vendedor/img_productos/harina_selecta.webp', 1, 1, 3, 29, '', 30),
+(43, 'Sal lobos', 370, 0, 0, 500, 'vendedor/img_productos/sal_lobos.webp', 1, 1, 3, 29, '', 50),
+(44, 'Espirales Talliani', 650, 0, 0, 600, 'vendedor/img_productos/fideos.webp', 1, 1, 3, 29, '', 60),
+(45, 'Arroz Tucapel', 1220, 0, 0, 300, 'vendedor/img_productos/arroz_tucapel.webp', 1, 1, 3, 29, '', 30),
+(47, 'Atun van camps al agua', 1190, 0, 0, 200, 'vendedor/img_productos/atun_van_campswebp.webp', 1, 1, 3, 29, '', 20),
+(48, 'Quinoa purpura', 1550, 0, 0, 200, 'vendedor/img_productos/quinoa.webp', 1, 1, 3, 29, '', 20),
+(49, 'aceita maravilla', 1630, 0, 0, 100, 'vendedor/img_productos/aceite_maravilla_6RAFnOx.webp', 1, 1, 3, 29, '', 10),
+(50, 'Leche evaporada', 1160, 0, 0, 1100, 'vendedor/img_productos/leche_ideal.webp', 1, 1, 3, 29, '', 110),
+(51, 'Leche condensada', 990, 0, 0, 200, 'vendedor/img_productos/leche_condensada.webp', 1, 1, 3, 29, '', 20),
+(52, 'Harina selecta con polvos', 1000, 0, 0, 150, 'vendedor/img_productos/harina_selecta_con_polvos.webp', 1, 1, 3, 29, '', 15),
+(53, 'Polvos de hornear Royal', 620, 0, 0, 200, 'vendedor/img_productos/polvo_hornear_royal.webp', 1, 8, 3, 29, '', 20),
+(54, 'Sal lobos fina', 1190, 0, 0, 100, 'vendedor/img_productos/sal_lobos_cara.webp', 1, 1, 3, 29, '', 10),
+(55, 'Lentejas banquete', 1490, 0, 0, 600, 'vendedor/img_productos/lentejas_banquete.webp', 1, 8, 3, 29, '', 60),
+(56, 'Galletas cracker', 1050, 0, 0, 300, 'vendedor/img_productos/galletas_craker.webp', 1, 1, 3, 29, '', 30),
+(57, 'Galletas cracker paquete 85g', 380, 0, 0, 200, 'vendedor/img_productos/crakers_grandes.webp', 1, 1, 3, 29, '', 20),
+(58, 'Fideos del 5', 650, 0, 0, 500, 'vendedor/img_productos/spaghetti_5.webp', 1, 1, 3, 29, '', 50),
+(59, 'Caracoqueso', 1100, 0, 0, 200, 'vendedor/img_productos/caractoqueso.webp', 1, 1, 3, 29, '', 20),
+(60, 'Cabellos de angel', 650, 0, 0, 500, 'vendedor/img_productos/rigati.webp', 1, 1, 3, 29, '', 50);
 
 --
 -- Disparadores `vendedor_productos`
 --
+DROP TRIGGER IF EXISTS `actualizar_max_productos_compra`;
 DELIMITER $$
 CREATE TRIGGER `actualizar_max_productos_compra` BEFORE INSERT ON `vendedor_productos` FOR EACH ROW BEGIN
 SET new.maximo_prod_comprar=round(new.stock*0.1);
 END
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_auditoria_prod_actualizar`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_auditoria_prod_actualizar` AFTER UPDATE ON `vendedor_productos` FOR EACH ROW begin
 insert into vendedor_registro_auditoria_productos (producto, vendedor_id, nombre_producto, accion, fecha_registro) values(new.id, new.user_id, new.nombre, 'Update', now());
 end
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_auditoria_prod_eliminar`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_auditoria_prod_eliminar` BEFORE DELETE ON `vendedor_productos` FOR EACH ROW begin
 insert into vendedor_registro_auditoria_productos (producto, vendedor_id, nombre_producto, accion, fecha_registro) values(old.id, old.user_id, old.nombre, 'Delete', now());
 end
 $$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `ingresar_auditoria_productos`;
 DELIMITER $$
 CREATE TRIGGER `ingresar_auditoria_productos` AFTER INSERT ON `vendedor_productos` FOR EACH ROW BEGIN
 insert into vendedor_registro_auditoria_productos (producto, vendedor_id, nombre_producto, accion, fecha_registro) values(new.id, new.user_id, new.nombre, 'Insert', now());
@@ -17162,6 +17341,7 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `vendedor_puntos`
 --
 
+DROP TABLE IF EXISTS `vendedor_puntos`;
 CREATE TABLE `vendedor_puntos` (
   `id` int(11) NOT NULL,
   `puntos` int(10) UNSIGNED DEFAULT NULL,
@@ -17171,11 +17351,17 @@ CREATE TABLE `vendedor_puntos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `vendedor_puntos`
+--
+
+TRUNCATE TABLE `vendedor_puntos`;
+--
 -- Volcado de datos para la tabla `vendedor_puntos`
 --
 
 INSERT INTO `vendedor_puntos` (`id`, `puntos`, `tipo_cuenta`, `local_id`, `user_id`) VALUES
-(1, 52, 'Plata', 1, 12);
+(2, 2, 'Plata', 1, 27),
+(3, 5, 'Plata', 8, 27);
 
 -- --------------------------------------------------------
 
@@ -17183,6 +17369,7 @@ INSERT INTO `vendedor_puntos` (`id`, `puntos`, `tipo_cuenta`, `local_id`, `user_
 -- Estructura de tabla para la tabla `vendedor_registro_auditoria_productos`
 --
 
+DROP TABLE IF EXISTS `vendedor_registro_auditoria_productos`;
 CREATE TABLE `vendedor_registro_auditoria_productos` (
   `id` int(11) NOT NULL,
   `producto` int(10) UNSIGNED DEFAULT NULL,
@@ -17193,16 +17380,15 @@ CREATE TABLE `vendedor_registro_auditoria_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Truncar tablas antes de insertar `vendedor_registro_auditoria_productos`
+--
+
+TRUNCATE TABLE `vendedor_registro_auditoria_productos`;
+--
 -- Volcado de datos para la tabla `vendedor_registro_auditoria_productos`
 --
 
 INSERT INTO `vendedor_registro_auditoria_productos` (`id`, `producto`, `nombre_producto`, `accion`, `fecha_registro`, `vendedor_id`) VALUES
-(1, 0, 'Porotos burros', 'Insert', '2019-06-17', 13),
-(2, 0, 'Lentejas', 'Insert', '2019-06-17', 13),
-(3, 0, 'Garbanzos', 'Insert', '2019-06-17', 13),
-(4, 37, 'Porotos negros', 'Insert', '2019-06-17', 13),
-(5, 20, 'Arroz aruba pregraneado 500gr', 'Delete', '2019-06-17', 13),
-(6, 29, 'Jurel san jose', 'Update', '2019-06-17', 13),
 (7, 1, 'Arroz Tucapel 500gramos', 'Update', '2019-06-21', 11),
 (8, 25, 'Azucar Rubia', 'Update', '2019-06-21', 11),
 (9, 6, 'Arroz Marca Chancho', 'Update', '2019-06-21', 11),
@@ -17261,15 +17447,62 @@ INSERT INTO `vendedor_registro_auditoria_productos` (`id`, `producto`, `nombre_p
 (62, 17, 'Aceitunas Jumbo', 'Update', '2019-06-27', 11),
 (63, 38, 'Comida Gaty', 'Insert', '2019-06-27', 11),
 (64, 33, 'Aceite Barato', 'Update', '2019-07-03', 11),
-(65, 22, 'Aceitunas Jumbo', 'Update', '2019-07-03', 13),
-(66, 19, 'Cloro litro', 'Update', '2019-07-03', 13),
 (67, 38, 'Comida Gaty', 'Update', '2019-07-03', 11),
-(68, 36, 'Garbanzos', 'Update', '2019-07-03', 13),
-(69, 35, 'Lentejas', 'Update', '2019-07-03', 13),
-(70, 21, 'Pan de molde', 'Update', '2019-07-03', 13),
 (71, 13, 'Pansito', 'Update', '2019-07-03', 11),
-(72, 37, 'Porotos negros', 'Update', '2019-07-03', 13),
-(73, 34, 'Porotos burros', 'Update', '2019-07-03', 13);
+(74, 19, 'Cloro litro', 'Update', '2019-07-08', NULL),
+(75, 21, 'Pan de molde', 'Update', '2019-07-08', NULL),
+(76, 22, 'Aceitunas Jumbo', 'Update', '2019-07-08', NULL),
+(77, 26, 'Duraznos en conserva wasil', 'Update', '2019-07-08', NULL),
+(78, 27, 'Lomito san jose en agua', 'Update', '2019-07-08', NULL),
+(79, 28, 'Palmitos enteros', 'Update', '2019-07-08', NULL),
+(80, 29, 'Jurel san jose', 'Update', '2019-07-08', NULL),
+(81, 34, 'Porotos burros', 'Update', '2019-07-08', NULL),
+(82, 35, 'Lentejas', 'Update', '2019-07-08', NULL),
+(83, 36, 'Garbanzos', 'Update', '2019-07-08', NULL),
+(84, 37, 'Porotos negros', 'Update', '2019-07-08', NULL),
+(85, 19, 'Cloro litro', 'Delete', '2019-07-08', NULL),
+(86, 21, 'Pan de molde', 'Delete', '2019-07-08', NULL),
+(87, 22, 'Aceitunas Jumbo', 'Delete', '2019-07-08', NULL),
+(88, 26, 'Duraznos en conserva wasil', 'Delete', '2019-07-08', NULL),
+(89, 27, 'Lomito san jose en agua', 'Delete', '2019-07-08', NULL),
+(90, 28, 'Palmitos enteros', 'Delete', '2019-07-08', NULL),
+(91, 29, 'Jurel san jose', 'Delete', '2019-07-08', NULL),
+(92, 34, 'Porotos burros', 'Delete', '2019-07-08', NULL),
+(93, 35, 'Lentejas', 'Delete', '2019-07-08', NULL),
+(94, 36, 'Garbanzos', 'Delete', '2019-07-08', NULL),
+(95, 37, 'Porotos negros', 'Delete', '2019-07-08', NULL),
+(96, 39, 'Aceite', 'Insert', '2019-07-08', 29),
+(97, 39, 'Aceite', 'Delete', '2019-07-08', 29),
+(98, 40, 'Aceite de Maravilla Chef 1L Libre de colesterol', 'Insert', '2019-07-08', 29),
+(99, 41, 'Arroz miraflores', 'Insert', '2019-07-08', 29),
+(100, 42, 'Harina selecta sin polvos', 'Insert', '2019-07-08', 29),
+(101, 43, 'Sal lobos', 'Insert', '2019-07-08', 29),
+(102, 44, 'Espirales Talliani', 'Insert', '2019-07-08', 29),
+(103, 45, 'Arroz Tucapel', 'Insert', '2019-07-08', 29),
+(104, 46, 'Papas fritas rusticas', 'Insert', '2019-07-08', 29),
+(105, 47, 'Atun van camps al agua', 'Insert', '2019-07-08', 29),
+(106, 48, 'Quinoa purpura', 'Insert', '2019-07-08', 29),
+(107, 49, 'aceita maravilla', 'Insert', '2019-07-08', 29),
+(108, 50, 'Leche evaporada', 'Insert', '2019-07-08', 29),
+(109, 51, 'Leche condensada', 'Insert', '2019-07-08', 29),
+(110, 52, 'Harina selecta con polvos', 'Insert', '2019-07-08', 29),
+(111, 53, 'Polvos de hornear Royal', 'Insert', '2019-07-08', 29),
+(112, 54, 'Sal lobos fina', 'Insert', '2019-07-08', 29),
+(113, 55, 'Lentejas banquete', 'Insert', '2019-07-08', 29),
+(114, 56, 'Galletas cracker', 'Insert', '2019-07-08', 29),
+(115, 57, 'Galletas cracker paquete 85g', 'Insert', '2019-07-08', 29),
+(116, 58, 'Fideos del 5', 'Insert', '2019-07-08', 29),
+(117, 59, 'Caracoqueso', 'Insert', '2019-07-08', 29),
+(118, 60, 'Cabellos de angel', 'Insert', '2019-07-08', 29),
+(119, 46, 'Papas fritas rusticas', 'Delete', '2019-07-08', 29),
+(120, 40, 'Aceite de Maravilla Chef 1L Libre de colesterol', 'Delete', '2019-07-08', 29),
+(121, 13, 'Pansito', 'Delete', '2019-07-08', 11),
+(122, 6, 'Arroz Marca Chancho', 'Update', '2019-07-08', 11),
+(123, 6, 'Arroz Marca Chancho', 'Update', '2019-07-08', 11),
+(124, 25, 'Azucar Rubia', 'Update', '2019-07-08', 11),
+(125, 25, 'Azucar Rubia', 'Update', '2019-07-08', 11),
+(126, 1, 'Arroz Tucapel 500gramos', 'Update', '2019-07-08', 11),
+(127, 41, 'Arroz miraflores', 'Update', '2019-07-08', 29);
 
 -- --------------------------------------------------------
 
@@ -17277,12 +17510,18 @@ INSERT INTO `vendedor_registro_auditoria_productos` (`id`, `producto`, `nombre_p
 -- Estructura de tabla para la tabla `vendedor_unidad_medida`
 --
 
+DROP TABLE IF EXISTS `vendedor_unidad_medida`;
 CREATE TABLE `vendedor_unidad_medida` (
   `id` int(11) NOT NULL,
   `medida_plural` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `medida_unidad` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Truncar tablas antes de insertar `vendedor_unidad_medida`
+--
+
+TRUNCATE TABLE `vendedor_unidad_medida`;
 --
 -- Volcado de datos para la tabla `vendedor_unidad_medida`
 --
@@ -17526,7 +17765,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
@@ -17544,43 +17783,43 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT de la tabla `cliente_listas`
 --
 ALTER TABLE `cliente_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_productos_listas`
 --
 ALTER TABLE `cliente_productos_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_registro_premium`
 --
 ALTER TABLE `cliente_registro_premium`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_reporte_listas`
 --
 ALTER TABLE `cliente_reporte_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_reporte_productos`
 --
 ALTER TABLE `cliente_reporte_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_valorizacion_pedidos`
 --
 ALTER TABLE `cliente_valorizacion_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 
 --
 -- AUTO_INCREMENT de la tabla `django_content_type`
@@ -17598,13 +17837,13 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT de la tabla `registration_login_respuesta_secreta`
 --
 ALTER TABLE `registration_login_respuesta_secreta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_log_acceso`
 --
 ALTER TABLE `registration_log_acceso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_preguntas_secretas`
@@ -17616,7 +17855,7 @@ ALTER TABLE `registration_preguntas_secretas`
 -- AUTO_INCREMENT de la tabla `registration_tipo_usuarios`
 --
 ALTER TABLE `registration_tipo_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_categoria_productos`
@@ -17628,31 +17867,31 @@ ALTER TABLE `vendedor_categoria_productos`
 -- AUTO_INCREMENT de la tabla `vendedor_local`
 --
 ALTER TABLE `vendedor_local`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_oferta`
 --
 ALTER TABLE `vendedor_oferta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_productos`
 --
 ALTER TABLE `vendedor_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_puntos`
 --
 ALTER TABLE `vendedor_puntos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_registro_auditoria_productos`
 --
 ALTER TABLE `vendedor_registro_auditoria_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_unidad_medida`

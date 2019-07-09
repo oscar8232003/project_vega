@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 """
-
+""""""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -100,6 +100,19 @@ DATABASES = {
 }
 
 
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_sistema_valledor',
+        'USER': 'oskar8232003',
+        'PASSWORD': 'oskar8232003',
+        'HOST': 'basedatos2.cch4yyqvdi7e.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+         'OPTIONS': {'init_command': 'SET sql_mode="STRICT_TRANS_TABLES", innodb_strict_mode=1',},
+    },
+}
+"""
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 

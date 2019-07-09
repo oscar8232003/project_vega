@@ -21,6 +21,11 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib import colors
 
 
+#Verificado
+@login_required(redirect_field_name='login')
+def Contacto_vendedor(request):
+    return render(request, 'vendedor/contacto_vendedor.html',)
+
 #Verficado
 @login_required(redirect_field_name='login')
 def Panel_de_vendedor(request, id):
@@ -37,7 +42,7 @@ def Panel_de_vendedor(request, id):
             productos_vigentes = Productos.objects.filter(Q(user = id) , Q(activado = True)).exclude(stock = 0).count()
             productos_desactivados = Productos.objects.filter(Q(user=id), Q(activado=False)).count()
             productos_sin_stock = Productos.objects.filter(Q(user=id), Q(stock=0), Q(activado=True)).count()
-            listas_pendiendtes = Listas.objects.filter(estado_lista='enviada').count()
+            listas_pendiendtes = Listas.objects.filter(Q(local=vendedor.id), Q(estado_lista='enviada')).count()
             tipo_premium = tipo.tipo_premium
             fecha_caducidad_premium = tipo.fecha_caducidad
             #SECCION DE ALERTAS PARA PRODUCTOS
@@ -155,19 +160,34 @@ def Agregar_Productos(request,id):
     local = buscar_local(request.user.id)
     if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id and local.activado == True:
 
-        form = Productos_form()
-        if request.method == 'POST':
-            form_llenado = Productos_form(request.POST, request.FILES)
-            try:
-                id_user = int(request.POST['user'])
-            except:
-                id_user = None
-            if form_llenado.is_valid() and id_user == id:
-                form_llenado.save()
-                return redirect(reverse('vendedor:listar_productos', args=[request.user.id])+ '?msg=form_ok')
-            else:
-                return redirect(reverse('vendedor:agregar_productos', args=[request.user.id])+ '?msg=form_no_valid')
-        return render(request, 'vendedor/agregar_productos.html',{'form':form})
+        #verificador para productos por suscripcion
+        cantidad_productos = Productos.objects.filter(Q(user=request.user.id)).count()
+        premium = int(request.session['premium'])
+        if verificar_suscripcion_productos(premium, cantidad_productos) is None:
+            print(verificar_suscripcion_productos(premium, cantidad_productos))
+            form = Productos_form()
+            if request.method == 'POST':
+                oferta_input = request.POST.get('oferta', None)
+                #verificador de suscipcion productos en oferta
+                if premium == 0 and oferta_input:
+                    mensaje = "Lo siento, pero con su nivel de suscripcion, no puede poner productos en oferta."
+                    return render(request, 'vendedor/agregar_productos.html',{'form':form, 'mensaje_error_oferta':mensaje})
+                else:
+                    form_llenado = Productos_form(request.POST, request.FILES)
+                    try:
+                        id_user = int(request.POST['user'])
+                    except:
+                        id_user = None
+                    if form_llenado.is_valid() and id_user == id:
+                        form_llenado.save()
+                        return redirect(reverse('vendedor:listar_productos', args=[request.user.id])+ '?msg=form_ok')
+                    else:
+                        return redirect(reverse('vendedor:agregar_productos', args=[request.user.id])+ '?msg=form_no_valid')
+
+            return render(request, 'vendedor/agregar_productos.html',{'form':form})
+        else:
+            mensaje_error = verificar_suscripcion_productos(premium, cantidad_productos)
+            return render(request, 'vendedor/agregar_productos.html', {'mensaje_error': mensaje_error})
     else:
         return redirect('registration:sin_permiso')
 
@@ -183,24 +203,31 @@ def Actualizar_Productos(request, id):
         if request.user.id == objeto.user.id:
             form = Productos_form(instance=objeto)
             if request.method == 'POST':
-                form_llenado = Productos_form(request.POST, request.FILES, instance=objeto)
-                try:
-                    id_user = int(request.POST['user'])
-                except:
-                    id_user = None
-                if form_llenado.is_valid() and id_user == request.user.id:
-                    form_llenado.save()
-                    try:
-                        stock = int(request.POST['stock'])
-                    except:
-                        stock=None
-                    if stock and stock_antiguo != stock:
-                        prod_max = int(stock * 0.1)
-                        objeto.maximo_prod_comprar = prod_max
-                        objeto.save()
-                    return redirect(reverse('vendedor:listar_productos', args=[request.user.id])+ '?msg=act_ok')
+                # verificador de suscipcion productos en oferta
+                premium = int(request.session['premium'])
+                if premium == 0 and request.POST['oferta'] == True:
+                    mensaje = "Lo siento, pero con su nivel de suscripcion, no puede poner productos en oferta."
+                    return render(request, 'vendedor/actualizar_productos.html',
+                                  {'form': form, 'mensaje_error_oferta': mensaje})
                 else:
-                    return redirect(reverse('vendedor:actualizar_productos', args=[id]) + '?msg=act_error')
+                    form_llenado = Productos_form(request.POST, request.FILES, instance=objeto)
+                    try:
+                        id_user = int(request.POST['user'])
+                    except:
+                        id_user = None
+                    if form_llenado.is_valid() and id_user == request.user.id:
+                        form_llenado.save()
+                        try:
+                            stock = int(request.POST['stock'])
+                        except:
+                            stock=None
+                        if stock and stock_antiguo != stock:
+                            prod_max = int(stock * 0.1)
+                            objeto.maximo_prod_comprar = prod_max
+                            objeto.save()
+                        return redirect(reverse('vendedor:listar_productos', args=[request.user.id])+ '?msg=act_ok')
+                    else:
+                        return redirect(reverse('vendedor:actualizar_productos', args=[id]) + '?msg=act_error')
             return render(request, 'vendedor/actualizar_productos.html',{'form':form})
         else:
             return redirect('registration:sin_permiso')
@@ -267,6 +294,8 @@ def Actualizar_Local(request, id):
                 id_user = None
             if form.is_valid() and id_user == request.user.id:
                 form.save()
+                local.activado=True
+                local.save()
                 return redirect(reverse('vendedor:mi_tienda', args=[request.user.id]) + '?msg=act_ok')
             else:
                 return redirect(reverse('vendedor:actualizar_mi_tienda', args=[request.user.id]) + '?msg=act_error')
@@ -508,8 +537,13 @@ def Eliminar_Ofertas(request, id_oferta):
 #Seccion de Reportes
 @login_required(redirect_field_name='login')
 def Seleccion_Reportes(request, id_user):
-    return render(request, 'vendedor/seleccion_reportes.html', )
+    tipo = buscar_tipo(request.user.id)
+    local = buscar_local(request.user.id)
 
+    if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id_user and local.activado == True and tipo.tipo_premium != 0:
+        return render(request, 'vendedor/seleccion_reportes.html', )
+    else:
+        return redirect('registration:sin_permiso')
 
 #Auditoria para admin
 def Reportes_Premium(request):
@@ -587,7 +621,7 @@ def Reporte_Productos(request, id_user):
     tipo = buscar_tipo(request.user.id)
     local = buscar_local(request.user.id)
 
-    if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id_user and local.activado == True:
+    if tipo is not None and tipo.tipo_usuario == 'vendedor' and request.user.id == id_user and local.activado == True and tipo.tipo_premium != 0:
         diccionario = {}
         query=None
         ##Cantidad de Productos Totales Activados
@@ -760,6 +794,26 @@ def Reporte_Productos(request, id_user):
         return redirect('registration:sin_permiso')
 
 #FUNCIONES PERSONALIZADAS
+def verificar_suscripcion_productos(suscripcion, cantidad_productos):
+    verificado = None
+    if suscripcion == 0:
+        if cantidad_productos >= 20:
+            verificado = "Lo siento pero alcanzo la capacidad maxima de 20 productos, para poder agregar mas productos, " \
+                          "elimine algun producto existente o mejore su suscripcion."
+    elif suscripcion == 1:
+        if cantidad_productos >= 40:
+            verificado = "Lo siento pero alcanzo la capacidad maxima de 40 productos, para poder agregar mas productos, " \
+                         "elimine algun producto existente o mejore su suscripcion."
+    elif suscripcion == 2:
+        if cantidad_productos >= 60:
+            verificado = "Lo siento pero alcanzo la capacidad maxima de 60 productos, para poder agregar mas productos, " \
+                         "elimine algun producto existente o mejore su suscripcion."
+    else:
+        verificado = None
+
+    return verificado
+
+
 def traer_mes(mes):
     mes_literal = None
     if mes ==1:
@@ -813,7 +867,7 @@ def Imprimir_pdf_premium(datos):
                             topMargin=60,
                             bottomMargin=18,)
     premium = []
-    imagen = Image('media/core/Logo.png', width=201, height=44)
+    imagen = Image('media/core/Logo.webp', width=201, height=44)
     premium.append(imagen)
     styles = getSampleStyleSheet()
     header = Paragraph("Registro de Usuarios Premium", styles['Heading2'])
@@ -854,7 +908,7 @@ def Imprimir_pdf_listas(datos):
                             topMargin=60,
                             bottomMargin=18,)
     premium = []
-    imagen = Image('media/core/Logo.png', width=201, height=44)
+    imagen = Image('media/core/Logo.webp', width=201, height=44)
     premium.append(imagen)
     styles = getSampleStyleSheet()
     header = Paragraph("Registro de Pedidos", styles['Heading2'])

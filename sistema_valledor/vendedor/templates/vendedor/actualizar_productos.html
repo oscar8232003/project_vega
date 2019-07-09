@@ -19,6 +19,14 @@
               </button>
             </div>
             {%endif%}
+            {%if mensaje_error_oferta%}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <span class="icon-exclamation-triangle"></span> {{mensaje_error_oferta}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {%endif%}
         </div>
         <!--FIN ALERTS-->
     </div>
