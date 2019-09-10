@@ -4,14 +4,23 @@
 <div class="container shadow container-whithe">
     <div class="row pt-5 pb-5">
         <div class="col-12 text-center">
-            <h2>Bienvenid@ a TuVegaApp</h2>
+            <h2>Bienvenid@ a <span class="TITULO">TuVegaApp</span></h2>
         </div>
     </div>
     <div class="row p-2 pb-4">
         <div class="col-12 col-md-3 pb-3">
-            <h3 class="pb-3">Panel del cliente</h3>
+            <h3 class="pb-3">Panel de {{request.session.tipo}}</h3>
             <div class="list-group">
-              <a href="{%url 'cliente:panel_cliente' request.user.id%}" class="list-group-item list-group-item-action active">Ir al panel del cliente</a>
+                {%if request.session.tipo == 'cliente'%}
+                    <a href="{%url 'cliente:panel_cliente' request.user.id%}"
+                       class="list-group-item list-group-item-action active">Ir al panel de cliente</a>
+                {%elif request.session.tipo == 'vendedor'%}
+                    <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}"
+                       class="list-group-item list-group-item-action active">Ir al panel de vendedor</a>
+                {%elif request.session.tipo == 'administrador'%}
+                    <a href="{%url 'admin:index'%}"
+                       class="list-group-item list-group-item-action active">Ir al panel de admin</a>
+                {%endif%}
             </div>
         </div>
         <div class="col-12 col-md-9 p-3 shadow rounded mb-3">

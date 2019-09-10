@@ -1,10 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends 'core/base.html'%}
+{%block title%}Recuperacion para Vendedores{%endblock%}
 
-</body>
-</html>
+{%block content%}
+<div class="container container-whithe shadow">
+    <div class="row justify-content-center pb-5">
+        <div class="col-12 pt-4 pb-3 text-center">
+            <h3 class="pb-3 pt-3">Seccion para recuperacion de contraseñas para Vendedores</h3>
+            <hr>
+        </div>
+
+        <!--SECCION DE ALERTAS-->
+        {%if mensaje_error%}
+        <div class="col-12 text-center">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <strong><span class="icon-exclamation-triangle"></span> {{mensaje_error}}</strong>
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+        </div>
+        {%endif%}
+        <!--FIN SECCION DE ALERTAS-->
+
+        <!--CUERPO-->
+        <form method="POST" class="col-md-5 col-12 pb-4 pt-4 mt-5 mb-5 shadow rounded">
+            {%csrf_token%}
+            {%if not password%}
+
+            <div class="col-12 form-group pb-3">
+                <label for="id_rut">Ingrese su Rut</label>
+                <input type="text" class="form-control" id="id_rut" name="rut" value="{{rut}}" placeholder="Ingrese su rut">
+            </div>
+
+            {%if pregunta%}
+            <div class="col-12 pb-4">
+                <p class="text-center"><strong>{{pregunta.pregunta}}</strong></p>
+                <label for="id_respuesta_secreta">Ingrese su respuesta secreta</label>
+                <input type="text" class="form-control" name="respuesta_secreta" id="id_respuesta_secreta">
+            </div>
+            {%endif%}
+
+            <div class="col-12 text-center">
+                <button class="btn btn-primary" value="buscar_rut" name="buscar">Buscar</button>
+            </div>
+
+            {%endif%}
+
+            {%if password%}
+            <div class="col-12 text-center pt-3 pb-3 mb-4">
+                <h3 class="pb-1">Su nueva contraseña es:</h3>
+                <h4 class="color-rojo pb-3 pt-3 shadow rounded">{{password}}</h4>
+                <p>Para cambiar la contraseña, ingrese al sistema y ve al apartado de cambio de contraseñas.</p>
+            </div>
+            <div class="col-12 mb-3">
+                <img src="/media/registration/password.webp" alt="img_password" class="img-fluid">
+            </div>
+            <div class="col-12 text-center">
+                <a class="btn btn-success" href="{%url 'login'%}">Ingresar al sistema</a>
+            </div>
+            {%endif%}
+        </form>
+        <!--FIN CUERPO-->
+        <div class="col-12">
+             <a href="{%url 'registration:seleccion_usuario'%}" class="btn btn-secondary">Volver al Inicio</a>
+         </div>
+    </div>
+</div>
+{%endblock%}

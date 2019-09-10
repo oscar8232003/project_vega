@@ -20,8 +20,6 @@
                 {%endif%}
                  Productos de la tienda {{local.nombre_local}}</h2>
             <p><em>Aqui encontraras todos los productos pertenecientes a esta tienda.</em></p>
-            <p class="d-none d-md-block">Si no puedes visualizar bien un producto,
-                <a href="{%url 'cliente:listar_productos_tiendas' local.user.id%}" class="btn btn-light">Haz click aqui</a></p>
             <hr>
         </div>
         <!--FIN TITULO-->
@@ -54,16 +52,6 @@
             <a href="{%url 'cliente:listar_productos_tiendas' local.user.id%}" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
         </div>
         <!--FIN SECCION DE BUSCADORES-->
-    </div>
-
-    <div class="col-12 mt-3 pl-0">
-        {%if productos%}
-            {%if not request.GET%}
-            <p><a href="{%url 'cliente:listar_productos_tiendas' local.user.id%}?pdf=yes" class="btn btn-danger">Descargar detalle de los productos</a></p>
-            {%else%}
-            <p><a href="{{request.get_full_path}}&pdf=yes" class="btn btn-danger">Descargar detalle de los productos</a></p>
-            {%endif%}
-        {%endif%}
     </div>
 
     {%if productos%}

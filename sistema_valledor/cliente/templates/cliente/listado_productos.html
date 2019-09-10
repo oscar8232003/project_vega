@@ -15,8 +15,6 @@
             <h2>Seccion de Productos</h2>
             <p><em>Aqui encontraras todo tipo de productos</em></p>
             <hr>
-            <p class="d-none d-md-block">Si no puedes visualizar bien un producto,
-                <a href="{%url 'cliente:listar_productos'%}" class="btn btn-light">Haz click aqui</a></p>
         </div>
         <!--FIN TITULO-->
     </div>
@@ -48,15 +46,6 @@
             <a href="{%url 'cliente:listar_productos'%}" class="btn btn-primary ml-2"><span class="icon-apple"></span> Productos</a>
         </div>
         <!--FIN SECCION DE BUSCADORES-->
-        <div class="col-12 mt-3">
-            {%if productos%}
-                {%if not request.GET%}
-                <p><a href="{%url 'cliente:listar_productos'%}?pdf_all=yes" class="btn btn-danger">Descargar detalle de los productos</a></p>
-                {%else%}
-                <p><a href="{{request.get_full_path}}&pdf=yes" class="btn btn-danger">Descargar detalle de los productos</a></p>
-                {%endif%}
-            {%endif%}
-        </div>
     </div>
 
     {%if productos%}

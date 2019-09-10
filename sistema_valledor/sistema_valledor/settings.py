@@ -86,6 +86,8 @@ DATABASES = {
     }
 }
 """
+
+#Base de datos Local
 """"""
 DATABASES = {
     'default': {
@@ -100,6 +102,23 @@ DATABASES = {
 }
 
 
+
+#Base de datos Python Anywhere
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'oavr18$sistema_valledor',
+        'USER': 'oavr18',
+        'PASSWORD': 'oskar8232003',
+        'HOST': 'oavr18.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {'init_command': 'SET sql_mode="STRICT_TRANS_TABLES", innodb_strict_mode=1',},
+    },
+}
+"""
+
+#Base de datos RDS
 """
 DATABASES = {
     'default': {

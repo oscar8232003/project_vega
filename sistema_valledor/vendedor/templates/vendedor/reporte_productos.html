@@ -154,7 +154,13 @@
                         </button>
                       </div>
                       <div class="toast-body">
-                        Al dia de hoy, se han vendido <strong>{{dic_informacion.productos_cantidad_totales}}</strong> productos en total.
+                        Al dia de hoy, se han vendido <strong>
+                          {%if dic_informacion.productos_cantidad_totales is not None%}
+                          {{dic_informacion.productos_cantidad_totales}}
+                          {%else%}
+                          0
+                          {%endif%}
+                      </strong> productos en total.
                       </div>
                     </div>
                 </div>
@@ -172,7 +178,13 @@
                         </button>
                       </div>
                       <div class="toast-body">
-                        Al dia de hoy, se han vendido <strong>{{dic_informacion.productos_cantidad}}</strong> productos sin ofertas en total.
+                        Al dia de hoy, se han vendido <strong>
+                          {%if dic_informacion.productos_cantidad is not None%}
+                          {{dic_informacion.productos_cantidad}}
+                          {%else%}
+                          0
+                          {%endif%}
+                      </strong> productos sin ofertas en total.
                       </div>
                     </div>
                 </div>
@@ -190,7 +202,13 @@
                         </button>
                       </div>
                       <div class="toast-body">
-                        Al dia de hoy, se han vendido <strong>{{dic_informacion.productos_cantidad_oferta}}</strong> productos con ofertas en total.
+                        Al dia de hoy, se han vendido<strong>
+                          {%if dic_informacion.productos_cantidad_oferta is not None%}
+                          {{dic_informacion.productos_cantidad_oferta}}
+                          {%else%}
+                          0
+                          {%endif%}
+                      </strong> productos con ofertas en total.
                       </div>
                     </div>
                 </div>

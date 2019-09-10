@@ -50,8 +50,8 @@ def actualizar_perfil(request, id):
         if request.method == 'POST':
             form_lleno = UpdateUserForm(request.POST)
             if form_lleno.is_valid():
-                #form_lleno.save()
-                print(form_lleno)
+                form_lleno.save()
+                #print(form_lleno)
                 redirect(reverse('registration:mi_perfil', kwargs={'id':request.user.id})+'?msg=update_ok')
             else:
                 redirect(reverse('registration:actualizar_perfil', kwargs={'id':request.user.id})+'?msg=error_form')
@@ -83,8 +83,11 @@ def seleccion_usuario_cliente(request):
                         pregunta = None
                     if pregunta:
                         if pregunta.respuesta == respuesta_secreta:
+                            nueva_password = "recuperacion {}".format(respuesta_secreta)
+                            persona.set_password(nueva_password)
+                            persona.save()
                             return render(request, 'registration/recuperacion_cliente.html',
-                                          {'password':persona.password})
+                                          {'password':nueva_password})
                         else:
                             mensaje_error = "La respuesta secreta es incorrecta, si tiene problemas contacte al soporte"
                             return render(request, 'registration/recuperacion_cliente.html',
@@ -97,7 +100,7 @@ def seleccion_usuario_cliente(request):
                     mensaje_error = "La persona encontrada es un vendedor, pertenece a otra categoria"
                     return render(request, 'registration/recuperacion_cliente.html', {'mensaje_error': mensaje_error})
             else:
-                mensaje_error = "La persona no se encontro"
+                mensaje_error = "La persona con ese rut no se encontro"
                 return render(request, 'registration/recuperacion_cliente.html', {'mensaje_error': mensaje_error})
 
 
@@ -125,15 +128,83 @@ def seleccion_usuario_cliente(request):
                     mensaje_error = "La persona encontrada es un vendedor, pertenece a otra categoria"
                     return render(request, 'registration/recuperacion_cliente.html', {'mensaje_error': mensaje_error})
             else:
-                mensaje_error = "La persona no se encontro"
+                mensaje_error = "La persona con ese rut no se encontro"
                 return render(request, 'registration/recuperacion_cliente.html', {'mensaje_error':mensaje_error})
-
     else:
         return render(request, 'registration/recuperacion_cliente.html',)
 
 #Seleccion de usuario vendedor
 def seleccion_usuario_vendedor(request):
-    return render(request, 'registration/recuperacion_vendedor.html',)
+    if request.method == 'POST':
+        rut = request.POST.get('rut', None)
+        respuesta_secreta = request.POST.get('respuesta_secreta', None)
+        if respuesta_secreta:
+            try:
+                persona = User.objects.get(username=rut)
+                tipo = Tipo_usuarios.objects.get(user_id=persona.id)
+            except:
+                persona = None
+                tipo = None
+            if persona:
+                if tipo.tipo_usuario == 'vendedor':
+                    try:
+                        pregunta = Login_respuesta_secreta.objects.get(user=persona.id)
+                    except:
+                        pregunta = None
+                    if pregunta:
+                        if pregunta.respuesta == respuesta_secreta:
+                            nueva_password = "recuperacion {}".format(respuesta_secreta)
+                            persona.set_password(nueva_password)
+                            persona.save()
+                            return render(request, 'registration/recuperacion_vendedor.html',
+                                          {'password': nueva_password})
+                        else:
+                            mensaje_error = "La respuesta secreta es incorrecta, si tiene problemas, por favor " \
+                                            "contacte con el chat de soporte que se encuentra mas abajo"
+                            return render(request, 'registration/recuperacion_vendedor.html',
+                                          {'rut': rut, 'pregunta': pregunta, 'mensaje_error': mensaje_error})
+                    else:
+                        mensaje_error = "La pregunta secreta no se encontro, por favor contacte con el chat de soporte " \
+                                        "que se encuentra mas abajo"
+                        return render(request, 'registration/recuperacion_vendedor.html',
+                                      {'mensaje_error': mensaje_error})
+                else:
+                    mensaje_error = "La persona encontrada es un vendedor, pertenece a otra categoria"
+                    return render(request, 'registration/recuperacion_vendedor.html', {'mensaje_error': mensaje_error})
+            else:
+                mensaje_error = "La persona con ese rut no se encontro"
+                return render(request, 'registration/recuperacion_vendedor.html', {'mensaje_error': mensaje_error})
+
+        elif rut:
+
+            try:
+                persona = User.objects.get(username=rut)
+                tipo = Tipo_usuarios.objects.get(user_id=persona.id)
+            except:
+                persona = None
+                tipo = None
+            if persona:
+                if tipo.tipo_usuario == 'vendedor':
+                    try:
+                        pregunta = Login_respuesta_secreta.objects.get(user=persona.id)
+                    except:
+                        pregunta = None
+                    if pregunta:
+                        return render(request, 'registration/recuperacion_vendedor.html',
+                                      {'rut': rut, 'pregunta': pregunta})
+                    else:
+                        mensaje_error = "La pregunta secreta no se encontro, por favor contacte con el chat de " \
+                                        "soporte que se encuentra mas abajo"
+                        return render(request, 'registration/recuperacion_vendedor.html',
+                                      {'mensaje_error': mensaje_error})
+                else:
+                    mensaje_error = "La persona encontrada es un vendedor, pertenece a otra categoria"
+                    return render(request, 'registration/recuperacion_vendedor.html', {'mensaje_error': mensaje_error})
+            else:
+                mensaje_error = "La persona con ese rut no se encontro"
+                return render(request, 'registration/recuperacion_vendedor.html', {'mensaje_error': mensaje_error})
+    else:
+        return render(request, 'registration/recuperacion_vendedor.html', )
 
 def sin_permiso(request):
     return render(request, 'registration/sin_permiso.html')

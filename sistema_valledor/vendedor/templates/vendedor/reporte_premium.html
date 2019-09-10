@@ -71,13 +71,6 @@
         <!--FIN SECCION DE FILTROS-->
 
         <div class="col-12 pb-3">
-            {%if registros%}
-                {%if not request.GET%}
-                <a href="{%url 'vendedor:reporte_admin'%}?all=yes" class="btn btn-danger"><span class="icon-list"></span> Descargar los registros de la tabla</a>
-                {%else%}
-                <a href="{{request.get_full_path}}&pdf=yes" class="btn btn-danger"><span class="icon-list"></span> Descargar los registros de la tabla</a>
-                {%endif%}
-            {%endif%}
              <a href="{%url 'vendedor:reporte_admin'%}" class="btn btn-success mt-md-0 mt-3">Ver todos los registros</a>
 
         </div>
@@ -95,7 +88,6 @@
                   <th scope="col">Fecha de Inicio</th>
                   <th scope="col">Fecha de Caducidad</th>
                   <th scope="col">Accion</th>
-                  <th scope="col">PDF</th>
                 </tr>
               </thead>
               <tbody>
@@ -113,7 +105,6 @@
                   <td>{{x.fecha_inicio}}</td>
                   <td>{{x.fecha_caducidad}}</td>
                   <td>Insertado</td>
-                  <td><a href="{%url 'vendedor:reporte_admin'%}?doc={{x.id}}" class="btn btn-danger"><span class="icon-list"></span> PDF</a></td>
                 </tr>
               {%endfor%}
               </tbody>

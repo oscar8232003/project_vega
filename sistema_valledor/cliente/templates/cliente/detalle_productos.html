@@ -11,8 +11,6 @@
         <div class="col-md-8 col-12 pt-md-0 pt-4">
             <h3 class="pb-2"><strong>{{object.nombre}}</strong></h3>
 
-            <p><a href="{%url 'cliente:detalle_productos' object.id%}?pdf=yes" class="btn btn-danger btn-sm">Descargar detalle del producto</a></p>
-
             <h5><strong>Tienda</strong></h5>
             <p>{{local.nombre_local}} <a href="{%url 'cliente:detalle_locales' object.user.id%}" class="badge badge-info">Visitar tienda!</a></p>
 

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from registration.models import Tipo_usuarios, Log_Acceso
 from django.contrib.auth.models import User
 import datetime
+#Sirve para consumir apis
+#import requests
 
 
 # Create your views here.
@@ -31,6 +33,21 @@ def index(request):
                                   tipo_cliente=persona.tipo_usuario)
 
     #print(request.session['tipo'])
+
+    """
+    token = requests.post('http://127.0.0.1:8000/api/v4/login/',
+                          {"username": "oskar82320033", "password": "oskar8232003"})
+
+    token_json = token.json()
+
+    headers = headers = {'Authorization': 'Token {}'.format(token_json['token'])}
+
+    r = requests.get('http://127.0.0.1:8000/api/v2/productos/2/', headers=headers)
+
+    r_json = r.json()
+
+    print(r_json)
+    """
     return render(request, 'core/index.html')
 
 def contactanos(request):

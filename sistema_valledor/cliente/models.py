@@ -1,5 +1,7 @@
+#Inicial
 from django.db import models
 from vendedor.models import Local, Productos
+#Traer el modelo de Usuarios
 from django.contrib.auth.models import User
 from registration.models import Tipo_usuarios
 

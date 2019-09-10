@@ -27,18 +27,21 @@
         <!--FIN TITULO-->
     </div>
     <div class="row justify-content-center">
-        <!--UBICACION-->
-        <div class="col-12 col-sm-10 pb-3">
+        <div class="col-12 col-sm-10 pb-3 text-center">
             {%if dict_productos.valorizacion%}
-            <button class="btn btn-success mb-3" type="button" disabled>
+            <button class="btn btn-success mb-3 shadow-lg" type="button" disabled>
               <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                    <strong class="h5">Contamos con un servicio de
+                    <strong class="h6">Contamos con un servicio de
                     {%for x in x|rjust:dict_productos.valorizacion%}
                         <span class="icon-android-star"></span>
                     {%endfor%}
                     estrellas.</strong>
             </button>
             {%endif%}
+        </div>
+
+        <div class="col-12 col-sm-10 pb-3">
+            <!--UBICACION-->
             <h5 class="pb-2">-Nos ubicamos en</h5>
             <p>{{local.ubicacion_local}}</p>
         </div>
