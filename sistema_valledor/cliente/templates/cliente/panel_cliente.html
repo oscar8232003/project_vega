@@ -13,7 +13,7 @@
         <!--TITULO-->
         <div class="col-12 text-center pt-4 pb-4">
             <h2>Bienvenido al Panel de Clientes de <span class="TITULO">TuVegaApp</span></h2>
-            <p><em>Aqui podras encontrar todo lo necesario para facilitarte tu compra</em></p>
+            <p><em>Aquí podrás encontrar todo lo necesario para facilitarte tu compra</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
@@ -21,12 +21,12 @@
         <!--BARRA IZQUIERA-->
         <div class="col-12 col-lg-3 pb-5">
             <!--BARRA IZQUIERA XL-->
-            <h3 class="text-center pb-3 d-none d-lg-block">Menu</h3>
-            <h3 class="text-center pb-3 d-lg-none">Hola {{cliente.first_name}}, que tal?</h3>
+            <h3 class="text-center pb-3 d-none d-lg-block">Menú</h3>
+            <h3 class="text-center pb-3 d-lg-none">Hola {{cliente.first_name}}, qué tal?</h3>
             <div class="list-group d-none d-lg-block">
               <a href="{%url 'cliente:panel_cliente' request.user.id %}" class="list-group-item list-group-item-action active">Panel del Cliente</a>
               <a href="{%url 'cliente:listar_productos'%}" class="list-group-item list-group-item-action">Productos</a>
-              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action">Mis Listas</a>
+              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action">Mis Listas/Pedidos</a>
               <a href="{%url 'cliente:reportes' request.user.id%}" class="list-group-item list-group-item-action">Mis Reportes</a>
             </div>
             <!--FIN BARRA IZQUIERA XL-->
@@ -37,7 +37,7 @@
             </a>
             <div class="collapse list-group" id="collapsemenu">
               <a href="{%url 'cliente:listar_productos'%}" class="list-group-item list-group-item-action d-block d-lg-none">Productos</a>
-              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Listas</a>
+              <a href="{%url 'cliente:mis_listas' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Listas/Pedidos</a>
               <a href="{%url 'cliente:reportes' request.user.id%}" class="list-group-item list-group-item-action d-block d-lg-none">Mis Reportes</a>
             </div>
             <!--FIN BARRA IZQUIERA COLLAPSADA-->
@@ -45,7 +45,7 @@
         <!--FIN BARRA IZQUIERDA-->
         <!--MENU-->
         <div CLASS="col-12 col-md-9 pb-3">
-            <h3 class="text-center pb-3 d-none d-lg-block">Hola {{cliente.first_name}}, que tal?</h3>
+            <h3 class="text-center pb-3 d-none d-lg-block">Hola {{cliente.first_name}}, qué tal?</h3>
             <h5 class="pb-3"><strong>Tus puntos en diferentes tiendas</strong></h5>
             {%if puntos%}
             {%for x in puntos%}
@@ -60,7 +60,7 @@
                 , ve a ver tus beneficios <a href="{%url 'cliente:detalle_locales' x.local.user.id%}"><span class="badge badge-success">Ir a la tienda</span></a></p>
             {%endfor%}
             {%else%}
-            <p>Actualmente no tienes puntos en ningun local asociado, ve a comprar algo para sumar puntos!</p>
+            <p>Actualmente no tienes puntos en ningún local asociado, ve a comprar algo para sumar puntos!</p>
             {%endif%}
             <hr class="mt-3">
             <h5 class="pb-3"><strong>Tiendas con ofertas generales</strong></h5>

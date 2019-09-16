@@ -12,8 +12,8 @@
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
         <div class="col-12 text-center pt-4">
-            <h2>Bienvenido a la seccion de tus ofertas</h2>
-            <p><em>Aqui podras administrar las ofertas hacia los clientes, entre mas ofertas tengas, mas visible es tu tienda!</em></p>
+            <h2>Bienvenido a la sección de tus ofertas</h2>
+            <p><em>Aquí podrás administrar las ofertas hacia los clientes, entre más ofertas tengas, más visible es tu tienda!</em></p>
             <hr>
         </div>
         <!--ALERTS-->
@@ -41,7 +41,7 @@
             </div>
             {%elif request.GET.msg == 'del_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo eliminar la oferta, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo eliminar la oferta, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -59,17 +59,17 @@
         <div class="col-12 col-md-8 pb-3">
             <h4 class="pb-3">Informacion y Categoria de ofertas</h4>
             <h5><span class="icon-android-star"></span> Ofertas Generales <span class="badge badge-pill badge-warning">Premium</span></h5>
-            <p><strong>Este tipo de oferta es unico, solamente se puede tener 1 oferta general activada</strong>, esta oferta es la primera
+            <p><strong>Este tipo de oferta es único, solamente se puede tener 1 oferta general activada</strong>, esta oferta es la primera
             la cual se le muestra al cliente, puedes crear las que quieras pero solamente puedes tener 1 activada y es solamente
                  para usuarios premium, no lo olvides!.</p>
             <h5><span class="icon-android-star"></span> Ofertas de Temporadas <span class="badge badge-pill badge-warning">Premium</span></h5>
-            <p><strong>Este tipo de oferta es la de temporada</strong>, no se especificara a cual temporada pertenecera para
-            que esta seccion sea mas facil de manejar, usted como vendedor puede crear las ofertas de temporadas que quiera
-            sin limite para su local, este beneficio es solo para clientes premium!.</p>
+            <p><strong>Este tipo de oferta es la de temporada</strong>, no se especificara a cual temporada pertenecerá para
+            que esta sección sea más fácil de manejar, usted como vendedor puede crear las ofertas de temporadas que quiera
+            sin límite para su local, este beneficio es solo para clientes premium!.</p>
             <h5>-Ofertas por rango de cliente</h5>
             <p><strong>Este tipo de ofertas va dirigido a ofertas por rango de cliente, puedes crear ofertas solamente para cliente
             que sean de distinto rango, ya sea plata, oro y diamante</strong>, cada rango se representada por la fidelidad a su local, por ende
-            entre mas compre un cliente, mas beneficios le puede dar para incentivarlo a que siga con usted.</p>
+            entre más compre un cliente, más beneficios le puede dar para incentivarlo a que siga con usted.</p>
             <h5>-Ofertas convencionales</h5>
             <p>Este tipo de ofertas, son ofertas comunes y corrientes, se pueden crear ilimitadamente y son propias de todo cliente.</p>
             <hr>
@@ -103,7 +103,7 @@
                     {{oferta_general.oferta}}</p>
                 {%endfor%}
             {%else%}
-            <p>No hay ofertas actualmente para esta seccion</p>
+            <p>No hay ofertas actualmente para esta sección</p>
             {%endif%}
             <hr>
         </div>
@@ -134,7 +134,7 @@
                     {{oferta_temporada.oferta}}</p>
                 {%endfor%}
             {%else%}
-                <p>No hay ofertas actualmente para esta seccion</p>
+                <p>No hay ofertas actualmente para esta sección</p>
             {%endif%}
             <hr>
         </div>
@@ -167,7 +167,7 @@
                     {{oferta_diamante.oferta}}</p>
                 {%endfor%}
             {%else%}
-                <p>No hay ofertas actualmente para esta seccion</p>
+                <p>No hay ofertas actualmente para esta sección</p>
             {%endif%}
 
             <h6><strong>Clientes Oro</strong></h6>
@@ -196,7 +196,7 @@
                     {{oferta_oro.oferta}}</p>
                 {%endfor%}
             {%else%}
-                <p>No hay ofertas actualmente para esta seccion</p>
+                <p>No hay ofertas actualmente para esta sección</p>
             {%endif%}
 
             <h6><strong>Clientes Plata</strong></h6>
@@ -225,7 +225,7 @@
                     {{oferta_plata.oferta}}</p>
                 {%endfor%}
             {%else%}
-                <p>No hay ofertas actualmente para esta seccion</p>
+                <p>No hay ofertas actualmente para esta sección</p>
             {%endif%}
             <hr>
         </div>
@@ -256,7 +256,7 @@
                     {{oferta_convencional.oferta}}</p>
                 {%endfor%}
             {%else%}
-                <p>No hay ofertas actualmente para esta seccion</p>
+                <p>No hay ofertas actualmente para esta sección</p>
             {%endif%}
             <hr>
         </div>
@@ -269,4 +269,3 @@
     </div>
 </div>
 {%endblock%}
-

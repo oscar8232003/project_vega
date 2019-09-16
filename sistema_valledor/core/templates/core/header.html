@@ -1,157 +1,157 @@
 <!--EMPIEZA HEADER!-->
-		<!--NAVBAR, TOP-->
-		<header class="container-fluid p-0">
-			<!--TOP-->
-			<div class="row m-0 BACKGROUND-TOP justify-content-center pb-1 pt-1">
-			<!--REDES SOCIALES-->
+      <!--NAVBAR, TOP-->
+      <header class="container-fluid p-0">
+         <!--TOP-->
+         <div class="row m-0 BACKGROUND-TOP justify-content-center pb-1 pt-1">
+         <!--REDES SOCIALES-->
 
-				<div class="col-lg-10 col-xl-8 pr-0 d-none d-lg-block">
-					<ul class="lista">
-						<li><a><h6>Siguenos! </h6></a></li>
-						<li><a ><h6 data-icon="j" class="face"></h6></a></li>
-						<li><a ><h6 data-icon="k" class="instagram"></h6></a></li>
-						<li><a ><h6 data-icon="l" class="twitter"></h6></a></li>
-						<li><a ><h6 data-icon="m" class="twitch"></h6></a></li>
-						<li class="pr-3"><a ><h6 data-icon="n" class="youtube"></h6></a></li>
+            <div class="col-lg-10 col-xl-8 pr-0 d-none d-lg-block">
+               <ul class="lista">
+                  <li><a><h6>Síguenos! </h6></a></li>
+                  <li><a ><h6 data-icon="j" class="face"></h6></a></li>
+                  <li><a ><h6 data-icon="k" class="instagram"></h6></a></li>
+                  <li><a ><h6 data-icon="l" class="twitter"></h6></a></li>
+                  <li><a ><h6 data-icon="m" class="twitch"></h6></a></li>
+                  <li class="pr-3"><a ><h6 data-icon="n" class="youtube"></h6></a></li>
 
-				<!--QUIENES SOMOS-->
+            <!--QUIENES SOMOS-->
 
-						<!--<li><a href=""><h6 class="top-a"><span class="icon-question-circle"> </span>Quienes Somos </h6></a></li>-->
-						<!--<li><a href=""><h6 class="top-a"><span class="icon-hand-o-right"> </span>Quiero comprar </h6></a></li>-->
-						<!--<li><a href="{%url 'core:contactanos'%}"><h6 class="top-a"><span class="icon-envelope"> </span> Contactanos </h6></a></li>-->
-						{%if request.session.tipo == 'vendedor'%}
-						<li><a href="{%url 'vendedor:contacto_vendedor'%}"><h6 class="top-a"><span class="icon-android-star"> </span> Suscripciones</h6></a></li>
-						{%endif%}
-					</ul>
-				</div>
-			</div>
+                  <!--<li><a href=""><h6 class="top-a"><span class="icon-question-circle"> </span>Quienes Somos </h6></a></li>-->
+                  <!--<li><a href=""><h6 class="top-a"><span class="icon-hand-o-right"> </span>Quiero comprar </h6></a></li>-->
+                  <!--<li><a href="{%url 'core:contactanos'%}"><h6 class="top-a"><span class="icon-envelope"> </span> Contactanos </h6></a></li>-->
+                  {%if request.session.tipo == 'vendedor'%}
+                  <li><a href="{%url 'vendedor:contacto_vendedor'%}"><h6 class="top-a"><span class="icon-android-star"> </span> Suscripciones</h6></a></li>
+                  {%endif%}
+               </ul>
+            </div>
+         </div>
 
-			<!--NAVBAR!-->
-			<div class="row m-0 justify-content-center barra_navbar">
-				<div class="col-12 col-sm-8 col-md-8 col-lg-10 col-xl-8 p-0 m-0">
-					<nav class="navbar navbar-expand-lg navbar-dark col-12 barra_navbar pb-1 pt-1">
-						<!--LOGO-->
-						<a class="navbar-brand TITULO p-0 mr-3" href="{%url 'core:index'%}">TuVegaApp</a>
-						<!--FIN LOGO-->
-						<p class="mb-0">
-							<!--ICONO EN MODO CELULAR-->
+         <!--NAVBAR!-->
+         <div class="row m-0 justify-content-center barra_navbar">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-10 col-xl-8 p-0 m-0">
+               <nav class="navbar navbar-expand-lg navbar-dark col-12 barra_navbar pb-1 pt-1">
+                  <!--LOGO-->
+                  <a class="navbar-brand TITULO p-0 mr-3" href="{%url 'core:index'%}">TuVegaApp</a>
+                  <!--FIN LOGO-->
+                  <p class="mb-0">
+                     <!--ICONO EN MODO CELULAR-->
                           {%if not request.user.is_authenticated%}
-							<a href="{%url 'login'%}" class="navbar-brand d-lg-none"><span class="icon-user-1"></span></a>
+                     <a href="{%url 'login'%}" class="navbar-brand d-lg-none"><span class="icon-user-1"></span></a>
                           {%endif%}
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".colapsable" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					   		<span class="navbar-toggler-icon"></span>
-					  		</button>
-							<!--FIN ICONO EN MODO CELULAR-->
-						</p>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".colapsable" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <!--FIN ICONO EN MODO CELULAR-->
+                  </p>
 
 
-					  <div class="collapse navbar-collapse colapsable " id="navbarSupportedContent">
-					    <ul class="navbar-nav mr-auto">
-							<!--MODO CEL REGISTRO Y BIENVENIDA, DESAPARECE EN VENTANA PC-->
+                 <div class="collapse navbar-collapse colapsable " id="navbarSupportedContent">
+                   <ul class="navbar-nav mr-auto">
+                     <!--MODO CEL REGISTRO Y BIENVENIDA, DESAPARECE EN VENTANA PC-->
                             {%if request.user.is_authenticated%}
                             <li class="nav-item mt-3">
-                            	<a class="navbar-brand d-lg-none" style="color: white;">Bienvenid@ {{request.user.first_name}}</a>
+                               <a class="navbar-brand d-lg-none" style="color: white;">Bienvenid@ {{request.user.first_name}}</a>
                             </li>
-							<li class="nav-item">
-						        <a class="nav-link d-lg-none {%if request.path|slice:"10:19" == 'mi_perfil'%}active{%endif%}" href="{%url 'registration:mi_perfil' request.user.id%}"><span class="icon-child"></span> Informacion Personal<span class="sr-only">(current)</span></a>
-						    </li>
+                     <li class="nav-item">
+                          <a class="nav-link d-lg-none {%if request.path|slice:"10:19" == 'mi_perfil'%}active{%endif%}" href="{%url 'registration:mi_perfil' request.user.id%}"><span class="icon-child"></span> Información Personal<span class="sr-only">(current)</span></a>
+                      </li>
                             {%else%}
                             <li class="nav-item pt-2 pb-2">
                             <a href="{%url 'login'%}" class="btn btn-success d-lg-none pr-2"><span class="icon-user-1"> </span>Ingresar</a>
                             <a href="{%url 'registration:registro'%}" class="btn btn-primary d-lg-none"><span class="icon-hand-o-right"> </span>Registrarse</a>
                             </li>
                             {%endif%}
-							<!--FIN MODO CEL-->
+                     <!--FIN MODO CEL-->
 
-							<!--INICIO TODOS LOS USUARIO-->
-						    <li class="nav-item">
-						        <a class="nav-link {%if request.path == '/'%}active{%endif%}" href="{%url 'core:index'%}">Inicio<span class="sr-only">(current)</span></a>
-						    </li>
+                     <!--INICIO TODOS LOS USUARIO-->
+                      <li class="nav-item">
+                          <a class="nav-link {%if request.path == '/'%}active{%endif%}" href="{%url 'core:index'%}">Inicio<span class="sr-only">(current)</span></a>
+                      </li>
 
-						    <li class="nav-item">
-						        <a class="nav-link {%if request.path|slice:"9:25" == 'listar_productos'%}active{%endif%}" href="{%url 'cliente:listar_productos'%}">Productos<span class="sr-only">(current)</span></a>
-						    </li>
+                      <li class="nav-item">
+                          <a class="nav-link {%if request.path|slice:"9:25" == 'listar_productos'%}active{%endif%}" href="{%url 'cliente:listar_productos'%}">Productos<span class="sr-only">(current)</span></a>
+                      </li>
 
-							<li class="nav-item">
-						        <a class="nav-link {%if request.path|slice:"9:24" == 'listado_locales'%}active{%endif%}" href="{%url 'cliente:listado_locales'%}">Locales<span class="sr-only">(current)</span></a>
-						    </li>
-							<!--FIN TODOS LOS USUARIOS-->
+                     <li class="nav-item">
+                          <a class="nav-link {%if request.path|slice:"9:24" == 'listado_locales'%}active{%endif%}" href="{%url 'cliente:listado_locales'%}">Locales<span class="sr-only">(current)</span></a>
+                      </li>
+                     <!--FIN TODOS LOS USUARIOS-->
 
-							<!--INICIO PARA VENDEDORES-->
-							{%if request.user.id is not None and request.session.tipo == 'vendedor'%}
-						    <li class="nav-item">
-						        <a class="nav-link {%if request.path|slice:"10:27" == 'panel_de_vendedor' or request.path|slice:"1:9" == 'vendedor'%}active{%endif%}" href="{%url 'vendedor:panel_de_vendedor' request.user.id%}">Panel de Vendedores<span class="sr-only">(current)</span></a>
-						    </li>
-							{%endif%}
-							<!--FIN PARA VENDEDORES-->
+                     <!--INICIO PARA VENDEDORES-->
+                     {%if request.user.id is not None and request.session.tipo == 'vendedor'%}
+                      <li class="nav-item">
+                          <a class="nav-link {%if request.path|slice:"10:27" == 'panel_de_vendedor' or request.path|slice:"1:9" == 'vendedor'%}active{%endif%}" href="{%url 'vendedor:panel_de_vendedor' request.user.id%}">Panel de Vendedores<span class="sr-only">(current)</span></a>
+                      </li>
+                     {%endif%}
+                     <!--FIN PARA VENDEDORES-->
 
-							<!--INICIO PARA CLIENTES-->
-							{%if request.user.id is not None and request.session.tipo == 'cliente'%}
-						    <li class="nav-item">
-						        <a class="nav-link {%if request.path|slice:"9:22" == 'panel_cliente'%}active{%endif%}" href="{%url 'cliente:panel_cliente' request.user.id%}">Panel de Clientes<span class="sr-only">(current)</span></a>
-						    </li>
-							{%endif%}
-							<!--FIN PARA CLIENTES Y VENDEDORES-->
+                     <!--INICIO PARA CLIENTES-->
+                     {%if request.user.id is not None and request.session.tipo == 'cliente'%}
+                      <li class="nav-item">
+                          <a class="nav-link {%if request.path|slice:"9:22" == 'panel_cliente'%}active{%endif%}" href="{%url 'cliente:panel_cliente' request.user.id%}">Panel de Clientes<span class="sr-only">(current)</span></a>
+                      </li>
+                     {%endif%}
+                     <!--FIN PARA CLIENTES Y VENDEDORES-->
 
-							<!--INICIO PARA ADMINISTRADOR-->
-							{%if request.user.id is not None and request.session.tipo == 'administrador'%}
-						    <li class="nav-item">
-						        <a class="nav-link" href="{%url 'admin:index'%}">Admin<span class="sr-only">(current)</span></a>
-						    </li>
-							<li class="nav-item">
-						        <a class="nav-link {%if request.path|slice:"10:23" == 'reporte_admin'%}active{%endif%}" href="{%url 'vendedor:reporte_admin'%}">Registros<span class="sr-only">(current)</span></a>
-						    </li>
-							{%endif%}
-							<!--FIN PARA ADMINISTRADOR-->
+                     <!--INICIO PARA ADMINISTRADOR-->
+                     {%if request.user.id is not None and request.session.tipo == 'administrador'%}
+                      <li class="nav-item">
+                          <a class="nav-link" href="{%url 'admin:index'%}">Admin<span class="sr-only">(current)</span></a>
+                      </li>
+                     <li class="nav-item">
+                          <a class="nav-link {%if request.path|slice:"10:23" == 'reporte_admin'%}active{%endif%}" href="{%url 'vendedor:reporte_admin'%}">Registros<span class="sr-only">(current)</span></a>
+                      </li>
+                     {%endif%}
+                     <!--FIN PARA ADMINISTRADOR-->
 
 
-							<!--CONTACTANOS, QUIENES SOMOS, QUIERO COMPRAR-->
-							<!--
-						    <li class="nav-item d-lg-none">
-						      	<a href="" class="nav-link {%if request.path == '/quienes_somos/'%}active{%endif%}"><span class="icon-question-circle"> </span>Quienes Somos<span class="sr-only">(current)</span></a>
-						    </li>
-							-->
-							<!--
-						    <li class="nav-item d-lg-none">
-						      	<a href="" class="nav-link {%if request.path == '/quiero_comprar/'%}active{%endif%}"><span class="icon-hand-o-right"> </span>Quiero comprar<span class="sr-only">(current)</span></a>
-						    </li>
-						    -->
+                     <!--CONTACTANOS, QUIENES SOMOS, QUIERO COMPRAR-->
+                     <!--
+                      <li class="nav-item d-lg-none">
+                         <a href="" class="nav-link {%if request.path == '/quienes_somos/'%}active{%endif%}"><span class="icon-question-circle"> </span>Quienes Somos<span class="sr-only">(current)</span></a>
+                      </li>
+                     -->
+                     <!--
+                      <li class="nav-item d-lg-none">
+                         <a href="" class="nav-link {%if request.path == '/quiero_comprar/'%}active{%endif%}"><span class="icon-hand-o-right"> </span>Quiero comprar<span class="sr-only">(current)</span></a>
+                      </li>
+                      -->
 
-						    <li class="nav-item d-lg-none">
-						      	<!--<a href="#" class="nav-link"><span class="icon-envelope"> </span>Contactanos<span class="sr-only">(current)</span></a>-->
-								{%if request.session.tipo == 'vendedor'%}
-								<a href="{%url 'vendedor:contacto_vendedor'%}" class="nav-link"><span class="icon-android-star"> </span> Suscripciones<span class="sr-only">(current)</span></a>
-								{%endif%}
-						    </li>
-							<!--FIN-->
+                      <li class="nav-item d-lg-none">
+                         <!--<a href="#" class="nav-link"><span class="icon-envelope"> </span>Contactanos<span class="sr-only">(current)</span></a>-->
+                        {%if request.session.tipo == 'vendedor'%}
+                        <a href="{%url 'vendedor:contacto_vendedor'%}" class="nav-link"><span class="icon-android-star"> </span> Suscripciones<span class="sr-only">(current)</span></a>
+                        {%endif%}
+                      </li>
+                     <!--FIN-->
 
-					    </ul>
-					    <!-- BUSQUEDA
-					    <form class="form-inline my-2 my-lg-0">
-					      <input class="form-control mr-sm-1" type="text" placeholder="Busqueda" aria-label="Search">
-					      <button class="btn my-2 color_celeste my-sm-0" type="submit" data-icon="f"></button>
-					    </form>
-					    -->
+                   </ul>
+                   <!-- BUSQUEDA
+                   <form class="form-inline my-2 my-lg-0">
+                     <input class="form-control mr-sm-1" type="text" placeholder="Busqueda" aria-label="Search">
+                     <button class="btn my-2 color_celeste my-sm-0" type="submit" data-icon="f"></button>
+                   </form>
+                   -->
                           {%if not request.user.is_authenticated%}
-					    	<a href="{%url 'login'%}" class="LOGIN d-none d-lg-block pr-3"><span class="icon-user-1"> </span>INGRESAR</a>
+                      <a href="{%url 'login'%}" class="LOGIN d-none d-lg-block pr-3"><span class="icon-user-1"> </span>INGRESAR</a>
                             <a href="{%url 'registration:registro'%}" class="LOGIN d-none d-lg-block"><span class="icon-hand-o-right"> </span>REGISTRARSE</a>
                           {%else%}
-						  <div class="dropdown show d-none d-lg-block pr-2">
-							  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								  <span class="icon-user-1"> </span> {{request.user.first_name}}
-							  </a>
+                    <div class="dropdown show d-none d-lg-block pr-2">
+                       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="icon-user-1"> </span> {{request.user.first_name}}
+                       </a>
 
-							  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" href="{%url 'registration:mi_perfil' request.user.id%}"> <span class="icon-child"></span> Informacion Personal</a>
-							  </div>
-						  </div>
+                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{%url 'registration:mi_perfil' request.user.id%}"> <span class="icon-child"></span> Información Personal</a>
+                       </div>
+                    </div>
                           <!--<a class="LOGUEADO d-none d-lg-block pr-4" style="color: white;"><span class="icon-user-1"> </span>{{request.user.first_name}}</a>-->
                           <a href="{%url 'logout'%}" class="btn btn-danger mb-3 mb-md-0"><span class="icon-sign-out"></span> Salir</a>
                           {%endif%}
-					  </div>
-					</nav>
-				</div>
-			</div>
-		</header>
+                 </div>
+               </nav>
+            </div>
+         </div>
+      </header>
 
-	<!--TERMINA HEADER!-->
+   <!--TERMINA HEADER!-->

@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-12 text-center pt-4 pb-3">
             <h2>Pedido "{{lista.nombre}}"</h2>
-            <p>Aqui podras administrar tus pedidos.</p>
+            <p>Aquí podrás administrar tus pedidos.</p>
             <hr>
         </div>
         <!--ALERTS-->
@@ -61,19 +61,19 @@
             <hr class="d-block d-sm-none">
             <h5>Comentarios del cliente</h5>
             {%if lista.comentario_cliente%}
-            <p>-{{lista.comentario_cliente}}</p>
+            <p>~{{lista.comentario_cliente}}</p>
             {%else%}
-            <p>No hay comentarios para esta lista</p>
+            <p>No hay comentarios del cliente.</p>
             {%endif%}
         </div>
 
         <div class="col-md-4 col-12 pb-md-0 pb-4">
-             <hr class="d-block d-sm-none">
+            <hr class="d-block d-sm-none">
             <h5>Comentarios del vendedor</h5>
-            {%if lista.comentario_vendedor and lista.comentario_vendedor == 'None'%}
-            <p>{{lista.comentario_vendedor}}</p>
+            {%if lista.comentario_vendedor%}
+            <p>~{{lista.comentario_vendedor}}</p>
             {%else%}
-            <p>No hay comentarios para esta lista</p>
+            <p>No hay comentarios del vendedor.</p>
             {%endif%}
         </div>
 
@@ -133,4 +133,3 @@
 
 </div>
 {%endblock%}
-

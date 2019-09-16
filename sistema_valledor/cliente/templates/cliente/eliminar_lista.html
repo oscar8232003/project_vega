@@ -5,11 +5,11 @@
 
     <div class="row justify-content-center">
         <div class="col-12 pt-4 pb-4 text-center">
-            <h2 class="pb-3">¿Estas seguro de querer eliminar "{{lista.nombre}}"?</h2>
+            <h2 class="pb-3">¿Estás seguro de querer eliminar "{{lista.nombre}}"?</h2>
             <hr class="pb-3">
             {%if request.GET.msg == 'elim_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo eliminar la lista, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo eliminar la lista, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -32,4 +32,3 @@
     </div>
 </div>
 {%endblock%}
-

@@ -30,7 +30,7 @@
             {%if request.session.tipo == 'vendedor'%}
             <p><strong>Email:</strong> {%if perfil.email|length != 0%}{{perfil.email}}{%else%}No tiene un email registrado aun{%endif%}</p>
             {%endif%}
-            <p><strong>Fecha de Creacion: </strong>{{perfil.date_joined}}</p>
+            <p><strong>Fecha de Creación: </strong>{{perfil.date_joined}}</p>
             <p><strong>Fecha Actual:</strong> {%now "d/m/y"%}</p>
 
             <a href="{%url 'password_change' %}" class="btn btn-primary"><span class="icon-pencil"></span> Actualizar contraseña</a>

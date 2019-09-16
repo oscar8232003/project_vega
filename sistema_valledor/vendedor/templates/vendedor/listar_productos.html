@@ -13,7 +13,7 @@
         <!--TITULO-->
         <div class="col-12 text-center pt-4 pb-4">
             <h2>Seccion de Productos</h2>
-            <p><em>Aqui podras ver tus productos, actualizarlos, eliminarlos, desactivarlos, etc.</em></p>
+            <p><em>Aquí podrás ver tus productos, actualizarlos, eliminarlos, desactivarlos, etc.</em></p>
             <hr>
         </div>
         <!--SECCION DE ALERTAS-->
@@ -22,11 +22,11 @@
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               <strong><span class="icon-angellist"></span>
                   {%if request.GET.msg == 'form_ok'%}
-                  El producto se ingreso con exito!
+                  El producto se ingresó con éxito!
                   {%elif request.GET.msg == 'act_ok'%}
-                  El producto se actualizo con exito!
+                  El producto se actualizo con éxito!
                   {%elif request.GET.msg == 'elim_ok'%}
-                  El producto se elimino con exito!
+                  El producto se eliminó con éxito!
                   {%endif%}
               </strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -65,7 +65,7 @@
                       <a href="{%url 'vendedor:listar_productos' request.user.id%}?categoria={{cat.id}}" class="list-group-item Categorias">{{cat.categoria}}</a>
                       {%endfor%}
                       {%else%}
-                      <p class="list-group-item">No hay categorias actualmente</p>
+                      <p class="list-group-item">No hay categorías actualmente</p>
                       {%endif%}
                   </ul>
                 </div>
@@ -85,7 +85,7 @@
                     </ul>
                 </li>
                 <li class="list-group-item active text-center btn d-block d-lg-none" data-toggle="collapse" href="#categorias_xs" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <strong>Categorias <span class="icon-angle-double-down"></span></strong>
+                    <strong>Categorías <span class="icon-angle-double-down"></span></strong>
                 </li>
                 <div class="list-group-item collapse pr-0 pl-0 pb-0" id="categorias_xs">
                   <ul class="list-group list-group-flush d-block d-lg-none">
@@ -94,7 +94,7 @@
                       <a href="{%url 'vendedor:listar_productos' request.user.id%}?categoria={{cat.id}}" class="list-group-item Categorias">{{cat.categoria}}</a>
                       {%endfor%}
                       {%else%}
-                      <p class="list-group-item">No hay categorias actualmente</p>
+                      <p class="list-group-item">No hay categorías actualmente</p>
                       {%endif%}
                   </ul>
                 </div>

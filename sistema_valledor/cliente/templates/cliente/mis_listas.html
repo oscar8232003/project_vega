@@ -12,8 +12,8 @@
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
         <div class="col-12 text-center pt-4 pb-1">
-            <h2>Bienvenido a tu seccion de Listas de compras!</h2>
-            <p class="text-muted"><em>Aqui podras ver tus listas, actualizarlas y borrarlas.</em></p>
+            <h2>Bienvenido a tu sección de Listas/Pedidos de compras!</h2>
+            <p class="text-muted"><em>Aquí podrás ver tus listas de compras o verificar el estado de tu pedido de compras</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
@@ -23,11 +23,11 @@
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               <strong><span class="icon-angellist"></span>
                   {%if request.GET.msg == 'form_ok'%}
-                  La lista se creo con exito!
+                  La lista se creó con éxito!
                   {%elif request.GET.msg == 'act_ok'%}
-                  La lista se actualizo con exito!
+                  La lista se actualizo con éxito!
                   {%elif request.GET.msg == 'elim_ok'%}
-                   La lista se elimino con exito!
+                   La lista se eliminó con éxito!
                   {%endif%}
               </strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -60,7 +60,7 @@
 
         <div class="col-7 col-md-4 mt-4 mt-md-4 text-center">
             <li class="list-group-item active text-center btn btn-small bg-base bc-base"  data-toggle="collapse" href="#categorias_lg" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <strong>Estado de listas <span class="icon-angle-double-down"></span></strong>
+                    <strong>Estado de listas/pedidos <span class="icon-angle-double-down"></span></strong>
                 </li>
                 <div class="list-group-item collapse pr-0 pl-0" id="categorias_lg">
                   <ul class="list-group list-group-flush">
@@ -109,7 +109,7 @@
                         </a>
                     </p>
                       <!--Fecha creacion-->
-                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Actualizacion: <strong>{{lista.fecha_actualizacion|date:"d/m/Y"}}</strong></p>
+                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Actualización: <strong>{{lista.fecha_actualizacion|date:"d/m/Y"}}</strong></p>
                       <!--Local-->
                     <p class="small text-muted mb-1">Local: <strong>{{lista.local.nombre_local}}</strong></p>
                       <!--Total-->
@@ -192,4 +192,3 @@
     </div>
 </div>
 {%endblock%}
-

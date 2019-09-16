@@ -4,8 +4,8 @@
 <div class="container container-whithe shadow-sm">
     <div class="row">
         <div class="col-12 pt-3 pb-3 text-center">
-            <h2>Seccion de edicion de productos</h2>
-            <p>Podras actualizar los productos a tu gusto, recuerda el limite diario de cambios de precios en los productos.</p>
+            <h2>Seccion de edición de productos</h2>
+            <p>Podrás actualizar los productos a tu gusto, recuerda el limite diario de cambios de precios en los productos.</p>
             <hr>
         </div>
 
@@ -13,7 +13,7 @@
         <div class="col-12 text-center">
             {%if request.GET.msg == 'act_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo actualizar el producto, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo actualizar el producto, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -121,14 +121,14 @@
             <div class="w-100"></div>
             <div class="col-12 col-sm-4 form-group">
                 <p><strong>Imagen actual: </strong></p>
-				<img src="/media/{{form.imagen.value}}" alt="alt_img_value" class="rounded mb-3" style="max-width: 200px;">
-				<br>
+            <img src="/media/{{form.imagen.value}}" alt="alt_img_value" class="rounded mb-3" style="max-width: 200px;">
+            <br>
                 {{form.imagen}}
             </div>
 
             <div class="col-12 form-group text-center mt-3">
-				<button type="submit" class="btn btn-primary"><span data-icon="u"></span> Actualizar</button>
-			</div>
+            <button type="submit" class="btn btn-primary"><span data-icon="u"></span> Actualizar</button>
+         </div>
         </form>
     <div class="row justify-content-center">
         <div class="col-12 m-4">

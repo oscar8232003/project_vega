@@ -13,28 +13,28 @@
     <div class="row pb-4 justify-content-center">
         <div class="col-12 text-center pt-3">
             <h2>Agregar una oferta al local</h2>
-            <p>Aqui puedes agregar <strong>ofertas para que captes mas publico</strong>, recuerda que puedes crear ofertas ahora y activarlas mas tarde.</p>
+            <p>Aquí puedes agregar <strong>ofertas para que captes más publico</strong>, recuerda que puedes crear ofertas ahora y activarlas más tarde.</p>
             <hr>
         </div>
          <!--ALERTS-->
         <div class="col-12 text-center">
             {%if request.GET.msg == 'form_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo agregar la oferta, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo agregar la oferta, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             {%elif request.GET.msg == 'general_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo agregar la oferta, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo agregar la oferta, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             {%elif request.GET.msg == 'premium_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo agregar la oferta, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo agregar la oferta, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -93,4 +93,3 @@
         <!--FIN CONTENIDO-->
 </div>
 {%endblock%}
-

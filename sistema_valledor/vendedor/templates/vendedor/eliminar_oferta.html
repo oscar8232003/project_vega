@@ -11,14 +11,14 @@
 <div class="container container-whithe shadow-sm">
     <div class="row pt-3 pb-3">
         <div class="col-12 pb-3 text-center">
-            <h2>¿Estas seguro de querer eliminar esta oferta?</h2>
-            <p><em>Recuerda que al eliminar una oferta, no se podra recuperar, tambien puedes desactivarla.</em></p>
+            <h2>¿Estás seguro de querer eliminar esta oferta?</h2>
+            <p><em>Recuerda que al eliminar una oferta, no se podrá recuperar, también puedes desactivarla.</em></p>
             <hr>
 
             <img src="/media/core/papelera.webp" alt="simbolo_eliminar" width="200px">
             {%if request.GET.msg == 'elim_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se pudo eliminar el producto, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se pudo eliminar el producto, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -41,4 +41,3 @@
 
 </div>
 {%endblock%}
-

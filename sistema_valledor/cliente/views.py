@@ -229,7 +229,8 @@ def Detalle_Locales(request,id):
         arr_valorizaciones = []
         for x in valorizaciones_de_personas:
             if len(arr_valorizaciones) < 6:
-                arr_valorizaciones.append(x)
+                if len(x.comentarios) > 0:
+                    arr_valorizaciones.append(x)
             else:
                 break
 
@@ -406,7 +407,7 @@ def Detalle_Listas(request,id):
             elif valorizar:
                 valor = request.POST.get('valor', None)
                 if valor != '':
-                    comentarios = request.POST.get('comentarios_valorizacion', None)
+                    comentarios = request.POST.get('comentarios_valorizacion', None).strip()
                     try:
                         valor = int(valor)
                     except:
@@ -633,7 +634,7 @@ def Actualizar_Listas(request, id):
         form = FormListas(instance=lista)
         if request.method == 'POST':
             lista.nombre = request.POST.get('nombre')
-            lista.comentario_cliente = request.POST.get('comentario_cliente')
+            lista.comentario_cliente = request.POST.get('comentario_cliente').strip()
             lista.save()
             if request.GET.get('msg', None) == 'act_lista':
                 return redirect(reverse('cliente:detalle_listas', args=[id]) + '?msg=act_ok')

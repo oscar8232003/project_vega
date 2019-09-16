@@ -5,8 +5,8 @@
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
         <div class="col-12 text-center pt-3 pb-3">
-            <h2>Bienvenido a la seccion dedicada a tu tienda</h2>
-            <p><em>Aqui podras administrar todo lo relacionado con la informacion de tu local.</em></p>
+            <h2>Bienvenido a la sección dedicada a tu tienda</h2>
+            <p><em>Aquí podrás administrar todo lo relacionado con la información de tu tienda.</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
@@ -34,20 +34,26 @@
         <!--CONTENIDO-->
         <div class="col-12 pb-5">
             <p class="h4">Imagen de banner</p>
-            <img src="/media/{{local.imagen_banner}}" alt="alt_imagen_banner" class="img-fluid">
+            {%if local.imagen_banner%}
+                <img src="/media/{{local.imagen_banner}}" alt="alt_imagen_banner" class="img-fluid">
+            {%endif%}
         </div>
 
         <div class="col-12 col-md-4 text-center">
             <p class="h4">Imagen de muestra</p>
-            <img src="/media/{{local.imagen_muestra}}" alt="alt_imagen_banner" width="200px">
+            {%if local.imagen_muestra%}
+                <img src="/media/{{local.imagen_muestra}}" alt="alt_imagen_muestra" width="200px" class="rounded">
+            {%else%}
+                <img src="/media/core/sin_imagen.webp" alt="alt_sin_imagen_muestra" width="200px">
+            {%endif%}
         </div>
 
         <div class="col-12 col-md-8">
             <p class="h5">Nombre del local</p>
-            <p class="h6">{{local.nombre_local}}</p>
-            <p class="h5">Ubicacion del local</p>
-            <p class="h6">{{local.ubicacion_local}}</p>
-            <p class="h5">El local esta activo actualmente?</p>
+            <p class="h6 pb-2">{{local.nombre_local}}</p>
+            <p class="h5">Ubicación del local</p>
+            <p class="h6 pb-2">{{local.ubicacion_local}}</p>
+            <p class="h5">El local está activo actualmente?</p>
             {%if local.activado%}
             <p class="h6">Si</p>
             {%else%}
@@ -62,4 +68,3 @@
     </div>
 </div>
 {%endblock%}
-

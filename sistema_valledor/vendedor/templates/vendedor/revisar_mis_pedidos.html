@@ -1,5 +1,5 @@
 {%extends 'core/base.html'%}
-{%block title%}Revision de pedidos{%endblock%}
+{%block title%}Revisión de pedidos{%endblock%}
 {%block content%}
 <div class="container">
     <div class="row">
@@ -17,7 +17,7 @@
             <!--ALERT-->
             {%if request.GET.msg == 'form_error'%}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <span class="icon-exclamation-triangle"></span> No se actualizar el estado de la lista, intentelo otra vez.
+              <span class="icon-exclamation-triangle"></span> No se actualizar el estado de la lista, inténtelo otra vez.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -28,7 +28,7 @@
         <!--FIN TITULO-->
         {%csrf_token%}
         <div class="col-12 col-md-5 form-group p-0">
-            <label>Nuevo estado de la lista</label>
+            <label>Nuevo estado de la lista/pedido</label>
             <select name="lista" class="form-control" id="id_lista">
                 <option value="enviada"{%if lista.estado_lista == 'enviada'%} selected{%endif%}>Enviada</option>
                 <option value="armando_pedido"{%if lista.estado_lista == 'armando_pedido'%} selected{%endif%}>Armando Pedido</option>
@@ -57,4 +57,3 @@
     </form>
 </div>
 {%endblock%}
-

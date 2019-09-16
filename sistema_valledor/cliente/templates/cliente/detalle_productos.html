@@ -30,22 +30,20 @@
             <p class="mb-0"><strong>Stock</strong></p>
             <p>{{object.stock}} {{object.unidad_medida.medida_plural}}</p>
 
-            <p class="mb-0"><strong>Categoria</strong></p>
+            <p class="mb-0"><strong>Categoría</strong></p>
             <p><em>{{object.categoria}}</em></p>
 
-            <p class="mb-0"><strong>Unidad de Medida</strong></p>
-            <p>{{object.unidad_medida}}</p>
 
-            <p class="mb-0"><strong>Comentario</strong></p>
+            <p class="mb-0"><strong>Comentarios del productos</strong></p>
             {%if object.Comentario%}
             <p>{{object.Comentario}}</p>
             {%else%}
-            <p>No se cuenta con descripcion el producto</p>
+            <p>No se cuenta con descripción el producto</p>
             {%endif%}
             <!--ALERTS-->
             {%if request.GET.msg == 'form_no_valid'%}
             <div class="alert alert-danger alert-dismissible fade show text-center col-12 col-md-10" role="alert">
-              <span class="icon-exclamation-triangle"></span> <strong>No se pudo agregar el producto, intentelo otra vez.</strong>
+              <span class="icon-exclamation-triangle"></span> <strong>No se pudo agregar el producto, inténtelo otra vez.</strong>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -124,7 +122,7 @@
                         <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary">Crear una lista para esta tienda</a>
                     </div>
                     {%else%}
-                    <p class="text-center"><strong>No tienes una lista valida para esta tienda, ve a crear una!</strong></p>
+                    <p class="text-center"><strong>No tienes una lista válida para esta tienda, ve a crear una!</strong></p>
                     <div class="col-12 form-group p-0 text-center">
                         <a href="{%url 'cliente:agregar_lista'%}?nombre={{local.nombre_local}}" class="btn btn-primary">Crear una lista para esta tienda</a>
                     </div>
@@ -138,3 +136,4 @@
     </div>
 </div>
 {%endblock%}
+

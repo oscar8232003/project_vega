@@ -11,7 +11,7 @@
         {%if request.GET.msg == 'error_user'%}
         <div class="col-12 text-center col-sm-6">
              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <h6><strong><span class="icon-exclamation-triangle"></span> El rut ya esta registrado</strong></h6>
+              <h6><strong><span class="icon-exclamation-triangle"></span> El rut ya está registrado</strong></h6>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -70,7 +70,7 @@
                 <li style="list-style:none"><strong>Recuerde</strong></li>
                 <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede asemejarse tanto a su otra información personal.</small></li>
                 <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña debe contener al menos 8 caracteres.</small></li>
-                <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser una clave utilizada comunmente.</small></li>
+                <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser una clave utilizada comúnmente.</small></li>
                 <li style="list-style:none"><small><span class="icon-hand-o-right"></span> Su contraseña no puede ser completamente numérica.</small></li>
             </ul>
 
@@ -90,7 +90,7 @@
         </div>
 
         <div class="w-100"></div>
-        
+
         <div class="col-12 col-sm-5 form-group pb-2">
             <label for="id_respuesta_secreta">Seleccione una pregunta</label>
             <select name="pregunta_secreta" id="id_pregunta_secreta" class="form-control">
@@ -99,13 +99,13 @@
                     <option value="{{x.id}}">{{x.pregunta}}</option>
                 {%endfor%}
             </select>
-            <small>Esta pregunta sirve para la recuperacion de contraseña</small>
+            <small>Esta pregunta sirve para la recuperación de contraseña</small>
             <div class="invalid-feedback">
                 <p id="id_pregunta_secreta-invalid" class="m-0"></p>
             </div>
         </div>
         <div class="w-100"></div>
-        
+
         <div class="col-12 col-sm-5 form-group pb-2">
             <label for="id_respuesta_secreta">Respuesta Secreta</label>
             <input type="text" name="respuesta_secreta" autofocus id="id_respuesta_secreta" class="form-control" placeholder="Ingrese su respuesta secreta"/>
@@ -131,7 +131,7 @@
     {%else%}
     <div class="row">
         <div class="col-12 text-center p-5">
-            <h3>Ya estas logeado, <a href="{%url 'core:index'%}">Haz click aqui para ir al index</a></h3>
+            <h3>Ya estas logeado, <a href="{%url 'core:index'%}">Haz Click aquí para ir al inicio</a></h3>
         </div>
     </div>
     {%endif%}

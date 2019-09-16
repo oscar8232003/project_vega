@@ -287,18 +287,25 @@ def Actualizar_Local(request, id):
         local = Local.objects.get(user=id)
         local_form = Local_form(instance=local)
         if request.method == 'POST':
-            form = Local_form(request.POST, request.FILES, instance=local)
-            try:
-                id_user = int(request.POST['user'])
-            except:
-                id_user = None
-            if form.is_valid() and id_user == request.user.id:
-                form.save()
-                local.activado=True
+            boton_restablecer = request.POST.get('imagen_defecto', None)
+            print(boton_restablecer)
+            if boton_restablecer is not None:
+                local.imagen_banner = 'vendedor/Mi_Tienda.webp'
                 local.save()
-                return redirect(reverse('vendedor:mi_tienda', args=[request.user.id]) + '?msg=act_ok')
+                return redirect(reverse('vendedor:mi_tienda', args=[request.user.id])+'?msg=act_ok')
             else:
-                return redirect(reverse('vendedor:actualizar_mi_tienda', args=[request.user.id]) + '?msg=act_error')
+                form = Local_form(request.POST, request.FILES, instance=local)
+                try:
+                    id_user = int(request.POST['user'])
+                except:
+                    id_user = None
+                if form.is_valid() and id_user == request.user.id:
+                    form.save()
+                    local.activado = True
+                    local.save()
+                    return redirect(reverse('vendedor:mi_tienda', args=[request.user.id]) + '?msg=act_ok')
+                else:
+                    return redirect(reverse('vendedor:actualizar_mi_tienda', args=[request.user.id]) + '?msg=act_error')
         return render(request, 'vendedor/actualizar_mi_tienda.html',{'form':local_form})
     else:
         return redirect('registration:sin_permiso')
@@ -390,7 +397,7 @@ def Revisar_Listas(request, id):
             if estado != 'normal' and (estado == 'lista_retiro' or estado == 'armando_pedido' or estado == 'enviada'
                                        or estado == 'cancelada' or estado == 'no_retirada' or estado == 'completada'):
                 lista.estado_lista = request.POST.get('lista')
-                lista.comentario_vendedor = request.POST.get('comentarios')
+                lista.comentario_vendedor = request.POST.get('comentarios').strip()
                 lista.save()
                 #DEVOLVER STOCK SI SE CANCELA O NO SE RETIRA
                 if estado == 'cancelada' or estado == 'no_retirada':

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 text-center pt-4 pb-2">
             <h2>Reporte de Pedidos</h2>
-            <em>Aqui tienes el reporte de los pedidos que haz hecho hasta ahora</em>
+            <em>Aquí tienes el reporte de los pedidos que has hecho hasta ahora</em>
             <hr>
         </div>
     </div>
@@ -86,8 +86,8 @@
         <div class="col-12 pb-4">
             <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#tabla_colapsada"
                     aria-expanded="false" aria-controls="collapseExample">
-                <span class="icon-angle-double-down"></span> Haz click aqui para ver los registros
-                {%if criterio%} de busqueda "{{criterio}}"{%endif%}
+                <span class="icon-angle-double-down"></span> Haz Click aquí para ver los registros
+                {%if criterio%} de búsqueda "{{criterio}}"{%endif%}
                 <span class="icon-angle-double-down"></span>
             </button>
 
@@ -100,7 +100,7 @@
                       <thead>
                         <tr>
                           <th scope="col">Local</th>
-                          <th scope="col">Cantidad de Items</th>
+                          <th scope="col">Cantidad de Ítems</th>
                           <th scope="col">Cantidad de Productos</th>
                           <th scope="col">Total</th>
                           <th scope="col">Fecha de registro</th>
@@ -123,7 +123,7 @@
                       </tbody>
                     </table>
                 {%else%}
-                <h4 class="pt-3 text-center">No hay datos para mostar</h4>
+                <h4 class="pt-3 text-center">No hay datos para mostrar</h4>
                 <img src="/media/core/triste.webp" alt="no_hay_datos_reporte" width="100px">
                {%endif%}
             </div>
@@ -133,7 +133,7 @@
         <div class="col-12 pb-4 d-flex flex-wrap">
         <!--Seccion de reporteria de productos-->
             <div class="col-md-6 col-12 pt-3">
-                <h4 class="text-center">Informacion de los Pedidos</h4>
+                <h4 class="text-center">Información de los Pedidos</h4>
                 <p class="m-0">Tienes <span class="badge badge-primary">{{dic_datos.total_pedidos}}</span> Pedidos de diferentes estados</p>
                 <div class="progress mb-2">
                   <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
@@ -157,9 +157,9 @@
 
                 <hr>
 
-                <h4 class="text-center">Informacion de Compras en tiendas en el {%now "Y"%}</h4>
+                <h4 class="text-center">Información de Compras en tiendas en el {%now "Y"%}</h4>
                 {%for x in dic_datos.veces_compradas_total%}
-                <button class="btn btn-primary" type="button" disabled>
+                <button class="btn btn-primary mb-2" type="button" disabled>
                   <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                   <strong>{{x.tienda}},</strong> <strong>{{x.cantidad}}</strong> compras hechas, sumando
                 un total de <strong>{{x.total}}</strong>
@@ -178,7 +178,7 @@
                       <th scope="col">Mes</th>
                       <th scope="col">Total</th>
                       <th scope="col">Total Productos</th>
-                      <th scope="col">Total Items</th>
+                      <th scope="col">Total Ítems</th>
                     </tr>
                   </thead>
                   <tbody>

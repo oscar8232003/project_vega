@@ -12,8 +12,8 @@
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
         <div class="col-12 text-center pt-4 pb-2">
-            <h2>Bienvenido a la seccion de pedidos.</h2>
-            <p><em>Aqui podras administrar los pedidos que llegan al local lo antes posible!</em></p>
+            <h2>Bienvenido a la sección de pedidos.</h2>
+            <p><em>Aquí podrás administrar los pedidos que llegan al local lo antes posible!</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
@@ -74,7 +74,7 @@
                         </a>
                     </p>
                       <!--Fecha creacion-->
-                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Actualizacion: <strong>{{lista.fecha_actualizacion|date:"d/m/Y"}}</strong></p>
+                    <p class="small text-muted d-none d-sm-block mb-1">Fecha Actualización: <strong>{{lista.fecha_actualizacion|date:"d/m/Y"}}</strong></p>
                       <!--Total-->
                     <p class="mb-1">Total: <strong>$ {{lista.total}}</strong></p>
                       <!--Estado-->
@@ -95,9 +95,9 @@
 
                     <!--Botones-->
                       <!--Botones PC-->
-                     <p class="d-none d-sm-block mb-1"><a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Ver mas</a></p>
+                     <p class="d-none d-sm-block mb-1"><a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Ver más</a></p>
                       <!--Botones Mobile-->
-                     <p class="d-sm-none mb-1"><a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Ver mas</a></p>
+                     <p class="d-sm-none mb-1"><a href="{%url 'vendedor:detalle_mis_pedidos' lista.id%}" class="btn btn-primary"><span data-icon="u"></span> Ver más</a></p>
                   </div>
                 </div>
             </div>
@@ -139,4 +139,3 @@
     </div>
 </div>
 {%endblock%}
-

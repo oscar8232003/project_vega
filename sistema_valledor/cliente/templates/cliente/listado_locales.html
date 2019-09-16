@@ -11,18 +11,15 @@
 <div class="container container-whithe shadow">
     <div class="row pb-4 justify-content-center">
         <!--TITULO-->
-        <div class="col-12 text-center pt-5 pb-4">
-            <h2>Bienvenido a la seccion de los Locales</h2>
-            <p><em>Aqui encontraras todas las tiendas ligadas a TuVegaApp</em></p>
+        <div class="col-12 text-center pt-4 pb-4">
+            <h2>Bienvenido a la sección de Locales</h2>
+            <p><em>Aquí encontraras todas las tiendas ligadas a TuVegaApp</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
     </div>
     <div class="row justify-content-center">
         <!--OBJETO LISTA-->
-        <div class="col-sm-10 col-12 pb-3">
-            <p><a href="{%url 'cliente:listado_locales'%}?pdf=yes" class="btn btn-danger">Descargar detalle de las tiendas</a></p>
-        </div>
         {%for obj in locales%}
             {%if obj.nombre_local != 'Sin definir'%}
             <!--El contenedor de obj-->
@@ -55,7 +52,7 @@
                                 {%endfor%}
                             </p>
                         {%endif%}
-                        <p class="d-none d-sm-block m-0">Ubicacion:  <strong>{{obj.ubicacion_local}}</strong></p>
+                        <p class="d-none d-sm-block m-0">Ubicación:  <strong>{{obj.ubicacion_local}}</strong></p>
 
                         {%if obj.productos != 0 or obj.productos_oferta != 0 %}
                         <p class="m-0">Contamos con</p>
@@ -90,4 +87,3 @@
     </div>
 </div>
 {%endblock%}
-

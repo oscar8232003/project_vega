@@ -13,13 +13,13 @@
         <!--TITULO-->
         <div class="col-12 text-center pt-3 pb-3">
             <h2>Bienvenido al Panel de Vendedores de <span class="TITULO">TuVegaApp</span></h2>
-            <p><em>Aqui podras administrar todo lo relacionado con tu local</em></p>
+            <p><em>Aquí podrás administrar todo lo relacionado con tu local</em></p>
             <hr>
         </div>
         <!--FIN TITULO-->
         {%if vendedor.activado == False%}
         <div class="col-12 p-3 text-center">
-            <h4>Lo siento, no tienes un local activado actualmente, contactanos para mas informacion.</h4>
+            <h4>Lo siento, no tienes un local activado actualmente, contáctanos para más información.</h4>
             <img src="/media/core/triste.webp" alt="alt_triste" width="200px" class="img-fluid">
         </div>
         <!--MENSAJE-->
@@ -28,7 +28,7 @@
         <!--BARRA IZQUIERA-->
         <div class="col-12 col-lg-3 pb-3">
             <!--BARRA IZQUIERA XL-->
-            <h3 class="text-center pb-3">Menu</h3>
+            <h3 class="text-center pb-3">Menú</h3>
             <div class="list-group d-none d-lg-block">
               <a href="{%url 'vendedor:panel_de_vendedor' request.user.id%}" class="list-group-item list-group-item-action active">Panel del Vendedor</a>
               <a href="{%url 'vendedor:mi_tienda' request.user.id%}" class="list-group-item list-group-item-action">Mi tienda</a>
@@ -167,7 +167,7 @@
                             {{oferta_general.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                    <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
+                    <p>No hay ofertas actualmente para esta sección <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
                     <hr>
                 </div>
@@ -198,7 +198,7 @@
                             {{oferta_temporada.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
+                        <p>No hay ofertas actualmente para esta sección <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
                     <hr>
                 </div>
@@ -231,7 +231,7 @@
                             {{oferta_diamante.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
+                        <p>No hay ofertas actualmente para esta sección <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
 
                     <p><strong>Clientes Oro</strong></p>
@@ -260,7 +260,7 @@
                             {{oferta_oro.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
+                        <p>No hay ofertas actualmente para esta sección <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
 
                     <p><strong>Clientes Plata</strong></p>
@@ -289,7 +289,7 @@
                             {{oferta_plata.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
+                        <p>No hay ofertas actualmente para esta sección <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
                     <hr>
                 </div>
@@ -320,7 +320,7 @@
                             {{oferta_convencional.oferta}}</p>
                         {%endfor%}
                     {%else%}
-                        <p>No hay ofertas actualmente para esta seccion <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
+                        <p>No hay ofertas actualmente para esta sección <a href="{%url 'vendedor:agregar_oferta' request.user.id%}" class="btn btn-success btn-sm">Agregar una oferta</a></p>
                     {%endif%}
 
                 </div>
@@ -340,7 +340,7 @@
                 {%if prod.tipo_premium != 0%}
                 , expira el {{prod.fecha_caducidad}}</p>
                 {%else%}
-                , si quiere mejorar su cuenta, contactenos por los planes de suscripcion.
+                , si quiere mejorar su cuenta, contáctenos por los planes de suscripción.
                 {%endif%}
         </div>
         <!--MENU-->
@@ -348,4 +348,3 @@
     </div>
 </div>
 {%endblock%}
-
