@@ -3,58 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="253a218f-4fef-46d0-944e-4fec62b195a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/actualizar_listas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/actualizar_listas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/actualizar_producto_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/actualizar_producto_lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/agregar_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/agregar_lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalle_lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalle_locales.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalle_productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/eliminar_lista.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/listado_locales.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/listado_locales.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/listado_productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/listar_productos_tiendas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/mis_listas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/panel_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/reporte_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/reporte_pedidos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/seleccion_reportes.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/seleccion_reportes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/templates/cliente/verificar_marcado_detalle_listas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cliente/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/slide.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/slider.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/mi_perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/mi_perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/password_change_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_change_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/password_change_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/recuperacion_cliente.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/recuperacion_vendedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/recuperacion_vendedor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/registro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/seleccion_usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/sin_permiso.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/sin_permiso.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/templates/registration/update_perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/templates/registration/update_perfil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_mi_tienda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_oferta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/actualizar_productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_oferta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/agregar_productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/contacto_vendedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/contacto_vendedor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/detalle_mis_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/detalle_mis_pedidos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_oferta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/eliminar_producto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/listar_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/listar_productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/mi_tienda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_ofertas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/mis_pedidos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/panel_vendedor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_premium.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_premium.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_registro_listas.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/reporte_registro_listas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/revisar_mis_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/revisar_mis_pedidos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/templates/vendedor/seleccion_reportes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendedor/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vendedor/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +91,15 @@
       <workItem from="1565498912524" duration="4961000" />
       <workItem from="1565664498582" duration="10000" />
       <workItem from="1568497285653" duration="18493000" />
-      <workItem from="1568561781206" duration="4152000" />
+      <workItem from="1568561781206" duration="4758000" />
+      <workItem from="1571019015009" duration="46000" />
+      <workItem from="1571596377699" duration="563000" />
+      <workItem from="1571596981865" duration="5283000" />
+      <workItem from="1571687782616" duration="660000" />
+      <workItem from="1572211669107" duration="855000" />
+      <workItem from="1574299491426" duration="17000" />
+      <workItem from="1574299571811" duration="103000" />
+      <workItem from="1574299686141" duration="1221000" />
     </task>
     <servers />
   </component>

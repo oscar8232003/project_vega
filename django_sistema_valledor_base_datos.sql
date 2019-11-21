@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2019 a las 03:29:21
+-- Tiempo de generación: 21-11-2019 a las 03:55:13
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -36,11 +36,6 @@ CREATE TABLE `auth_group` (
   `name` varchar(80) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `auth_group`
---
-
-TRUNCATE TABLE `auth_group`;
 -- --------------------------------------------------------
 
 --
@@ -54,11 +49,6 @@ CREATE TABLE `auth_group_permissions` (
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `auth_group_permissions`
---
-
-TRUNCATE TABLE `auth_group_permissions`;
 -- --------------------------------------------------------
 
 --
@@ -73,11 +63,6 @@ CREATE TABLE `auth_permission` (
   `codename` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `auth_permission`
---
-
-TRUNCATE TABLE `auth_permission`;
 --
 -- Volcado de datos para la tabla `auth_permission`
 --
@@ -206,22 +191,18 @@ CREATE TABLE `auth_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Truncar tablas antes de insertar `auth_user`
---
-
-TRUNCATE TABLE `auth_user`;
---
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-07-09 01:18:27.764454', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
-(11, 'pbkdf2_sha256$120000$oL1ldtiU64FF$u8E8L/xFmiriNECE3ovI9UKYi8MoyoRswolQr3z/D6w=', '2019-07-08 22:43:38.839587', 0, '19.169.969-6', 'Premium3', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
+(1, 'pbkdf2_sha256$120000$XhK1CpZyFyh1$+7GaT5/wMIpSF2Wc7nBqVaPwTCWAdZkoV/iAXuuI1wE=', '2019-09-10 03:23:05.104198', 1, 'root', 'Admin', '', 'nerd.16@hotmail.cl', 1, 1, '2019-03-22 00:49:11.000000'),
+(11, 'pbkdf2_sha256$120000$YKBOYlzyx1ZC$7hw/9HrP7Kylduy85RqNruFFUUHJojpmtX+hjz2Bsy0=', '2019-11-21 01:42:25.150930', 0, '19.169.969-6', 'Premium3', 'Valenzuela', 'nerd.16@hotmail.cl', 0, 1, '2019-03-27 21:47:59.000000'),
 (25, 'pbkdf2_sha256$120000$AdQ6X0CkWOIr$inK04wTLN4ltkh9fhhiSvLI2JdZqERolIZg6tLf4WYw=', '2019-07-08 21:45:43.532881', 0, '19.169.969-5', 'Premium2', '', '', 0, 1, '2019-07-08 21:20:44.000000'),
 (26, 'pbkdf2_sha256$120000$hFC1gjGbk0Yh$+pQz522h2dPN3FNKO6p/HNMen6Y1nBo495i7+V/aZ5Q=', '2019-07-08 22:37:03.748944', 0, '19.169.969-4', 'Premium1', '', '', 0, 1, '2019-07-08 21:21:09.000000'),
-(27, 'pbkdf2_sha256$120000$fiVN8T7peMGV$LWdCClbGd+YMYCEg0ZYKSM4yIFmuoILq5+2WH7QrYv0=', '2019-07-08 22:39:31.556839', 0, '12.493.793-0', 'Cliente1', '', '', 0, 1, '2019-07-08 21:21:45.000000'),
+(27, 'pbkdf2_sha256$120000$fiVN8T7peMGV$LWdCClbGd+YMYCEg0ZYKSM4yIFmuoILq5+2WH7QrYv0=', '2019-10-28 01:30:30.405398', 0, '12.493.793-0', 'Cliente1', '', '', 0, 1, '2019-07-08 21:21:45.000000'),
 (28, 'pbkdf2_sha256$120000$petCJzUg29Nc$uXVVrKmMFV2I16jMWUESvuyaa0xODk3hxvfn4WiqApo=', NULL, 0, '12.493.793-1', 'cliente2', '', '', 0, 1, '2019-07-08 21:22:29.000000'),
-(29, 'pbkdf2_sha256$120000$Wj616OOhfwyX$hOeYolpPABNQrvtnAd+bk4XdNyiQor1gJdC01I8Ws+o=', '2019-07-08 23:01:01.789867', 0, '19.361.998-2', 'Premium0', '', '', 0, 1, '2019-07-08 21:33:32.000000');
+(29, 'pbkdf2_sha256$120000$Wj616OOhfwyX$hOeYolpPABNQrvtnAd+bk4XdNyiQor1gJdC01I8Ws+o=', '2019-07-08 23:01:01.789867', 0, '19.361.998-2', 'Premium0', '', '', 0, 1, '2019-07-08 21:33:32.000000'),
+(30, 'pbkdf2_sha256$120000$TC687SQwbq1c$A7fidj+7krvn66cEKHAhhU80iWrsJPcBWgPB6bwcwx4=', '2019-08-04 23:00:56.215223', 0, '19.169.969-0', 'Prueba', '', '', 0, 1, '2019-08-04 22:18:12.616621');
 
 --
 -- Disparadores `auth_user`
@@ -250,11 +231,6 @@ CREATE TABLE `auth_user_groups` (
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `auth_user_groups`
---
-
-TRUNCATE TABLE `auth_user_groups`;
 -- --------------------------------------------------------
 
 --
@@ -268,11 +244,6 @@ CREATE TABLE `auth_user_user_permissions` (
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `auth_user_user_permissions`
---
-
-TRUNCATE TABLE `auth_user_user_permissions`;
 -- --------------------------------------------------------
 
 --
@@ -281,34 +252,29 @@ TRUNCATE TABLE `auth_user_user_permissions`;
 
 DROP TABLE IF EXISTS `cliente_listas`;
 CREATE TABLE `cliente_listas` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `total` int(10) UNSIGNED DEFAULT NULL,
-  `fecha_enviado` date DEFAULT NULL,
-  `fecha_expiracion` date DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `comentario_cliente` longtext COLLATE utf8_spanish_ci,
-  `comentario_vendedor` longtext COLLATE utf8_spanish_ci,
-  `estado_lista` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `fecha_actualizacion` datetime(6) DEFAULT NULL,
-  `cancelaciones` int(10) UNSIGNED,
-  `total_marcado` int(10) UNSIGNED,
-  `valorizacion` tinyint(1)
+  `id` int(11) NOT NULL COMMENT 'LLave Primaria de la tabla',
+  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre de la lista',
+  `total` int(10) UNSIGNED DEFAULT NULL COMMENT 'Total de la lista',
+  `fecha_enviado` date DEFAULT NULL COMMENT 'Fecha de envio de la lista',
+  `fecha_expiracion` date DEFAULT NULL COMMENT 'Fecha de expiracion de la lista',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia de id del local',
+  `comentario_cliente` longtext COLLATE utf8_spanish_ci COMMENT 'Comentarios del cliente',
+  `comentario_vendedor` longtext COLLATE utf8_spanish_ci COMMENT 'Comentarios del vendedor',
+  `estado_lista` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Estado de la lista',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Referencia del usuario dueño de la lista',
+  `fecha_actualizacion` datetime(6) DEFAULT NULL COMMENT 'Fecha de actualizacion de la lista',
+  `cancelaciones` int(10) UNSIGNED DEFAULT NULL COMMENT 'Numero de cancelaciones restantes del cliente',
+  `total_marcado` int(10) UNSIGNED DEFAULT NULL COMMENT 'Total de la lista de los items marcados',
+  `valorizacion` tinyint(1) DEFAULT NULL COMMENT 'Valorizacion de la lista por parte del cliente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `cliente_listas`
---
-
-TRUNCATE TABLE `cliente_listas`;
 --
 -- Volcado de datos para la tabla `cliente_listas`
 --
 
 INSERT INTO `cliente_listas` (`id`, `nombre`, `total`, `fecha_enviado`, `fecha_expiracion`, `local_id`, `comentario_cliente`, `comentario_vendedor`, `estado_lista`, `user_id`, `fecha_actualizacion`, `cancelaciones`, `total_marcado`, `valorizacion`) VALUES
-(16, 'Cotizacion kampito', 23400, '2019-07-08', NULL, 1, 'Pedido avisarme al +5691237671, gracias!', '', 'completada', 27, '2019-07-08 22:59:27.142761', 5, 23400, 1),
-(17, 'Lista del sabado', 59500, '2019-07-08', NULL, 8, '', 'None', 'completada', 27, '2019-07-08 23:06:57.917975', 5, 59500, 1);
+(16, 'Cotizacion kampito', 23400, '2019-10-27', NULL, 1, '', '', 'armando_pedido', 27, '2019-11-21 01:43:12.575842', 5, 0, 0),
+(17, 'Lista del sabado', 59500, '2019-10-27', NULL, 8, '', 'None', 'enviada', 27, '2019-10-28 01:24:11.580734', 5, 0, 0);
 
 --
 -- Disparadores `cliente_listas`
@@ -350,30 +316,25 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `cliente_productos_listas`;
 CREATE TABLE `cliente_productos_listas` (
-  `id` int(11) NOT NULL,
-  `cantidad` int(10) UNSIGNED DEFAULT NULL,
-  `comentarios` longtext COLLATE utf8_spanish_ci,
-  `precio_producto` int(10) UNSIGNED DEFAULT NULL,
-  `lista_id` int(11) DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `productos_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `producto_marcado` tinyint(1),
-  `oferta` tinyint(1)
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `cantidad` int(10) UNSIGNED DEFAULT NULL COMMENT 'Cantidad del producto',
+  `comentarios` longtext COLLATE utf8_spanish_ci COMMENT 'Comentarios del producto',
+  `precio_producto` int(10) UNSIGNED DEFAULT NULL COMMENT 'Precio del producto',
+  `lista_id` int(11) DEFAULT NULL COMMENT 'Referencia de la lista a cual fue asignado el producto',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia del local al cual esta asociada la lista/pedidos',
+  `productos_id` int(11) DEFAULT NULL COMMENT 'Referencia del producto',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Referencia del usuario',
+  `producto_marcado` tinyint(1) DEFAULT NULL COMMENT 'Verificacion del producto esta marcado',
+  `oferta` tinyint(1) DEFAULT NULL COMMENT 'Precio del producto en oferta'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `cliente_productos_listas`
---
-
-TRUNCATE TABLE `cliente_productos_listas`;
 --
 -- Volcado de datos para la tabla `cliente_productos_listas`
 --
 
 INSERT INTO `cliente_productos_listas` (`id`, `cantidad`, `comentarios`, `precio_producto`, `lista_id`, `local_id`, `productos_id`, `user_id`, `producto_marcado`, `oferta`) VALUES
-(17, 26, '', 900, 16, 1, 1, 27, 1, 0),
-(18, 50, '', 1190, 17, 8, 41, 27, 1, 0);
+(17, 26, 'Pedir en caja', 900, 16, 1, 1, 27, 0, 0),
+(18, 50, '', 1190, 17, 8, 41, 27, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -383,19 +344,14 @@ INSERT INTO `cliente_productos_listas` (`id`, `cantidad`, `comentarios`, `precio
 
 DROP TABLE IF EXISTS `cliente_registro_premium`;
 CREATE TABLE `cliente_registro_premium` (
-  `id` int(11) NOT NULL,
-  `fecha_inicio` date DEFAULT NULL,
-  `fecha_caducidad` date DEFAULT NULL,
-  `id_registro_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `premium` int(10) UNSIGNED
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `fecha_inicio` date DEFAULT NULL COMMENT 'Fecha de inicio de la suscripcion',
+  `fecha_caducidad` date DEFAULT NULL COMMENT 'Fecha de caducidad de la suscripcion',
+  `id_registro_id` int(11) DEFAULT NULL COMMENT 'Registro del id del vendedor',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Referencia del usuario  ',
+  `premium` int(10) UNSIGNED DEFAULT NULL COMMENT 'Nivel de premium que tiene el vendedor'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `cliente_registro_premium`
---
-
-TRUNCATE TABLE `cliente_registro_premium`;
 --
 -- Volcado de datos para la tabla `cliente_registro_premium`
 --
@@ -414,30 +370,26 @@ INSERT INTO `cliente_registro_premium` (`id`, `fecha_inicio`, `fecha_caducidad`,
 
 DROP TABLE IF EXISTS `cliente_reporte_listas`;
 CREATE TABLE `cliente_reporte_listas` (
-  `id` int(11) NOT NULL,
-  `lista` int(10) UNSIGNED DEFAULT NULL,
-  `nombre_lista` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_registro` date DEFAULT NULL,
-  `total` int(10) UNSIGNED DEFAULT NULL,
-  `cantidad_items` int(10) UNSIGNED DEFAULT NULL,
-  `cantidad_productos` int(10) UNSIGNED DEFAULT NULL,
-  `estado` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `cliente_id` int(11) DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `lista` int(10) UNSIGNED DEFAULT NULL COMMENT 'Id de la lista',
+  `nombre_lista` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre de la lista/pedido',
+  `fecha_registro` date DEFAULT NULL COMMENT 'Fecha de registro del reporte',
+  `total` int(10) UNSIGNED DEFAULT NULL COMMENT 'Total del pedido',
+  `cantidad_items` int(10) UNSIGNED DEFAULT NULL COMMENT 'Cantidad de Items en total',
+  `cantidad_productos` int(10) UNSIGNED DEFAULT NULL COMMENT 'Cantidad de Productos en total',
+  `estado` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Estado de la lista',
+  `cliente_id` int(11) DEFAULT NULL COMMENT 'Referencia del dueño de la lista/pedido',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia de la id de la tienda'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `cliente_reporte_listas`
---
-
-TRUNCATE TABLE `cliente_reporte_listas`;
 --
 -- Volcado de datos para la tabla `cliente_reporte_listas`
 --
 
 INSERT INTO `cliente_reporte_listas` (`id`, `lista`, `nombre_lista`, `fecha_registro`, `total`, `cantidad_items`, `cantidad_productos`, `estado`, `cliente_id`, `local_id`) VALUES
 (3, 16, 'Cotizacion kampito', '2019-07-08', 23400, 1, 26, 'completada', 27, 1),
-(4, 17, 'Lista del sabado', '2019-07-08', 59500, 1, 50, 'completada', 27, 8);
+(4, 17, 'Lista del sabado', '2019-07-08', 59500, 1, 50, 'completada', 27, 8),
+(5, 16, 'Cotizacion kampito', '2019-09-15', 23400, 1, 26, 'completada', 27, 1);
 
 -- --------------------------------------------------------
 
@@ -447,30 +399,26 @@ INSERT INTO `cliente_reporte_listas` (`id`, `lista`, `nombre_lista`, `fecha_regi
 
 DROP TABLE IF EXISTS `cliente_reporte_productos`;
 CREATE TABLE `cliente_reporte_productos` (
-  `id` int(11) NOT NULL,
-  `lista` int(10) UNSIGNED DEFAULT NULL,
-  `producto` int(10) UNSIGNED DEFAULT NULL,
-  `nombre_producto` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `cantidad` int(10) UNSIGNED DEFAULT NULL,
-  `oferta` tinyint(1) DEFAULT NULL,
-  `Total` int(10) UNSIGNED DEFAULT NULL,
-  `fecha_registro` date DEFAULT NULL,
-  `cliente_id` int(11) DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `lista` int(10) UNSIGNED DEFAULT NULL COMMENT 'Id de la lista',
+  `producto` int(10) UNSIGNED DEFAULT NULL COMMENT 'Id del producto',
+  `nombre_producto` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre del producto',
+  `cantidad` int(10) UNSIGNED DEFAULT NULL COMMENT 'Cantidad del producto',
+  `oferta` tinyint(1) DEFAULT NULL COMMENT 'Verificacion si el producto se encuentra en oferta',
+  `Total` int(10) UNSIGNED DEFAULT NULL COMMENT 'Total del valor producto',
+  `fecha_registro` date DEFAULT NULL COMMENT 'Fecha del registro',
+  `cliente_id` int(11) DEFAULT NULL COMMENT 'Referencia del cliente',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia del local'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `cliente_reporte_productos`
---
-
-TRUNCATE TABLE `cliente_reporte_productos`;
 --
 -- Volcado de datos para la tabla `cliente_reporte_productos`
 --
 
 INSERT INTO `cliente_reporte_productos` (`id`, `lista`, `producto`, `nombre_producto`, `cantidad`, `oferta`, `Total`, `fecha_registro`, `cliente_id`, `local_id`) VALUES
 (21, 16, 1, 'Arroz Tucapel 500gramos', 26, 0, 23400, '2019-07-08', 27, 1),
-(22, 17, 41, 'Arroz miraflores', 50, 0, 59500, '2019-07-08', 27, 8);
+(22, 17, 41, 'Arroz miraflores', 50, 0, 59500, '2019-07-08', 27, 8),
+(23, 16, 1, 'Arroz Tucapel 500gramos', 26, 0, 23400, '2019-09-15', 27, 1);
 
 -- --------------------------------------------------------
 
@@ -480,27 +428,23 @@ INSERT INTO `cliente_reporte_productos` (`id`, `lista`, `producto`, `nombre_prod
 
 DROP TABLE IF EXISTS `cliente_valorizacion_pedidos`;
 CREATE TABLE `cliente_valorizacion_pedidos` (
-  `id` int(11) NOT NULL,
-  `lista` int(10) UNSIGNED DEFAULT NULL,
-  `puntuacion` int(10) UNSIGNED DEFAULT NULL,
-  `comentarios` longtext COLLATE utf8_spanish_ci,
-  `local_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `fecha_registro` date DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `lista` int(10) UNSIGNED DEFAULT NULL COMMENT 'Id de la lista/pedido',
+  `puntuacion` int(10) UNSIGNED DEFAULT NULL COMMENT 'Puntuacion del pedido',
+  `comentarios` longtext COLLATE utf8_spanish_ci COMMENT 'Comentarios sobre el pedido',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia del local',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Referencia del usuario',
+  `fecha_registro` date DEFAULT NULL COMMENT 'Fecha de registro de la valorizacion'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `cliente_valorizacion_pedidos`
---
-
-TRUNCATE TABLE `cliente_valorizacion_pedidos`;
 --
 -- Volcado de datos para la tabla `cliente_valorizacion_pedidos`
 --
 
 INSERT INTO `cliente_valorizacion_pedidos` (`id`, `lista`, `puntuacion`, `comentarios`, `local_id`, `user_id`, `fecha_registro`) VALUES
 (4, 16, 5, 'Super rapido, me encanto! un 7 si se pudiera!', 1, 27, '2019-07-08'),
-(5, 17, 4, 'La atención fue super agradable,  me gusto!', 8, 27, '2019-07-08');
+(5, 17, 4, 'La atención fue super agradable,  me gusto!', 8, 27, '2019-07-08'),
+(6, 16, 4, '', 1, 27, '2019-09-15');
 
 -- --------------------------------------------------------
 
@@ -520,11 +464,6 @@ CREATE TABLE `django_admin_log` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `django_admin_log`
---
-
-TRUNCATE TABLE `django_admin_log`;
 --
 -- Volcado de datos para la tabla `django_admin_log`
 --
@@ -747,11 +686,6 @@ CREATE TABLE `django_content_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Truncar tablas antes de insertar `django_content_type`
---
-
-TRUNCATE TABLE `django_content_type`;
---
 -- Volcado de datos para la tabla `django_content_type`
 --
 
@@ -796,11 +730,6 @@ CREATE TABLE `django_migrations` (
   `applied` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `django_migrations`
---
-
-TRUNCATE TABLE `django_migrations`;
 --
 -- Volcado de datos para la tabla `django_migrations`
 --
@@ -886,11 +815,6 @@ CREATE TABLE `django_session` (
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `django_session`
---
-
-TRUNCATE TABLE `django_session`;
 --
 -- Volcado de datos para la tabla `django_session`
 --
@@ -1082,6 +1006,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('0euybwirykisrqkhu3yn6nw3bw71uc4b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:40.975017'),
 ('0f3b9jreftlzebbu4sirc7rydttiwde9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:25.314825'),
 ('0f6d1xp7fqor9y3i22kuyvb4ab7xlxtl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:20.400249'),
+('0f6tcq24gnb3lh22llxc3p0n735o93qp', 'Y2FjMmFiZGM2ZWY5Mjc2MzE2ZTA2YWMyYjM4NTFmNWE3ODE0MWNiODp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYTRhMDNjY2VhZDQ2MzliYTA0ZDg1ODczMTk0ZjhkMDlmODc3YjYwZiIsImlkX3BlcnNvbmEiOjExLCJmZWNoYSI6IjIwMTktMTEtMjAgMjI6NDI6MjUuMTY3OTM0In0=', '2019-12-05 01:42:25.185936'),
 ('0fbis8i2ovqyznvsuo58smb7hk68ylbs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:25.972140'),
 ('0fd02d5fq0jm9tukpqkai1aqbfa3hrrs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:13.133245'),
 ('0fh46ruok3q6vch8ffqm58fak1w074c3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:30.868743'),
@@ -1206,11 +1131,11 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('0op1xxt6jgyndipij2fgnmnq0fpxnygx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:50.292527'),
 ('0opsjn4mj4lxzrmzx26oip1ix0txv0aw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:24.876851'),
 ('0or3zt6a3351b80nl3u8gyu9y2aatqmq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:28.854579'),
-('0otswzto5zqwx45r0bn6ywvf9au76fuy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:36.895097'),
+('0otswzto5zqwx45r0bn6ywvf9au76fuy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:36.895097');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('0oyiqxoxfmq1pi1chnucmjwaj4wtp4cq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:17.396737'),
 ('0p2npqbysxfv3a52erdlkjjeu1n8k4id', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:34.001662'),
-('0p67h79acqzqhi1o79c6znym636ivu2v', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:05.876499');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('0p67h79acqzqhi1o79c6znym636ivu2v', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:05.876499'),
 ('0p7bp89t9xwf1mwfq2zis4yg0ou1pbr1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:50.684737'),
 ('0p9ema8pscbga62fe3ju6pnid8a9smkh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:04.399690'),
 ('0peiqjw0mr3qeh1m6lg3zbvd1rcfckpc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:37.245157'),
@@ -1521,11 +1446,11 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('1ehbyn1wva54mvo5kcnv4qj48rmv1o9k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:14.911894'),
 ('1ekzfu5wm9mkinqmovwvq1vsajlsh7vz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:56.840140'),
 ('1elc3njv9wpwx36wdadf75m062tuougj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:25.067575'),
-('1eoq1jjolpo6m12gletadmwrnrmrsomk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:14.366068'),
+('1eoq1jjolpo6m12gletadmwrnrmrsomk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:14.366068');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('1er05ueos2p424bv3hz330y8hm7a9hka', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:01.415299'),
 ('1eu7q78kpw9pc3ilvqc1ibajpatk4b9z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:59.677495'),
-('1eu9608wosmgd6c810hhwg3ovgjq3z4m', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:31.717827');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('1eu9608wosmgd6c810hhwg3ovgjq3z4m', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:31.717827'),
 ('1f4iaj7hq5b898y2dzmcwjjnhdv5518v', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:34.128454'),
 ('1f79bv9isb7y8f9f8bqyhpoi34czn4fs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:47.892178'),
 ('1f9m80ue3eaikcd6fndwy1kf2d8pbh8o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:18.484661'),
@@ -1836,11 +1761,11 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('265973acndf53r6hk1r8njro3v557uzm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:47.331051'),
 ('268463y4m7e8jw97ejjwjbeexioc7vov', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:19.119345'),
 ('2691bnbgpetgivm0huug49s0e9t5ycz6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:06.171434'),
-('26a2h6cq5bqonw9xurjcvgy80huo3jst', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:31.986472'),
+('26a2h6cq5bqonw9xurjcvgy80huo3jst', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:31.986472');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('26dplau9kz97xvedokjpdw7buaur4zyl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:22.657147'),
 ('26ign4ybxv2h2io75a48m7e5hjx2oub4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:43.492626'),
-('26m94uldrvtdssca85kve7nwt0kt8ip5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.931203');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('26m94uldrvtdssca85kve7nwt0kt8ip5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.931203'),
 ('26ozxalegzq20ugltvopokelhbh5595s', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:14.894990'),
 ('26rp5t3gq8p9qb3iw9dvv4rgk420d2zq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:29.212956'),
 ('26sblgkm10zckattrgi9vglo1zaw1c1z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.665425'),
@@ -2140,6 +2065,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('2tkaj7skyjso5bq86y902dwe0jx1z81o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:31.162888'),
 ('2tsw0c1l1eygkcasu8uk3urp8t3vrfj4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:21.658557'),
 ('2tv87myertiz6n54q21r9wwoxtj3qpxx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:06.343696'),
+('2tvpcqmgzr3pqgus2dhe0594a1gb9u2y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-08-03 01:59:17.175588'),
 ('2u7bdo6id7nzdic5vyuow3r77d0lfj1i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:14.333061'),
 ('2u826w3z2fxueywpim1ow5i8sw5ma81z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.398643'),
 ('2u8yq7mns2ljejz2rnrdmd711ouamwwh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:34.771105'),
@@ -2151,12 +2077,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('2uwt8pjbbv01si2ei6xavdtgd9o6dkpl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:14.356253'),
 ('2uyva8wkr6i6xb1a4lydqb1iins5ypiv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:25.680702'),
 ('2v340tihnakxzfs4ght5l0unaq8jptju', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:01.127737'),
-('2v3akh1hjxqrzff9l8xt40wvelmng5k5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:52.554553'),
+('2v3akh1hjxqrzff9l8xt40wvelmng5k5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:52.554553');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('2v3vfqi31mr00zdxtyuemz0d6jao47kc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:15.016602'),
 ('2v4g78o8j9vou8bm3rmjkfx57sncsdgt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:54.643713'),
 ('2vc875jnebox0exo3xqq3wy6g2fgo9in', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:42.431327'),
-('2vctdgnffmq0np97mk8jrwkiale7bxfa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:27.443153');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('2vctdgnffmq0np97mk8jrwkiale7bxfa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:27.443153'),
 ('2vha7wjo2prax54gp4n8w1m01qze01t4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:21.612651'),
 ('2vlbp9p610swiyvggm569wmir52v24pd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:33.536793'),
 ('2vn11lz11tli0riub54kxu2zxscjk6kd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:58.145416'),
@@ -2467,12 +2393,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('3mrqf4yg1p6ykgehxqcvaqzg9jtip7o9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:53.062716'),
 ('3mtm6g1l4w1drg3kzu916aecgnn4wm0r', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:29.176946'),
 ('3n246ke7rguj0dmv1p1ywezi1u043zil', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:05.350299'),
-('3n9hykn4kvne72zdjqi05qfronnxy7af', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:31.101711'),
+('3n9hykn4kvne72zdjqi05qfronnxy7af', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:31.101711');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('3nctqo0hvfejnv8pcgfoejcabsvs2bc1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:53.528483'),
 ('3ne9du3j1d5ec36nibo8xa36rjm49ofr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:34.341685'),
 ('3nimy67tug9b6namar4anpfmbvgon82h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:01.686947'),
-('3njf9fbxoukofjyksgjqxjahvygigvk6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:43.969845');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('3njf9fbxoukofjyksgjqxjahvygigvk6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:43.969845'),
 ('3njnhuob94dwj5ez8zwy30ple3tbwfin', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:11.451879'),
 ('3nmmzsciipaviitb0cnhj0ep0vkhcgss', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:15.273748'),
 ('3npi5xe7zskw0mkgr643w20sz3b2ero4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:12.229587'),
@@ -2783,12 +2709,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('49ze9gih02gk16rsxoy9do1n3kn77rc9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:24.255541'),
 ('4a0p1uum24oslmtd7w1273tjt0pidjt5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:30.838145'),
 ('4a0qm0h2bkbnyvt01pr60f5x9ufx2ndh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:10.555949'),
-('4a4xh9zdl8ut01wb9nwjpq5op5q6zigk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:26.109960'),
+('4a4xh9zdl8ut01wb9nwjpq5op5q6zigk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:26.109960');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('4a5t3c9t8kkycd8cyech203qddr5h3zn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:25.055215'),
 ('4a7jr8u9gf4cv9npnwg5qhkhpxep4azk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:35.425766'),
 ('4a9jummm4yrujvi2uodujss6yh5m15m5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:25.594401'),
-('4aatl1fbfchamnje5xwom2uejz29s0mt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.423557');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('4aatl1fbfchamnje5xwom2uejz29s0mt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.423557'),
 ('4afjst0rfo80fhvnpavwp069fwtalj7k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:45.533431'),
 ('4aiox55rgulufny8rjeckwqm4wzx7vu5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:32.909810'),
 ('4ao2ar324yvbohuxxf18982z0icmv57d', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:26.831124'),
@@ -3097,12 +3023,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('4yxtcxviv6xneoy3mycdp0x9gubepkpf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:08.754817'),
 ('4yyslzq7pjvc4ry9s3ecwu06wi3bzzef', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:01.865990'),
 ('4yzihy5xolrdc8pxq3qjygpme90az5qc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:46.780851'),
-('4z0j4odkhbf3z649lboa9xl0019fy0ya', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:30.405248'),
+('4z0j4odkhbf3z649lboa9xl0019fy0ya', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:30.405248');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('4zg1ij1aa1yj015is8wbg9bkjtov5rk4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:47.756264'),
 ('4zi8dmudfgd7qgp00s1zp8jb4ynypmv8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:29.103260'),
 ('4zk4lljoq63giwddcyecwc9vkgip2daj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:40.192822'),
-('4zmkpuwoz46zfwh3cxb9u1dhlyor30ix', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.190656');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('4zmkpuwoz46zfwh3cxb9u1dhlyor30ix', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.190656'),
 ('4zo5kw6z75ji2lleqauhillxoj9cs0gs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:27.473460'),
 ('4ztam9pwtjwgt8ekrwl7gg9oabmt2nz3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:34.719117'),
 ('4ztg5dmpcva8w58gru4r17wp9ze5v4po', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:44.637990'),
@@ -3413,12 +3339,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('5q88optvkp8irbxrftiefkrlfk8lxdoj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:28.823865'),
 ('5qcjjlgitbtokfhkfu0jhodjfrkrumsk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:56.621247'),
 ('5qhjkicrj37asg2whrnsht185pbmv7os', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.232711'),
-('5qibhwlzdw2bvlnd7qvma64ztqg129kl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:26.245193'),
+('5qibhwlzdw2bvlnd7qvma64ztqg129kl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:26.245193');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('5qmap8xcbbuwqd9ug12dt72rnv232eeg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:16.287939'),
 ('5qnam7zy4gkz5opzigj8ozqi0y6xtwxo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:21.863691'),
 ('5qwfcbjs2seuvkqdd3coovv5iajl4j70', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:19.044943'),
-('5r23gpt1oxlp01zq2thzlwdna8syb0k1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:16.166720');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('5r23gpt1oxlp01zq2thzlwdna8syb0k1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:16.166720'),
 ('5r3lfzg8agzos10k33xo28lffntznd7t', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:32.310613'),
 ('5r76hp66zc8vhpj9sfvs7cy7x7x565mu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:05.559274'),
 ('5r78eokgciht37uzv0xyh9tsynagt8mx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:11.743933'),
@@ -3728,12 +3654,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('6hlac8hjxdn8m14voheive7hmyij8gvg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:58.057398'),
 ('6hlczt8aa6nkao6cdkves8keft5a3uha', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:35.608226'),
 ('6hlls0ziyfn1wqx8nz536rcjzrb3wp40', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.574694'),
-('6hnyx3ummsokvv53kwv7cwxz0b944hbz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:18.023715'),
+('6hnyx3ummsokvv53kwv7cwxz0b944hbz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:18.023715');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('6hor392jmtretogd038eh47u6wjzrbpa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:06.541187'),
 ('6hpa2e20i1qe3lsxgn4uxbye4xqz27v7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:44.059704'),
 ('6hxqi3jucmscvmli1bg6qft5pxhzacov', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:06.075458'),
-('6i2111wtpoen3s67vjnpgx2l8q4poww1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:23.264025');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('6i2111wtpoen3s67vjnpgx2l8q4poww1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:23.264025'),
 ('6i53lum06kuimllcvejymfggcax1mmgx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:26.289841'),
 ('6i6i2e2n8i8p1e9zfcemif7zmirw9dqi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:49.067112'),
 ('6i78npnivzvyto6wwdi6guats8mch1o2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:12.103133'),
@@ -4044,12 +3970,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('767vw1b0y971d7vwdg8mzelmycs3ukd0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:31.627822'),
 ('76bto1l1522lc7mub5m1gzbnkq2o0p3n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:52.791952'),
 ('76dn8r3mmtb5yzz8717ouvq9hgj2zxii', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:22.913450'),
-('76g3zf31xpa9ehneuw0f39kpr5wzreyn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:29.228170'),
+('76g3zf31xpa9ehneuw0f39kpr5wzreyn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:29.228170');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('76htnqx27rjjhj79gx7c2p9dmwkc3llo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:58.067936'),
 ('76rwp3ymtr27pi1ktt9bgk0hg8abxf9e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:28.025644'),
 ('76xt41se8xuwhdx4pcjij0m5vtcasp7p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:19.863601'),
-('771qoqeyan9cbdvvyaxobg2whlg1k8m9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:08.450742');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('771qoqeyan9cbdvvyaxobg2whlg1k8m9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:08.450742'),
 ('7734be59q5zoxws1ntcn4n4mnmliao9u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:12.521652'),
 ('7765qg21bbpktlovb2zugpy9op6elr8z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:09.076312'),
 ('776hbfynukab9c615m6v639fwhqej1v1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:09.272724'),
@@ -4360,12 +4286,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('7x9zbsndm5d10cq45lsnpp93fgtdl6jm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:27.751329'),
 ('7xgejxt8ljrrjmiu3gv5giydcl77x8ox', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:47.564399'),
 ('7xkzzfpzvr42jih3e5654gc63xnodoyv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:43.691722'),
-('7xlz17mniv9gccm63n57t9nx9neg5xk1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:17:45.298515'),
+('7xlz17mniv9gccm63n57t9nx9neg5xk1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:17:45.298515');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('7xpy73z6j4o3p04y1mjhwx1rucz1hry2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:21.921218'),
 ('7xq3zyx2f6vdm65i4yuk40eonf9pa8y1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:26.980156'),
 ('7xrhszdjpiwtafrt0ikcm6azabbzgslo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:36.784518'),
-('7xxfghsddao7ec2fnk7077tf01s1l2er', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:32.273591');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('7xxfghsddao7ec2fnk7077tf01s1l2er', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:32.273591'),
 ('7xxgil9kr89vmljucwicaf4j0ny2holl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:47.227891'),
 ('7y2cee5tw1lnzbwlskxpxdmkq0sstaf3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:17.743991'),
 ('7y4d6f8fsts4c3k9ewj49gxu91dg69a3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:58.076545'),
@@ -4663,6 +4589,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('8lha8zgdr4qtiibae8po6hmeirhxyoc4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:24.087209'),
 ('8lj5u3s3pxkkc6tuf5tohw6dvu5f0783', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:00.164914'),
 ('8lmhitdf4qzuj1pcwvy9for3muvmdyoy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:57.240676'),
+('8low0fy2fjzwkq6l9vv7ggprezt1gooo', 'NDZhMDg3OWQwNDI5MjM3MDRlNTUxYzUzZmQyZWU4ODViZDY4N2YzNTp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYzQ4ZDdhMTg5MTc0ODk5YTY2NTk2ZmY2MzlhZTVkYTA5NjYzMzA0IiwiaWRfcGVyc29uYSI6MjcsImZlY2hhIjoiMjAxOS0wNy0wOSAxNToyMToyNi4yNzk0MzEifQ==', '2019-07-23 19:21:26.322440'),
 ('8ls7kbpy335n37rieam3bvtxox9tvvlw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:28.095660'),
 ('8m4brdwlqvllik88jihvn84fsdd6o0cn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:31.126780'),
 ('8m4fz8tdr2rwi4dv1ls5epe4ssi9g1dn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:56.123840'),
@@ -4672,15 +4599,15 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('8m9c8y436ig08pragiszey9lvkpl7cai', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:06.374516'),
 ('8maj442ymxcekl7sdiyofbhrhqa11zg3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:16.781013'),
 ('8mgcech6nc8pcqur2u3cyru84ue1fwx8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:37.163512'),
-('8mk4cozuhawi86ymgqqbutturdpoiv35', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:39.263984'),
+('8mk4cozuhawi86ymgqqbutturdpoiv35', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:39.263984');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('8mkqi993pr6wl57tccaem2dnq1f0ruvu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:31.207300'),
 ('8mlaa11mbpec43i8g3hfj3pu4dbcj0i5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:42.466898'),
 ('8mmh3vn2tap10t5mpyhvcakjs380v5q8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:33.240254'),
 ('8mo82j0rblziu2i3h2dm2zxxunk1jd6l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.213646'),
 ('8mosk67ykeyvr94m2bcz8te362n117ou', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:53.821528'),
 ('8moyky2cq6rn4m91oaygl8nczlbon8sc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:52.043800'),
-('8mpnpuazwkzphz2jebj0bdlahggw4p4j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:54.134598');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('8mpnpuazwkzphz2jebj0bdlahggw4p4j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:54.134598'),
 ('8mrycpmhu6ulq6oe2vgrs2ie3d9msu55', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:18.510823'),
 ('8mxhi918mafmk64lli284wgiu84fuatq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:31.161269'),
 ('8my6bdd4q6f2il88rpgsqg8hqcqmtg16', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:19.816735'),
@@ -4988,15 +4915,15 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('99bcjv6t0ycmbgy6zk9903sszo5vld3u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:54.642487'),
 ('99fep3i2c5zj3dfupvq8mtisa68ccap4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:05.815467'),
 ('99fyt4z9t1cglkmc2815njoy93jj2y8g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:42.633014'),
-('99lwrclbes04ge7l3d7eabfp79zrntqb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:58.241437'),
+('99lwrclbes04ge7l3d7eabfp79zrntqb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:58.241437');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('99n8v4hdvwascn3dd1gca6d7pbw9pu6u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:25.036308'),
 ('99o3m6i8s9j0kk3trsx4n0m8whuincyx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:17.364729'),
 ('99qq3beqbn677fuutxcjyhx26fxerikf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:12.540418'),
 ('99r33wkkgdwtvczvq0g8qeqco15y3784', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:09.350182'),
 ('99uvqn7tn6vf7s1y4wxbyb99amsncxj8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:29.185845'),
 ('9a5d6dskofogysl135orkyit19lj997a', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:13.743750'),
-('9a5xovy94x6d8ir6n5ms0oigkni8jkqe', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:46.128731');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('9a5xovy94x6d8ir6n5ms0oigkni8jkqe', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:46.128731'),
 ('9aaxraf41ouxgdn4yavp1mmxf0q9oxle', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:11.563681'),
 ('9acae39wij10g654x8a0db9pgxpdiuii', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:58.008119'),
 ('9adwt5mflfsb1761pebbblqtreaw7ah1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:39.875283'),
@@ -5304,15 +5231,15 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('a0yee36aem8hhp2xo17kq9jpidiniwk1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:29.070925'),
 ('a0zup2xqh72yrslxmbhop9ce7pye0oik', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:21.095240'),
 ('a11e660buu2qdit5udw2g1o08lu6y8ik', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:13.620465'),
-('a11ncnrp7c33myubi57vnkdk0vcwxqt8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:18.421126'),
+('a11ncnrp7c33myubi57vnkdk0vcwxqt8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:18.421126');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('a11ppzs7v45donzn99kpfdmfso3n416e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:14.779559'),
 ('a166cbic8d9zx1jz5ftw497xnj4cu6fc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:03.755973'),
 ('a18a9emww5v21fozj0psvx49skt6yy2c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:48.813749'),
 ('a18sdcow28k7g2uboomjp5og8k81cx4v', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:47.791256'),
 ('a1blauhk6sno92ltnrbr3l2fegaqzlx3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:28.685750'),
 ('a1bokpj5rf7hhaoi3vst3tot9ovvlifu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:14.719337'),
-('a1u4t06puerbvvs3xtjw7j0pweirtg1p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:34.461531');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('a1u4t06puerbvvs3xtjw7j0pweirtg1p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:34.461531'),
 ('a27cod0wo8c1lnsv63vu1r8busnvkr53', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:25.809581'),
 ('a28iceymp47rf0x01a9t06ile1inkjc0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:55.107175'),
 ('a28pfhift7r3ftex0fmt2jow5g9hg6oz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:25.752751'),
@@ -5620,15 +5547,15 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('asrwtoiq95z6q9g14oqmfoj2a5t600l4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:32.052799'),
 ('ast8ctoxfft70x34tt324kwq9lqlph64', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:49.821710'),
 ('asw76xuo8tixo1ru8m7f7ucfdzmuwtkc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:41.306443'),
-('aswr393diui76rrkjo7ejy33j7k7pch7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:25.435055'),
+('aswr393diui76rrkjo7ejy33j7k7pch7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:25.435055');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('aswzm7suec5myotc2cnf5m8c0m7l8vr5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:03.621926'),
 ('asxp963hqrc55czfs9i1ur5w1tborfpk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:32.234959'),
 ('at231weknywn9x878j4vu35bxlfwjbpa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:43:14.685755'),
 ('at52zxcvbiaaq1ayq624uesatsw2i8z7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:22.724198'),
 ('at7g3lbggcpf5gk5em6sohzs3hn8nze8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:22.228495'),
 ('ata9u86eeuhe7syg7ge94guco2ihg57n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:14.333249'),
-('atcb6f8hmvdmvgf1nnapsd6siiug5a1d', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:32.028918');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('atcb6f8hmvdmvgf1nnapsd6siiug5a1d', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:32.028918'),
 ('atdmleygo9ozh33pwt1hviw5d6omq0s8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:25.329373'),
 ('atdmyy4f1rex55k8py7wb2vypw9ihcuu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:04.912136'),
 ('atfaw6mr1qncner4swwhyqylwg4iael8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:46.215717'),
@@ -5931,8 +5858,10 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('bivy7eqp6148ihi638mb6tjteno21v0q', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:17.321555'),
 ('bj1ss56xtyjoqvfh2kno7bseqk9ldidg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:36.646126'),
 ('bj2etkwjlnas27cubnqhslxwbbrz8klh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:36.634019'),
+('bjbcvm5uqwmwbghakndxmwet62e1r5o2', 'ZmIxMDIxMmNmZmFiNjAxODE4NjVlNDE5NDdkNTEwNWU1ODdlN2I0YTp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYzQ4ZDdhMTg5MTc0ODk5YTY2NTk2ZmY2MzlhZTVkYTA5NjYzMzA0IiwiaWRfcGVyc29uYSI6MjcsImZlY2hhIjoiMjAxOS0wOS0xNSAxMzoyMTozOC41MTAxNDYifQ==', '2019-09-29 16:21:38.527150'),
 ('bjdjj6054qt9alqxeyrahuxlt1tcokaq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:43.405918'),
-('bjdws5m48mecwxer10988nt9s4am2kjj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:28.205435'),
+('bjdws5m48mecwxer10988nt9s4am2kjj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:28.205435');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('bjelpyy7sdcld54h833otxeimlklmbfc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:06.937198'),
 ('bjfx9cfb3srlk6z2iwuluv1zob2kcktw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:38.064342'),
 ('bjj018qz1zcjceo86y7pucymspqdyupd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:53.352437'),
@@ -5942,8 +5871,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('bjqdzzcq4hq9shn69n2ayxt9doyx66xc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:44.154599'),
 ('bjqptzvw5svwhdw640dqxn2vgbgjwzdu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:58.986752'),
 ('bjr37l4ohcah1guvws5b1cms7ko8javm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:11.481663'),
-('bjr6l5u0qu1ml5mrk9g55d3io21yxm8g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:56.336171');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('bjr6l5u0qu1ml5mrk9g55d3io21yxm8g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:56.336171'),
 ('bjurt8lskai7a47aew2e4ns6euihq336', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:16.373958'),
 ('bjw9987jt6ekz4nrmvo63un6oueaff2r', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:30.201489'),
 ('bjxpp31t3f6mh6adtttbo9zzpik0cd5z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:29.257278'),
@@ -5996,6 +5924,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('bo4owwyxbx66tj0w62gmf1kunzkd09mp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:13.361409'),
 ('bo6armymultsjw381w4xqekn04kfbr0q', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:43.996851'),
 ('bo912pa0vp5ymro58n4ruimr6p0srj1i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:06.794554'),
+('bo9atg9yorbhzsgx2hzvrxgqpp23ebel', 'MTEwMWI1MWExMjNmZmIxN2RmYjBkYzA1MTAzNjQxZjYyNzczYTE0Njp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYzQ4ZDdhMTg5MTc0ODk5YTY2NTk2ZmY2MzlhZTVkYTA5NjYzMzA0IiwiaWRfcGVyc29uYSI6MjcsImZlY2hhIjoiMjAxOS0wOS0xNSAwMjowODo1Mi40NjU3MDIifQ==', '2019-09-29 05:08:52.480715'),
 ('boafe968q31gify492pc7hqzcxr9dpb0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:24.232375'),
 ('bocbin6ks5qmm7stjgz70b9vyflf5ry2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:23.843643'),
 ('bog1rz9hdfbi9h6tfc1916sobdm9o1eb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:21.506319'),
@@ -6166,6 +6095,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('c0agr1agabt75t9gidxe2sc9vbkqoeod', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:14.394780'),
 ('c0aty9jqvrlwfi0ppo5guezjz5sue1mm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:26.447230'),
 ('c0fty9137s2vq76husvwy02ywyj6pfs7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:56.610233'),
+('c0juis64gnlgj1i46ls5e4eufvgig1ms', 'YmYyOGNhMGUyMzU3MzE4MDY4ZmEwM2ZmNjM3YWIzZmVhODAzMjliMTp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIxYzQ4ZDdhMTg5MTc0ODk5YTY2NTk2ZmY2MzlhZTVkYTA5NjYzMzA0IiwiaWRfcGVyc29uYSI6MjcsImZlY2hhIjoiMjAxOS0wOS0xNSAyMTozNTozOC4zNDcyNTgifQ==', '2019-09-30 00:35:38.363285'),
 ('c0of2q68txyyd70mkeblpx1jkplimikc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:43.477359'),
 ('c0s7afesn01f2551zanvcrlktiq7fojg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:43:14.605737'),
 ('c0s7n55gsxc6eeb7jsn4iifg5vzzkb6h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:17.220147'),
@@ -6243,7 +6173,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('c6modl6wx90z01m9hgdiwigtsa08z82f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:32.266666'),
 ('c6raya4f7ybyqs7f8uqs3nq83991vfi3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.622821'),
 ('c6tpi53tf8k1m45hnec8jfbow1d9kcgd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:30.042472'),
-('c6z6ndlt2v9d2kl8l5nw857pshyoo8o6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:47.439000'),
+('c6z6ndlt2v9d2kl8l5nw857pshyoo8o6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:47.439000');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('c71cs4jkbmk2tdxth2nx7447i5zjhldr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:00.024859'),
 ('c71f66ruagsa759v3vzx55x69w0jkh9p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:55.070897'),
 ('c71gx676j930shd9l77zd22gh9ns2vez', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:53.759909'),
@@ -6258,8 +6189,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('c819jhc3s7qlt185vq2wx33ik03vvbba', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:08.554764'),
 ('c81bih5rg2ob8oxenq0mmfj022jz4wwe', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:33.222756'),
 ('c867ey4y2wtufvajoxw24jqmkyc6sk75', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:49.736483'),
-('c8684b7q86gqwoctkhxw7qi18nlrjppn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:00.347914');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('c8684b7q86gqwoctkhxw7qi18nlrjppn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:00.347914'),
 ('c8amyazccnab9s8pzbcoxp8hgon2aqae', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:09.115705'),
 ('c8bsk8kuxm7gtwfoyjbtv60os0zgrtuo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:26.465279'),
 ('c8fwihdqpfpj4i3asse6fmhtmarzi7mg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:27.210102'),
@@ -6431,6 +6361,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('clsar11u2vkwcb29goesjbc9tar7cy6e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:29.341682'),
 ('cltkmjya76un3gmlohp65np9g22f92lx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:32.036985'),
 ('clwg4is9id5itcilcnivkbp8sva2vt63', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:11.230142'),
+('clz1ezrr3qwmf70fcfu95nturrrh0h0g', 'MTZkM2YzY2Q2OWJlYTU4Y2ZkMzQyMzk3MTg0Y2U3NWIyNTZiZTQ0MDp7InRpcG8iOiJjbGllbnRlIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjMwIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmY2NiZDJjMjMyMWZjM2RlNjBkYmEzOWY1MzkxOTE4N2U5ZmFhNTllIiwiaWRfcGVyc29uYSI6MzAsImZlY2hhIjoiMjAxOS0wOC0wNCAxOTowNDoyMy41NDM3NDIifQ==', '2019-08-18 23:04:23.559745'),
 ('clzbziuzdhv664asffgt7wh2ho8jazs1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:36.119370'),
 ('cm1a3nlhvezesxyai9wox5o75aj745g1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.149699'),
 ('cm39kityzj381feka4l8i50ahzqe3gs6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:22.612364'),
@@ -6557,7 +6488,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('cxekuu0t0mgqf00vyzi2ko33576s2wuc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:14.219241'),
 ('cxgcksg869jb529q0nquvd2ltn8l24ui', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:05.039236'),
 ('cxm6hkbvkez4jpqhlqhipylbcmutu6qw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.869765'),
-('cxo5eb3yapsa7ild7h0nbg0ohqix2fzc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.012597'),
+('cxo5eb3yapsa7ild7h0nbg0ohqix2fzc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.012597');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('cxq7jak0ecas17n63pze352gtcgguoic', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:10.336597'),
 ('cxqhdb7srljouw49pdi35btjfilvutrd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:05.333469'),
 ('cxs1y38f0nsz10vgtph9lpb9m049opvn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:35.447752'),
@@ -6574,8 +6506,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('cyja724if9trv0ulb2b8l5edq9rr91rm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.725420'),
 ('cyll5ubqa1tzjw7zsmts77yaqup8so5f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:43.051352'),
 ('cyn8r1xtfeqjw80ei84p5u7jxqspxnep', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:39.574196'),
-('cyp4s8sis1w1ecsmhgcp9c978utyt9ab', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:41.046388');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('cyp4s8sis1w1ecsmhgcp9c978utyt9ab', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:41.046388'),
 ('cypflzn9u5hxpsdsdkzec05sb7df0zz4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:52.175814'),
 ('cyprkszd2fjhkpy5dwbnd9y96256abke', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:23.349956'),
 ('cyqgybt37huazpgoi4iqmntyh3sx4sm6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:48.122400'),
@@ -6873,7 +6804,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('dl953mzj3v0oji9sgenam4ikch7tzwku', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:24.060297'),
 ('dldpffe2zf1s2oo8dzvyr3l26jhf8l2y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:16.922099'),
 ('dlkp8pczd3zje50oh00jryjo8vvmdujf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:09.983537'),
-('dllj3bga02mmwkcefp59ctt5a6nb00np', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:20.636922'),
+('dllj3bga02mmwkcefp59ctt5a6nb00np', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:20.636922');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('dlmlpswg96qxwyjsf5rhjpk766p5408x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:40.940991'),
 ('dlqve1sah8qn18ab7r814s5sjadafn1o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:48.343187'),
 ('dlxm62rcvdwpasyw7d9zvars82d1l3m0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:44.858295'),
@@ -6890,8 +6822,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('dmq5674a27u6r2wyr6j917j8mk7z6am6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:24.277547'),
 ('dmug8qvwiulcg70z9lzh4r8lds5g6ob7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:10.727068'),
 ('dmwnwzzngk88xqdl0tdskcnyuod5rs20', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:55.029578'),
-('dmyp6lxsjpf92azgoohgu3bgvr84h6fy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:56.157927');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('dmyp6lxsjpf92azgoohgu3bgvr84h6fy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:56.157927'),
 ('dn0ysu9h0wbf8pp168u8grhdpxzskpyu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:49.803522'),
 ('dn1yrqzgdoch7o687zmt4no9o0qqmriq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:55.583840'),
 ('dn3aj6rbbwcnkifq490lo6dhl0cbvl1z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:13.116787'),
@@ -7189,7 +7120,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ecna21r8l15oa8zfnij5lap0h6feuzy3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:09.597700'),
 ('ecrhofrwbwz9mfnpd9eg1utabmms3cck', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:45.782015'),
 ('ecyzwqiw8q5mf1xol9o2sqb1zqz0057f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:40.433876'),
-('ed9zxdcodtygia7rb1mlgeh1tu0fqjfi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:04.559081'),
+('ed9zxdcodtygia7rb1mlgeh1tu0fqjfi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:04.559081');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('edcjgm9z5n0ljgtot7hbqrmo7cd5e31b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:18.717704'),
 ('ede6jhdr9v94g4a3t48drnqvjppu8ofd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:54.720746'),
 ('edernahha1eoy8fgcxugpdmt4vh1868k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:00.284900'),
@@ -7206,8 +7138,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('eeczs0m8so4gf52auh7bpqqgror8lkfm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:23.322929'),
 ('eefr4x0ghf8xgvwacbuq8n1u41vzcsqm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:54.424267'),
 ('eei1i2283et0fqwxebp663li5iib3fo6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.106577'),
-('eek4tc3hacfz7xa4e38uj9durmlfp6tf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:03.085805');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('eek4tc3hacfz7xa4e38uj9durmlfp6tf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:03.085805'),
 ('eelgpbl3utxgs6dzidnbhzltcl541hxb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:31.754740'),
 ('eelj9z3p9uau19mmae4fglu90x2rjyci', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:06.190422'),
 ('eenuw4wmupb9cx36rk592lyp9ukq39pb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:42.038628'),
@@ -7504,7 +7435,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('f206jiihg7hlnxjun7cxg7nbip0e1w4n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:58.045539'),
 ('f21zu38mc5erzvdgnwiyht3340dv5c8j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:13.429295'),
 ('f24v83n4jjpiec2x0o0ju0pdt3tlufbd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:31.519878'),
-('f25t3e1clspvx620pky2lh6yxfemq3l3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:28.404166'),
+('f25t3e1clspvx620pky2lh6yxfemq3l3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:28.404166');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('f27y2leb7u81fo0k2nem7qqaxc67v7p5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:39.612179'),
 ('f2dtpx5a5vh6o86kdksolrgvkgl2k8pq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:21.519336'),
 ('f2fpdmsll8mnfnet22s79t14orrkeewn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:32.086487'),
@@ -7521,8 +7453,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('f3bb0uzezipijud5iydhq4zb43szld1c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:10.139552'),
 ('f3crmyhti4fk8d2brh3b02bx8525qtcv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:13.709919'),
 ('f3hgjoxmudzkprc776abgl23dht7sib5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:43.068661'),
-('f3ju8zo81poi883ae00r74n8j2wx10cc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:50.076455');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('f3ju8zo81poi883ae00r74n8j2wx10cc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:50.076455'),
 ('f3kv5x8uq7rmr8gkvdr7cktfu2yd167b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:40.555904'),
 ('f3lee8x95cbtndy53paw60ucy1w6eecy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:42.187272'),
 ('f3rzfr5sgzgxs90avw8otkh5vo775ta7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:29.220679'),
@@ -7563,6 +7494,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('f638ibc7m8dy79kmv3xelzystp70n0k4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:27.705531'),
 ('f64fw5vocp88djffpwaysxu8nkl3i1l0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:11.632256'),
 ('f65m2619zq2jb6nhz91kygun4m9v3ci6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:48.754521'),
+('f6h4r6u5okrp7iufutil1tmmeqaog0pw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-08-03 04:02:52.085590'),
 ('f6i4coed59bt0bwgg525ov675nfbdyu3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:09.538417'),
 ('f6iduxw7l7r8dcagyjsb00x6jc094e1d', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:17.122344'),
 ('f6iz57oabtiv4jtfwc852osxzm1bglu7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:43.657706'),
@@ -7709,6 +7641,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('fir3iswed7huluqzkrwy1sq7rpl4e7zn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:16.702397'),
 ('fiwg8jbxehfqwmrkk23ymaoy5knslfcd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:19.588900'),
 ('fixmhazn4qf0wi6c4f4h6on1ipsfwkls', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:51.819735'),
+('fiz5l87fc0k17ufxmmfix33strjonsb4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-11-11 02:07:07.022495'),
 ('fj1loucej4t6f6dq6k1kjq9kezov9ie5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:04.703756'),
 ('fj2ohsrc94hld1kdlqooitb7dkq87wn1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:09.007117'),
 ('fj4xcuf1aja951zb2086zp61r68wdfvd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:37.401099'),
@@ -7818,7 +7751,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('fskkuojqxhpzzvmswc0z2jxg78n8dn4w', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:35.471758'),
 ('fsn3xutqnug06kaqx80rmyk3xdx0btpp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:27.502485'),
 ('fsobjq85i46g0gga791wl1vvrwc9raoa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:35.423642'),
-('fsqeu6kog6c4eio5380m26hzuiltw9vs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:04.232482'),
+('fsqeu6kog6c4eio5380m26hzuiltw9vs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:04.232482');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('fsqogcijqwhz1syw2m134twx5hmlx403', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:18.987774'),
 ('fsvno7c3lwd9jpwhxgvti4vf7s58jxue', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:00.053011'),
 ('fsx182g3vnc38migskkkonnivhhh0fnb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:03.602929'),
@@ -7837,8 +7771,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ftzo0m453279t60h8y86ednvhtgyllj9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:32.605090'),
 ('fu0ajd87q4rw3y1rdbqzz7u1vsvixwmd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:13.422339'),
 ('fu7plzba2zlptu2ne6hubv10drnb916q', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:58.907595'),
-('fu9w5zljzx8y6pjkiwmwqozmac0lzw11', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:10.074539');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('fu9w5zljzx8y6pjkiwmwqozmac0lzw11', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:10.074539'),
 ('fuckzw5mcd90vps7nljzukbdrbg7wmxs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:36.272938'),
 ('fug462hqfkv4zu1onenl2547482mamet', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:39.213115'),
 ('fujlcevz3h3zaqzjfgl0qe8djn84m9cv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.244400'),
@@ -8134,7 +8067,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('gg4lh4od8dygpyivi6tqaa0x5qlo2555', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:37.166594'),
 ('gg6h0mve6d622al6u89n717iqlnkbjz3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:50.669589'),
 ('gg80ez55utwem7fkt0ojplekthc67pvk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:52.024038'),
-('ggakyid86kh09e9qd05j38xu8gnlxqi5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:33.685486'),
+('ggakyid86kh09e9qd05j38xu8gnlxqi5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:33.685486');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('ggbbzlxpka0vp3hp6jcsqmqgim9vyqy9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.115847'),
 ('ggcbj49u7ztuzornvs2nbfsjxnikg6gh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:35.810557'),
 ('ggfts9ropdi4oxy4bifeirjh9yzv7moi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:49.347799'),
@@ -8153,8 +8087,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('gh8p75il6l8nqn1mync7r7ymspwfnp02', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:40.184191'),
 ('ghhg2yupejny7ou79bi8lsecbbu52fp5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:36.067404'),
 ('ghicef8jb2n4kue7cq5gf8xgetbgruyf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:50.062974'),
-('ghiub2w4ps9evmql0iapnummzjtje2cl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:29.599955');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('ghiub2w4ps9evmql0iapnummzjtje2cl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:29.599955'),
 ('ghkl8yvbxwtyf1ovgxfs6jechbo913wq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:11.902319'),
 ('ghnc4u07mn9a7pdh82ugbz1tu73auyxm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:01.927560'),
 ('ghsirukbz6r27unyz06v8w36wvmuxxb4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:21.214266'),
@@ -8450,7 +8383,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('h4j54hsdqf2fcizf1u41hq6c1apban6u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:36.374427'),
 ('h4mxa79hr0c3a8h26yw0vhmxxif9d0w9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:20.189534'),
 ('h4n9wez7hqm0loqy5wvsbuooiwgokqlk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:03.820978'),
-('h4tck6jgufxrq84hxzaimpvvq12xn7x8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:24.869392'),
+('h4tck6jgufxrq84hxzaimpvvq12xn7x8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:24.869392');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('h4w5l61td1btzm1pux3rwf8mkr85fgrp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:18.186996'),
 ('h4y6ds1vlcu85wovfjdox7okxh6mp9wc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:22.723618'),
 ('h545rr7tm9jnd3svasl26u5ektn7n3wv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:03.322169'),
@@ -8469,8 +8403,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('h5qb43ljhmgu2llnkmsg9ss2nf4co4gi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:09.235347'),
 ('h5v011kqx76vtvx39f4ac6sn1004e5np', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:36.803530'),
 ('h5x7bft50in829vl0m1ujftu3jwe4wqr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:32.242033'),
-('h5yff8boo9mb7ch940gokyp6fii77rd8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:23.645370');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('h5yff8boo9mb7ch940gokyp6fii77rd8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:23.645370'),
 ('h607mdsljz67983k3wu96jnbkwa11c2e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:49.551459'),
 ('h6147cmgrgvsesr07atle5gy1rq0b37h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:11.091150'),
 ('h644ttf8vtw8lss4849twi0kwba94i1g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:45.285491'),
@@ -8766,7 +8699,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('huvd22sb8dhoc4rxvn07xramzwstjdzr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:15.636826'),
 ('huxoco7pvzh64kd6dtbuqe0kg42ywe8m', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:12.030971'),
 ('huzzffm415i3pml08cwril4q3hq988uf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:16.386995'),
-('hv6j56gm8kn2r3vifq9xeuz6kxg2242l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:16.097863'),
+('hv6j56gm8kn2r3vifq9xeuz6kxg2242l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:16.097863');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('hvi6xfj816g0dh5w9kb37vv1ih55ggjs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:57.035171'),
 ('hvi933n3w7m2a9yjr6pdz0kpj933kw18', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:42.590249'),
 ('hvo92inknqo76dlbzkr64nplszae48hw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:23.701434'),
@@ -8785,8 +8719,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('hwgg9derfhm9jr7c1jise32dwbn9vs5t', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:00.589011'),
 ('hwnn3jvh0hb8yrrysiwj23ktmw7yjt6f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.287057'),
 ('hwvhvd9j7wige9fkadbvhjl0ee7m6fcb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:37.729891'),
-('hwww0lof8tmjrnfhgzee28zckswkjddd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:51.304619');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('hwww0lof8tmjrnfhgzee28zckswkjddd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:51.304619'),
 ('hx2dmofcc60wqq91xm8s60giep7gln5t', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:49.682509'),
 ('hx5tlaqvmmeezns8btpt8jqb5fpt4itz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:28.189690'),
 ('hxaklesu41osfle25vmuv5jn8y2p22wm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:51.736714'),
@@ -9082,7 +9015,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ikr03q48jh68ylqsdneqa9mp166hkh4w', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:10.495935'),
 ('il0yujlhz2o2glmasnx0ejfa0vfh7eqw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:02.130746'),
 ('il1y5wrpnsjex6f8os996ck09gnlncxl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:19.614496'),
-('il4qtfquoas18gwetzhyxbd499zyypeo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:20.270335'),
+('il4qtfquoas18gwetzhyxbd499zyypeo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:20.270335');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('ilcw4b5bxckb3byatpdl53d8p5qilr6f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:05.525512'),
 ('iljqyexd7a99chrxiluhuv94u9vnfkk0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:45.552055'),
 ('illrwmjolj5t9kehdwaxqrixsmw4flv4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.006658'),
@@ -9101,8 +9035,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('imor3z6jnrj6dowwcvjkb7nqh6z6r5zs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:08.383015'),
 ('imp4r8my8ml42brr7upgd0o49r9su8q0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:34.563579'),
 ('impg4lmwjjpnfycox4lwrzp3ptnuibe4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:37.316799'),
-('imsqxqcdkbzw6la37rdsgu6da432h1d1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:33.444300');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('imsqxqcdkbzw6la37rdsgu6da432h1d1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:33.444300'),
 ('imtip22aw58sbutdvrqdr76o0v5xws7s', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:31.932442'),
 ('imuzvt15y30rm7651ic8yxwrsb9h6co8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:37.186144'),
 ('imyc2khuiyupjvmt5rr41uc3pfyync2k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:57.507134'),
@@ -9398,7 +9331,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('j92d8vwl97303jbh313ov64pndrqmhr2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:46.246801'),
 ('j92vhw5hvgpn67s6ig2e5a3fud0df9m8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:36.972661'),
 ('j98epaxccv3wdkrfpjoxu8l81yw9p3uk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:36.925831'),
-('j99tea1qj33k3x2j3b4m0ntsfo8y20vy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:13.728611'),
+('j99tea1qj33k3x2j3b4m0ntsfo8y20vy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:13.728611');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('j9abf4miw5bfnykpw3wz3bhwmvtmferx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:24.268451'),
 ('j9aokwfe17gbih1fwbhq6jsbpgd8dqgl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:37.056858'),
 ('j9asjdvhwoe6wv81hthrz512x07ezfvm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:26.297167'),
@@ -9417,8 +9351,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('jape0gcv27hcbw81xiat7ooi04bto2pp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:07.663735'),
 ('jaquzaba5rghgr9dnodnb10x4p2z75ue', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:15.479334'),
 ('jark9iksjn63mxwcqum1vgam9jq2vehy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:56.487187'),
-('javj2kmd4s70x3lqjy9ngbapo6gsr9qk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:44.451950');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('javj2kmd4s70x3lqjy9ngbapo6gsr9qk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:44.451950'),
 ('jb0gvixblr35xph4bqj6jxitqh2xd0po', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:04.014343'),
 ('jbcdxflmsi1xi2s68a98d7hkiw2aghw7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:01.977711'),
 ('jbfju4clrkm3dx6kwu4kfjy310j3byii', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:52.508230'),
@@ -9714,7 +9647,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('jzdvjk89chlihs9hf6bqwrei6dfcqwk6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:28.060008'),
 ('jzi8ffjb46k8v802iz26a22j8tytb4lx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:53.188720'),
 ('jzkindafz1d2fwmto8udk1y0zvmn286e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:27.005327'),
-('jzqozm3ci9aufhaiqty4gzz2yyg878tb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:44.595093'),
+('jzqozm3ci9aufhaiqty4gzz2yyg878tb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:44.595093');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('jzrqlz0xof5eggb5qax7sfgtnau4pke1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:52.367162'),
 ('jzvqe25fpcr2wid2vnlxzc8h9kioeuj3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:20.716943'),
 ('jzxirhzgjdfyru1kavkqslpy80093e1y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:45.890509'),
@@ -9733,8 +9667,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('k0rygh8pb32436ku95gecju1k9u9fv7j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:54.886683'),
 ('k0wo8sdq270glc160dl084srpjl7ue8l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:33.872650'),
 ('k11w645z0q314pu8wdsvsf40u6qtuziv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:03.034449'),
-('k13pkpgp2iysgm9dm998ko2b40e4m0en', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:35.213541');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('k13pkpgp2iysgm9dm998ko2b40e4m0en', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:35.213541'),
 ('k17g47y6y5xmkfbqck0f6qi838llb2rg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:58.580374'),
 ('k17o12uq65fcrkzdzq0eg4eta7ywzfvh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:24.281234'),
 ('k194varg50qkqzqtiyxvhh21omkx0tmp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:46.406141'),
@@ -10030,7 +9963,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('krehtz9a9782tge3vcclqar8oh2ddp6b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:28.006582'),
 ('krrbpiojvy3nh9cg546pkqyfhbllnwlt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:54.757654'),
 ('krtpq20k859zf07u5y0epq0m5h13paxd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:18.450643'),
-('krxnvgv8kceuinwjavaj9nbyk8vuq76o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:59.211807'),
+('krxnvgv8kceuinwjavaj9nbyk8vuq76o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:59.211807');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('krz1ojuhtau5xch9gr8w932i1bvrf1kd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:06.039387'),
 ('ks28t64am4fchx8c0vff99wog86suiaz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:55.629538'),
 ('ks3ep44dkt59eg21gdrh0emds8pktxu4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:23.998059'),
@@ -10049,8 +9983,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('kste45pmgqcmt0lm7jxqv24ggt1idgep', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:12.146133'),
 ('kswshuyqxn70dv1sp62cerep2hqvjata', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:50.424888'),
 ('ksxhck0t3smagckk7pz3s7kbey06dka3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:42.532930'),
-('kt0zg47gnbhuez5t25jharb22tfdhtfh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:13.710741');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('kt0zg47gnbhuez5t25jharb22tfdhtfh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:13.710741'),
 ('kt8h0ww6085og5maeo4w2gt37al9ovnr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:59.916964'),
 ('kt9brmjxsfqqz9cp948h5i9whhly4ao3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:55.147601'),
 ('kt9bxgmri0rulrpc7lzkm6x6gdxs17bu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:28.285450'),
@@ -10179,6 +10112,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('l3bfnahi36wxw7b95mppol19py45nhc7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:25.205951'),
 ('l3hytz9nomn6ntog8auf3qh7uned1dyx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:22.610870'),
 ('l3qq3ghgh5finncn1rgkf54blx1htqlu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:19.164625'),
+('l3s5j52jt48i2cpf4vphg519qt183sfs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-08-02 04:47:03.864986'),
 ('l3xoid7yoor4f2wqjemalvut2rawsa8q', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:32.796155'),
 ('l3z8760up33lxux4vvrygpcoirbh6v5y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:00.938390'),
 ('l403pt4eyrxb3d4ijttt1m9z81zom9wv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:58.693685'),
@@ -10187,6 +10121,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('l44if6r6ssn7egxr7tt6n7jl44t9jixm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:22.496110'),
 ('l44odvr7a0qchpmt3tv020hlg0khag96', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:31.496674'),
 ('l45jd0fn6c4saoxulw4cg1rhxax2dnct', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:38.048338'),
+('l46fmfm817vb90m6g25li03m86x1dosg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-09-24 15:38:38.004677'),
 ('l4728xw15yxkptpcfhasc2s51mtuzesa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:30.367111'),
 ('l478wqzf6836s0c9j9zxxgc86k5pugs9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:41.361662'),
 ('l4bts0kc5cm0w4u0t68fkk6uhxi9qu52', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:04.626738'),
@@ -10342,7 +10277,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('leqm9wqt0wvm2dl4a4ti72nop383yxj7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:24.330989'),
 ('leqnooxvfl90tczuxxrkm9pho60pn10n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:44.571809'),
 ('leu45g4a3qzaux8kal9ceaubzj5tfrbj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:25.777573'),
-('lewuq37vwsqjdxkqp0v0wm0ruf4g0dtb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:36.233932'),
+('lewuq37vwsqjdxkqp0v0wm0ruf4g0dtb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:36.233932');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('lexoo2fbzsanlf1hjbibk48ffib8qezu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:15.717176'),
 ('lez6yb92bo2ldjial3i016gx4t07xfha', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:45.781955'),
 ('lf68tgxll1h5knn82x1otw498u3q97t0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:24.838232'),
@@ -10363,8 +10299,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('lh1wair7nj5iurf9229y0k9a3sx2k61y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:15.769400'),
 ('lh2vs9ih7u4liv12hgfkw9rjaoys13fi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:32.182018'),
 ('lh5llqj1lvsmbzg3t3vuw14mmbc6w30o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:54.066599'),
-('lh7el1hqtpo0h66ta7ea1peqfv1abpf3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:26.778996');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('lh7el1hqtpo0h66ta7ea1peqfv1abpf3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:26.778996'),
 ('lh8333k2yackaatxw0hyro51mqlz7t6r', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:25.086222'),
 ('lh9g0owkvm4sxnuix2y4d2s9tvkjhde4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:06.538603'),
 ('lhehpoiwbsd9mmptbhe475lywd20phv5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:42.382918'),
@@ -10658,7 +10593,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('m3dthpxpunpstlgqgdejatc2w6f0h7yo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:22.974446'),
 ('m3i0fbsrr0gioim6k30mqiiztbf5g45p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:26.914589'),
 ('m3ijwztmoz88j9n9v83fkv258gehthhf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:35.382737'),
-('m3koo4d8p6dv6y2qj4injr7z6wo1nudq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:10.306875'),
+('m3koo4d8p6dv6y2qj4injr7z6wo1nudq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:10.306875');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('m3o85dq2jhtyi171gtw907ibxt7rrjen', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:02.028753'),
 ('m3ot696v2mews08wib99h4yjspliy8wh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:12.106026'),
 ('m3s867ieyovwitqgd5wxjqahxfmqbvlm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:21.189261'),
@@ -10679,8 +10615,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('m4rsgz9rbim25b9a1e3wtnx77hqoq4dg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:23.005260'),
 ('m4u2ibpl5s7u9lchuqd72w2tompwk0d0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:59.634936'),
 ('m4w6oy41rczhmsscl2u0qvn8ohuna1tz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:44.950895'),
-('m4wqhadr0l75qssxumwdl2gjrsyttk9d', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:19.083394');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('m4wqhadr0l75qssxumwdl2gjrsyttk9d', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:19.083394'),
 ('m58c4if9nvxbp18u6th3p2rsysgd4omy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:25.393992'),
 ('m59esljcc2aajcc60ozxg10tgi7z673x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:49.821905'),
 ('m5d22ca3jz1q9bde6n85tf94lxwwgfyc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:05.155430'),
@@ -10957,6 +10892,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('mrts6q9rlhyxj4molxrlvrsqm94stu8w', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:42.169757'),
 ('mryj48aqh6xc9x088jyth976587xk4g4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:29.634091'),
 ('ms1rsl18f25q1zv9wfqlm4xtunbgra83', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:34.495367'),
+('ms36fqpfk8z6rynm2h50eukilcoef20k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-08-03 02:04:04.106632'),
 ('ms44kzppgtn6v7st4tehmjwyd02hm2lk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:09.506219'),
 ('ms5v3qwvczdx9bpx8oy0qvywl8yscysp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:13.615717'),
 ('ms61yswak11p6btiu1ofak5iga93hkag', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:39.254125'),
@@ -10973,7 +10909,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('mstidvlp93dejn2docdjs5k0494zqneu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:17.663269'),
 ('msunmv8cbzcgjvygsu9wvggec1pjs8rn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:13.993470'),
 ('msztvnpvj9i7qkwhqpsl7ryjdufx3ceh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:57.598587'),
-('mt25vgk3bb9s3hhcf08dy4y0x0vos008', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.875200'),
+('mt25vgk3bb9s3hhcf08dy4y0x0vos008', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.875200');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('mt8cf1drp396vz0v2rc5gq142tsvq0kx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:58.218729'),
 ('mtah3b6fg0lzyvr2qnxkwm7im66vwbcf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:45.848224'),
 ('mtd5a29vuxaolu41z8lw0ez9oxt0anrh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:01.085235'),
@@ -10995,8 +10932,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('muc3wvrp63hh707zdoasocp2093qz5up', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:28.083932'),
 ('muelxh5qqhnr1u3c6gg4qq0po9g1ar57', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:58.811585'),
 ('muexd2dcjt1ei60oilblsj82d467i71j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:40.857505'),
-('mugli4j15kfmp3sk0sff6wumvqevscpi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.872455');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('mugli4j15kfmp3sk0sff6wumvqevscpi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.872455'),
 ('muhbmfu347pdyhhl4m0ltdsydkop13pw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:43.763812'),
 ('mum5e8h8jnyeq37misetf1xeqxh9kjp4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:53.250965'),
 ('muny8fxzisw2yuyb1m5romgamcj7hlgc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:48.561682'),
@@ -11289,7 +11225,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ngcv8mg2fa0s7bic9h4fsswkqar3hnaq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:25.824062'),
 ('ngiaxwcwvqjbwkor4z1e8g2ei0arry2b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:50.818745'),
 ('ngkho1d5718smw5f5vr3mq4z2lhqknhj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:31.897434'),
-('ngkjcpes6hnq15c009ih6bcrbrw5hvno', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:21.073235'),
+('ngkjcpes6hnq15c009ih6bcrbrw5hvno', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:21.073235');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('ngm86uquhxc5izimzaqs3ub5x28bgrbw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:41.524081'),
 ('ngnm10rpd07je7z179gkssstjvsrrnet', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:12.389394'),
 ('ngoayzblacxc3c1endxc05eh68yd8u18', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:55.991676'),
@@ -11311,8 +11248,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('nhgu6ezv0l66k5wc7fivaku4plphhyq1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:32.174928'),
 ('nhhzqs3p205vtslddf50bmunsp8ns8rx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:21.564130'),
 ('nhlw29riuernlrzslrpa9mfqz85v4uan', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:52.365037'),
-('nhlycso8tvtaaexv30abur9m9md5zgx4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:41.476708');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('nhlycso8tvtaaexv30abur9m9md5zgx4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:41.476708'),
 ('nhn11t29kq8onj382e07222jhm2ya8is', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:38.738518'),
 ('nhvhg3bnptvfaxo2yvsccc0jva65dnw6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:28.311731'),
 ('nhw1upsjltf5g2vany24tlkn4csghrf9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:22.094976'),
@@ -11605,7 +11541,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('o4lwh5y4by1oik2m4etdsuklu2laytez', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:03.855986'),
 ('o4oyyi890fgx60yej7im752ooysx7vvb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:32.116008'),
 ('o4tatam2ursvn5sfh57krhmx0xfqxtsg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:18.556265'),
-('o4xfa5ufe3fn6er9u21lwbeavi87hpgq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.423370'),
+('o4xfa5ufe3fn6er9u21lwbeavi87hpgq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.423370');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('o4y7zs9sqs1vwahsn0ctsv7rhri22ria', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:15.060918'),
 ('o4zixt1fpl2ndbcnum11oqjlmkh8vmqk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:41.585136'),
 ('o4zpwvxjfh58wfwp3vpanyph9rvxtd88', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:09.166246'),
@@ -11627,8 +11564,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('o6r1jxc7fe8ik50yfqi9ocshpgwd22wl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:24.231451'),
 ('o6uj2cjo1xoepnjumllw8vfcwfyoglhg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:01.454329'),
 ('o6vog6wqhsmmgdbr08thzqjxwey9m7lv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:34.435738'),
-('o6z23yvs92e5c6moj2cobxz835anceup', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:01.448307');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('o6z23yvs92e5c6moj2cobxz835anceup', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:01.448307'),
 ('o7501v6pzokxzuvyx3br97rt2ylte5rb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:42.137821'),
 ('o76i2ihkctpf7udbyg7iqk19wsvbauih', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:26.551765'),
 ('o775uynlryu1q25vhcex23itwh3zqe7k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:46.383701'),
@@ -11921,7 +11857,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('orwg2bsveepg8x6l0dqhtt0ykr4dw1bz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:54.163207'),
 ('orxl83khv5t6cqyjlkz0y9ysvi4g47ga', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:39.324999'),
 ('oryc0vr237io1dr5gbzhhbxrceubpjx2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:42.444953'),
-('orzmuydocc8uoc5lfndgsbyz0h6kl8rl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:56.238148'),
+('orzmuydocc8uoc5lfndgsbyz0h6kl8rl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:56.238148');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('os02l3hqzd8xhxa5hpb0afem1xs5ul2a', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:25.463306'),
 ('os5501v0fdiktjz3zg1s1b3c2enkrgid', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:48.086084'),
 ('os6u174qt0xry9iudlpuz78pktmcxcc6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:29.753975'),
@@ -11943,8 +11880,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('otiraevxx5osdt1ihnxgl6prsxliczj1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:19.067782'),
 ('otjhxgbh5pwy8zedseeojyctlnv0xsyq', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:53.806299'),
 ('otkd95bb4kdiwenugk0q88p3axtzb67i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:44.310750'),
-('otuujnp8q5t4xuu43zr9tczar91qxbpm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:35.625258');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('otuujnp8q5t4xuu43zr9tczar91qxbpm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:35.625258'),
 ('otwri0qfbmc3c7x54htz5acnhh261vma', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:23.043870'),
 ('otxfvw48m9iyhyqqwazopjc68pcu7d6w', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:46.358191'),
 ('ou20zq3ta2wwcs0egspqfh6p5o8t5bde', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:19.295834'),
@@ -12236,7 +12172,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ph09ekii8wlb8olrg2eqb504d6tz1q3f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:30.010174'),
 ('ph0l0hou2cb0vc8wqus0dvdqfgkaf9d9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:14.364737'),
 ('ph59fhvt9rxunw6i6fqknveu9hpwg2t8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:43.664981'),
-('ph7mvpruu4ou4upxrc9zj6427bji4a8j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:09.536686'),
+('ph7mvpruu4ou4upxrc9zj6427bji4a8j', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:09.536686');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('ph7pyz30vg38v3txidvlkxentigenb8b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:36.955809'),
 ('ph8s64nhknyxy505ifdrj8xw6wrz2pvm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:47.423140'),
 ('ph8y93utp5pycsz45gssw8q2zwx1jvuv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.759648'),
@@ -12258,8 +12195,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('pj29tfmnfq78o6phm1nzl0exgisb0rlo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.973876'),
 ('pj2b5o4k8yr1jn5bka7bbewc5vgvrfzg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:44.930294'),
 ('pj47670poasrlckjxwluc6f0f8px21fz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:30.199051'),
-('pj9twyv0umr7whvnd8moqvtk2z292kyy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:20.032621');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('pj9twyv0umr7whvnd8moqvtk2z292kyy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:20.032621'),
 ('pjfjb2zflzo2l9cshtvfn5vgam16pib5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:33.894871'),
 ('pjknixgtvnyl6u8olrfvbdgd1843vzh2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:39.023578'),
 ('pjmwtmfldkfesha6b5qllyfzoob80a25', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:17.420742'),
@@ -12551,7 +12487,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('q6vjmmgejkr3745ph7xzhh9x9xgnbsoa', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:57.609719'),
 ('q6wx5e3xc83q8acosioxa5mdezcr8uro', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:26.546667'),
 ('q6zcd3qb5w06tw5sbzuoqgiph1xu7bi5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:32.640119'),
-('q71gxkprkzr6tmyr9ucx68vg1h94qpu7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:46.028603'),
+('q71gxkprkzr6tmyr9ucx68vg1h94qpu7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:46.028603');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('q76ib5mbfov81rb6ktvap8da79chaos2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:56.242849'),
 ('q76j3grjpov9ic0awqx11rx24e4kp5ym', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:17.489221'),
 ('q798vhrjjsogxkok83b7274rcnatxo33', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:48.599473'),
@@ -12573,8 +12510,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('q8fjgwnrryu8xc5z31hcrleb5qlolj6b', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:53.861139'),
 ('q8jnaihe9uai2sn3o32gudwhia1ehac5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:33.516316'),
 ('q8liiopkginwvedo66uvnxerqtjgz5cu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:05.560948'),
-('q8mbymljlbpetb2jwn7yvftt91lzpqvo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:13.761387');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('q8mbymljlbpetb2jwn7yvftt91lzpqvo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:13.761387'),
 ('q8my0v8q5jdj5e76n3421p304n6bcol6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:20.097723'),
 ('q8nk5t0yqn31v0cdd422h72wzevamhz4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:40.242852'),
 ('q8vnkw76kg4f46kpt2gdyut9ufbi1uu0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:52.751126'),
@@ -12866,7 +12802,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('quzav0fdh8v3q6x87055knh1l7szk5r8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:38.493439'),
 ('quzqfan1hzgjrbleqpaj7ycsldllgyt2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:59.529872'),
 ('qv0sq01j9j5h0h58i9mzrnnyem641bwy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:40.931375'),
-('qv868xqffv0a8f8imr1qt6bavowwxect', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:01.526636'),
+('qv868xqffv0a8f8imr1qt6bavowwxect', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:01.526636');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('qv9llovghn7fy2n7c3vl2er4n1131to4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:33.148739'),
 ('qva9xfam5684cqik8iuqquk5t9vknwo0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:45.262505'),
 ('qvb6ifbjaiogt7q5k3ygzop8hpjqifgz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:26.296243'),
@@ -12888,8 +12825,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('qx1d3f2zexuo0rjj7dchol3o2xqb59pk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:04.449009'),
 ('qxfdogqsy9jejyasyswpzphjnul0ek2f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.899662'),
 ('qxh52vu45nokd4kfk8srlmnaqaocnv45', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:34.115957'),
-('qxihuiw37rxpyjgx0lsil8q3zlqoep8h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:35.697825');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('qxihuiw37rxpyjgx0lsil8q3zlqoep8h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:35.697825'),
 ('qxorwhgezs1q1mzh39yuy720edmc4eo5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:24.788502'),
 ('qxpb64893jfujyu5vwn1sg83b33xflc7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:00.212617'),
 ('qxr4iemj3ixs3v3z9m9eqlmfmie8vlzv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:45.754952'),
@@ -13182,7 +13118,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('rlli2a21palbjdazruhz7tjctq3u7dme', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:09.566695'),
 ('rlpe0hj1wshdlyffun30xipbvjewmrn5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:18.085965'),
 ('rlpexojk4z7h0d0j5iuj68ujq2v6zw1n', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:37.986932'),
-('rltujvlw38zdqn7z42moocucrjyllda3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:54.261229'),
+('rltujvlw38zdqn7z42moocucrjyllda3', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:54.261229');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('rluvxem48zlplq1vgx2yv6cfi01r3whu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:55.440551'),
 ('rlxbn03jgm0ejd2tvs7qns1gvoizmp06', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:50.194990'),
 ('rm1zspboedjydgepbirx0a3ofdoz4m5h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:29.762870'),
@@ -13204,8 +13141,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('rnf0fpjk9k1sbp0myqrgjt29kgdra7ir', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:14.393762'),
 ('rnica8gnt8hrs3cdy4uv23helcv9xnyi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:56.780845'),
 ('rnn3zughoqtn61ssywraudczckmq0u2z', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:40.129427'),
-('rno2ptve18n00awkm3hat7m2tb035tlt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:13.649906');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('rno2ptve18n00awkm3hat7m2tb035tlt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:13.649906'),
 ('rnpy45iyjozh69lwfbmskt403e1r18px', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:43.853562'),
 ('rns22njvbfobx1ixv1d84ihx6k8lboyc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.521110'),
 ('rnv5k8n27ji27tzrvjvc2ru120shr7g8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:44.245252'),
@@ -13498,7 +13434,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('s9tcmut8eqqeaopawy1spf2levjh8s5r', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:06.624655'),
 ('s9ukdzc7y3vxapar06ra34pjmylrbtcg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:25.910755'),
 ('s9wgmxcdn1mi38h24timk35oy84n670h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:20.510877'),
-('s9yqkgteryrybpjscgk4o96eme3yd30o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:10.452641'),
+('s9yqkgteryrybpjscgk4o96eme3yd30o', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:10.452641');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('s9zo0zlcvcoe7mlnonj4mx1cxhjccqp7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:57.159513'),
 ('sa1wawwzd0mnko8c7om6rhuyv47cn1xm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:12.709261'),
 ('sa3ebl7lgo5j0zam4gxgiq9woppzxxj9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:15.459332'),
@@ -13520,8 +13457,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('sbsgfwm0v82nls1ld80j1mszthfy9eza', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:38.442805'),
 ('sbufqzjvcd0mqyi5pz4cjn60io9ykpka', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:16.929874'),
 ('sbykubhvkrnx32u7k7kqmyec5ri69wiy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:54.551751'),
-('sc1hmyr6hnlqr0nlxtxol3i8ch3gfxsm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:03.136100');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('sc1hmyr6hnlqr0nlxtxol3i8ch3gfxsm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:03.136100'),
 ('sc2ubgmxslq103cq994nrjsn4qxy1v1s', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:59.752889'),
 ('sc730b7eumxas496jmy2lrmh9o0q2ur4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:30.246581'),
 ('sc78xdrgx6ckq70wuvmielsrxzcgv6tr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:08.004643'),
@@ -13813,7 +13749,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('sxls8aurleqs2nft3x04iub94cy2yutd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:40.729944'),
 ('sxn5ah31vlsetdfp2cr8p0jhn5qr3irm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:48.727717'),
 ('sxqyxbaxwxfk8tvaftvlfgfn5q0h9js4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:44.758019'),
-('sxsjau1lsd0en5lx00qx3pvkyjtnpacj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:17.001930'),
+('sxsjau1lsd0en5lx00qx3pvkyjtnpacj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:17.001930');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('sxu2zkipo6ychajqk6wdbsa8ivbcvvky', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:57.182064'),
 ('sxvehidxhs00e201cfho7q3b41ljudfw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:48.699491'),
 ('sxzb81zylvrc0nzbsrz63l5t114h6u42', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:03.818915'),
@@ -13835,8 +13772,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('szcgtnkhnuokfgn966c19mgud9eev13a', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:55.529705'),
 ('szgxolh2i18a08u4tseo52z0j2p0xfhy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:22.619191'),
 ('szmcklm7y1ls2aw343kiam0cupl3i2bl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:43.039199'),
-('szq6wb4oiizo8ilen17juqvo73ginbpz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:24.785220');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('szq6wb4oiizo8ilen17juqvo73ginbpz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:24.785220'),
 ('szw7zykt7h45ieqtpityinvyyaptrdq9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:29.140941'),
 ('szy3jcktpn9rckaobempg94zufgq73hz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:47.611986'),
 ('t014nxh8dw3iyv8qzl11thq8geu28e2c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:18.866539'),
@@ -14129,7 +14065,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('tmjhup5yash9x20ikr9riro7lh9hnmvj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:46:52.201819'),
 ('tml1ph60b85flyxjg9d4ryyrcftr4wct', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:00.914185'),
 ('tmlzkm4tccbmkv3gvauuqqi4q8dio2v1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:16.986096'),
-('tmoxffe70i3vcandqo8dztb9trxmryk9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:34.775609'),
+('tmoxffe70i3vcandqo8dztb9trxmryk9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:34.775609');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('tn079o4dqd7qa1eefejbhsdc7jdi03lt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.290542'),
 ('tn276hov1drjicwf1m8cynousgrnic2k', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:07.481908'),
 ('tn2w3q9qcnoergkrnvllbzj9rawwc4rc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:11.311451'),
@@ -14151,8 +14088,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('tp174q3uofeadorau7nem21rw4ltfomu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:55.829575'),
 ('tpbirph6rl8dmza5fz8jaz337idwlb55', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:10.365987'),
 ('tpd7c18y1hvd4nej10u9pl86ho0w2fek', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:44.849041'),
-('tpe88d6797nk9h43shmfteefh8ewnmzs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:47.695060');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('tpe88d6797nk9h43shmfteefh8ewnmzs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:47.695060'),
 ('tpeiyen9v182d8qhiq61ksver5t1urri', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:58.444046'),
 ('tpeviq5d3ppckmvhks7wr9c2ovmkobr1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:35.744268'),
 ('tpfbnu4v51aaesmf0o1gtr9sqfjj8fmy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:59.828858'),
@@ -14354,6 +14290,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('u4r2st6vxn3whf3n9b2niinlqjnu1j8a', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.845769'),
 ('u4rd6vu269fjni0t6ramagpehehmd1eu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:28.245147'),
 ('u4v16733dj89xt1og0ff87u816j2j7f5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:51.355875'),
+('u50koeueqa9cpdtg7wfm4ugf6g87fwtb', 'ZjYxMzA2OGQwYWU4NTQ4OGFiZGQ1ZTJjNjNlZTRiNjE0OTJmZTNkMTp7InRpcG8iOiJhZG1pbmlzdHJhZG9yIiwicHJlbWl1bSI6MCwiX2F1dGhfdXNlcl9pZCI6IjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjE0NjZmNTlhODdhOTU0NDA1NzVkNGZhOWZkOTkxZjhmOGNiNTAxZDAiLCJpZF9wZXJzb25hIjoxLCJmZWNoYSI6IjIwMTktMDgtMDYgMTQ6MjA6MjUuNTE1MjAxIn0=', '2019-08-20 18:20:25.551538'),
 ('u50xgbr9d9xup0f436s0lzrzk7x4lvg0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:02.956782'),
 ('u53th2jyw8i7v4isdcu3h7i6vv332wrs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:59.716773'),
 ('u5b2fkcbuc67kkxbe4ks8391uat3p5rb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:26.215560'),
@@ -14443,7 +14380,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ucub5lk2kaze8v5rjpgtsrzy8w353pdx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:16.273969'),
 ('ucv5nnltlzg186rg8t2dnfenxr9a1ctc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:56.591064'),
 ('ucvscctgzh9cnowswhggj8k3hd0qwgkk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:49.924925'),
-('ucx01hi07wjtvoc21aomip1oeyq9lv31', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:37.341562'),
+('ucx01hi07wjtvoc21aomip1oeyq9lv31', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:37.341562');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('ucz0o44q2j0jwtx8m48b8w2bs0w8hq06', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:28.301663'),
 ('uczs6ombh0clj6syh02lo5f1vofool2c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:11.419649'),
 ('ud28fn1y06u3f0xz25yn9nr44o0mvfqh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:03.027740'),
@@ -14467,8 +14405,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('uebplxjcgvhf2yxixx17weiuleit3l83', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.236606'),
 ('uefy0hqxd9zjhcdblvglk4z8gjrbebqw', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:38.081720'),
 ('uegpgjp7k8ydwmz2vi30w58z5sl21yiz', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:21.054819'),
-('uegrj3htb5xvi6uyl3ebuf3ruc8s58uh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:22.915929');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('uegrj3htb5xvi6uyl3ebuf3ruc8s58uh', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:22.915929'),
 ('ueilm0itfp3fsv6ph6yp832qcoy4mvjs', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:53.392345'),
 ('uepw7ret8owk0464n3sioldbzkshw2jp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:40.872343'),
 ('ueq21x0bq09mqa8ewcr65018zup7dkoi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:17.995540'),
@@ -14759,7 +14696,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('v1vlyotzt17c176hf6g85ps0sacs27ej', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:23.429766'),
 ('v24uxk59beha7907eyxf1ng5grdtghzj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:04.754367'),
 ('v2833pmltur7dqem2h9hjfz6xapnx4ah', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:16.089126'),
-('v29ghu9cv3omio8cswhfsu1lskuizw8w', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:05.949038'),
+('v29ghu9cv3omio8cswhfsu1lskuizw8w', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:05.949038');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('v29u1u39qopd9d4dbb8ezxqts4hmacon', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:36.053908'),
 ('v2apwofjnd9jhe53v0y1fsn3smlqknwv', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:03.684125'),
 ('v2bn0mqpb7udippdppo3cbygu5wel713', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:17.289548'),
@@ -14783,8 +14721,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('v3jlksyl55abxcrg4p5rbz5nb3om1gj7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:39.893774'),
 ('v3x5nt4hgi77ullaka9fd5jm4ipj2xdg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:54.507059'),
 ('v49enk57go74j088u0nmy5hsau5ljgob', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:13.791759'),
-('v49skfvv5j3tob5tqfn1wwzxhsmea7wr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:02.374980');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('v49skfvv5j3tob5tqfn1wwzxhsmea7wr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:02.374980'),
 ('v4aq25ric6pousxi7t7jbv59pz8eckn0', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:40.486379'),
 ('v4igea2yf2av0uuhu7x0reokragf320v', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:38.779504'),
 ('v4oi2au1zd1v217ou53fs6h8fnckr0cg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:23.504319'),
@@ -15010,7 +14947,6 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('vmvaa8357dc96d3rp9kzbz6l5h68tz8i', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:01.922020'),
 ('vmxtfxajfe42ybnz6rtr38ubjq3vlr31', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:14.713146'),
 ('vmy8rsm1dmasggl4ex9ku1ivrhsvij2y', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:10.273867'),
-('vn15yw53e95pz9aj8l9nl84vsm8v5x9x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-23 01:22:46.549460'),
 ('vnw2wvo6jxutzhziwbcwmwb9obldw4d4', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:06.363131'),
 ('vnwwl2r239v8w0lbcb4nejk5ymqzpk8p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:11.724928'),
 ('vnza1e6pgblf93nvnufof00p3wg40738', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:41.347186'),
@@ -15076,7 +15012,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('vtsxemz1hj3rtz9eolwip8srnn3672c2', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:58.438485'),
 ('vtugytcr8hqmhx6bvfue75s9liezwipx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:41.036642'),
 ('vtvljpstco4cgkbrbqhrdjawuwge8v9l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:20.095277'),
-('vuavxh90qv8xkmiwgle5jryus7yii7db', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:37.690257'),
+('vuavxh90qv8xkmiwgle5jryus7yii7db', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:37.690257');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('vueit1ip9omqu377ugewi21dkg7cwdmu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:41.778777'),
 ('vut8v83z3vdbf0hj6n1z9hycoqs6h0ua', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:15.795405'),
 ('vuv7mf6vwcn2y16e8v5wbv2yycj4zude', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:11.813494'),
@@ -15099,8 +15036,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('vw94tl0zf75nst91ttpy4zzfn01ju2no', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:09.438393'),
 ('vwewxrz303todsbow8s4zhio2lzjrbic', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:47.288405'),
 ('vwfseecfkfeldsge49pm013cmh919rvo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:18.365068'),
-('vwfx2drpkbgph7hlupzkcxhkb55fepnt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.443506');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('vwfx2drpkbgph7hlupzkcxhkb55fepnt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.443506'),
 ('vwgkmc206p3wbj04dtw9q8a2qgc3zkcr', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:26.940411'),
 ('vwh0cnz54qspyx2o53l4ft3qkrepa5j6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:03.653118'),
 ('vwk4d7n911lgnluyirvxj9mga77q2e99', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:56.627264'),
@@ -15391,7 +15327,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('wi42n4tp32r1chz8zzzzludftdwcnr59', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:11.115580'),
 ('wi8ym6azpjj9bbaufugsoohgxv6soslc', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:11.543899'),
 ('wigyi6xaerbg0yw422qywutupbbiwkml', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:55.613993'),
-('wilxl6xgu39i4emq3qpicexfv4pet4l7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:15.869423'),
+('wilxl6xgu39i4emq3qpicexfv4pet4l7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:15.869423');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('wimwmyz2gm50fduz6o7ut0vypk2738ma', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:24.304482'),
 ('wiqvn2mbqqyjq0s4bz6o2ezodkbu2dec', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.699710'),
 ('wj4k12puv2gjkuzp49291jbgwp7jh9o9', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:35.304600'),
@@ -15414,8 +15351,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('wkm37rrqvx2czpmtv224sqp4ap4nhn06', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:42:58.622835'),
 ('wksq6gs5v5vr7sjw2w6ghhdk4wvmvk8l', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:12.610257'),
 ('wkv3kbd6544qn7xyyyff6nf571r554ma', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:31.335454'),
-('wkz1xck7vkjowon12zqa5g5jalzwd884', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.498665');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('wkz1xck7vkjowon12zqa5g5jalzwd884', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:39.498665'),
 ('wl0o0iny3v0334vb00baczn7isi4jcfb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:32.924815'),
 ('wl13osk7bk8osvat6f9jrbv2gwqz6o38', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.082823'),
 ('wl7c1ykhbqpfhpm20wgxllhd2e0g2z2x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:07.140876'),
@@ -15706,7 +15642,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('x8hm248ogskwoy0th58ir014oju03koo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:59.123374'),
 ('x8i49ootwbbv02s0reeck5efyynm3vnk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:06.436146'),
 ('x8kkv68bkyqtpdykctn3qkl6hn1om2j6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:26:50.548555'),
-('x8pru7aihs6ro98xde4b3cvibb4z7ght', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:43.273404'),
+('x8pru7aihs6ro98xde4b3cvibb4z7ght', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:43.273404');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('x96zp85jk3pdd2su9yw889cpbfmbcnbg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:49.938529'),
 ('x9cwtyk1t8ih3irorzt2q5bpp3nn2leb', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:17:45.024453'),
 ('x9dt5n3xfauupf2n2r0lwzb40igpwqs5', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:37.760905'),
@@ -15729,8 +15666,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('xaxah8yra59ffg15nsueb1z0zvje0k5g', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:12.612673'),
 ('xb0m5azv64xt9j18yljrltxiarnb4u6f', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.454565'),
 ('xb4r4rb1h3ljzzuvzrkdl3t17o9vxesf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:44.663315'),
-('xb8ln8p24de0uryw42pw810q78e2we95', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.680498');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('xb8ln8p24de0uryw42pw810q78e2we95', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:30.680498'),
 ('xbc5e90pws5rmc244sfah74oixmbn54c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:40.357500'),
 ('xbsn0dvfe2kwopz2m1hblfxltni438ni', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:03.285177'),
 ('xbtjk2gsymjb54xljkomfl82awwpcr7x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:25.077921'),
@@ -16022,7 +15958,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('xynn91j9dgyl36x0wc203jozd5e6hwxg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:40.162816'),
 ('xypj465affyw06ep9g4vy9fs53hbounn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:13.361326'),
 ('xyql2ub68kcwkjj8tt0mfjoqhjoiarlk', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:13.905218'),
-('xyqlczrhancvjvb690b3hr73beyzdqst', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.043610'),
+('xyqlczrhancvjvb690b3hr73beyzdqst', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.043610');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('xyr7482h0x1llci4ee04khsb3pkh5kwj', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:31.679731'),
 ('xyrz3lpbc4ty82m5keht4zfljj03do4h', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:50:26.885153'),
 ('xyuwmfkh7357ujr0e4mxryekjcw6n5pf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:15.489792'),
@@ -16045,8 +15982,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('y0mdyuw38msdt8brtuwgwc5ohoaln1yy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:04.487064'),
 ('y0mq48cbf2n32hqw8w49rqxw9oqlh3yy', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:20.619132'),
 ('y0pn2rgi04rybqusmigtzim5p4zqwwzx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:16.461979'),
-('y0x3r0qqh2iqwakvjs1iugk6dv4che3e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:04.537293');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('y0x3r0qqh2iqwakvjs1iugk6dv4che3e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:25:04.537293'),
 ('y0ykw7p8u6w4t8ppg08r39e18cqxzjcn', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:25.979770'),
 ('y1b694mijm76ejywz8dhgx6cc748q0ls', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:03.674808'),
 ('y1cp4nyoj06ywxmamskewd5uolgy2fed', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:27:44.963818'),
@@ -16338,7 +16274,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('yod65xo9ecalftfm0ybvrfdiahw3o7gt', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:13.674714'),
 ('yoeggkhdecp2ik9m9jigmbw8vminofl6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:28:05.138146'),
 ('yoeia7ejv8dr55h40n0zubhjfvs5o9k8', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:24.405415'),
-('yojs17iida7r2wh4lurkmf0gma29cd71', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:15.045159'),
+('yojs17iida7r2wh4lurkmf0gma29cd71', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:15.045159');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('yojxgllcrbp42w38i5hc2m8p4wif6ivf', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:14.543797'),
 ('yopub5gjagf68vo6069ywhqyrw28tqky', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:41.486486'),
 ('yovz3ohdrtvmsyn5ptvkl8s0ekwnmr06', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:06.084638'),
@@ -16361,8 +16298,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('yrc1rtihkmp7h6fx8ul7kpt3fp4p6cet', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:38.705864'),
 ('yrddkgxljnfagj15pu49nuw16xq3jbox', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:02.765041'),
 ('yrf73h4og8213nrf66ylxqhe0aahcdyx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:43.197143'),
-('yrgkeeuj3xtx99xfheu0v7sxwhvrghjg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:24.170120');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('yrgkeeuj3xtx99xfheu0v7sxwhvrghjg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:51:24.170120'),
 ('yrs4mv31mabj3rmtrimicznck7ydygzu', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:45.725551'),
 ('yru9bgr2eon30r6tod4r03nd8bhfs7ne', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:14.511556'),
 ('ys7ztypwq9mrw0e7400nixi1d59kchyp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:19:11.070791'),
@@ -16654,7 +16590,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('zfl4weecbbw96jme8ipxqbp79digqidd', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:55.483486'),
 ('zfqzm5ygd59zp6pr9da8rl6ochla905t', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:48.823538'),
 ('zfrb1kdqw0mgkl6vzi5a7botjlh0n16x', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:22.591736'),
-('zfs8ueyfy5s4nlhjmpedhrzln5b1mvqo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.738748'),
+('zfs8ueyfy5s4nlhjmpedhrzln5b1mvqo', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:16.738748');
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('zfw2psvzwsct52wt9dwnch6i50xw2hko', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:46.850904'),
 ('zfx8rtps5q9de9d0d385uhwnpgt1z2ay', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:30.888225'),
 ('zfyiq2idk6of21ehvkn6jsv80c1qxhs1', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:30:43.600419'),
@@ -16677,8 +16614,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('zhgg1vt80idd6q9kwzi95gc4yv39rwgx', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:38.867542'),
 ('zhlgzsmzq4x7l7ms0yvjqi9bbjp7yzkp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:53.901338'),
 ('zhnygnd73dlz49u313q8ks6141x237wl', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:24.081698'),
-('zht5w59h5aeh8fdpiadkjx610z9ei6re', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:12.578110');
-INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('zht5w59h5aeh8fdpiadkjx610z9ei6re', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:12.578110'),
 ('zhu8vzglcetuieoue691vqwyge74nx7c', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:56:20.367890'),
 ('zhx814hdjj5haeac3ocjefokbjk0274e', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:17:44.219271'),
 ('zhyhjhm5vanbo7694t57yg5fwyiojre6', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:50.801972'),
@@ -16891,6 +16827,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('zwgyqao30osf0q9c0fw5bwz6bg2cljmm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:22:27.586901'),
 ('zwjis7e2wzdztut5rgw9xxzsy0setcrm', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:55.440668'),
 ('zwp4kfo8hdnbjfaiv71p6dh7rd6t31ui', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:43.311692'),
+('zwrlpexicc6rvd8tkt10djs8f935j6sp', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-09-28 23:27:05.367810'),
 ('zwughwoye5d4y58rxmw3s5e9dvi6869p', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:21:52.765222'),
 ('zx59i9jtj9hkxe8k3v33krz4dxe28rye', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:33:21.502714'),
 ('zx8x8ct2egdauo5sxcfz3d98lc59u3z7', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:01.183154'),
@@ -16928,7 +16865,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('zzq1wsz533demo1tusrzp5zdxgcyzlvg', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:31:48.070367'),
 ('zzs0tigs4q1nv9jjonphvodt2d0jvdzi', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:32:10.491570'),
 ('zztxg8cp017hijkv20945xcm6msoqo2u', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 01:20:33.495313'),
-('zzwqp1awsrqsdcgc3kfte3tjujbrngog', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:16.243507');
+('zzwqp1awsrqsdcgc3kfte3tjujbrngog', 'NTNiZmEyNmE0NWI5ODk5MzQ5NTVmZjdmMWJmZGMzMzZiNTE5MmYzMjp7InRpcG8iOm51bGwsInByZW1pdW0iOjB9', '2019-07-17 00:48:16.243507'),
+('zzxxk45gvre1k39ylw265bxk4cj92g4i', 'NzBlMWYyNzkxY2Q3NjE2NzgwNDRiMzQwNjBmMDVlZmYzMDFjOTMzZTp7InRpcG8iOiJ2ZW5kZWRvciIsInByZW1pdW0iOjMsIl9hdXRoX3VzZXJfaWQiOiIxMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYTRhMDNjY2VhZDQ2MzliYTA0ZDg1ODczMTk0ZjhkMDlmODc3YjYwZiIsImlkX3BlcnNvbmEiOjExLCJmZWNoYSI6IjIwMTktMDgtMTEgMDI6MDQ6MDguNzgyNTY5In0=', '2019-08-25 06:04:08.796572');
 
 -- --------------------------------------------------------
 
@@ -16938,17 +16876,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 
 DROP TABLE IF EXISTS `registration_login_respuesta_secreta`;
 CREATE TABLE `registration_login_respuesta_secreta` (
-  `id` int(11) NOT NULL,
-  `respuesta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `pregunta_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `respuesta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Respuesta secreta',
+  `pregunta_id` int(11) NOT NULL COMMENT 'Referencia de la id de la pregunta',
+  `user_id` int(11) NOT NULL COMMENT 'Referencia de la id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `registration_login_respuesta_secreta`
---
-
-TRUNCATE TABLE `registration_login_respuesta_secreta`;
 --
 -- Volcado de datos para la tabla `registration_login_respuesta_secreta`
 --
@@ -16956,7 +16889,8 @@ TRUNCATE TABLE `registration_login_respuesta_secreta`;
 INSERT INTO `registration_login_respuesta_secreta` (`id`, `respuesta`, `pregunta_id`, `user_id`) VALUES
 (1, '823', 2, 11),
 (4, 'wowsito', 16, 27),
-(5, 'wowsito', 16, 28);
+(5, 'wowsito', 16, 28),
+(6, 'rojo', 4, 30);
 
 -- --------------------------------------------------------
 
@@ -16966,17 +16900,12 @@ INSERT INTO `registration_login_respuesta_secreta` (`id`, `respuesta`, `pregunta
 
 DROP TABLE IF EXISTS `registration_log_acceso`;
 CREATE TABLE `registration_log_acceso` (
-  `id` int(11) NOT NULL,
-  `fecha_registro` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `tipo_cliente` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `user_id` int(11) NOT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `fecha_registro` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Fecha de registro de inicio de sesion',
+  `tipo_cliente` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Tipo de cliente',
+  `user_id` int(11) NOT NULL COMMENT 'Referencia de la id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `registration_log_acceso`
---
-
-TRUNCATE TABLE `registration_log_acceso`;
 --
 -- Volcado de datos para la tabla `registration_log_acceso`
 --
@@ -17012,7 +16941,33 @@ INSERT INTO `registration_log_acceso` (`id`, `fecha_registro`, `tipo_cliente`, `
 (40, '2019-07-08 18:39:31.571852', 'cliente', 27),
 (41, '2019-07-08 18:43:38.853591', 'vendedor', 11),
 (42, '2019-07-08 19:01:01.802870', 'vendedor', 29),
-(43, '2019-07-08 21:18:27.782467', 'administrador', 1);
+(43, '2019-07-08 21:18:27.782467', 'administrador', 1),
+(44, '2019-07-08 23:33:14.235546', 'cliente', 27),
+(45, '2019-08-04 18:16:30.551793', 'administrador', 1),
+(46, '2019-08-04 18:18:30.144745', 'cliente', 30),
+(47, '2019-08-04 18:37:08.083990', 'cliente', 30),
+(48, '2019-08-04 19:00:56.230781', 'cliente', 30),
+(49, '2019-08-06 14:20:25.516201', 'administrador', 1),
+(50, '2019-08-11 01:51:12.228730', 'vendedor', 11),
+(51, '2019-08-11 01:58:45.878341', 'administrador', 1),
+(52, '2019-08-11 02:04:08.783569', 'vendedor', 11),
+(53, '2019-09-10 00:23:05.120203', 'administrador', 1),
+(54, '2019-09-10 12:27:43.703118', 'vendedor', 11),
+(55, '2019-09-14 20:01:08.792757', 'cliente', 27),
+(56, '2019-09-15 00:56:13.942318', 'cliente', 27),
+(57, '2019-09-15 00:56:33.950740', 'vendedor', 11),
+(58, '2019-09-15 01:31:05.864083', 'vendedor', 11),
+(59, '2019-09-15 02:07:32.989189', 'vendedor', 11),
+(60, '2019-09-15 02:08:25.730949', 'vendedor', 11),
+(61, '2019-09-15 02:08:52.466712', 'cliente', 27),
+(62, '2019-09-15 13:21:38.510146', 'cliente', 27),
+(63, '2019-09-15 21:35:38.348258', 'cliente', 27),
+(64, '2019-10-27 18:29:52.226552', 'vendedor', 11),
+(65, '2019-10-27 21:26:40.395767', 'cliente', 27),
+(66, '2019-10-27 22:28:57.779636', 'vendedor', 11),
+(67, '2019-10-27 22:30:30.420401', 'cliente', 27),
+(68, '2019-10-27 22:30:57.252275', 'vendedor', 11),
+(69, '2019-11-20 22:42:25.168934', 'vendedor', 11);
 
 -- --------------------------------------------------------
 
@@ -17022,15 +16977,10 @@ INSERT INTO `registration_log_acceso` (`id`, `fecha_registro`, `tipo_cliente`, `
 
 DROP TABLE IF EXISTS `registration_preguntas_secretas`;
 CREATE TABLE `registration_preguntas_secretas` (
-  `id` int(11) NOT NULL,
-  `pregunta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `pregunta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Pregunta secreta para recuperacion de password'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `registration_preguntas_secretas`
---
-
-TRUNCATE TABLE `registration_preguntas_secretas`;
 --
 -- Volcado de datos para la tabla `registration_preguntas_secretas`
 --
@@ -17059,19 +17009,14 @@ INSERT INTO `registration_preguntas_secretas` (`id`, `pregunta`) VALUES
 
 DROP TABLE IF EXISTS `registration_tipo_usuarios`;
 CREATE TABLE `registration_tipo_usuarios` (
-  `id` int(11) NOT NULL,
-  `tipo_usuario` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `tipo_premium` int(10) UNSIGNED DEFAULT NULL,
-  `fecha_caducidad` date DEFAULT NULL,
-  `user_id_id` int(11) NOT NULL,
-  `fecha_inicio` date DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `tipo_usuario` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Tipo de usuario',
+  `tipo_premium` int(10) UNSIGNED DEFAULT NULL COMMENT 'Nivel de suscripcion',
+  `fecha_caducidad` date DEFAULT NULL COMMENT 'Fecha de Caducidad de la suscripcion',
+  `user_id_id` int(11) NOT NULL COMMENT 'Referencia del usuario  ',
+  `fecha_inicio` date DEFAULT NULL COMMENT 'Fecha de inicio del registro'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `registration_tipo_usuarios`
---
-
-TRUNCATE TABLE `registration_tipo_usuarios`;
 --
 -- Volcado de datos para la tabla `registration_tipo_usuarios`
 --
@@ -17083,7 +17028,8 @@ INSERT INTO `registration_tipo_usuarios` (`id`, `tipo_usuario`, `tipo_premium`, 
 (21, 'vendedor', 1, '2019-08-07', 26, '2019-07-08'),
 (22, 'cliente', 0, '2019-01-01', 27, '2019-01-01'),
 (23, 'cliente', 0, '2019-01-01', 28, '2019-01-01'),
-(24, 'vendedor', 0, '2019-01-01', 29, '2019-01-01');
+(24, 'vendedor', 0, '2019-01-01', 29, '2019-01-01'),
+(25, 'cliente', 0, '2019-01-01', 30, '2019-01-01');
 
 --
 -- Disparadores `registration_tipo_usuarios`
@@ -17149,15 +17095,10 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `vendedor_categoria_productos`;
 CREATE TABLE `vendedor_categoria_productos` (
-  `id` int(11) NOT NULL,
-  `categoria` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `categoria` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Categoria'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_categoria_productos`
---
-
-TRUNCATE TABLE `vendedor_categoria_productos`;
 --
 -- Volcado de datos para la tabla `vendedor_categoria_productos`
 --
@@ -17180,26 +17121,21 @@ INSERT INTO `vendedor_categoria_productos` (`id`, `categoria`) VALUES
 
 DROP TABLE IF EXISTS `vendedor_local`;
 CREATE TABLE `vendedor_local` (
-  `id` int(11) NOT NULL,
-  `nombre_local` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `ubicacion_local` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `imagen_muestra` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `imagen_banner` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `activado` tinyint(1) DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `nombre_local` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre del local comercial',
+  `ubicacion_local` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Ubicacion del local comercial',
+  `imagen_muestra` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Imagen de muestra del local',
+  `imagen_banner` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Imagen de banner del local comercial',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Usuario ligado al local',
+  `activado` tinyint(1) DEFAULT NULL COMMENT 'Booleano que muestra si el local esta activado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_local`
---
-
-TRUNCATE TABLE `vendedor_local`;
 --
 -- Volcado de datos para la tabla `vendedor_local`
 --
 
 INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_muestra`, `imagen_banner`, `user_id`, `activado`) VALUES
-(1, 'Kampito', 'Calle 48, local 56', 'vendedor/img_tiendas/48417047_768112653535527_9149281488766763008_n.png', 'vendedor/img_tiendas/Mi_Tienda_M8pMWTQ.png', 11, 1),
+(1, 'Kampito', 'Calle 48, local 56', 'vendedor/img_tiendas/48417047_768112653535527_9149281488766763008_n.png', 'vendedor/Mi_Tienda.webp', 11, 1),
 (6, 'Agroboca', 'Pasillo 3, 2569', 'vendedor/img_tiendas/Mini1482402028_agroboca_logo_chhYn1n.jpg', 'vendedor/Mi_Tienda.webp', 26, 1),
 (7, 'Alis', 'Pasillo 3, 2697', 'vendedor/img_tiendas/unnamed_uhltIam.jpg', 'vendedor/Mi_Tienda.webp', 25, 1),
 (8, 'Rancho', 'Pasillo 3, 2564', 'vendedor/img_tiendas/descarga_JkzXICK.png', 'vendedor/Mi_Tienda.webp', 29, 1);
@@ -17212,18 +17148,13 @@ INSERT INTO `vendedor_local` (`id`, `nombre_local`, `ubicacion_local`, `imagen_m
 
 DROP TABLE IF EXISTS `vendedor_oferta`;
 CREATE TABLE `vendedor_oferta` (
-  `id` int(11) NOT NULL,
-  `oferta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `tipo_oferta` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `activado` tinyint(1) DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `oferta` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Contenido de la oferta',
+  `tipo_oferta` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Tipo de oferta',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia del local',
+  `activado` tinyint(1) DEFAULT NULL COMMENT 'La oferta esta activada?'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_oferta`
---
-
-TRUNCATE TABLE `vendedor_oferta`;
 --
 -- Volcado de datos para la tabla `vendedor_oferta`
 --
@@ -17244,32 +17175,27 @@ INSERT INTO `vendedor_oferta` (`id`, `oferta`, `tipo_oferta`, `local_id`, `activ
 
 DROP TABLE IF EXISTS `vendedor_productos`;
 CREATE TABLE `vendedor_productos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `precio` int(10) UNSIGNED DEFAULT NULL,
-  `oferta` tinyint(1) DEFAULT NULL,
-  `precio_oferta` int(10) UNSIGNED DEFAULT NULL,
-  `stock` int(10) UNSIGNED DEFAULT NULL,
-  `imagen` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `activado` tinyint(1) DEFAULT NULL,
-  `categoria_id` int(11) DEFAULT NULL,
-  `unidad_medida_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `comentario` longtext COLLATE utf8_spanish_ci,
-  `maximo_prod_comprar` int(10) UNSIGNED
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre del producto',
+  `precio` int(10) UNSIGNED DEFAULT NULL COMMENT 'Precio del producto',
+  `oferta` tinyint(1) DEFAULT NULL COMMENT 'Pregunta si el producto esta en oferta',
+  `precio_oferta` int(10) UNSIGNED DEFAULT NULL COMMENT 'Precio de la oferta',
+  `stock` int(10) UNSIGNED DEFAULT NULL COMMENT 'Stock del producto',
+  `imagen` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Imagen del producto',
+  `activado` tinyint(1) DEFAULT NULL COMMENT 'Pregunta si el producto esta activado o no',
+  `categoria_id` int(11) DEFAULT NULL COMMENT 'Referencia de la categoria',
+  `unidad_medida_id` int(11) DEFAULT NULL COMMENT 'Referencia de la unidad de medida',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Referencia al usuario dueño del producto',
+  `comentario` longtext COLLATE utf8_spanish_ci COMMENT 'Comentarios del producto',
+  `maximo_prod_comprar` int(10) UNSIGNED DEFAULT NULL COMMENT 'Maximo de producto para comprar'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_productos`
---
-
-TRUNCATE TABLE `vendedor_productos`;
 --
 -- Volcado de datos para la tabla `vendedor_productos`
 --
 
 INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_oferta`, `stock`, `imagen`, `activado`, `categoria_id`, `unidad_medida_id`, `user_id`, `comentario`, `maximo_prod_comprar`) VALUES
-(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2574, 'vendedor/img_productos/7801420220138.png', 1, 1, 3, 11, '', 500),
+(1, 'Arroz Tucapel 500gramos', 900, 0, 0, 2522, 'vendedor/img_productos/7801420220138.png', 1, 1, 3, 11, '', 500),
 (4, 'Pasta frola', 600, 1, 300, 400, 'vendedor/img_productos/pastafrola-membrillo-batata-dulce-de-leche-tartas-dulces-D_NQ_NP__eBn8ND8.jpg', 1, 1, 3, 11, '', 60),
 (6, 'Arroz Marca Chancho', 300, 0, 0, 1000, 'vendedor/img_productos/wmtcl.jpg', 1, 1, 3, 11, '', 100),
 (14, 'Cloro clorinda litro', 990, 0, 0, 200, 'vendedor/img_productos/clorinda-1-lt.jpg', 1, 1, 3, 11, '', 20),
@@ -17282,7 +17208,7 @@ INSERT INTO `vendedor_productos` (`id`, `nombre`, `precio`, `oferta`, `precio_of
 (25, 'Azucar Rubia', 1000, 0, 0, 500, 'vendedor/img_productos/wmtcl_3.jpg', 1, 1, 3, 11, '', 50),
 (33, 'Aceite Barato', 5000, 0, 0, 500, 'core/sin_imagen.webp', 1, 1, 3, 11, '', 50),
 (38, 'Comida Gaty', 500, 0, 0, 500, 'core/sin_imagen.webp', 1, 8, 3, 11, '', 50),
-(41, 'Arroz miraflores', 1190, 0, 0, 450, 'vendedor/img_productos/Arroz_miraflores.webp', 1, 1, 3, 29, '', 50),
+(41, 'Arroz miraflores', 1190, 0, 0, 400, 'vendedor/img_productos/Arroz_miraflores.webp', 1, 1, 3, 29, '', 50),
 (42, 'Harina selecta sin polvos', 990, 0, 0, 300, 'vendedor/img_productos/harina_selecta.webp', 1, 1, 3, 29, '', 30),
 (43, 'Sal lobos', 370, 0, 0, 500, 'vendedor/img_productos/sal_lobos.webp', 1, 1, 3, 29, '', 50),
 (44, 'Espirales Talliani', 650, 0, 0, 600, 'vendedor/img_productos/fideos.webp', 1, 1, 3, 29, '', 60),
@@ -17343,24 +17269,19 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `vendedor_puntos`;
 CREATE TABLE `vendedor_puntos` (
-  `id` int(11) NOT NULL,
-  `puntos` int(10) UNSIGNED DEFAULT NULL,
-  `tipo_cuenta` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `puntos` int(10) UNSIGNED DEFAULT NULL COMMENT 'Puntos asignados',
+  `tipo_cuenta` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Tipo de cuenta del cliente',
+  `local_id` int(11) DEFAULT NULL COMMENT 'Referencia del local',
+  `user_id` int(11) DEFAULT NULL COMMENT 'Referencia del usuario  '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_puntos`
---
-
-TRUNCATE TABLE `vendedor_puntos`;
 --
 -- Volcado de datos para la tabla `vendedor_puntos`
 --
 
 INSERT INTO `vendedor_puntos` (`id`, `puntos`, `tipo_cuenta`, `local_id`, `user_id`) VALUES
-(2, 2, 'Plata', 1, 27),
+(2, 4, 'Plata', 1, 27),
 (3, 5, 'Plata', 8, 27);
 
 -- --------------------------------------------------------
@@ -17371,19 +17292,14 @@ INSERT INTO `vendedor_puntos` (`id`, `puntos`, `tipo_cuenta`, `local_id`, `user_
 
 DROP TABLE IF EXISTS `vendedor_registro_auditoria_productos`;
 CREATE TABLE `vendedor_registro_auditoria_productos` (
-  `id` int(11) NOT NULL,
-  `producto` int(10) UNSIGNED DEFAULT NULL,
-  `nombre_producto` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `accion` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_registro` date DEFAULT NULL,
-  `vendedor_id` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `producto` int(10) UNSIGNED DEFAULT NULL COMMENT 'Id del Producto',
+  `nombre_producto` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Nombre del producto',
+  `accion` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Accion a realizar',
+  `fecha_registro` date DEFAULT NULL COMMENT 'Fecha de registro',
+  `vendedor_id` int(11) DEFAULT NULL COMMENT 'Id del vendedor'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_registro_auditoria_productos`
---
-
-TRUNCATE TABLE `vendedor_registro_auditoria_productos`;
 --
 -- Volcado de datos para la tabla `vendedor_registro_auditoria_productos`
 --
@@ -17502,7 +17418,10 @@ INSERT INTO `vendedor_registro_auditoria_productos` (`id`, `producto`, `nombre_p
 (124, 25, 'Azucar Rubia', 'Update', '2019-07-08', 11),
 (125, 25, 'Azucar Rubia', 'Update', '2019-07-08', 11),
 (126, 1, 'Arroz Tucapel 500gramos', 'Update', '2019-07-08', 11),
-(127, 41, 'Arroz miraflores', 'Update', '2019-07-08', 29);
+(127, 41, 'Arroz miraflores', 'Update', '2019-07-08', 29),
+(128, 1, 'Arroz Tucapel 500gramos', 'Update', '2019-09-15', 11),
+(129, 41, 'Arroz miraflores', 'Update', '2019-10-27', 29),
+(130, 1, 'Arroz Tucapel 500gramos', 'Update', '2019-10-27', 11);
 
 -- --------------------------------------------------------
 
@@ -17512,16 +17431,11 @@ INSERT INTO `vendedor_registro_auditoria_productos` (`id`, `producto`, `nombre_p
 
 DROP TABLE IF EXISTS `vendedor_unidad_medida`;
 CREATE TABLE `vendedor_unidad_medida` (
-  `id` int(11) NOT NULL,
-  `medida_plural` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `medida_unidad` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL
+  `id` int(11) NOT NULL COMMENT 'Llave primaria de la tabla',
+  `medida_plural` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Unidad de medida Plural',
+  `medida_unidad` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'Unidad de medida Singular'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Truncar tablas antes de insertar `vendedor_unidad_medida`
---
-
-TRUNCATE TABLE `vendedor_unidad_medida`;
 --
 -- Volcado de datos para la tabla `vendedor_unidad_medida`
 --
@@ -17765,7 +17679,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
@@ -17783,37 +17697,37 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT de la tabla `cliente_listas`
 --
 ALTER TABLE `cliente_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'LLave Primaria de la tabla', AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_productos_listas`
 --
 ALTER TABLE `cliente_productos_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_registro_premium`
 --
 ALTER TABLE `cliente_registro_premium`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_reporte_listas`
 --
 ALTER TABLE `cliente_reporte_listas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_reporte_productos`
 --
 ALTER TABLE `cliente_reporte_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_valorizacion_pedidos`
 --
 ALTER TABLE `cliente_valorizacion_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `django_admin_log`
@@ -17837,67 +17751,67 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT de la tabla `registration_login_respuesta_secreta`
 --
 ALTER TABLE `registration_login_respuesta_secreta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_log_acceso`
 --
 ALTER TABLE `registration_log_acceso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_preguntas_secretas`
 --
 ALTER TABLE `registration_preguntas_secretas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `registration_tipo_usuarios`
 --
 ALTER TABLE `registration_tipo_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_categoria_productos`
 --
 ALTER TABLE `vendedor_categoria_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_local`
 --
 ALTER TABLE `vendedor_local`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_oferta`
 --
 ALTER TABLE `vendedor_oferta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_productos`
 --
 ALTER TABLE `vendedor_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_puntos`
 --
 ALTER TABLE `vendedor_puntos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_registro_auditoria_productos`
 --
 ALTER TABLE `vendedor_registro_auditoria_productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor_unidad_medida`
 --
 ALTER TABLE `vendedor_unidad_medida`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Llave primaria de la tabla', AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas

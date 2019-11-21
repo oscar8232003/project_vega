@@ -72,8 +72,8 @@ class Reporte_listas(models.Model):
 #Auditoria para admin
 class Registro_premium(models.Model):
     id_registro = models.ForeignKey(Tipo_usuarios, on_delete=models.CASCADE, null=True, blank=True)
-    user = user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    premium= models.PositiveIntegerField(verbose_name="Tipo de Premium", default=0, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    premium = models.PositiveIntegerField(verbose_name="Tipo de Premium", default=0, null=True, blank=True)
     fecha_inicio = models.DateField(verbose_name="Fecha de Inicio del Premium", null=True, blank=True)
     fecha_caducidad = models.DateField(verbose_name="Fecha de Caducidad del Premium", null=True, blank=True)
 
