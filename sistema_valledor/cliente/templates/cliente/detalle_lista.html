@@ -179,8 +179,8 @@
               <thead>
                 <tr>
                   <th scope="col" colspan="2">Nombre del producto</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Precio unitario</th>
+                  <th scope="col" class="text-center">Cantidad</th>
+                  <th scope="col" class="text-center">Precio unitario</th>
                   <th scope="col" class="text-center">Marcado</th>
                 </tr>
               </thead>
@@ -189,23 +189,23 @@
                {%csrf_token%}
               {%for producto in productos%}
                 <tr>
-
-                  <td class="pr-0">
+                    <td class="{%if lista.estado_lista == 'normal'%}pr-0{%else%}p-1{%endif%}">
                     {%if lista.estado_lista == 'normal'%}
                       <a href="{%url 'cliente:eliminar_producto_lista' lista.id producto.id%}" class="btn btn-danger"><span data-icon="t"></span></a>
-                      <a href="{%url 'cliente:actualizar_producto_lista' lista.id producto.id%}" class="btn btn-primary"><span data-icon="u"></span></a>
+                      <a href="{%url 'cliente:actualizar_producto_lista' lista.id producto.id%}" class="btn btn-primary mr-2"><span data-icon="u"></span></a>
                     {%endif%}
-                  </td>
-                  <td>{{producto.productos.nombre}}</td>
-                  <td>{{producto.cantidad}}</td>
-                  <td>{{producto.precio_producto}}</td>
-                  <td class="text-center">
+                    </td>
+                    <td class="pl-0">{{producto.productos.nombre}}</td>
+
+                    <td class="text-center">{{producto.cantidad}}</td>
+                    <td class="text-center">{{producto.precio_producto}}</td>
+                    <td class="text-center">
                       <input type="checkbox" id="checkbox_{{producto.id}}" name="{{producto.id}}" style="width:18px;height:18px"
                       {%if producto.producto_marcado%}checked{%endif%}
                       {%if tipo.tipo_usuario == 'cliente' and lista.estado_lista != 'normal'%}
                       disabled
                       {%endif%}>
-                  </td>
+                    </td>
                 </tr>
               {%endfor%}
                   {%if tipo.tipo_usuario == 'cliente' and lista.estado_lista == 'normal'%}
